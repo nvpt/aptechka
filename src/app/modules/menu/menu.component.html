@@ -1,0 +1,9 @@
+<button (click)="menuService.toggle()"
+        class="menu-btn">Menu
+</button>
+<ng-container *ngIf="menuService.opened">
+	<div class="menu-bg"></div>
+	<div class="menu">
+		here will be menu
+	</div>
+</ng-container>

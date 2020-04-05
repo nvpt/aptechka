@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MenuLayoutComponent} from './layouts/menu-layout/menu-layout.component';
+import {MenuComponent} from './menu.component';
 
 
 @NgModule({
-    declarations: [MenuLayoutComponent],
+    declarations: [MenuComponent],
     imports: [
         CommonModule
     ],
     exports: [
-        MenuLayoutComponent
+        MenuComponent
     ]
 })
 export class MenuModule {
