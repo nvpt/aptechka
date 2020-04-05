@@ -3,19 +3,26 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 
+import {MenuModule} from './modules/menu/menu.module';
+
 import {AppComponent} from './app.component';
 import {ContentLayoutComponent} from './layouts/content-layout/content-layout.component';
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ContentLayoutComponent,
-        DashboardPageComponent
+        DashboardPageComponent,
+        HeaderComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]
