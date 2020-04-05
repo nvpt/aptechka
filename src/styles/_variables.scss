@@ -1,0 +1,32 @@
+/*
+Colors
+*/
+:root {
+--mainBg: #green
+}
+
+$mainBgColor: #fff;
+$mainFntColor: #333;
+
+//themes
+//main
+//$mainThemeBgColor: var(--mainBg);
+
+
+
+/*
+Components
+*/
+//common
+$contentSidePadding: 20px;
+
+//header
+$headerHeight: 60px;
+
+//footer
+$footerHeight: $headerHeight;
+
+//menu
+$menuWidth: 300px;
+$menuIndex: 1000;
+$menuSidePadding: $contentSidePadding;
