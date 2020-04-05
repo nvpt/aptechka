@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MenuLayoutComponent} from './layout/menu-layout/menu-layout.component';
+import {MenuLayoutComponent} from './layouts/menu-layout/menu-layout.component';
 
 
 @NgModule({
