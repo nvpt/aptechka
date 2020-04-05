@@ -6,5 +6,7 @@ export class Constants {
         dashboard: 'dashboard'
     });
 
-    public static readonly PATH = Object.freeze({});
+    public static readonly PATH = Object.freeze({
+        dashboard: Constants.SECTION.dashboard
+    });
 }

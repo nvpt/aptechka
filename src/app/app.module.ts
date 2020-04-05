@@ -4,11 +4,13 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ContentLayoutComponent} from './layouts/content.layout/content.layout.component';
+import {DashboardPageComponent} from './pages/dashboard.page/dashboard.page.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ContentLayoutComponent
+        ContentLayoutComponent,
+        DashboardPageComponent
     ],
     imports: [
         BrowserModule,
