@@ -1,0 +1,11 @@
+@import "../../../styles/variables";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: $headerHeight;
+    padding-left: 88px;
+    background: greenyellow;
+}
