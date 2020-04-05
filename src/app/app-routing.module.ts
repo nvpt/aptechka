@@ -2,10 +2,8 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {Constants} from './constants';
-import {ContentLayoutComponent} from './layouts/content.layout/content.layout.component';
-import {DashboardPageComponent} from './pages/dashboard.page/dashboard.page.component';
-
-console.log('7 >>> Constants.PATH.dashboard: ', Constants.PATH.dashboard);
+import {ContentLayoutComponent} from './layouts/content-layout/content-layout.component';
+import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 
 const routes: Routes = [
         {

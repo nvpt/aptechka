@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentLayoutComponent } from './content.layout.component';
+import { ContentLayoutComponent } from './content-layout.component';
 
-describe('Content.LayoutComponent', () => {
+describe('ContentLayoutComponent', () => {
   let component: ContentLayoutComponent;
   let fixture: ComponentFixture<ContentLayoutComponent>;
 
