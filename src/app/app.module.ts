@@ -10,6 +10,7 @@ import {ContentLayoutComponent} from './layouts/content-layout/content-layout.co
 import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {FooterComponent} from './components/footer/footer.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        MenuModule
+        MenuModule,
+        SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]
