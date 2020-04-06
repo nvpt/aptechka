@@ -11,6 +11,8 @@ import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.comp
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {SharedModule} from './shared/shared.module';
+import { MenuContentComponent } from './components/menu-content/menu-content.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +20,9 @@ import {SharedModule} from './shared/shared.module';
         ContentLayoutComponent,
         DashboardPageComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        MenuContentComponent,
+        SettingsPageComponent
     ],
     imports: [
         BrowserModule,
