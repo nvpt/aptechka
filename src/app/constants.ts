@@ -1,9 +1,9 @@
-export interface menuItem {
+export interface MenuItemI {
     title: string;
     path: string;
     nested?: boolean;
     selected?: boolean;
-    children?: menuItem[];
+    children?: MenuItemI[];
 }
 
 export class Constants {
@@ -20,7 +20,7 @@ export class Constants {
         settings: Constants.SECTION.settings
     });
 
-    public static readonly menuItems: menuItem[] = [
+    public static readonly menuItems: MenuItemI[] = [
         {
             title: 'Dashboard',
             path: Constants.PATH.dashboard,

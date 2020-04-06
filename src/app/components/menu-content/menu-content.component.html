@@ -1,5 +1,11 @@
-<ul>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
+<ul class="menu-content">
+	<li *ngFor="let menuItem of constants.menuItems"
+	    class="menu-item">
+		<a href="#"
+		   [routerLinkActive]="'active'"
+		   [routerLinkActiveOptions]="{exact: true}"
+		   [routerLink]="menuItem.path"
+		   class="menu-link"
+		   (click)="goToSection($event, menuItem)">{{menuItem.title}}</a>
+	</li>
 </ul>
