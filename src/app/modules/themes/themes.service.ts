@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 
+
+
+
 @Injectable({
     providedIn: 'root'
 })
 export class ThemesService {
-    theme: string;
+    themeColor: string;
 
 
 
@@ -12,6 +15,7 @@ export class ThemesService {
     }
 
     setTheme(color: string) {
-        this.theme = color;
+        this.themeColor = color;
+        document.documentElement.style.setProperty('--current-hue', `var(--${color}-hue)`);
     }
 }
