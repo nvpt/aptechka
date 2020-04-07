@@ -1,5 +1,8 @@
-:root {
+/*
+This styles should be added to app styles
+*/
 
+:root {
     /*colors*/
 
     //black
@@ -89,7 +92,6 @@
     --blue-hue: 240;
     --yellow-hue: 60;
     --orange-hue: 32;
-    --current-hue: var(--blue-hue);
 
     //saturation
     --saturation-10: 10%;
@@ -102,9 +104,9 @@
     --saturation-80: 80%;
     --saturation-90: 90%;
     --saturation-100: 100%;
-    --current-saturation: var(--saturation-50);
 
     //color current
+    //--current-hue and --current-saturation will be added by calling initDefaultTheme();
     --color-current-10: hsl(var(--current-hue), var(--current-saturation), 10%);
     --color-current-20: hsl(var(--current-hue), var(--current-saturation), 20%);
     --color-current-30: hsl(var(--current-hue), var(--current-saturation), 30%);
@@ -113,6 +115,5 @@
     --color-current-60: hsl(var(--current-hue), var(--current-saturation), 60%);
     --color-current-70: hsl(var(--current-hue), var(--current-saturation), 70%);
     --color-current-80: hsl(var(--current-hue), var(--current-saturation), 80%);
-    --color-current-and40-88: hsl(var(--current-hue), var(--current-saturation + 40), 88%);
     --color-current-95: hsl(var(--current-hue), var(--current-saturation), 95%);
 }

@@ -6,15 +6,18 @@ export type ColorThemeType = 'red' | 'green' | 'blue' | 'yellow' | 'orange' //sh
     providedIn: 'root'
 })
 export class ThemesService {
-    defaultColor: ColorThemeType = 'yellow';
-    defaultSaturation: number = 50;
+    themeColor: ColorThemeType = 'yellow';
+    themeSaturation: number = 50;
 
     constructor() {
     }
 
+    /**
+     * Should be called on OnInit method on the app-component
+     */
     initDefaultTheme() {
-        document.documentElement.style.setProperty('--current-hue', `var(--${this.defaultColor}-hue)`);
-        document.documentElement.style.setProperty('--current-saturation', `var(--saturation-${this.defaultSaturation})`);
+        document.documentElement.style.setProperty('--current-hue', `var(--${this.themeColor}-hue)`);
+        document.documentElement.style.setProperty('--current-saturation', `var(--saturation-${this.themeSaturation})`);
     }
 
     setSaturation(saturationValue: number) {
