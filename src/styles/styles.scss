@@ -1,21 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "variables";
+@import "default";
+@import "app-colors";
+@import "reset";
+@import "connected-modules";
 
-html,
-body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    background-color: $mainBgColor;
-    color: $mainFntColor;
 
-}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
