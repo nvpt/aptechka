@@ -9,6 +9,7 @@
 	<form>
 		<label for="themeSelection">Select Theme</label>
 		<select id="themeSelection"
+		        [value]="currentColor"
 		        (change)="selectTheme($event)">
 			<option>green</option>
 			<option>blue</option>

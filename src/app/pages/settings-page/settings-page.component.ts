@@ -10,11 +10,21 @@ import {StorageDataI} from '../../interfaces/storage-data-interface';
     styleUrls: ['./settings-page.component.scss']
 })
 export class SettingsPageComponent implements OnInit {
+    currentColor!: ColorThemeType;
 
     constructor(private themeService: ThemesService) {
     }
 
     ngOnInit(): void {
+        this.initStorageData();
+    }
+
+    initStorageData():void {
+        const storageData = localStorage.getItem(Constants.STORAGE_KEY);
+        if (storageData) {
+            const storageObject: StorageDataI = JSON.parse(storageData);
+            this.currentColor = storageObject.color as ColorThemeType;
+        }
     }
 
     selectTheme(event: Event) {
