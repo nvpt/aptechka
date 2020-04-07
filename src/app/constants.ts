@@ -8,6 +8,7 @@ export interface MenuItemI {
 
 export class Constants {
 
+    /*ROUTING*/
     public static readonly SECTION = Object.freeze({
         empty: '',
         root: '/',
@@ -20,6 +21,7 @@ export class Constants {
         settings: Constants.SECTION.settings
     });
 
+    /*MENU*/
     public static readonly menuItems: MenuItemI[] = [
         {
             title: 'Dashboard',
@@ -32,4 +34,7 @@ export class Constants {
             selected: false
         },
     ];
+
+    /*LOCAL STORAGE*/
+    public static readonly STORAGE_KEY: string = 'aptechka';
 }

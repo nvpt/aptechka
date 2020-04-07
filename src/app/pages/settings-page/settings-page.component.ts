@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ColorThemeType, ThemesService} from '../../modules/themes/themes.service';
+import {Constants} from '../../constants';
+import {StorageDataI} from '../../interfaces/storage-data-interface';
 
 
 @Component({
@@ -19,6 +21,7 @@ export class SettingsPageComponent implements OnInit {
         const colorTheme: ColorThemeType = (<HTMLInputElement>event.target).value as ColorThemeType;
         let saturation!: number;
 
+        //here we may customize options for each color
         switch (colorTheme) {
             case 'orange':
                 saturation = 80;
@@ -30,5 +33,11 @@ export class SettingsPageComponent implements OnInit {
 
         this.themeService.setSaturation(saturation);
         this.themeService.setHue(colorTheme);
+
+        const storage: StorageDataI = {};
+        storage.color = colorTheme;
+        storage.saturation = saturation;
+
+        localStorage.setItem(Constants.STORAGE_KEY, JSON.stringify(storage));
     }
 }
