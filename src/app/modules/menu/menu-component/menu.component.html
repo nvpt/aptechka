@@ -3,7 +3,8 @@
 </button>
 <ng-container *ngIf="menuService.opened">
 	<div class="menu-bg"></div>
-	<div class="menu">
+	<div class="menu"
+	     [ngStyle]="{'background': bgColor}">
 		<ng-content></ng-content>
 	</div>
 </ng-container>

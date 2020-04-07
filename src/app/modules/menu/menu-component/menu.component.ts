@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MenuService} from '../menu-services/menu.service';
 
 @Component({
@@ -7,6 +7,7 @@ import {MenuService} from '../menu-services/menu.service';
     styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+    @Input() bgColor?: string;
 
     constructor(public menuService: MenuService) {
     }
