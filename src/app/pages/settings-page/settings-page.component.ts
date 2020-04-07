@@ -37,7 +37,7 @@ export class SettingsPageComponent implements OnInit {
                 saturation = 80;
                 break;
             default:
-                saturation = 50;
+                saturation = this.themeService.defaultSaturation;
                 break;
         }
 

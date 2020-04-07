@@ -17,6 +17,14 @@ export class ThemesService {
     constructor() {
     }
 
+    get defaultColor(): ColorThemeType {
+        return ThemesService.DEFAULT_COLOR;
+    }
+
+    get defaultSaturation(){
+        return ThemesService.DEFAULT_SATURATION;
+    }
+
     /**
      * Should be called on OnInit method on the app-component
      */
