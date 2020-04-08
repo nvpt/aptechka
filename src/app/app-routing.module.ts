@@ -11,13 +11,8 @@ const routes: Routes = [
         {
             path: '', component: ContentLayoutComponent, children: [
                 {path: '', component: DashboardPageComponent, pathMatch: 'full'},
-                {
-                    path: Constants.PATH.settings, component: SettingsPageComponent, children: [
-                        {
-                            path: Constants.SECTION.about, component: AboutComponent
-                        }
-                    ]
-                }
+                {path: Constants.PATH.settings, component: SettingsPageComponent},
+                {path: Constants.PATH.about, component: AboutComponent}
             ]
         }
     ]

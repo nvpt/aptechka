@@ -33,32 +33,22 @@ export class MenuService {
                 {
                     label: 'BREADCRUMB.SETTINGS',
                 }
-            ],
-            children: [
-                {
-                    title: 'BREADCRUMB.ABOUT',
-                    path: Constants.PATH.about,
-                    selected: false,
-                    breadcrumbs: [
-                        {
-                            label: 'BREADCRUMB.HOME',
-                            path: Constants.PATH.root
-                        },
-                        {
-                            label: 'BREADCRUMB.SETTINGS',
-                            path: Constants.PATH.settings
-
-                        },
-                        {
-                            label: 'BREADCRUMB.ABOUT',
-                        }
-                    ],
-                    children: [
-
-                    ]
-                },
             ]
         },
+        {
+            title: 'BREADCRUMB.ABOUT',
+            path: Constants.PATH.about,
+            selected: false,
+            breadcrumbs: [
+                {
+                    label: 'BREADCRUMB.DASHBOARD',
+                    path: Constants.PATH.root
+                },
+                {
+                    label: 'BREADCRUMB.ABOUT',
+                }
+            ]
+        }
     ];
 
     constructor() {
