@@ -9,7 +9,7 @@
     z-index: calc(#{$menuIndex} + 200);
     padding: 6px;
     cursor: pointer;
-    background: var(--color-current-70);
+    background: var(--color-current-80);
 
     &:hover {
         .line {

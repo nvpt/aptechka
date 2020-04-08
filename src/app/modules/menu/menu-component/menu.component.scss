@@ -30,7 +30,7 @@
     z-index: calc(#{$menuIndex} + 200);
     padding: 6px;
     cursor: pointer;
-    background: var(--color-app_bg-bg);
+    background: var(--color-current-80);
 
     &:hover {
         .line {

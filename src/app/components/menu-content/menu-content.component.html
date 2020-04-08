@@ -18,7 +18,8 @@
                    [routerLinkActive]="'active'"
                    [routerLinkActiveOptions]="{exact: true}"
                    [routerLink]="subItem.path"
-                   (click)="goTo($event, subItem)">{{subItem.title}}</a>
+                   (click)="goTo($event, subItem)"
+                   translate>{{subItem.title}}</a>
             </li>
         </ul>
     </li>
