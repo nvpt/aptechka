@@ -1,6 +1,12 @@
 {
     "MAIN": {
     },
+    "BREADCRUMB": {
+        "HOME": "Home",
+        "DASHBOARD": "Dashboard",
+        "SETTINGS": "Settings",
+        "ABOUT": "About"
+    },
     "BUTTON": {
         "SAVE_CHANGES": "Save changes"
     },
@@ -22,10 +28,7 @@
             "EN": "english"
         }
     },
-    "BREADCRUMB": {
-        "HOME": "Home",
-        "DASHBOARD": "Dashboard",
-        "SETTINGS": "Settings",
-        "ABOUT": "About"
+    "ABOUT": {
+        "FOR_WHAT": "This app is designed to organize your medications and control their expiration date"
     }
 }

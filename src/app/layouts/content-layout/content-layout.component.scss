@@ -1,6 +1,12 @@
 @import "../../../styles/variables";
 
 .content {
+    display: flex;
+    flex-direction: column;
+    //height: 100%;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-grow: 1;
     width: 100%;
     height: calc(100% - #{$headerHeight} - #{$footerHeight});
     background: var(--color-app_bg-bg);
