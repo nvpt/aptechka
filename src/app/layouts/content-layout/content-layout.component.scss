@@ -1,8 +1,6 @@
 @import "../../../styles/variables";
 
 .content {
-    display: flex;
-    flex: 1;
     width: 100%;
     height: calc(100% - #{$headerHeight} - #{$footerHeight});
     background: var(--color-app_bg-bg);

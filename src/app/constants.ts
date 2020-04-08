@@ -28,12 +28,12 @@ export class Constants {
         {
             title: 'Dashboard',
             path: Constants.PATH.dashboard,
-            selected: true
+            selected: true,
         },
         {
             title: 'Settings',
             path: Constants.PATH.settings,
-            selected: false
+            selected: false,
         },
     ];
 
