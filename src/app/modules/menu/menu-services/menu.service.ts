@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Constants, MenuItemI} from '../../../constants';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -73,5 +74,22 @@ export class MenuService {
 
     toggle() {
         this.opened = !this.opened;
+    }
+
+    defineCurrentMenuItem(menu: MenuItemI[], location: string): Observable<MenuItemI> {
+        if (location === '/' || location === '') return of(null);
+
+        for (let i = 0; i < menu.length; i++) {
+            let menuItem = menu[i];
+
+            if (`/${menuItem.path}` === location) {
+                return of(menuItem);
+            }
+
+            if (menuItem.children) {
+                return this.defineCurrentMenuItem(menuItem.children, location);
+            }
+        }
+        return of(null);
     }
 }

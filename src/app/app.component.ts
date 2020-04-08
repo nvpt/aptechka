@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 
 import {ColorThemeType, ThemesService} from './modules/themes/themes.service';
 import {MenuService} from './modules/menu/menu-services/menu.service';
 import {BreadcrumbService} from './components/breadcrumb/breadcrumb.service';
-import {Constants, MenuItemI} from './constants';
+import {Constants} from './constants';
 import {StorageDataI} from './interfaces/storage-data-interface';
 
 @Component({
@@ -14,7 +14,8 @@ import {StorageDataI} from './interfaces/storage-data-interface';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy {
+    menuItemSub$: Subscription;
     title: string = 'aptechka';
     menuBg: string = 'var(--color-app_bg-bg)';
 
@@ -24,9 +25,13 @@ export class AppComponent implements OnInit{
 
     ngOnInit(): void {
         this.defineCurrentSettings();
-        this.defineCurrentMenuItem(this.menuService.menu, window.location.pathname).subscribe((menuItem) => {
+        this.menuItemSub$ = this.menuService.defineCurrentMenuItem(this.menuService.menu, window.location.pathname).subscribe((menuItem) => {
             menuItem && this.breadcrumbService.renderBreadcrumbs(menuItem.breadcrumbs);
         });
+    }
+
+    ngOnDestroy(): void {
+        this.menuItemSub$ && this.menuItemSub$.unsubscribe();
     }
 
     defineCurrentSettings() {
@@ -40,24 +45,6 @@ export class AppComponent implements OnInit{
             this.themeService.initColorTheme();
             this.translate.use(Constants.DEFAULT_LANGUAGE);
         }
-    }
-
-    defineCurrentMenuItem(menu: MenuItemI[], location: string): Observable<MenuItemI> {
-        if (location === '/' || location === '') return of(null);
-
-        for (let i = 0; i < menu.length; i++) {
-            let menuItem = menu[i];
-
-            if (`/${menuItem.path}` === location) {
-                return of(menuItem);
-            }
-
-            if (menuItem.children) {
-                return this.defineCurrentMenuItem(menuItem.children, location);
-            }
-        }
-        return of(null);
-
     }
 
 }
