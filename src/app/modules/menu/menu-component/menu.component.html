@@ -3,7 +3,10 @@
 </span>
 <button *ngIf="customButton.children.length === 0"
         (click)="menuService.toggle()"
-        class="menu-btn">Menu
+        class="menu-btn">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
 </button>
 
 <ng-container *ngIf="menuService.opened">
