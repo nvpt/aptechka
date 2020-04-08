@@ -18,11 +18,12 @@
 }
 
 .icon {
+    $icon-size: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: $icon-size;
+    height: $icon-size;
     margin-right: 0.5rem;
     border-radius: 50%;
     overflow: hidden;
@@ -49,11 +50,34 @@
 }
 
 .app-data {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
+    $logo-size: 35px;
+    position: relative;
+    width: $logo-size;
+    height: $logo-size;
+    margin-right: 0.25rem;
+    border-radius: 50%;
+    background: var(--color-current-80);
+    border: 2px solid var(--color-current-40);
+    overflow: hidden;
+}
 
+.line {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 19px;
+    height: 6px;
+    background: var(--color-red-70);
+
+    &--vert {
+        transform: rotate(90deg);
+    }
 }
 
 .title {
