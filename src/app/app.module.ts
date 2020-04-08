@@ -18,6 +18,7 @@ import {SettingsPageComponent} from './pages/settings-page/settings-page.compone
 import {HttpClient} from '@angular/common/http';
 import { MenuBtnComponent } from './components/menu-btn/menu-btn.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -33,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         MenuContentComponent,
         SettingsPageComponent,
         MenuBtnComponent,
-        BreadcrumbComponent
+        BreadcrumbComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
