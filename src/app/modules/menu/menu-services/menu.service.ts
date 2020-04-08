@@ -10,46 +10,46 @@ export class MenuService {
     /*MENU*/
     menu: MenuItemI[] = [
         {
-            title: 'MENU.DASHBOARD',
+            title: 'BREADCRUMB.DASHBOARD',
             path: Constants.PATH.dashboard,
             selected: true,
             breadcrumbs: [
                 {
-                    label: 'MENU.DASHBOARD',
+                    label: 'BREADCRUMB.DASHBOARD',
                 }
             ],
 
         },
         {
-            title: 'MENU.SETTINGS',
+            title: 'BREADCRUMB.SETTINGS',
             path: Constants.PATH.settings,
             selected: false,
             breadcrumbs: [
                 {
-                    label: 'MENU.DASHBOARD',
+                    label: 'BREADCRUMB.DASHBOARD',
                     path: Constants.PATH.root
                 },
                 {
-                    label: 'MENU.SETTINGS',
+                    label: 'BREADCRUMB.SETTINGS',
                 }
             ],
             children: [
                 {
-                    title: 'MENU.ABOUT',
+                    title: 'BREADCRUMB.ABOUT',
                     path: Constants.PATH.about,
                     selected: false,
                     breadcrumbs: [
                         {
-                            label: 'MENU.HOME',
+                            label: 'BREADCRUMB.HOME',
                             path: Constants.PATH.root
                         },
                         {
-                            label: 'MENU.SETTINGS',
+                            label: 'BREADCRUMB.SETTINGS',
                             path: Constants.PATH.settings
 
                         },
                         {
-                            label: 'MENU.ABOUT',
+                            label: 'BREADCRUMB.ABOUT',
                         }
                     ],
                     children: [
