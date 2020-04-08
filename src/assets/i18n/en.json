@@ -1,0 +1,22 @@
+{
+  "MAIN": {
+
+  },
+  "BUTTON": {
+    "SAVE_CHANGES": "Save changes"
+  },
+  "SETTING": {
+    "TITLE": "Settings",
+    "LANGUAGE": "Language",
+    "COLOR_THEME": "Color theme",
+    "SELECT_THEME": "Select theme",
+    "COLOR": {
+      "RED": "red",
+      "GREEN": "green",
+      "BLUE": "blue",
+      "YELLOW": "ellow",
+      "ORANGE": "orange",
+      "CUSTOM": "custom"
+    }
+  }
+}
