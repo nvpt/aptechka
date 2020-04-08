@@ -1,13 +1,13 @@
-.menu-content {
+.menu-list {
     list-style: none;
 }
 
-.menu-item {
+.item {
     padding-left: 0;
     margin-bottom: 16px;
 }
 
-.menu-link {
+.item-link {
     width: 100%;
     padding: 10px 0;
     cursor: pointer;
@@ -18,3 +18,17 @@
         color: red;
     }
 }
+
+.menu-sub-list {
+
+}
+
+.sub-item {
+
+}
+
+.sub-item-link {
+
+}
+
+

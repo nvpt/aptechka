@@ -1,13 +1,25 @@
-<ul class="menu-content">
+<ul class="menu-list">
     <!--todo *** implement nested menu-->
-    <li *ngFor="let menuItem of menuService.menu"
-        class="menu-item">
+    <li *ngFor="let item of menuService.menu"
+        class="item">
         <a href="#"
+           class="item-link"
            [routerLinkActive]="'active'"
            [routerLinkActiveOptions]="{exact: true}"
-           [routerLink]="menuItem.path"
-           class="menu-link"
-           (click)="goTo($event, menuItem)"
-           translate>{{menuItem.title}}</a>
+           [routerLink]="item.path"
+           (click)="goTo($event, item)"
+           translate>{{item.title}}</a>
+        <ul *ngIf="item?.children?.length"
+            class="menu-sub-list">
+            <li *ngFor="let subItem of item.children"
+                class="sub-item">
+                <a href="#"
+                   class="sub-item-link"
+                   [routerLinkActive]="'active'"
+                   [routerLinkActiveOptions]="{exact: true}"
+                   [routerLink]="subItem.path"
+                   (click)="goTo($event, subItem)">{{subItem.title}}</a>
+            </li>
+        </ul>
     </li>
 </ul>
