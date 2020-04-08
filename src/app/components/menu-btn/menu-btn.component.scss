@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+
+.menu-btn {
+    position: fixed;
+    top: 11px;
+    left: $menuSidePadding;
+    width: 50px;
+    border: none;
+    z-index: calc(#{$menuIndex} + 200);
+    padding: 6px;
+    cursor: pointer;
+    background: var(--color-app_bg-bg);
+
+    &:hover {
+        .line {
+            opacity: 1;
+        }
+    }
+}
+
+.line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 4px 0;
+    background: var(--color-app_bg-dark);
+    opacity: 0.5;
+}

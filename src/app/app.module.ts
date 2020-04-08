@@ -16,6 +16,7 @@ import {SharedModule} from './shared/shared.module';
 import {MenuContentComponent} from './components/menu-content/menu-content.component';
 import {SettingsPageComponent} from './pages/settings-page/settings-page.component';
 import {HttpClient} from '@angular/common/http';
+import { MenuBtnComponent } from './components/menu-btn/menu-btn.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -29,7 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         HeaderComponent,
         FooterComponent,
         MenuContentComponent,
-        SettingsPageComponent
+        SettingsPageComponent,
+        MenuBtnComponent
     ],
     imports: [
         BrowserModule,
