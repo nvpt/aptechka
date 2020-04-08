@@ -1,3 +1,5 @@
+import {LanguageType} from './pages/settings-page/settings-page.component';
+
 export interface MenuItemI {
     title: string;
     path: string;
@@ -37,4 +39,7 @@ export class Constants {
 
     /*LOCAL STORAGE*/
     public static readonly STORAGE_KEY: string = 'aptechka';
+
+    /*LOCALIZATION*/
+    public static readonly DEFAULT_LANGUAGE: LanguageType = 'en';
 }

@@ -14,21 +14,23 @@ export class AppComponent implements OnInit {
     menuBg: string = 'var(--color-app_bg-bg)';
 
     constructor(private themeService: ThemesService, private translate: TranslateService) {
-        translate.setDefaultLang('en');
-        translate.use('en');
+        this.translate.setDefaultLang(Constants.DEFAULT_LANGUAGE);
     }
 
     ngOnInit(): void {
-        this.initColorTheme();
+        this.initCurrentSettings();
     }
 
-    initColorTheme() {
+    initCurrentSettings() {
         const storageData = localStorage.getItem(Constants.STORAGE_KEY);
         if (storageData) {
             const storageObj: StorageDataI = JSON.parse(storageData);
+
             this.themeService.initColorTheme(storageObj.color as ColorThemeType, storageObj.saturation);
+            this.translate.use(storageObj.lang);
         } else {
             this.themeService.initColorTheme();
+            this.translate.use(Constants.DEFAULT_LANGUAGE);
         }
     }
 

@@ -1,0 +1,26 @@
+{
+    "MAIN": {
+    },
+    "BUTTON": {
+        "SAVE_CHANGES": "Сохранить изменения"
+    },
+    "SETTING": {
+        "TITLE": "Настройки",
+        "COLOR_THEME_TITLE": "Цветовая тема",
+        "SELECT_THEME": "Выбрать цвет",
+        "COLOR": {
+            "RED": "красный",
+            "GREEN": "зелёный",
+            "BLUE": "синий",
+            "YELLOW": "жёлтый",
+            "ORANGE": "оранжевый",
+            "CUSTOM": "свой вариант"
+        },
+        "LANGUAGE_TITLE": "Язык",
+        "SELECT_LANGUAGE": "Выбрать язык",
+        "LANGUAGE": {
+            "RU": "русский",
+            "EN": "английский"
+        }
+    }
+}

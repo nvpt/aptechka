@@ -1,22 +1,26 @@
 {
-  "MAIN": {
-
-  },
-  "BUTTON": {
-    "SAVE_CHANGES": "Save changes"
-  },
-  "SETTING": {
-    "TITLE": "Settings",
-    "LANGUAGE": "Language",
-    "COLOR_THEME": "Color theme",
-    "SELECT_THEME": "Select theme",
-    "COLOR": {
-      "RED": "red",
-      "GREEN": "green",
-      "BLUE": "blue",
-      "YELLOW": "ellow",
-      "ORANGE": "orange",
-      "CUSTOM": "custom"
+    "MAIN": {
+    },
+    "BUTTON": {
+        "SAVE_CHANGES": "Save changes"
+    },
+    "SETTING": {
+        "TITLE": "Settings",
+        "COLOR_THEME_TITLE": "Color theme",
+        "SELECT_THEME": "Select color",
+        "COLOR": {
+            "RED": "red",
+            "GREEN": "green",
+            "BLUE": "blue",
+            "YELLOW": "yellow",
+            "ORANGE": "orange",
+            "CUSTOM": "custom"
+        },
+        "LANGUAGE_TITLE": "Language",
+        "SELECT_LANGUAGE": "Select language",
+        "LANGUAGE": {
+            "RU": "russian",
+            "EN": "english"
+        }
     }
-  }
 }
