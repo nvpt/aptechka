@@ -21,42 +21,16 @@ export class Constants {
         empty: '',
         root: '/',
         settings: 'settings',
+        about: 'about',
     });
 
     public static readonly PATH = Object.freeze({
         root: Constants.SECTION.root,
         dashboard: Constants.SECTION.root,
-        settings: Constants.SECTION.settings
+        settings: Constants.SECTION.settings,
+        about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`,
     });
 
-    /*MENU*/
-    public static readonly menuItems: MenuItemI[] = [
-        {
-            title: 'Dashboard',
-            path: Constants.PATH.dashboard,
-            selected: true,
-            breadcrumbs: [
-                {
-                    label: 'Dashboard',
-                }
-            ],
-
-        },
-        {
-            title: 'Settings',
-            path: Constants.PATH.settings,
-            selected: false,
-            breadcrumbs: [
-                {
-                    label: 'Home',
-                    path: Constants.PATH.root
-                },
-                {
-                    label: 'Settings',
-                }
-            ],
-        },
-    ];
 
     /*LOCAL STORAGE*/
     public static readonly STORAGE_KEY: string = 'aptechka';
