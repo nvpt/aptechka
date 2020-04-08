@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
 
 import {BreadcrumbI} from '../../constants';
 
@@ -7,20 +6,17 @@ import {BreadcrumbI} from '../../constants';
     providedIn: 'root'
 })
 export class BreadcrumbService {
-    breadcrumbs$: Subject<BreadcrumbI[]> = new Subject<BreadcrumbI[]>();
-
-    constructor() {
-    }
+    breadcrumbs: BreadcrumbI[]
 
     renderBreadcrumbs(breadcrumbs: BreadcrumbI[]) {
         if (breadcrumbs && breadcrumbs.length > 1) {
-            this.breadcrumbs$.next(breadcrumbs);
+            this.breadcrumbs = breadcrumbs;
         } else {
             this.hideBreadcrumbs();
         }
     }
 
     hideBreadcrumbs() {
-        this.breadcrumbs$.next(null);
+        this.breadcrumbs = null;
     }
 }

@@ -1,10 +1,15 @@
-<div class="breadcrumb">
-    <ng-container *ngIf="breadcrumbService.breadcrumbs$ | async as breadcrumbs">
+<div class="breadcrumbs">
+    <ng-container *ngIf="breadcrumbService.breadcrumbs as breadcrumbs">
         <ul>
-            <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
-                <span *ngIf="last; else notLast">{{breadcrumb.label}}</span>
+            <li *ngFor="let breadcrumb of breadcrumbs; let last = last"
+                class="list">
+
+                <span *ngIf="last; else notLast"
+                      class="item">{{breadcrumb.label}}</span>
+
                 <ng-template #notLast>
                     <a href="#"
+                       class="item"
                        (click)="goTo($event, breadcrumb )"
                        [routerLink]="['/'+breadcrumb.path]">
                         <span>{{breadcrumb.label}}</span>

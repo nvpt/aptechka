@@ -1,5 +1,6 @@
 <ul class="menu-content">
-	<li *ngFor="let menuItem of constants.menuItems"
+	<!--todo *** implement nested menu-->
+	<li *ngFor="let menuItem of menuService.menu"
 	    class="menu-item">
 		<a href="#"
 		   [routerLinkActive]="'active'"

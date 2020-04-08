@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Constants, MenuItemI} from '../../constants';
 import {Router} from '@angular/router';
 import {MenuService} from '../../modules/menu/menu-services/menu.service';
@@ -9,13 +9,10 @@ import {BreadcrumbService} from '../breadcrumb/breadcrumb.service';
     templateUrl: './menu-content.component.html',
     styleUrls: ['./menu-content.component.scss']
 })
-export class MenuContentComponent implements OnInit {
+export class MenuContentComponent {
     constants = Constants;
 
-    constructor(private router: Router, private menuService: MenuService, private breadcrumbService: BreadcrumbService) {
-    }
-
-    ngOnInit(): void {
+    constructor(private router: Router, public menuService: MenuService, private breadcrumbService: BreadcrumbService) {
     }
 
     goTo(event: Event, menuItem: MenuItemI) {

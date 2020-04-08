@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {BreadcrumbService} from './breadcrumb.service';
 import {Router} from '@angular/router';
 import {BreadcrumbI, Constants} from '../../constants';
@@ -8,13 +8,9 @@ import {BreadcrumbI, Constants} from '../../constants';
     templateUrl: './breadcrumb.component.html',
     styleUrls: ['./breadcrumb.component.scss']
 })
-export class BreadcrumbComponent implements OnInit {
-    @Input() path?: any;
+export class BreadcrumbComponent {
 
     constructor(public router: Router, public breadcrumbService: BreadcrumbService) {
-    }
-
-    ngOnInit(): void {
     }
 
     goTo(event: Event, breadcrumbPart: BreadcrumbI) {
