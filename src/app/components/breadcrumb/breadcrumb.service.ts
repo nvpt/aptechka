@@ -6,7 +6,7 @@ import {BreadcrumbI} from '../../constants';
     providedIn: 'root'
 })
 export class BreadcrumbService {
-    breadcrumbs: BreadcrumbI[]
+    breadcrumbs: BreadcrumbI[];
 
     renderBreadcrumbs(breadcrumbs: BreadcrumbI[]) {
         if (breadcrumbs && breadcrumbs.length > 1) {
