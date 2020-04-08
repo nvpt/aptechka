@@ -1,10 +1,16 @@
 import {LanguageType} from './pages/settings-page/settings-page.component';
 
+export interface BreadcrumbI {
+    label: string;
+    path?: string;
+}
+
 export interface MenuItemI {
     title: string;
     path: string;
     nested?: boolean;
     selected?: boolean;
+    breadcrumbs?: BreadcrumbI[]
     children?: MenuItemI[];
 }
 
@@ -14,12 +20,12 @@ export class Constants {
     public static readonly SECTION = Object.freeze({
         empty: '',
         root: '/',
-        dashboard: 'dashboard',
         settings: 'settings',
     });
 
     public static readonly PATH = Object.freeze({
-        dashboard: Constants.SECTION.dashboard,
+        root: Constants.SECTION.root,
+        dashboard: Constants.SECTION.root,
         settings: Constants.SECTION.settings
     });
 
@@ -29,11 +35,26 @@ export class Constants {
             title: 'Dashboard',
             path: Constants.PATH.dashboard,
             selected: true,
+            breadcrumbs: [
+                {
+                    label: 'Dashboard',
+                }
+            ],
+
         },
         {
             title: 'Settings',
             path: Constants.PATH.settings,
             selected: false,
+            breadcrumbs: [
+                {
+                    label: 'Home',
+                    path: Constants.PATH.root
+                },
+                {
+                    label: 'Settings',
+                }
+            ],
         },
     ];
 

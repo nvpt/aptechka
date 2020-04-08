@@ -9,8 +9,7 @@ import {SettingsPageComponent} from './pages/settings-page/settings-page.compone
 const routes: Routes = [
         {
             path: '', component: ContentLayoutComponent, children: [
-                {path: '', redirectTo: Constants.PATH.dashboard, pathMatch: 'full'},
-                {path: Constants.PATH.dashboard, component: DashboardPageComponent},
+                {path: '', component: DashboardPageComponent, pathMatch: 'full'},
                 {path: Constants.PATH.settings, component: SettingsPageComponent}
             ]
         }
