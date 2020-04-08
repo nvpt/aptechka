@@ -1,14 +1,33 @@
 @import "src/styles/variables";
 
 .breadcrumbs {
-
+    margin-bottom: 10px;
     //padding: 0.5rem $contentSidePadding;
 }
 
 .list {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
     list-style: none;
 }
 
 .item {
+    //margin-right: 8px;
+    font-style: italic;
+}
 
+.item-text {
+    font-weight: 600;
+    color: var(--color-gray);
+}
+
+.last-text {
+    color: var(--color-gray);
+}
+
+.item-link {
+    &:hover {
+        border-bottom: 2px solid var(--color-gray);
+    }
 }
