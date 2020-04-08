@@ -1,34 +1,66 @@
 <div class="settings">
 
+    <h1 class="g-h1-title"
+        translate>BREADCRUMB.SETTINGS</h1>
 
-	<h1 class="g-h1-title" translate>BREADCRUMB.SETTINGS</h1>
+    <form>
 
-	<h2 translate>SETTING.LANGUAGE_TITLE</h2>
+        <h2 class="g-h2-title"
+            translate>SETTING.LANGUAGE_TITLE</h2>
+        <section class="form-section">
 
-	<label for="languageSelection" translate>SETTING.SELECT_LANGUAGE</label>
 
-	<select id="languageSelection"
-			[value]="currentLanguage"
-			(change)="selectLanguage($event)">
-		<option value="ru" translate>SETTING.LANGUAGE.RU</option>
-		<option value="en" translate>SETTING.LANGUAGE.EN</option>
-	</select>
+            <label class="label"
+                   for="languageSelection"
+                   translate>SETTING.SELECT_LANGUAGE</label>
 
-	<h2 translate>SETTING.COLOR_THEME_TITLE</h2>
+            <select class="select"
+                    id="languageSelection"
+                    [value]="currentLanguage"
+                    (change)="selectLanguage($event)">
+                <option value="ru"
+                        translate>SETTING.LANGUAGE.RU
+                </option>
+                <option value="en"
+                        translate>SETTING.LANGUAGE.EN
+                </option>
+            </select>
+        </section>
 
-	<form>
-		<label for="themeSelection" translate>SETTING.SELECT_THEME</label>
-		<select id="themeSelection"
-		        [value]="currentColor"
-		        (change)="selectTheme($event)">
-			<option value="red" translate>SETTING.COLOR.RED</option>
-			<option value="green" translate>SETTING.COLOR.GREEN</option>
-			<option value="blue" translate>SETTING.COLOR.BLUE</option>
-			<option value="yellow" translate>SETTING.COLOR.YELLOW</option>
-			<option value="orange" translate>SETTING.COLOR.ORANGE</option>
-			<!--<option value="custom" translate>custom</option>-->
-		</select>
+        <section class="form-section">
+            <h2 class="g-h2-title"
+                translate>SETTING.COLOR_THEME_TITLE</h2>
 
-		<button type="button" translate>BUTTON.SAVE_CHANGES</button>
-	</form>
+            <label class="label"
+                   for="themeSelection"
+                   translate>SETTING.SELECT_THEME</label>
+            <select class="select"
+                    id="themeSelection"
+                    [value]="currentColor"
+                    (change)="selectTheme($event)">
+                <option value="red"
+                        translate>SETTING.COLOR.RED
+                </option>
+                <option value="green"
+                        translate>SETTING.COLOR.GREEN
+                </option>
+                <option value="blue"
+                        translate>SETTING.COLOR.BLUE
+                </option>
+                <option value="yellow"
+                        translate>SETTING.COLOR.YELLOW
+                </option>
+                <option value="orange"
+                        translate>SETTING.COLOR.ORANGE
+                </option>
+                <!--<option value="custom" translate>custom</option>-->
+            </select>
+        </section>
+        <section class="form-section">
+            <button class="g-btn" type="button"
+                    translate>BUTTON.SAVE_CHANGES
+            </button>
+        </section>
+
+    </form>
 </div>

@@ -1,0 +1,31 @@
+@import "variables";
+
+.g-btn {
+    font-size: 1rem;
+    padding: 12px;
+    border: 2px solid var(--color-current-40);
+    background: var(--color-current-70);
+    color: var(--color-current-10);
+
+    cursor: pointer;
+
+    &:hover {
+        border: 2px solid var(--color-current-30);
+        background: var(--color-current-40);
+        color: var(--color-current-80);
+
+    }
+
+    &--success {
+
+    }
+
+    &--disabled {
+
+    }
+
+    &--warning {
+
+    }
+
+}

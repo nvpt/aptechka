@@ -11,10 +11,12 @@
     --color-app_text-small: var(--color-gray);
 
     //link
-    --color-app_link: var(--color-current-20);
-    --color-app_link-hover: var(--color-current-20);
-    --color-app_link-focus: var(--color-current-20);
-    --color-app_link-active: var(--color-current-20);
+    --color-app_link: var(--color-gray);
+    --color-app_link-hover: var(--color-gray-30);
+    --color-app_link-focus: var(--color-gray-30);
+    --color-app_link-active: var(--color-gray-30);
+    --color-app_link-disabled: var(--color-gray-90);
+
 
     //bg
     --color-app_bg-dark: var(--color-current-40);
