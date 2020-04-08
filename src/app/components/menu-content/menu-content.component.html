@@ -1,12 +1,13 @@
 <ul class="menu-content">
-	<!--todo *** implement nested menu-->
-	<li *ngFor="let menuItem of menuService.menu"
-	    class="menu-item">
-		<a href="#"
-		   [routerLinkActive]="'active'"
-		   [routerLinkActiveOptions]="{exact: true}"
-		   [routerLink]="menuItem.path"
-		   class="menu-link"
-		   (click)="goTo($event, menuItem)">{{menuItem.title}}</a>
-	</li>
+    <!--todo *** implement nested menu-->
+    <li *ngFor="let menuItem of menuService.menu"
+        class="menu-item">
+        <a href="#"
+           [routerLinkActive]="'active'"
+           [routerLinkActiveOptions]="{exact: true}"
+           [routerLink]="menuItem.path"
+           class="menu-link"
+           (click)="goTo($event, menuItem)"
+           translate>{{menuItem.title}}</a>
+    </li>
 </ul>

@@ -5,14 +5,14 @@
                 class="item">
 
                 <span *ngIf="last; else notLast"
-                      class="last-text">{{breadcrumb.label}}</span>
+                      class="last-text" translate>{{breadcrumb.label}}</span>
 
                 <ng-template #notLast>
                     <a href="#"
                        class="item-link"
                        (click)="goTo($event, breadcrumb )"
                        [routerLink]="['/'+breadcrumb.path]">
-                        <span class="item-text">{{breadcrumb.label}}</span>
+                        <span class="item-text" translate>{{breadcrumb.label}}</span>
                     </a><span class="item-text">&nbsp;/&nbsp;</span>
                 </ng-template>
             </li>

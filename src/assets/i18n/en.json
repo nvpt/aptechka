@@ -22,5 +22,11 @@
             "RU": "russian",
             "EN": "english"
         }
+    },
+    "MENU": {
+        "HOME": "Home",
+        "DASHBOARD": "Dashboard",
+        "SETTINGS": "Settings",
+        "ABOUT": "About"
     }
 }
