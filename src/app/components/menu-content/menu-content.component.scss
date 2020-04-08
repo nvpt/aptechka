@@ -3,32 +3,62 @@
 }
 
 .item {
-    padding-left: 0;
+    width: 100%;
     margin-bottom: 16px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 .item-link {
+    display: block;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background: var(--color-current-80);
+    border: 2px solid var(--color-current-60);
+    color: var(--color-app_text);
+
+
     cursor: pointer;
-    //text-decoration: none;
-    border: none;
+
+    + .menu-sub-list {
+        background: var(--color-current-80);
+    }
+
+    &:hover {
+        border: 2px solid var(--color-current-40);
+        background: var(--color-current-40);
+        color: var(--color-current-95);
+    }
 
     &.active {
-        color: red;
+        border: 2px solid var(--color-current);
+        background: var(--color-current-70);
+        color: var(--color-current-20);
+
+        &:hover {
+            border: 2px solid var(--color-current-40);
+            background: var(--color-current-40);
+            color: var(--color-current-95);
+        }
     }
 }
 
 .menu-sub-list {
-
+    list-style: none;
+    padding: 12px 10px;
 }
 
 .sub-item {
-
+    @extend .item;
+    padding-left: 20%;
 }
 
 .sub-item-link {
-
+    @extend .item-link;
 }
 
 
