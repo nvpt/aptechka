@@ -4,6 +4,8 @@
     "BREADCRUMB": {
         "HOME": "Home",
         "DASHBOARD": "Dashboard",
+        "MEDICAMENTS": "Medicaments",
+        "PHARM_GROUPS": "Pharm groups",
         "SETTINGS": "Settings",
         "ABOUT": "About"
     },

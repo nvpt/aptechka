@@ -21,12 +21,16 @@ export class Constants {
         empty: '',
         root: '/',
         settings: 'settings',
+        medicaments: 'medicaments',
+        pharmGroups: 'pharm-groups',
         about: 'about',
     });
 
     public static readonly PATH = Object.freeze({
         root: Constants.SECTION.root,
         dashboard: Constants.SECTION.root,
+        medicaments: Constants.SECTION.medicaments,
+        pharmGroups: Constants.SECTION.pharmGroups,
         settings: Constants.SECTION.settings,
         about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`,
     });

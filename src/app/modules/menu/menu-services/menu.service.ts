@@ -23,6 +23,34 @@ export class MenuService {
 
         },
         {
+            title: 'BREADCRUMB.MEDICAMENTS',
+            path: Constants.PATH.medicaments,
+            selected: false,
+            breadcrumbs: [
+                {
+                    label: 'BREADCRUMB.DASHBOARD',
+                    path: Constants.PATH.root
+                },
+                {
+                    label: 'BREADCRUMB.MEDICAMENTS',
+                }
+            ]
+        },
+        {
+            title: 'BREADCRUMB.PHARM_GROUPS',
+            path: Constants.PATH.pharmGroups,
+            selected: false,
+            breadcrumbs: [
+                {
+                    label: 'BREADCRUMB.DASHBOARD',
+                    path: Constants.PATH.root
+                },
+                {
+                    label: 'BREADCRUMB.PHARM_GROUPS',
+                }
+            ]
+        },
+        {
             title: 'BREADCRUMB.SETTINGS',
             path: Constants.PATH.settings,
             selected: false,
@@ -58,6 +86,8 @@ export class MenuService {
     open() {
         this.opened = true;
     }
+
+
 
     close() {
         this.opened = false;

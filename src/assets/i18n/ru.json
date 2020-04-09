@@ -4,6 +4,8 @@
     "BREADCRUMB": {
         "HOME": "Главная",
         "DASHBOARD": "Главная",
+        "MEDICAMENTS": "Лекарства",
+        "PHARM_GROUPS": "Фарм-группы",
         "SETTINGS": "Настройки",
         "ABOUT": "О приложении"
     },
