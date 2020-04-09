@@ -7,6 +7,7 @@ import {Observable, of} from 'rxjs';
 })
 export class MenuService {
     opened: boolean = false;
+    hideMenu: boolean = false;
 
     /*MENU*/
     menu: MenuItemI[] = [
@@ -64,6 +65,14 @@ export class MenuService {
 
     toggle() {
         this.opened = !this.opened;
+    }
+
+    hide(){
+        this.hideMenu = true;
+    }
+
+    show(){
+        this.hideMenu = false;
     }
 
     defineCurrentMenuItem(menu: MenuItemI[], location: string): Observable<MenuItemI> {

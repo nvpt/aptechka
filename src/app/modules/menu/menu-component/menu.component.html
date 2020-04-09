@@ -1,20 +1,22 @@
-<span #customButton>
-    <ng-content select="[slot=custom-menu-button]"></ng-content>
-</span>
-<button *ngIf="customButton.children.length === 0"
-        (click)="menuService.toggle()"
-        class="menu-btn">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
-</button>
+<ng-container *ngIf="!menuService.hideMenu">
+    <span #customButton>
+        <ng-content select="[slot=custom-menu-button]"></ng-content>
+    </span>
+    <button *ngIf="customButton.children.length === 0"
+            (click)="menuService.toggle()"
+            class="menu-btn">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
 
-<ng-container *ngIf="menuService.opened">
-    <div class="menu-bg"
-         (click)="menuService.close()"></div>
-    <div class="menu"
-         [ngStyle]="{'background': bgColor}">
-        <ng-content></ng-content>
-        <ng-content select="[slot=another]"></ng-content>
-    </div>
+    <ng-container *ngIf="menuService.opened">
+        <div class="menu-bg"
+             (click)="menuService.close()"></div>
+        <div class="menu"
+             [ngStyle]="{'background': bgColor}">
+            <ng-content></ng-content>
+            <ng-content select="[slot=another]"></ng-content>
+        </div>
+    </ng-container>
 </ng-container>

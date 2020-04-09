@@ -1,9 +1,10 @@
 @import "variables";
 
-.g-content {
-    display: inline-block;
+.g-layout {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: calc(100% - #{$headerHeight} - #{$footerHeight});
     padding: $contentSidePadding;
     background: var(--color-app_bg-bg);
 }
@@ -15,4 +16,17 @@
 
 .g-h2-title {
     margin: 10px 0 5px;
+}
+
+.g-link {
+    color: var(--color-blue);
+
+    &:hover, &:focus {
+        color: var(--color-blue-30);
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: var(--color-blue-70);
+    }
 }
