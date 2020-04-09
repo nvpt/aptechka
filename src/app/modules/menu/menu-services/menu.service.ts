@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Constants, MenuItemI} from '../../../constants';
+import {MenuItemI} from '../../../constants';
 import {Observable, of} from 'rxjs';
+import {menuMap} from '../menu-map';
 
 @Injectable({
     providedIn: 'root'
@@ -10,75 +11,7 @@ export class MenuService {
     hideMenu: boolean = false;
 
     /*MENU*/
-    menu: MenuItemI[] = [
-        {
-            title: 'BREADCRUMB.DASHBOARD',
-            path: Constants.PATH.dashboard,
-            selected: true,
-            breadcrumbs: [
-                {
-                    label: 'BREADCRUMB.DASHBOARD',
-                }
-            ],
-
-        },
-        {
-            title: 'BREADCRUMB.MEDICAMENTS',
-            path: Constants.PATH.medicaments,
-            selected: false,
-            breadcrumbs: [
-                {
-                    label: 'BREADCRUMB.DASHBOARD',
-                    path: Constants.PATH.root
-                },
-                {
-                    label: 'BREADCRUMB.MEDICAMENTS',
-                }
-            ]
-        },
-        {
-            title: 'BREADCRUMB.PHARMS',
-            path: Constants.PATH.pharmGroups,
-            selected: false,
-            breadcrumbs: [
-                {
-                    label: 'BREADCRUMB.DASHBOARD',
-                    path: Constants.PATH.root
-                },
-                {
-                    label: 'BREADCRUMB.PHARMS',
-                }
-            ]
-        },
-        {
-            title: 'BREADCRUMB.SETTINGS',
-            path: Constants.PATH.settings,
-            selected: false,
-            breadcrumbs: [
-                {
-                    label: 'BREADCRUMB.DASHBOARD',
-                    path: Constants.PATH.root
-                },
-                {
-                    label: 'BREADCRUMB.SETTINGS',
-                }
-            ]
-        },
-        {
-            title: 'BREADCRUMB.ABOUT',
-            path: Constants.PATH.about,
-            selected: false,
-            breadcrumbs: [
-                {
-                    label: 'BREADCRUMB.DASHBOARD',
-                    path: Constants.PATH.root
-                },
-                {
-                    label: 'BREADCRUMB.ABOUT',
-                }
-            ]
-        }
-    ];
+    menu: MenuItemI[] = menuMap;
 
     constructor() {
     }
@@ -86,7 +19,6 @@ export class MenuService {
     open() {
         this.opened = true;
     }
-
 
 
     close() {
@@ -97,11 +29,11 @@ export class MenuService {
         this.opened = !this.opened;
     }
 
-    hide(){
+    hide() {
         this.hideMenu = true;
     }
 
-    show(){
+    show() {
         this.hideMenu = false;
     }
 
