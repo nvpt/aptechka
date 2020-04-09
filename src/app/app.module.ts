@@ -18,7 +18,11 @@ import {SettingsPageComponent} from './pages/settings-page/settings-page.compone
 import {HttpClient} from '@angular/common/http';
 import { MenuBtnComponent } from './components/menu-btn/menu-btn.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
-import { AboutComponent } from './pages/about/about.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { MedicamentsPageComponent } from './pages/medicaments-page/medicaments-page.component';
+import { PharmGroupsPageComponent } from './pages/pharm-groups-page/pharm-groups-page.component';
+import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -35,7 +39,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         SettingsPageComponent,
         MenuBtnComponent,
         BreadcrumbComponent,
-        AboutComponent
+        AboutPageComponent,
+        MedicamentsPageComponent,
+        PharmGroupsPageComponent,
+        EmptyLayoutComponent,
+        NotFoundPageComponent
     ],
     imports: [
         BrowserModule,
