@@ -32,5 +32,9 @@
     },
     "ABOUT": {
         "FOR_WHAT": "This app is designed to organize your medications and control their expiration date"
+    },
+    "NOT_FOUND": {
+        "TITLE": "That page is missing",
+        "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>"
     }
 }
