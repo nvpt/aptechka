@@ -22,7 +22,7 @@ export class Constants {
         root: '/',
         settings: 'settings',
         medicaments: 'medicaments',
-        pharmGroups: 'pharm-groups',
+        pharmGroups: 'pharms',
         about: 'about',
     });
 

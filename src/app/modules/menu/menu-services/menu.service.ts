@@ -37,7 +37,7 @@ export class MenuService {
             ]
         },
         {
-            title: 'BREADCRUMB.PHARM_GROUPS',
+            title: 'BREADCRUMB.PHARMS',
             path: Constants.PATH.pharmGroups,
             selected: false,
             breadcrumbs: [
@@ -46,7 +46,7 @@ export class MenuService {
                     path: Constants.PATH.root
                 },
                 {
-                    label: 'BREADCRUMB.PHARM_GROUPS',
+                    label: 'BREADCRUMB.PHARMS',
                 }
             ]
         },
