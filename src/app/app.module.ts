@@ -24,6 +24,8 @@ import { PharmGroupsPageComponent } from './pages/pharm-groups-page/pharm-groups
 import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { TileComponent } from './pages/dashboard-page/components/tile/tile.component';
+import { PlacesPageComponent } from './pages/places-page/places-page.component';
+import { TargetGroupsPageComponent } from './pages/target-groups-page/target-groups-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -45,7 +47,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         PharmGroupsPageComponent,
         EmptyLayoutComponent,
         NotFoundPageComponent,
-        TileComponent
+        TileComponent,
+        PlacesPageComponent,
+        TargetGroupsPageComponent
     ],
     imports: [
         BrowserModule,

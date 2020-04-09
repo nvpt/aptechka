@@ -10,6 +10,8 @@ import {EmptyLayoutComponent} from './layouts/empty-layout/empty-layout.componen
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-page.component';
 import {PharmGroupsPageComponent} from './pages/pharm-groups-page/pharm-groups-page.component';
+import {PlacesPageComponent} from './pages/places-page/places-page.component';
+import {TargetGroupsPageComponent} from './pages/target-groups-page/target-groups-page.component';
 
 const routes: Routes = [
         {
@@ -18,6 +20,8 @@ const routes: Routes = [
                 {path: Constants.PATH.settings, component: SettingsPageComponent},
                 {path: Constants.PATH.about, component: AboutPageComponent},
                 {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
+                {path: Constants.PATH.places, component: PlacesPageComponent},
+                {path: Constants.PATH.targetGroups, component: TargetGroupsPageComponent},
                 {path: Constants.PATH.pharmGroups, component: PharmGroupsPageComponent}
             ]
         },

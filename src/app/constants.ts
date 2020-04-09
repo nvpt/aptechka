@@ -22,6 +22,8 @@ export class Constants {
         root: '/',
         settings: 'settings',
         medicaments: 'medicaments',
+        places: 'places',
+        targetGroups: 'target-groups',
         pharmGroups: 'pharms',
         about: 'about',
     });
@@ -30,6 +32,8 @@ export class Constants {
         root: Constants.SECTION.root,
         dashboard: Constants.SECTION.root,
         medicaments: Constants.SECTION.medicaments,
+        places: Constants.SECTION.places,
+        targetGroups: Constants.SECTION.targetGroups,
         pharmGroups: Constants.SECTION.pharmGroups,
         settings: Constants.SECTION.settings,
         about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`,

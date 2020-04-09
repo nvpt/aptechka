@@ -5,6 +5,8 @@
         "HOME": "Home",
         "DASHBOARD": "Dashboard",
         "MEDICAMENTS": "Medicaments",
+        "PLACES": "Places",
+        "TARGET_GROUPS": "Target-groups",
         "PHARMS": "Pharm-groups",
         "SETTINGS": "Settings",
         "ABOUT": "About"

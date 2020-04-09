@@ -26,6 +26,34 @@ export const menuMap: MenuItemI[] = [
             }
         ]
     },
+    {//PLACES
+        title: 'BREADCRUMB.PLACES',
+        path: Constants.PATH.places,
+        selected: false,
+        breadcrumbs: [
+            {
+                label: 'BREADCRUMB.DASHBOARD',
+                path: Constants.PATH.root
+            },
+            {
+                label: 'BREADCRUMB.PLACES',
+            }
+        ]
+    },
+    {//TARGET-GROUPS
+        title: 'BREADCRUMB.TARGET_GROUPS',
+        path: Constants.PATH.targetGroups,
+        selected: false,
+        breadcrumbs: [
+            {
+                label: 'BREADCRUMB.DASHBOARD',
+                path: Constants.PATH.root
+            },
+            {
+                label: 'BREADCRUMB.TARGET_GROUPS',
+            }
+        ]
+    },
     {//PHARM-GROUPS
         title: 'BREADCRUMB.PHARMS',
         path: Constants.PATH.pharmGroups,
