@@ -12,7 +12,7 @@
 }
 
 .menu {
-    position: absolute;
+    position: fixed;
     padding: 80px $menuSidePadding $footerHeight $menuSidePadding;
     display: block;
     width: $menuWidth;
