@@ -3,7 +3,7 @@
 .menu-btn {
     position: fixed;
     top: 11px;
-    left: $menuSidePadding;
+    left: $menuSidePadding+px;
     width: 50px;
     border: none;
     z-index: calc(#{$menuIndex} + 200);

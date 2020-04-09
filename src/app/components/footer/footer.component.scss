@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: $footerHeight;
+    height: $footerHeight+px;
     background: var(--color-app_bg);
     width: 100%;
 }
