@@ -11,6 +11,8 @@
         "SAVE_CHANGES": "Save changes"
     },
     "SETTING": {
+        "ACCOUNT": "Account",
+        "NOTIFICATIONS": "Notifications",
         "COLOR_THEME_TITLE": "Color theme",
         "SELECT_THEME": "Select color",
         "COLOR": {

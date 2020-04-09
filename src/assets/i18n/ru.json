@@ -11,6 +11,8 @@
         "SAVE_CHANGES": "Сохранить изменения"
     },
     "SETTING": {
+        "ACCOUNT": "Личная информация",
+        "NOTIFICATIONS": "Уведомления",
         "TITLE": "Настройки",
         "COLOR_THEME_TITLE": "Цветовая тема",
         "SELECT_THEME": "Выбрать цвет",
