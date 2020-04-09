@@ -12,8 +12,11 @@
 }
 
 .title {
+    margin-bottom: 9px;
+    font-size: 1.5rem;
     color: var(--color-app-text);
     text-align: center;
+    border-bottom: 1px solid var(--color-current-40);
 }
 
 .img {
@@ -21,12 +24,21 @@
     height: 100%;
     max-width: 100%;
     max-height: 180px;
+    padding-bottom: 14px;
     object-fit: contain;
     align-self: center;
+    border-bottom: 1px solid var(--color-current-40);
 }
 
 .section {
-    margin-bottom: 6px;
+    margin-bottom: 12px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    &:nth-last-child(2){
+        margin-bottom: 0;
+    }
 
     &--img {
         align-self: center;
