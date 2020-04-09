@@ -13,9 +13,9 @@
 
 .menu {
     position: fixed;
-    padding: 80px $menuSidePadding+px $footerHeight+px $menuSidePadding+px;
+    padding: 80px $menuSidePadding $footerHeight $menuSidePadding;
     display: block;
-    width: $menuWidth+px;
+    width: $menuWidth;
     height: 100%;
     z-index: calc(#{$menuIndex} + 100);
     background: #ffffff;
@@ -24,7 +24,7 @@
 .menu-btn {
     position: fixed;
     top: 11px;
-    left: $menuSidePadding+px;
+    left: $menuSidePadding;
     width: 50px;
     border: none;
     z-index: calc(#{$menuIndex} + 200);

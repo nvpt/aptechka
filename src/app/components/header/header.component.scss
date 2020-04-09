@@ -5,9 +5,9 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: $headerHeight+px;
+    height: $headerHeight;
     padding-left: 88px;
-    padding-right: $contentSidePadding+px;
+    padding-right: $contentSidePadding;
     background: var(--color-app_bg);
 }
 

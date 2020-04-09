@@ -3,13 +3,14 @@
 .menu-btn {
     position: fixed;
     top: 11px;
-    left: $menuSidePadding+px;
+    left: $menuSidePadding;
     width: 50px;
-    border: none;
-    z-index: calc(#{$menuIndex} + 200);
     padding: 6px;
-    cursor: pointer;
     background: var(--color-current-80);
+    border: none;
+    border-radius: calc(#{$borderRadius} - 2px);
+    cursor: pointer;
+    z-index: calc(#{$menuIndex} + 200);
 
     &:hover {
         .line {

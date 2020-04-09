@@ -1,3 +1,4 @@
+@import "src/styles/variables";
 .menu-list {
     list-style: none;
 }
@@ -17,9 +18,10 @@
     padding: 10px;
     text-align: center;
     text-transform: uppercase;
-    background: var(--color-current-80);
-    border: 2px solid var(--color-current-60);
     color: var(--color-app_text);
+    background: var(--color-current-80);
+    border-radius: $borderRadius;
+    border: 2px solid var(--color-current-60);
 
 
     cursor: pointer;
@@ -35,9 +37,10 @@
     }
 
     &.active {
-        border: 2px solid var(--color-current);
-        background: var(--color-current-70);
         color: var(--color-current-20);
+        background: var(--color-current-70);
+        border: 2px solid var(--color-current);
+        box-shadow: 0 0 9px -4px var(--color-app_bg);
 
         &:hover {
             border: 2px solid var(--color-current-40);

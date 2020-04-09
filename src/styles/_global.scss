@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr;
-    padding: $contentSidePadding+px;
+    padding: $contentSidePadding;
     background: var(--color-app_bg-bg);
 }
 
