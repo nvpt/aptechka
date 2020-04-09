@@ -1,0 +1,35 @@
+<div class="tile">
+    <h3 class="title">{{box.title}}</h3>
+
+    <div class="section section--img">
+        <img class="img"
+             src="{{box.img}}"
+             alt="{{box.title}}">
+    </div>
+    <div class="section">
+        <div class="sub-title">Место:</div>
+        <span class="description">{{box.place}}</span>
+    </div>
+    <div class="section">
+        <div class="sub-title">Описание:</div>
+        <p class="description">{{box.description}}</p>
+    </div>
+    <div class="section">
+        <ng-container *ngIf="box.medicaments?.length">
+            <div class="sub-title">Лекарств:</div>
+            <p class="description">{{box.medicaments?.length}}</p>
+        </ng-container>
+    </div>
+    <div class="section">
+        <div class="sub-title">Группы:</div>
+        <ul class="groups-list"
+            *ngIf="box.groups?.length">
+            <li *ngFor="let group of box.groups; let last = last"
+                class="description">{{group}}
+                <ng-container *ngIf="!last">,</ng-container>
+            </li>
+        </ul>
+    </div>
+    <div class="section">
+    </div>
+</div>
