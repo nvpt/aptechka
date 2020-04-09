@@ -7,21 +7,21 @@
              alt="{{box.title}}">
     </div>
     <div class="section">
-        <div class="sub-title">Место:</div>
+        <div class="sub-title"><span translate>DASHBOARD.TILE.PLACE</span> :</div>
         <span class="description">{{box.place}}</span>
     </div>
     <div class="section">
-        <div class="sub-title">Описание:</div>
+        <div class="sub-title"><span translate>DASHBOARD.TILE.DESCRIPTION</span>:</div>
         <p class="description">{{box.description}}</p>
     </div>
     <div class="section">
         <ng-container *ngIf="box.medicaments?.length">
-            <div class="sub-title">Лекарств:</div>
+            <div class="sub-title"><span translate>DASHBOARD.TILE.MEDICAMENTS</span>:</div>
             <p class="description">{{box.medicaments?.length}}</p>
         </ng-container>
     </div>
     <div class="section">
-        <div class="sub-title">Группы:</div>
+        <div class="sub-title"><span translate>DASHBOARD.TILE.GROUPS</span>:</div>
         <ul class="groups-list"
             *ngIf="box.groups?.length">
             <li *ngFor="let group of box.groups; let last = last"
