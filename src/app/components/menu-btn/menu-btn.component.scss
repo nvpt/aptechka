@@ -8,7 +8,7 @@
     padding: 6px;
     background: var(--color-current-80);
     border: none;
-    border-radius: calc(#{$borderRadius} - 2px);
+    border-radius: $borderRadius;
     cursor: pointer;
     z-index: calc(#{$menuIndex} + 200);
 
