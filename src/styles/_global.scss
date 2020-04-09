@@ -1,10 +1,9 @@
 @import "variables";
 
 .g-layout {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: calc(100% - #{$headerHeight} - #{$footerHeight});
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
     padding: $contentSidePadding;
     background: var(--color-app_bg-bg);
 }

@@ -22,3 +22,8 @@ a {
 button, select {
     cursor: pointer;
 }
+
+//hide to work with grids
+router-outlet {
+    display: none;
+}
