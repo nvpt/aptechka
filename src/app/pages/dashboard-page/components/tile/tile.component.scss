@@ -38,7 +38,8 @@ $picture-wrap-height: 200px;
     &:last-of-type {
         margin-bottom: 0;
     }
-    &:nth-last-child(2){
+
+    &:nth-last-child(2) {
         margin-bottom: 0;
     }
 
@@ -57,6 +58,17 @@ $picture-wrap-height: 200px;
 
 .groups-list {
     list-style: none;
+}
+
+.groups-item {
+    $dash-padding: 8px;
+    position: relative;
+    padding-left: $dash-padding;
+
+    &:before {
+        content: '-';
+        padding-right: $dash-padding;
+    }
 }
 
 .group {

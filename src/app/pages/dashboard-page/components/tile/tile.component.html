@@ -15,17 +15,25 @@
         <p class="description">{{box.description}}</p>
     </div>
     <div class="section">
-        <ng-container *ngIf="box.medicaments?.length">
-            <div class="sub-title"><span translate>DASHBOARD.TILE.MEDICAMENTS</span>:</div>
-            <p class="description">{{box.medicaments?.length}}</p>
-        </ng-container>
+        <div class="sub-title"><span translate>DASHBOARD.TILE.QUANTITY</span>:</div>
+        <ul class="groups-list">
+            <li class="description groups-item">
+                <span translate>DASHBOARD.TILE.TOTAL</span>: <span>{{box.total}}</span>
+            </li>
+            <li class="description groups-item">
+                <span translate>DASHBOARD.TILE.ON_THE_VERGE</span>: <span>{{box.onTheVerge}}</span>
+            </li>
+            <li class="description groups-item">
+                <span translate>DASHBOARD.TILE.OVERDUE</span>: <span>{{box.overdue}}</span>
+            </li>
+        </ul>
     </div>
     <div class="section">
         <div class="sub-title"><span translate>DASHBOARD.TILE.GROUPS</span>:</div>
         <ul class="groups-list"
             *ngIf="box.groups?.length">
             <li *ngFor="let group of box.groups; let last = last"
-                class="description">{{group}}
+                class="description groups-item">{{group}}
                 <ng-container *ngIf="!last">,</ng-container>
             </li>
         </ul>

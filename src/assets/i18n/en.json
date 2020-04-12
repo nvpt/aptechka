@@ -1,5 +1,6 @@
 {
     "MAIN": {
+        "APTHECHKA": "Aptechka"
     },
     "ABOUT": {
         "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
@@ -21,8 +22,11 @@
         "TILE": {
             "PLACE": "Place",
             "DESCRIPTION": "Description",
-            "MEDICAMENTS": "Medicaments",
-            "GROUPS": "Groups"
+            "QUANTITY": "Quantity",
+            "GROUPS": "Groups",
+            "TOTAL": "Total",
+            "ON_THE_VERGE": "On the verge",
+            "OVERDUE": "Overdue"
         }
     },
     "NOT_FOUND": {

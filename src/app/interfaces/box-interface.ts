@@ -1,12 +1,11 @@
-class medicamentI {
-}
-
 export interface BoxI {
     title: string;
     place?: string;
     description?: string;
     img?: string;
     groups?: string[];
-    medicaments?: medicamentI[];
+    total: number;
+    onTheVerge?: number;
+    overdue?: number;
     alert?: number;
 }
