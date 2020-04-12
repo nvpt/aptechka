@@ -26,11 +26,13 @@ export class Constants {
         targetGroups: 'target-groups',
         pharmGroups: 'pharms',
         about: 'about',
+        newBox: 'new-box',
     });
 
     public static readonly PATH = Object.freeze({
         root: Constants.SECTION.root,
         dashboard: Constants.SECTION.root,
+        newBox: Constants.SECTION.newBox,
         medicaments: Constants.SECTION.medicaments,
         places: Constants.SECTION.places,
         targetGroups: Constants.SECTION.targetGroups,

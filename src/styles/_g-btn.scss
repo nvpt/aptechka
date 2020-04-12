@@ -13,7 +13,6 @@
         border: 2px solid var(--color-current-30);
         background: var(--color-current-40);
         color: var(--color-current-80);
-
     }
 
     &--success {
@@ -28,4 +27,21 @@
 
     }
 
+}
+
+.g-btn-small {
+    @extend .g-btn;
+    padding: 6px 8px;
+}
+
+.g-btn-error {
+    border: 2px solid var(--color-white);
+    background: var(--color-red-90);
+    color: var(--color-red-30);
+
+    &:hover {
+        border: 2px solid var(--color-red-90);
+        background: var(--color-red-30);
+        color: var(--color-red-90);
+    }
 }

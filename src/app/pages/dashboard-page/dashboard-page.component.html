@@ -3,9 +3,11 @@
         <h1 class="g-h1-title"
             translate>BREADCRUMB.DASHBOARD</h1>
         <app-panel-control>
-            <ng-container slot="forLeft">sort</ng-container>
+            <ng-container slot="forLeft">sort, filter, view</ng-container>
             <ng-container slot="forCenter">search</ng-container>
-            <ng-container slot="forRight">view</ng-container>
+            <ng-container slot="forRight">
+                <button (click)="addBox()" class="g-btn-small">Add Box</button>
+            </ng-container>
         </app-panel-control>
     </div>
 

@@ -12,11 +12,13 @@ import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-pag
 import {PharmGroupsPageComponent} from './pages/pharm-groups-page/pharm-groups-page.component';
 import {PlacesPageComponent} from './pages/places-page/places-page.component';
 import {TargetGroupsPageComponent} from './pages/target-groups-page/target-groups-page.component';
+import {NewBoxComponent} from './pages/new-box/new-box.component';
 
 const routes: Routes = [
         {
             path: '', component: ContentLayoutComponent, children: [
                 {path: '', component: DashboardPageComponent, pathMatch: 'full'},
+                {path: Constants.PATH.newBox, component: NewBoxComponent},
                 {path: Constants.PATH.settings, component: SettingsPageComponent},
                 {path: Constants.PATH.about, component: AboutPageComponent},
                 {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
