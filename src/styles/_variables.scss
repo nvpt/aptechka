@@ -1,11 +1,10 @@
-/*
-Components
-*/
-//common
+
+/*COMMON*/
 $contentSidePadding: 20px;
 $borderRadius: 3px;
 $containerWidth: 1200px;
 
+/*COMPONENTS*/
 //header
 $headerHeight: 60px;
 
@@ -16,3 +15,20 @@ $footerHeight: $headerHeight;
 $menuWidth: 300px;
 $menuIndex: 1000;
 $menuSidePadding: $contentSidePadding;
+
+//panel-control {
+$panel-control-height: 50px;
+
+/*ADAPTIVITY*/
+//minimal grid structure item
+$cell-width: 264px;
+$cell-padding: $contentSidePadding;
+//871
+$max-2: ($cell-width * 3) +  ($contentSidePadding * 2) +  ($cell-padding * 2);
+//872
+$min-2: $max-2 + 1;
+
+//587
+$max-1: ($cell-width * 2) +  ($contentSidePadding * 1) +  ($cell-padding * 2);
+//588
+$min-1: $max-1 + 1;
