@@ -26,6 +26,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { TileComponent } from './pages/dashboard-page/components/tile/tile.component';
 import { PlacesPageComponent } from './pages/places-page/places-page.component';
 import { TargetGroupsPageComponent } from './pages/target-groups-page/target-groups-page.component';
+import { PanelControlComponent } from './components/panel-control/panel-control.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -49,7 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         NotFoundPageComponent,
         TileComponent,
         PlacesPageComponent,
-        TargetGroupsPageComponent
+        TargetGroupsPageComponent,
+        PanelControlComponent
     ],
     imports: [
         BrowserModule,
