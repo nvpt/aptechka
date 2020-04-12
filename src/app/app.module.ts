@@ -27,6 +27,7 @@ import { TileComponent } from './pages/dashboard-page/components/tile/tile.compo
 import { PlacesPageComponent } from './pages/places-page/places-page.component';
 import { TargetGroupsPageComponent } from './pages/target-groups-page/target-groups-page.component';
 import { PanelControlComponent } from './components/panel-control/panel-control.component';
+import { NewMedicamentComponent } from './pages/new-medicament/new-medicament.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -51,7 +52,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         TileComponent,
         PlacesPageComponent,
         TargetGroupsPageComponent,
-        PanelControlComponent
+        PanelControlComponent,
+        NewMedicamentComponent
     ],
     imports: [
         BrowserModule,
