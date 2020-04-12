@@ -71,6 +71,20 @@ $picture-wrap-height: 200px;
     }
 }
 
+.count {
+    border-radius: 10px;
+    line-height: 1;
+    padding: 1px 6px;
+}
+
+.on-the-verge {
+    background: var(--color-yellow-60);
+}
+
+.overdue {
+    background: var(--color-red-60);
+}
+
 .group {
 
 }
