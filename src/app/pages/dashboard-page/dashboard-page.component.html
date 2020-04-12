@@ -2,7 +2,11 @@
     <div class="g-top-page">
         <h1 class="g-h1-title"
             translate>BREADCRUMB.DASHBOARD</h1>
-        <app-panel-control></app-panel-control>
+        <app-panel-control>
+            <ng-container slot="forLeft">sort</ng-container>
+            <ng-container slot="forCenter">search</ng-container>
+            <ng-container slot="forRight">view</ng-container>
+        </app-panel-control>
     </div>
 
     <div class="content">
