@@ -10,7 +10,7 @@ body {
     color: var(--color-app_text);
 }
 
-h1, h2, h3, h4, h5 ,h6, .title {
+h1, h2, h3, h4, h5, h6, .title {
     color: var(--color-app_title)
 }
 
@@ -18,6 +18,13 @@ a {
     text-decoration: none;
 }
 
+input,
+textarea,
+select {
+    padding: 8px;
+    font-size: 1rem;
+    color: var(--color-app_text);
+}
 
 button, select {
     cursor: pointer;
@@ -27,3 +34,4 @@ button, select {
 router-outlet {
     display: none;
 }
+
