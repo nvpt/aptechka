@@ -24,5 +24,9 @@ export const impactTypesMock: ImpactTypeI[] = [
     {
         id: 6,
         title: 'Перевязочные'
+    },
+    {
+        id: 7,
+        title: 'Отхаркивающее'
     }
 ];
