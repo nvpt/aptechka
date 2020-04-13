@@ -88,5 +88,28 @@ export const medicamentsMock: MedicamentI[] = [
                 title: "От кашля"
             }
         ]
-    }
+    },
+    {
+        id: 5,
+        title: "Йод",
+        issueDate: "Mon Apr 13 2015 22:30:16 GMT+0300 (Moscow Standard Time)",
+        expiryDate: "Mon Apr 16 2020 22:30:16 GMT+0300 (Moscow Standard Time)",
+        boxId: 2,
+        impactTypes: [
+            {
+                id: 3,
+                title: 'Антисептик'
+            },
+            {
+                id: 6,
+                title: 'Перевязочные'
+            }
+        ],
+        targetGroups: [
+            {
+                id: 5,
+                title: "Ожоги, порезы"
+            }
+        ]
+    },
 ]
