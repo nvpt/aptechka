@@ -4,6 +4,7 @@ import {Constants} from '../../constants';
 import {StorageDataI} from '../../interfaces/storage-data-interface';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
+import {SettingsService} from '../../services/settings.service';
 
 export type LanguageType = 'ru' | 'en';
 
@@ -15,9 +16,10 @@ export type LanguageType = 'ru' | 'en';
 export class SettingsPageComponent implements OnInit, OnDestroy {
     currentColor!: ColorThemeType;
     currentLanguage: LanguageType;
+
     private translateSub$: Subscription;
 
-    constructor(private themeService: ThemesService, private translate: TranslateService) {
+    constructor(private themeService: ThemesService, private translate: TranslateService, private settingsService: SettingsService) {
     }
 
     ngOnInit(): void {
@@ -75,5 +77,9 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
             localStorage.setItem(Constants.STORAGE_KEY, JSON.stringify(storageObj));
         });
+    }
+
+    changeInterval(event: Event) {
+        this.settingsService.warningInterval = Number((<HTMLInputElement>event.target).value);
     }
 }

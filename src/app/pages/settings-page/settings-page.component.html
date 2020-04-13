@@ -18,6 +18,19 @@
             </section>
 
             <h2 class="g-h2-title"
+                translate>Интервал предупреждения</h2>
+            <section class="g-form-section">
+                <label for="interval">За сколько дней предупреждать</label>
+                <input id="interval"
+                       type="range"
+                       min="1"
+                       max="30"
+                       [value]="settingsService.warningInterval"
+                       (input)="changeInterval($event)">
+                <span>За {{settingsService.warningInterval}} дней</span>
+            </section>
+
+            <h2 class="g-h2-title"
                 translate>SETTING.LANGUAGE_TITLE</h2>
             <section class="g-form-section">
 
