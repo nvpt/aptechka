@@ -19,7 +19,7 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-app_text);
-    background: var(--color-current-80);
+    background: var(--color-current-90);
     border-radius: $border-radius;
     border: 2px solid var(--color-current-60);
 
@@ -31,8 +31,9 @@
     }
 
     &:hover {
-        border: 2px solid var(--color-current-40);
-        background: var(--color-current-40);
+        //border: 2px solid var(--color-current-40);
+        border: 2px solid var(--color-current);
+        background: var(--color-current-60);
         color: var(--color-current-95);
     }
 
@@ -43,8 +44,9 @@
         box-shadow: 0 0 9px -4px var(--color-app_bg);
 
         &:hover {
-            border: 2px solid var(--color-current-40);
-            background: var(--color-current-40);
+            //border: 2px solid var(--color-current-40);
+            border: 2px solid var(--color-current);
+            background: var(--color-current-60);
             color: var(--color-current-95);
         }
     }

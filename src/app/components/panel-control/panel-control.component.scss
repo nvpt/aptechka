@@ -6,11 +6,11 @@
     grid-row-gap: $cell-padding/2;
     grid-template-columns: repeat(auto-fit, minmax($cell-width, 1fr));
 
-    background: var(--color-gray-80);
+    background: var(--color-gray-90);
     color: var(--color-gray-20);
-    border-bottom: 1px solid var(--color-gray-70);
+    border-bottom: 1px solid var(--color-gray-80);
     border-radius: 0 0 $border-radius * 2 $border-radius * 2;
-    opacity: 0.7;
+    //opacity: 0.7;
 }
 
 .part {
