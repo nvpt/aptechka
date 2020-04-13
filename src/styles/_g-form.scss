@@ -1,4 +1,8 @@
+@import "variables";
+
 .g-form-section {
+    display: grid;
+    grid-template-columns: minmax($cell-width, auto) 1fr;
     margin-bottom: 30px;
 
     label {
