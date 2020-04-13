@@ -24,7 +24,7 @@ export const boxesMock: BoxI[] = [
     },
     {
         id: 2,
-        title: 'При простуте',
+        title: 'При простуде',
         description: 'Коричневая коробка из-под обуви',
         img: '../../../assets/img/boxes/head-stomach.jpg',
         targetGroups: [
