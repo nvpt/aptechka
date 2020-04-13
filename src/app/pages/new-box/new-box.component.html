@@ -1,18 +1,10 @@
 <div class="new-box">
     <div class="g-top-page">
         <h1 class="g-h1-title"
-            *ngIf="form?.value?.title; else defaultTitle">
-            {{form.value.title}}
-        </h1>
-        <ng-template #defaultTitle>
-            <h1 class="g-h1-title"
-                translate>NEW_BOX.DEFAULT_TITLE</h1>
-        </ng-template>
+            translate>NEW_BOX.DEFAULT_TITLE</h1>
 
         <app-panel-control>
-            <!--<ng-container slot="forLeft">sort, filter, view</ng-container>
-            <ng-container slot="forCenter">search</ng-container>-->
-            <ng-container slot="forRight">
+            <ng-container right>
                 <button (click)="cancelAdding()"
                         class="g-btn-small g-btn-error">Cancel Adding
                 </button>
@@ -21,7 +13,7 @@
     </div>
 
     <div class="content">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="saveBox()">
 
             <section class="g-form-section">
                 <label for="title"><span>Title</span>:</label>
@@ -74,7 +66,21 @@
                      class="img">
             </section>
             <section class="g-form-section">
+                <label for="groups"><span>Target Groups</span>:</label>
+                <select id="groups"
+                        formControlName="place">
+                    <option value="1">От головы</option>
+                    <option value="2">От горла</option>
+                    <option value="3">Обезбаливающее</option>
+                    <option value="4">Антисептик</option>
+                    <option value="5">Слабительное</option>
+                </select>
+            </section>
 
+            <section class="g-form-section">
+                <span>
+                    <button class="g-btn g-btn-success" type="submit">Save Box</button>
+                </span>
             </section>
         </form>
 

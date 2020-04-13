@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {BoxI} from '../../interfaces/box-interface';
 
 @Component({
     selector: 'app-new-box',
@@ -42,7 +41,6 @@ export class NewBoxComponent implements OnInit, OnDestroy {
 
     showPreview(event: Event) {
         const img = (<HTMLInputElement>(event.target)).files[0];
-        console.log('47 >>> img: ', img);
         
         const reader = new FileReader();
 
@@ -62,5 +60,9 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         this.form.controls.img.reset();
         this.imgUrl = null;
         this.form.controls.img.updateValueAndValidity();
+    }
+
+    saveBox() {
+        console.log('68 >>> this.form: ', this.form);
     }
 }
