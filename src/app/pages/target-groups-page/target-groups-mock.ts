@@ -15,22 +15,10 @@ export const targetGroupsMock: TargetGroupI[] = [
     },
     {
         id: 4,
-        title: "Обезболивающее"
+        title: "От аллергии"
     },
     {
         id: 5,
-        title: "Слабительное"
-    },
-    {
-        id: 6,
-        title: "Антисептик"
-    },
-    {
-        id: 7,
-        title: "Успокоительное"
-    },
-    {
-        id: 8,
-        title: "От аллергии"
+        title: "Ожоги, порезы"
     },
 ]
