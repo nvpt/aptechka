@@ -2,8 +2,10 @@
 
 .g-form-section {
     display: grid;
-    grid-template-columns: minmax($cell-width, auto) 1fr;
-    margin-bottom: 30px;
+    //grid-template-columns: minmax($cell-width, auto) 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    margin-bottom: 20px;
 
     label {
         margin-right: 8px;
