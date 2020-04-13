@@ -26,34 +26,34 @@ export const menuMap: MenuItemI[] = [
             }
         ]
     },
-    {//TARGET GROUPS
-        title: 'BREADCRUMB.TARGET_GROUPS',
-        path: Constants.PATH.targetGroups,
-        selected: false,
-        breadcrumbs: [
-            {
-                label: 'BREADCRUMB.DASHBOARD',
-                path: Constants.PATH.root
-            },
-            {
-                label: 'BREADCRUMB.TARGET_GROUPS',
-            }
-        ]
-    },
-    {//IMPACT TYPES
-        title: 'BREADCRUMB.IMPACT_TYPES',
-        path: Constants.PATH.impactTypes,
-        selected: false,
-        breadcrumbs: [
-            {
-                label: 'BREADCRUMB.DASHBOARD',
-                path: Constants.PATH.root
-            },
-            {
-                label: 'BREADCRUMB.IMPACT_TYPES',
-            }
-        ]
-    },
+    // {//TARGET GROUPS
+    //     title: 'BREADCRUMB.TARGET_GROUPS',
+    //     path: Constants.PATH.targetGroups,
+    //     selected: false,
+    //     breadcrumbs: [
+    //         {
+    //             label: 'BREADCRUMB.DASHBOARD',
+    //             path: Constants.PATH.root
+    //         },
+    //         {
+    //             label: 'BREADCRUMB.TARGET_GROUPS',
+    //         }
+    //     ]
+    // },
+    // {//IMPACT TYPES
+    //     title: 'BREADCRUMB.IMPACT_TYPES',
+    //     path: Constants.PATH.impactTypes,
+    //     selected: false,
+    //     breadcrumbs: [
+    //         {
+    //             label: 'BREADCRUMB.DASHBOARD',
+    //             path: Constants.PATH.root
+    //         },
+    //         {
+    //             label: 'BREADCRUMB.IMPACT_TYPES',
+    //         }
+    //     ]
+    // },
     {//SETTINGS
         title: 'BREADCRUMB.SETTINGS',
         path: Constants.PATH.settings,
