@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
+import {MenuService} from '../../modules/menu/menu-services/menu.service';
 
 @Component({
-  selector: 'app-new-box',
-  templateUrl: './new-box.component.html',
-  styleUrls: ['./new-box.component.scss']
+    selector: 'app-new-box',
+    templateUrl: './new-box.component.html',
+    styleUrls: ['./new-box.component.scss']
 })
-export class NewBoxComponent implements OnInit {
+export class NewBoxComponent implements OnInit, OnDestroy {
 
-  constructor(private location: Location) { }
+    constructor(private location: Location, private menuService: MenuService) {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.menuService.hide();
+    }
+
+    ngOnDestroy() {
+        this.menuService.show();
+    }
 
     cancelAdding() {
         this.location.back();

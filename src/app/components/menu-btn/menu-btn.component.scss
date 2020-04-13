@@ -1,4 +1,6 @@
 @import "../../../styles/variables";
+$default-opacity: 0.5;
+$hovered-opacity: 1;
 
 .menu-btn {
     position: fixed;
@@ -14,7 +16,7 @@
 
     &:hover {
         .line {
-            opacity: 1;
+            opacity: $hovered-opacity;
         }
     }
 }
@@ -25,5 +27,5 @@
     height: 3px;
     margin: 4px 0;
     background: var(--color-app_bg-dark);
-    opacity: 0.5;
+    opacity: $default-opacity;
 }
