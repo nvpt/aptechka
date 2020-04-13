@@ -3,6 +3,6 @@ export interface MedicamentI {
     issueDate: Date | string;
     expiryDate: Date | string;
     placeId?: number;
-    impactTypeId?: number;
+    impactTypesId?: number[];
     targetGroupsId?: number[];
 }
