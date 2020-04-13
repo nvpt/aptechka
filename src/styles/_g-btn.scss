@@ -3,7 +3,7 @@
 .g-btn {
     font-size: 1rem;
     padding: 8px 12px;
-    border: 2px solid var(--color-current-40);
+    border: 1px solid var(--color-current-40);
     //background: var(--color-current-70);
     background: transparent;
     color: var(--color-current-40);
@@ -13,7 +13,7 @@
     cursor: pointer;
 
     &:hover {
-        border: 2px solid var(--color-current-30);
+        border: 1px solid var(--color-current-30);
         background: var(--color-current-90);
         color: var(--color-current-30);
     }
@@ -25,24 +25,24 @@
 }
 
 .g-btn-error {
-    border: 2px solid var(--color-red-40);
+    border: 1px solid var(--color-red-40);
     background: var(--color-red-90);
     color: var(--color-red-30);
 
     &:hover {
-        border: 2px solid var(--color-red-30);
+        border: 1px solid var(--color-red-30);
         background: var(--color-red-40);
         color: var(--color-red-90);
     }
 }
 
 .g-btn-success {
-    border: 2px solid var(--color-green-40);
+    border: 1px solid var(--color-green-40);
     background: var(--color-green-90);
     color: var(--color-green-30);
 
     &:hover {
-        border: 2px solid var(--color-green-30);
+        border: 1px solid var(--color-green-30);
         background: var(--color-green-40);
         color: var(--color-green-90);
     }
