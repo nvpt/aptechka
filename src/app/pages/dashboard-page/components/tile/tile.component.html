@@ -6,17 +6,23 @@
              src="{{box.img}}"
              alt="{{box.title}}">
     </div>
-    <div class="section">
+
+    <!--PLACE-->
+    <div class="section" *ngIf="box.place">
         <div class="sub-title"><span translate>DASHBOARD.TILE.PLACE</span> :</div>
-        <span class="description">{{box.place}}</span>
+        <span class="description">{{box.place?.title}}</span>
     </div>
+
+    <!--DESCRIPTION-->
     <div class="section">
         <div class="sub-title"><span translate>DASHBOARD.TILE.DESCRIPTION</span>:</div>
         <p class="description">{{box.description}}</p>
     </div>
-    <div class="section">
+
+    <!--QUANTITY-->
+    <div class="section" *ngIf="box.total">
         <div class="sub-title"><span translate>DASHBOARD.TILE.QUANTITY</span>:</div>
-        <ng-container *ngIf="box.total">
+        <ng-container >
             <ul class="groups-list">
                 <li class="description groups-item">
                     <span translate>DASHBOARD.TILE.TOTAL</span>: <span class="count">{{box.total}}</span>
@@ -31,12 +37,13 @@
             </ul>
         </ng-container>
     </div>
-    <div class="section">
+
+    <!--GROUPS-->
+    <div class="section" *ngIf="box.targetGroups?.length">
         <div class="sub-title"><span translate>DASHBOARD.TILE.GROUPS</span>:</div>
-        <ul class="groups-list"
-            *ngIf="box.groups?.length">
-            <li *ngFor="let group of box.groups; let last = last"
-                class="description groups-item">{{group}}
+        <ul class="groups-list">
+            <li *ngFor="let group of box.targetGroups; let last = last"
+                class="description groups-item">{{group.title}}
                 <ng-container *ngIf="!last">,</ng-container>
             </li>
         </ul>
