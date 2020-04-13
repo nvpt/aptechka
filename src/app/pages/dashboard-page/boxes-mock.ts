@@ -16,11 +16,7 @@ export const boxesMock: BoxI[] = [
                 title: "От живота"
             }
         ],
-
-
-        total: 12,
-        onTheVerge: 3,
-        overdue: 1,
+        medicamentsId: [1]
     },
     {
         id: 2,
@@ -33,9 +29,7 @@ export const boxesMock: BoxI[] = [
                 title: "От горла"
             },
         ],
-
-        total: 4,
-        onTheVerge: 1,
+        medicamentsId: [4]
     },
     {
         id: 3,
@@ -48,9 +42,7 @@ export const boxesMock: BoxI[] = [
                 title: "От аллергии"
             },
         ],
-
-        total: 5,
-        onTheVerge: 0,
+        medicamentsId: [2]
     },
     {
         id: 4,
@@ -63,7 +55,6 @@ export const boxesMock: BoxI[] = [
                 title: "Ожоги, порезы"
             },
         ],
-
-        total: 0,
+        medicamentsId: [3, 5]
     },
 ];
