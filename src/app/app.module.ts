@@ -24,7 +24,6 @@ import {ImpactTypesPageComponent} from './pages/impact-types-page/impact-types-p
 import {EmptyLayoutComponent} from './layouts/empty-layout/empty-layout.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {TileComponent} from './pages/dashboard-page/components/tile/tile.component';
-import {PlacesPageComponent} from './pages/places-page/places-page.component';
 import {TargetGroupsPageComponent} from './pages/target-groups-page/target-groups-page.component';
 import {PanelControlComponent} from './components/panel-control/panel-control.component';
 import {NewMedicamentComponent} from './pages/new-medicament/new-medicament.component';
@@ -51,7 +50,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         EmptyLayoutComponent,
         NotFoundPageComponent,
         TileComponent,
-        PlacesPageComponent,
         TargetGroupsPageComponent,
         PanelControlComponent,
         NewMedicamentComponent,
