@@ -2,35 +2,91 @@ import {MedicamentI} from '../../interfaces/medicament-interface';
 
 export const medicamentsMock: MedicamentI[] = [
     {
+        id: 1,
         title: "Анальгин",
-        issueDate: "",
-        expiryDate: "",
-        impactTypesId: [2],
-        placeId: 1,
-        targetGroupsId: [1,2,5]
+        issueDate: "Mon Apr 13 2018 22:30:16 GMT+0300 (Moscow Standard Time)",
+        expiryDate: "Mon Apr 13 2021 22:30:16 GMT+0300 (Moscow Standard Time)",
+        boxId: 1,
+        impactTypes: [
+            {
+                id: 1,
+                title: 'Обезболивающее'
+            }
+        ],
+        targetGroups: [
+            {
+                id: 2,
+                title: "От горла"
+            },
+            {
+                id: 3,
+                title: "От живота"
+            }
+        ]
     },
     {
+        id: 2,
         title: "Цетрин",
-        issueDate: "",
-        expiryDate: "",
-        impactTypesId: [3],
-        placeId: 2,
-        targetGroupsId: [1,2,5]
+        issueDate: "Mon Apr 13 2017 22:30:16 GMT+0300 (Moscow Standard Time)",
+        expiryDate: "Mon Apr 13 2019 22:30:16 GMT+0300 (Moscow Standard Time)",
+        boxId: 3,
+        impactTypes: [
+            {
+                id: 5,
+                title: 'Антигистаминное'
+            }
+        ],
+        targetGroups: [
+            {
+                id: 4,
+                title: "От аллергии"
+            }
+        ]
     },
     {
+        id: 3,
         title: "Зеленка",
-        issueDate: "",
-        expiryDate: "",
-        impactTypesId: [1, 2],
-        placeId: 3,
-        targetGroupsId: [2,4]
+        issueDate: "Mon Apr 13 2017 22:30:16 GMT+0300 (Moscow Standard Time)",
+        expiryDate: "Mon Apr 23 2020 22:30:16 GMT+0300 (Moscow Standard Time)",
+        boxId: 2,
+        impactTypes: [
+            {
+                id: 3,
+                title: 'Антисептик'
+            },
+            {
+                id: 6,
+                title: 'Перевязочные'
+            }
+        ],
+        targetGroups: [
+            {
+                id: 5,
+                title: "Ожоги, порезы"
+            }
+        ]
     },
     {
+        id: 4,
         title: "Доктор Мом",
-        issueDate: "",
-        expiryDate: "",
-        impactTypesId: [1],
-        placeId: 1,
-        targetGroupsId: [5]
+        issueDate: "Mon Apr 13 2020 22:30:16 GMT+0300 (Moscow Standard Time)",
+        expiryDate: "Mon Apr 13 2024 22:30:16 GMT+0300 (Moscow Standard Time)",
+        boxId: 1,
+        impactTypes: [
+            {
+                id: 7,
+                title: 'Отхаркивающее'
+            }
+        ],
+        targetGroups: [
+            {
+                id: 2,
+                title: "От горла"
+            },
+            {
+                id: 5,
+                title: "От кашля"
+            }
+        ]
     }
 ]
