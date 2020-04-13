@@ -1,14 +1,80 @@
 <div class="new-box">
     <div class="g-top-page">
         <h1 class="g-h1-title"
-            translate>New Box</h1>
+            *ngIf="form?.value?.title; else defaultTitle">
+            {{form.value.title}}
+        </h1>
+        <ng-template #defaultTitle>
+            <h1 class="g-h1-title"
+                translate>NEW_BOX.DEFAULT_TITLE</h1>
+        </ng-template>
+
         <app-panel-control>
             <!--<ng-container slot="forLeft">sort, filter, view</ng-container>
             <ng-container slot="forCenter">search</ng-container>-->
             <ng-container slot="forRight">
-                <button (click)="cancelAdding()" class="g-btn-small g-btn-error">Cancel Adding</button>
+                <button (click)="cancelAdding()"
+                        class="g-btn-small g-btn-error">Cancel Adding
+                </button>
             </ng-container>
         </app-panel-control>
+    </div>
+
+    <div class="content">
+        <form [formGroup]="form">
+
+            <section class="g-form-section">
+                <label for="title"><span>Title</span>:</label>
+                <input id="title"
+                       type="text"
+                       formControlName="title">
+            </section>
+
+            <section class="g-form-section">
+                <label for="place"><span>Place</span>:</label>
+                <select id="place"
+                        formControlName="place">
+                    <option>Шкаф в зале</option>
+                    <option>Шкаф на кухне</option>
+                    <option>Коробкана балконе</option>
+                </select>
+            </section>
+
+            <section class="g-form-section">
+                <label for="description"><span>Description</span>:</label>
+                <textarea id="description"
+                          formControlName="description"></textarea>
+            </section>
+
+            <section class="g-form-section">
+                <span>
+
+                <label for="img"
+                       class="g-btn-small"><span>{{form?.value?.img ? 'Change image' : 'Add image'}}</span></label>
+
+                <input style="display: none;"
+                       id="img"
+                       accept="image/*"
+                       type="file"
+                       (change)="showPreview($event)">
+                <input type="hidden"
+                       formControlName="img">
+                <button (click)="clearPreview()"
+                        *ngIf="imgUrl"
+                        class="g-btn-small g-btn-error">Clear
+                </button>
+                </span>
+
+                <img [src]="imgUrl"
+                     alt=""
+                     class="preview">
+            </section>
+            <section class="g-form-section">
+
+            </section>
+        </form>
+
+
     </div>
 
 </div>

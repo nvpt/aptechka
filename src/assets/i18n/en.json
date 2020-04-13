@@ -29,6 +29,9 @@
             "OVERDUE": "Overdue"
         }
     },
+    "NEW_BOX": {
+        "DEFAULT_TITLE": "New Box"
+    },
     "NOT_FOUND": {
         "TITLE": "That page is missing",
         "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>"

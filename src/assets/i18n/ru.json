@@ -29,6 +29,9 @@
             "OVERDUE": "Просрочено"
         }
     },
+    "NEW_BOX": {
+        "DEFAULT_TITLE": "Новая коробка"
+    },
     "NOT_FOUND": {
         "TITLE": "Такая страница не найдена",
         "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>"
