@@ -9,7 +9,7 @@ $hovered-opacity: 1;
     width: 50px;
     padding: 6px;
     background: var(--color-current-80);
-    border: none;
+    border: 1px solid var(--color-current-40);
     border-radius: $border-radius;
     cursor: pointer;
     z-index: calc(#{$menu-index} + 200);

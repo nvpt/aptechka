@@ -26,11 +26,11 @@
     top: 11px;
     left: $menu-side-padding;
     width: 50px;
-    border: none;
     z-index: calc(#{$menu-index} + 200);
     padding: 6px;
-    cursor: pointer;
+    border: 1px solid var(--color-current-40);
     background: var(--color-current-80);
+    cursor: pointer;
 
     &:hover {
         .line {
