@@ -42,15 +42,19 @@
 
             <section class="g-form-section">
                 <label for="description"><span>Description</span>:</label>
+                <span>
                 <textarea id="description"
+                          class="description"
                           formControlName="description"></textarea>
+                </span>
             </section>
 
-            <section class="g-form-section">
+            <section class="g-form-section img-section">
                 <span>
 
-                <label for="img"
-                       class="g-btn-small"><span>{{form?.value?.img ? 'Change image' : 'Add image'}}</span></label>
+                <label for="img">
+                    <span class="g-btn">{{form?.value?.img ? 'Change image' : 'Add image'}}</span>
+                </label>
 
                 <input style="display: none;"
                        id="img"
@@ -61,13 +65,13 @@
                        formControlName="img">
                 <button (click)="clearPreview()"
                         *ngIf="imgUrl"
-                        class="g-btn-small g-btn-error">Clear
+                        class="g-btn g-btn-error">Clear image
                 </button>
                 </span>
 
                 <img [src]="imgUrl"
                      alt=""
-                     class="preview">
+                     class="img">
             </section>
             <section class="g-form-section">
 

@@ -1,3 +1,28 @@
-.preview {
-    max-width: 300px;
+@import "src/styles/variables";
+
+.content {
+    margin: auto;
+    width: $container-edit-width;
+    max-width: 100%;
+}
+
+.img-section {
+    grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
+    grid-row-gap: $cell-padding/2;
+}
+
+.description {
+    //resize: none;
+    height: 4rem;
+    min-height: 4rem;
+    max-height: 8rem;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+}
+
+.img {
+    //width: $cell-width;
+    max-width: 100%;
+    max-height: 340px;
 }
