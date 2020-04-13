@@ -1,0 +1,20 @@
+.g-h1-title {
+    border-bottom: 2px solid var(--color-app_title);
+}
+
+.g-h2-title {
+    margin: 15px 0;
+}
+
+.g-link {
+    color: var(--color-blue);
+
+    &:hover, &:focus {
+        color: var(--color-blue-30);
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: var(--color-blue-70);
+    }
+}
