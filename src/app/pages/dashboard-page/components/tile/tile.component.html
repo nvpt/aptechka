@@ -1,16 +1,13 @@
 <div class="tile">
+
+    <!--TITLE-->
     <h3 class="title">{{box.title}}</h3>
 
+    <!--IMG-->
     <div class="section section--img">
         <img class="img"
              src="{{box.img}}"
              alt="{{box.title}}">
-    </div>
-
-    <!--PLACE-->
-    <div class="section" *ngIf="box.place">
-        <div class="sub-title"><span translate>DASHBOARD.TILE.PLACE</span> :</div>
-        <span class="description">{{box.place?.title}}</span>
     </div>
 
     <!--DESCRIPTION-->
@@ -20,26 +17,32 @@
     </div>
 
     <!--QUANTITY-->
-    <div class="section" *ngIf="box.total">
+    <div class="section"
+         *ngIf="box.medicamentsId?.length">
         <div class="sub-title"><span translate>DASHBOARD.TILE.QUANTITY</span>:</div>
-        <ng-container >
+        <ng-container>
             <ul class="groups-list">
                 <li class="description groups-item">
-                    <span translate>DASHBOARD.TILE.TOTAL</span>: <span class="count">{{box.total}}</span>
+                    <span translate>DASHBOARD.TILE.TOTAL</span>: <span class="count">
+                        {{box.medicamentsId?.length}}
+                    </span>
                 </li>
-                <li class="description groups-item" *ngIf="box.onTheVerge">
+                <li class="description groups-item"
+                    *ngIf="onTheVerge">
                     <span translate>DASHBOARD.TILE.ON_THE_VERGE</span>:
-                    <span class="count on-the-verge">{{box.onTheVerge}}</span>
+                    <span class="count on-the-verge">{{onTheVerge}}</span>
                 </li>
-                <li class="description groups-item" *ngIf="box.overdue">
-                    <span translate>DASHBOARD.TILE.OVERDUE</span>: <span class="count overdue">{{box.overdue}}</span>
+                <li class="description groups-item"
+                    *ngIf="overdue">
+                    <span translate>DASHBOARD.TILE.OVERDUE</span>: <span class="count overdue">{{overdue}}</span>
                 </li>
             </ul>
         </ng-container>
     </div>
 
     <!--GROUPS-->
-    <div class="section" *ngIf="box.targetGroups?.length">
+    <div class="section"
+         *ngIf="box.targetGroups?.length">
         <div class="sub-title"><span translate>DASHBOARD.TILE.GROUPS</span>:</div>
         <ul class="groups-list">
             <li *ngFor="let group of box.targetGroups; let last = last"
@@ -48,6 +51,8 @@
             </li>
         </ul>
     </div>
+
+    <!--STRETCH-->
     <div class="section">
     </div>
 </div>

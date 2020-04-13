@@ -1,5 +1,9 @@
 import {Input, Component, OnInit} from '@angular/core';
+
 import {BoxI} from '../../../../interfaces/box-interface';
+import {MedicamentI} from '../../../../interfaces/medicament-interface';
+import {SettingsService} from '../../../../services/settings.service';
+import {medicamentsMock} from '../../../medicaments-page/medicaments.mock';
 
 @Component({
     selector: 'app-tile',
@@ -8,11 +12,39 @@ import {BoxI} from '../../../../interfaces/box-interface';
 })
 export class TileComponent implements OnInit {
     @Input() box?: BoxI;
+    onTheVerge: number = 0;
+    overdue: number = 0;
+    currentDate: Date = new Date();
+    boxMedicaments: MedicamentI[] = [];
 
-    constructor() {
+    constructor(public settingsService: SettingsService) {
     }
 
     ngOnInit(): void {
+        this.defineMedicaments();
+        this.calculateCounters();
+    }
+
+
+    defineMedicaments() {
+        this.boxMedicaments = medicamentsMock.filter(medicament => (
+            this.box.medicamentsId.includes(medicament.id)
+        ));
+    }
+
+    calculateCounters() {
+        if (this.boxMedicaments.length) {
+            this.boxMedicaments.forEach(medicament => {
+                const difference = new Date(medicament.expiryDate).getTime() - this.currentDate.getTime();
+                const warningIntervalInMs: number = this.settingsService.warningInterval * 1000 * 60 * 60 * 24;
+
+                if (difference < 0) {
+                    this.overdue += 1;
+                } else if (difference < warningIntervalInMs) {
+                    this.onTheVerge += 1;
+                }
+            });
+        }
     }
 
 }
