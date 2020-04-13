@@ -10,8 +10,8 @@
         "DASHBOARD": "Dashboard",
         "MEDICAMENTS": "Medicaments",
         "PLACES": "Places",
-        "TARGET_GROUPS": "Target-groups",
-        "PHARMS": "Pharm-groups",
+        "TARGET_GROUPS": "Target groups",
+        "IMPACT_TYPES": "Impact types",
         "SETTINGS": "Settings",
         "ABOUT": "About"
     },

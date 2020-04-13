@@ -20,7 +20,7 @@ import {MenuBtnComponent} from './components/menu-btn/menu-btn.component';
 import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
 import {AboutPageComponent} from './pages/about-page/about-page.component';
 import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-page.component';
-import {PharmGroupsPageComponent} from './pages/pharm-groups-page/pharm-groups-page.component';
+import {ImpactTypesPageComponent} from './pages/impact-types-page/impact-types-page.component';
 import {EmptyLayoutComponent} from './layouts/empty-layout/empty-layout.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {TileComponent} from './pages/dashboard-page/components/tile/tile.component';
@@ -47,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         BreadcrumbComponent,
         AboutPageComponent,
         MedicamentsPageComponent,
-        PharmGroupsPageComponent,
+        ImpactTypesPageComponent,
         EmptyLayoutComponent,
         NotFoundPageComponent,
         TileComponent,

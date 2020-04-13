@@ -9,7 +9,7 @@ import {AboutPageComponent} from './pages/about-page/about-page.component';
 import {EmptyLayoutComponent} from './layouts/empty-layout/empty-layout.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-page.component';
-import {PharmGroupsPageComponent} from './pages/pharm-groups-page/pharm-groups-page.component';
+import {ImpactTypesPageComponent} from './pages/impact-types-page/impact-types-page.component';
 import {PlacesPageComponent} from './pages/places-page/places-page.component';
 import {TargetGroupsPageComponent} from './pages/target-groups-page/target-groups-page.component';
 import {NewBoxComponent} from './pages/new-box/new-box.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
                 {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
                 {path: Constants.PATH.places, component: PlacesPageComponent},
                 {path: Constants.PATH.targetGroups, component: TargetGroupsPageComponent},
-                {path: Constants.PATH.pharmGroups, component: PharmGroupsPageComponent}
+                {path: Constants.PATH.impactTypes, component: ImpactTypesPageComponent}
             ]
         },
         {

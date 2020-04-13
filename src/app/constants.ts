@@ -24,7 +24,7 @@ export class Constants {
         medicaments: 'medicaments',
         places: 'places',
         targetGroups: 'target-groups',
-        pharmGroups: 'pharms',
+        impactTypes: 'impact-types',
         about: 'about',
         newBox: 'new-box',
     });
@@ -36,7 +36,7 @@ export class Constants {
         medicaments: Constants.SECTION.medicaments,
         places: Constants.SECTION.places,
         targetGroups: Constants.SECTION.targetGroups,
-        pharmGroups: Constants.SECTION.pharmGroups,
+        impactTypes: Constants.SECTION.impactTypes,
         settings: Constants.SECTION.settings,
         about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`,
     });

@@ -40,7 +40,7 @@ export const menuMap: MenuItemI[] = [
             }
         ]
     },
-    {//TARGET-GROUPS
+    {//TARGET GROUPS
         title: 'BREADCRUMB.TARGET_GROUPS',
         path: Constants.PATH.targetGroups,
         selected: false,
@@ -54,9 +54,9 @@ export const menuMap: MenuItemI[] = [
             }
         ]
     },
-    {//PHARM-GROUPS
-        title: 'BREADCRUMB.PHARMS',
-        path: Constants.PATH.pharmGroups,
+    {//IMPACT TYPES
+        title: 'BREADCRUMB.IMPACT_TYPES',
+        path: Constants.PATH.impactTypes,
         selected: false,
         breadcrumbs: [
             {
@@ -64,7 +64,7 @@ export const menuMap: MenuItemI[] = [
                 path: Constants.PATH.root
             },
             {
-                label: 'BREADCRUMB.PHARMS',
+                label: 'BREADCRUMB.IMPACT_TYPES',
             }
         ]
     },
