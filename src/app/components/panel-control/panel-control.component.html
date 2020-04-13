@@ -1,12 +1,11 @@
-
 <div class="panel-control">
-    <div class="part part--left">
-        <ng-content select="[slot=forLeft]"></ng-content>
+    <div class="part part--left" #leftPart>
+        <ng-content select="[left]" ></ng-content>
     </div>
-    <div class="part part--center">
-        <ng-content select="[slot=forCenter]"></ng-content>
+    <div class="part part--center" #centerPart>
+        <ng-content select="[center]"></ng-content>
     </div>
-    <div class="part part--right">
-        <ng-content select="[slot=forRight]"></ng-content>
+    <div class="part part--right" #rightPart>
+        <ng-content select="[right]"></ng-content>
     </div>
 </div>
