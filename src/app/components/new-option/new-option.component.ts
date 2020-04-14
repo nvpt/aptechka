@@ -9,7 +9,7 @@ export class NewOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
     @Output() onAdd?: EventEmitter<string> = new EventEmitter<string>();
 
-    opened: boolean = false;
+    edited: boolean = false;
 
     constructor() {
     }
@@ -20,7 +20,7 @@ export class NewOptionComponent implements OnInit {
     startCreation(event: KeyboardEvent | MouseEvent) {
         if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
             event.type === 'click') {
-            this.opened = true;
+            this.edited = true;
             setTimeout(() => {
                 this.inputField && this.inputField.nativeElement.focus();
             }, 0);
@@ -36,7 +36,7 @@ export class NewOptionComponent implements OnInit {
             ) ||
             event.type === 'click') {
 
-            this.opened = false;
+            this.edited = false;
         }
     }
 
@@ -46,7 +46,7 @@ export class NewOptionComponent implements OnInit {
 
             const inputValue = this.inputField.nativeElement.value;
             this.onAdd.emit(inputValue);
-            this.opened = false;
+            this.edited = false;
         }
     }
 
