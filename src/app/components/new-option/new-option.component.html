@@ -1,7 +1,7 @@
 <div class="new-option"
-     [ngClass]="{'editable': opened}">
+     [ngClass]="{'edited': edited}">
 
-    <label *ngIf="opened">
+    <label *ngIf="edited">
         <input type="text"
                class="input-field"
                (keydown)="cancelCreation($event)"
@@ -9,7 +9,7 @@
     </label>
 
 
-    <ng-container *ngIf="!opened; else edit">
+    <ng-container *ngIf="!edited; else edit">
         <button id="addOption"
                 class="option-btn g-btn"
                 (click)="startCreation($event)"
