@@ -5,18 +5,21 @@
     </div>
     <div class="content">
         <form>
+            <!--ACCOUNT-->
             <h2 class="g-h2-title"
                 translate>SETTING.ACCOUNT</h2>
             <section class="g-form-section">
 
             </section>
 
+            <!--NOTIFICATIONS-->
             <h2 class="g-h2-title"
                 translate>SETTING.NOTIFICATIONS</h2>
             <section class="g-form-section">
 
             </section>
 
+            <!--WARNING INTERVAL-->
             <h2 class="g-h2-title"
                 translate>Интервал предупреждения</h2>
             <section class="g-form-section">
@@ -30,10 +33,10 @@
                 <span>За {{settingsService.warningInterval}} дней</span>
             </section>
 
+            <!--LANGUAGE-->
             <h2 class="g-h2-title"
                 translate>SETTING.LANGUAGE_TITLE</h2>
             <section class="g-form-section">
-
 
                 <label class="label"
                        for="languageSelection"
@@ -52,6 +55,7 @@
                 </select>
             </section>
 
+            <!--COLOR THEME-->
             <h2 class="g-h2-title"
                 translate>SETTING.COLOR_THEME_TITLE</h2>
             <section class="g-form-section">
@@ -78,9 +82,55 @@
                     <option value="orange"
                             translate>SETTING.COLOR.ORANGE
                     </option>
-                    <!--<option value="custom" translate>custom</option>-->
                 </select>
             </section>
+
+            <!--TARGET GROUPS-->
+            <h2 class="g-h2-title"
+                translate>TARGET GROUPS</h2>
+            <section class="g-form-section">
+
+                <label class="label"
+                       for="targetGroups"
+                       translate>Выберите целевые группы</label>
+                <select class="select"
+                        id="targetGroups"
+                        multiple
+                        size="5"
+                        [value]="currentColor"
+                        (change)="selectTheme($event)">
+                    <option value="red"
+                            translate>SETTING.COLOR.RED
+                    </option>
+                    <option value="green"
+                            translate>SETTING.COLOR.GREEN
+                    </option>
+                </select>
+            </section>
+
+            <!--IMPACT TYPES-->
+            <h2 class="g-h2-title"
+                translate>IMPACT TYPES</h2>
+            <section class="g-form-section">
+
+                <label class="label"
+                       for="impactTypes"
+                       translate>Выберите типы воздействия</label>
+                <select class="select"
+                        id="impactTypes"
+                        multiple
+                        size="5"
+                        [value]="currentColor"
+                        (change)="selectTheme($event)">
+                    <option value="red"
+                            translate>SETTING.COLOR.RED
+                    </option>
+                    <option value="green"
+                            translate>SETTING.COLOR.GREEN
+                    </option>
+                </select>
+            </section>
+
             <section class="g-form-section">
                 <span>
                     <button class="g-btn g-btn-success"
