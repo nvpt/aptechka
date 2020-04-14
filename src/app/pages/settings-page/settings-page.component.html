@@ -7,41 +7,42 @@
         <form>
             <!--ACCOUNT-->
             <h2 class="g-h2-title"
-                translate>SETTING.ACCOUNT</h2>
+                translate>SETTING.ACCOUNT.TITLE</h2>
             <section class="g-form-section">
 
             </section>
 
             <!--NOTIFICATIONS-->
             <h2 class="g-h2-title"
-                translate>SETTING.NOTIFICATIONS</h2>
+                translate>SETTING.NOTIFICATIONS.TITLE</h2>
             <section class="g-form-section">
 
             </section>
 
             <!--WARNING INTERVAL-->
             <h2 class="g-h2-title"
-                translate>Интервал предупреждения</h2>
+                translate>SETTING.WARNING_INTERVAL.TITLE</h2>
             <section class="g-form-section">
-                <label for="interval">За сколько дней предупреждать</label>
+                <label for="interval"
+                       translate>SETTING.WARNING_INTERVAL.LABEL</label>
                 <input id="interval"
                        type="range"
                        min="1"
                        max="30"
                        [value]="settingsService.warningInterval"
                        (input)="changeInterval($event)">
-                <span>За {{settingsService.warningInterval}} дней</span>
+                <span [translateParams]="{daysCount: settingsService.warningInterval}"
+                      translate>SETTING.WARNING_INTERVAL.IN_DAYS</span>
             </section>
 
             <!--LANGUAGE-->
             <h2 class="g-h2-title"
-                translate>SETTING.LANGUAGE_TITLE</h2>
+                translate>SETTING.LANGUAGE.TITLE</h2>
             <section class="g-form-section">
 
                 <label class="label"
                        for="languageSelection"
-                       translate>SETTING.SELECT_LANGUAGE</label>
-
+                       translate>SETTING.LANGUAGE.LABEL</label>
                 <select class="select"
                         id="languageSelection"
                         [value]="currentLanguage"
@@ -57,12 +58,12 @@
 
             <!--COLOR THEME-->
             <h2 class="g-h2-title"
-                translate>SETTING.COLOR_THEME_TITLE</h2>
+                translate>SETTING.COLOR.TITLE</h2>
             <section class="g-form-section">
 
                 <label class="label"
                        for="themeSelection"
-                       translate>SETTING.SELECT_THEME</label>
+                       translate>SETTING.COLOR.LABEL</label>
                 <select class="select"
                         id="themeSelection"
                         [value]="currentColor"
@@ -87,12 +88,12 @@
 
             <!--TARGET GROUPS-->
             <h2 class="g-h2-title"
-                translate>TARGET GROUPS</h2>
+                translate>SETTING.TARGET_GROUPS.TITLE</h2>
             <section class="g-form-section">
 
                 <label class="label"
                        for="targetGroups"
-                       translate>Выберите целевые группы</label>
+                       translate>SETTING.TARGET_GROUPS.LABEL</label>
                 <select class="select"
                         id="targetGroups"
                         multiple
@@ -110,13 +111,12 @@
 
             <!--IMPACT TYPES-->
             <h2 class="g-h2-title"
-                translate>IMPACT TYPES</h2>
+                translate>SETTING.IMPACT_TYPES.TITLE</h2>
             <section class="g-form-section">
-                <app-new-option  (onAdd)="addImpactType($event)"></app-new-option>
+                <app-new-option (onAdd)="addImpactType($event)"></app-new-option>
 
                 <app-editable-option></app-editable-option>
             </section>
-
 
             <section class="g-form-section">
                 <span>

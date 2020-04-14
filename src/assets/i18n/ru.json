@@ -1,6 +1,7 @@
 {
     "MAIN": {
-        "APTHECHKA": "Аптечка"
+        "APTHECHKA": "Аптечка",
+        "ADD": "Добавить"
     },
     "ABOUT": {
         "FOR_WHAT": "Это приложение создано для помощи в упорядочивании лекарств и контроле их срока годности"
@@ -37,12 +38,15 @@
         "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>"
     },
     "SETTING": {
-        "ACCOUNT": "Личная информация",
-        "NOTIFICATIONS": "Уведомления",
-        "TITLE": "Настройки",
-        "COLOR_THEME_TITLE": "Цветовая тема",
-        "SELECT_THEME": "Выбрать цвет",
+        "ACCOUNT": {
+            "TITLE": "Личная информация"
+        },
+        "NOTIFICATIONS": {
+            "TITLE": "Уведомления"
+        },
         "COLOR": {
+            "TITLE": "Цветовая тема",
+            "LABEL": "Выбрать цвет",
             "RED": "красный",
             "GREEN": "зелёный",
             "BLUE": "синий",
@@ -50,11 +54,25 @@
             "ORANGE": "оранжевый",
             "CUSTOM": "свой вариант"
         },
-        "LANGUAGE_TITLE": "Язык",
-        "SELECT_LANGUAGE": "Выбрать язык",
+        "IMPACT_TYPES": {
+            "TITLE": "Типы воздействия",
+            "LABEL": "тип воздействия"
+        },
         "LANGUAGE": {
+            "TITLE": "Язык",
+            "LABEL": "Выбрать язык",
             "RU": "русский",
             "EN": "английский"
+        },
+        "TARGET_GROUPS": {
+            "TITLE": "Целевые группы",
+            "LABEL": "Выберите целевые группы"
+        },
+        "TITLE": "Настройки",
+        "WARNING_INTERVAL": {
+            "TITLE": "Интервал предупреждения",
+            "LABEL": "За сколько дней предупреждать",
+            "IN_DAYS": "За {{daysCount}} дней"
         }
     }
 }

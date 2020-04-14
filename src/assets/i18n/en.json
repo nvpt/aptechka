@@ -1,6 +1,7 @@
 {
     "MAIN": {
-        "APTHECHKA": "Aptechka"
+        "APTHECHKA": "Aptechka",
+        "ADD": "Add"
     },
     "ABOUT": {
         "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
@@ -37,11 +38,15 @@
         "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>"
     },
     "SETTING": {
-        "ACCOUNT": "Account",
-        "NOTIFICATIONS": "Notifications",
-        "COLOR_THEME_TITLE": "Color theme",
-        "SELECT_THEME": "Select color",
+        "ACCOUNT": {
+            "TITLE": "Account"
+        },
+        "NOTIFICATIONS": {
+            "TITLE": "Notifications"
+        },
         "COLOR": {
+            "TITLE": "Color theme",
+            "LABEL": "Select color",
             "RED": "red",
             "GREEN": "green",
             "BLUE": "blue",
@@ -49,11 +54,26 @@
             "ORANGE": "orange",
             "CUSTOM": "custom"
         },
-        "LANGUAGE_TITLE": "Language",
-        "SELECT_LANGUAGE": "Select language",
+        "IMPACT_TYPES": {
+            "TITLE": "Impact types",
+            "LABEL": "impact type"
+        },
         "LANGUAGE": {
+            "TITLE": "Language",
+            "LABEL": "Select language",
             "RU": "russian",
             "EN": "english"
+        },
+        "TARGET_GROUPS": {
+            "TITLE": "Target groups",
+            "LABEL": "Select target groups"
+        },
+        "TITLE": "Settings",
+        "SELECT_LANGUAGE_TITLE": "Select language",
+        "WARNING_INTERVAL": {
+            "TITLE": "Warning interval",
+            "LABEL": "How many days to give a warning",
+            "IN_DAYS": "In {{daysCount}} days"
         }
     }
 }

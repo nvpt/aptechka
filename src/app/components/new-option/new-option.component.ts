@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-new-option',
@@ -7,7 +7,6 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 })
 export class NewOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
-    @Input() optionLabel?: string = 'option'
     @Output() onAdd?: EventEmitter<string> = new EventEmitter<string>();
 
     opened: boolean = false;
