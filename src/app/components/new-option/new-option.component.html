@@ -4,6 +4,7 @@
     <label *ngIf="opened">
         <input type="text"
                class="input-field"
+               (keydown)="cancelCreation($event)"
                #inputField>
     </label>
 
