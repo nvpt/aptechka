@@ -30,14 +30,19 @@
     font-size: 22px;
 }
 
-.option-btn-label {
+.label-wrap {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: $string-padding;
 }
 
+.option-btn-label {
+    cursor: pointer;
+}
+
 .option-icon {
     width: 100%;
     height: 100%;
+    font-size: $mat-icon-size;
 }
