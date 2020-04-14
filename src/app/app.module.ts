@@ -28,6 +28,7 @@ import {TargetGroupsPageComponent} from './pages/target-groups-page/target-group
 import {PanelControlComponent} from './components/panel-control/panel-control.component';
 import {NewMedicamentComponent} from './pages/new-medicament/new-medicament.component';
 import {NewBoxComponent} from './pages/new-box/new-box.component';
+import { EditableOptionComponent } from './components/editable-option/editable-option.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -53,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         TargetGroupsPageComponent,
         PanelControlComponent,
         NewMedicamentComponent,
-        NewBoxComponent
+        NewBoxComponent,
+        EditableOptionComponent
     ],
     imports: [
         BrowserModule,
