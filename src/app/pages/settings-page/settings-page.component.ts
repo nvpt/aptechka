@@ -15,7 +15,7 @@ export type LanguageType = 'ru' | 'en';
 })
 export class SettingsPageComponent implements OnInit, OnDestroy {
     currentColor!: ColorThemeType;
-    currentLanguage: LanguageType;
+    currentLanguage!: LanguageType;
 
     private translateSub$: Subscription;
 
@@ -81,5 +81,9 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     changeInterval(event: Event) {
         this.settingsService.warningInterval = Number((<HTMLInputElement>event.target).value);
+    }
+
+    addImpactType(event: string) {
+        console.log('88 >>> event: ', event);
     }
 }

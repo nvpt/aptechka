@@ -1,0 +1,42 @@
+<div class="new-option"
+     [ngClass]="{'editable': opened}">
+
+    <label *ngIf="opened">
+        <input type="text"
+               class="input-field"
+               #inputField>
+    </label>
+
+
+    <ng-container *ngIf="!opened; else edit">
+        <button id="addOption"
+                class="option-btn g-btn"
+                (click)="startCreation($event)"
+                (keydown)="startCreation($event)">
+            <span class="material-icons option-icon">
+                add
+            </span>
+        </button>
+
+        <label for="addOption"
+               class="option-btn-label">Add {{optionLabel}}</label>
+    </ng-container>
+
+    <ng-template #edit>
+        <button class="option-btn g-btn-success"
+                (click)="finishCreation($event)"
+                (keydown)="finishCreation($event)">
+            <span class="material-icons option-icon">
+                check
+            </span>
+        </button>
+        <button class="option-btn g-btn-error"
+                (click)="cancelCreation($event)"
+                (keydown)="cancelCreation($event)">
+            <span class="material-icons option-icon">
+                close
+            </span>
+        </button>
+    </ng-template>
+
+</div>

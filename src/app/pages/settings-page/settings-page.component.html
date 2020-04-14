@@ -112,24 +112,11 @@
             <h2 class="g-h2-title"
                 translate>IMPACT TYPES</h2>
             <section class="g-form-section">
+                <app-new-option  (onAdd)="addImpactType($event)"></app-new-option>
 
-                <label class="label"
-                       for="impactTypes"
-                       translate>Выберите типы воздействия</label>
-                <select class="select"
-                        id="impactTypes"
-                        multiple
-                        size="5"
-                        [value]="currentColor"
-                        (change)="selectTheme($event)">
-                    <option value="red"
-                            translate>SETTING.COLOR.RED
-                    </option>
-                    <option value="green"
-                            translate>SETTING.COLOR.GREEN
-                    </option>
-                </select>
+                <app-editable-option></app-editable-option>
             </section>
+
 
             <section class="g-form-section">
                 <span>

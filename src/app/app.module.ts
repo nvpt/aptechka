@@ -29,6 +29,7 @@ import {PanelControlComponent} from './components/panel-control/panel-control.co
 import {NewMedicamentComponent} from './pages/new-medicament/new-medicament.component';
 import {NewBoxComponent} from './pages/new-box/new-box.component';
 import { EditableOptionComponent } from './components/editable-option/editable-option.component';
+import { NewOptionComponent } from './components/new-option/new-option.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -55,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         PanelControlComponent,
         NewMedicamentComponent,
         NewBoxComponent,
-        EditableOptionComponent
+        EditableOptionComponent,
+        NewOptionComponent
     ],
     imports: [
         BrowserModule,
