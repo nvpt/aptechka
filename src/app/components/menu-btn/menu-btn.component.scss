@@ -8,7 +8,7 @@ $hovered-opacity: 1;
     left: $menu-side-padding;
     width: 50px;
     padding: 6px;
-    background: var(--color-current-80);
+    background: hsla(var(--current-hue), var(--current-saturation), 80%, 0.6s);
     border: 1px solid var(--color-current-40);
     border-radius: $border-radius;
     cursor: pointer;
