@@ -1,4 +1,4 @@
-import {Input, Component, OnInit} from '@angular/core';
+import {Input, Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 import {BoxI} from '../../../../interfaces/box-interface';
 import {MedicamentI} from '../../../../interfaces/medicament-interface';
@@ -12,6 +12,7 @@ import {medicamentsMock} from '../../../medicaments-page/medicaments.mock';
 })
 export class TileComponent implements OnInit {
     @Input() box?: BoxI;
+    @Output() onDelete: EventEmitter<void> = new EventEmitter<void>()
     onTheVerge: number = 0;
     overdue: number = 0;
     currentDate: Date = new Date();

@@ -25,7 +25,7 @@ $panel-control-height: 50px;
 $mat-icon-size: 22px;
 
 //option-item
-$option-item-height: 38px;
+$option-item-height: 22px + $input-padding * 2;//32
 
 /*ADAPTIVITY*/
 //minimal grid structure item
