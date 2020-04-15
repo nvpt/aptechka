@@ -1,5 +1,53 @@
-<div class="editable-option">
-    <input type="checkbox">
-    <input type="text">
-    <button>&#10003;</button>
+<div class="editable-option"
+     [ngClass]="{'can-add': canAdd, 'can-edit': canEdit}">
+    <label class="checkbox-label g-btn-success"
+           *ngIf="canAdd">
+        <input type="checkbox"
+               class="checkbox-btn"
+               (click)="check($event)"
+               (keydown)="check($event)">
+    </label>
+    <label>
+        <input type="text"
+               class="input-field"
+               [disabled]="!editedNow"
+               [value]="optionValue"
+               (keydown)="cancel($event)"
+               #inputField>
+    </label>
+
+    <ng-container *ngIf="canEdit && !editedNow">
+        <button class="action-btn g-btn-success"
+                (click)="edit($event)"
+                (keydown)="edit($event)">
+            <span class="material-icons option-icon">
+                edit
+            </span>
+        </button>
+        <button class="action-btn g-btn-error"
+                (click)="delete($event)"
+                (keydown)="delete($event)">
+            <span class="material-icons option-icon">
+                delete
+            </span>
+        </button>
+    </ng-container>
+
+    <ng-container *ngIf="editedNow">
+        <button class="action-btn g-btn-success"
+                (click)="save($event)"
+                (keydown)="save($event)">
+            <span class="material-icons option-icon">
+                check
+            </span>
+        </button>
+        <button class="action-btn  g-btn-error"
+                (click)="cancel($event)"
+                (keydown)="cancel($event)">
+            <span class="material-icons option-icon">
+                close
+            </span>
+        </button>
+    </ng-container>
+
 </div>
