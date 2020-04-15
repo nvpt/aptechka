@@ -27,13 +27,13 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     impactTypes: ImpactTypeI[] = this.impactTypeService.impactTypes;
     impactErrors: string[] = [];
 
-    targetGroups: TargetGroupI[] = this.targetGroupService.targetGroups;
+    targetGroups: TargetGroupI[] = this.targetGroupsService.targetGroups;
     targetGroupsErrors: string[] = [];
 
 
     private translateSub$: Subscription;
 
-    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypesService, public targetGroupService: TargetGroupsService) {
+    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypesService, public targetGroupsService: TargetGroupsService) {
     }
 
     ngOnInit(): void {
@@ -120,7 +120,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     /*Target groups*/
     getTargetGroups() {
-        this.targetGroupService.getTargetGroups();
+        this.targetGroupsService.getTargetGroups();
     }
 
     addTargetGroup(newGroupTitle: string): void {
@@ -130,10 +130,10 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
             this.targetGroupsErrors.unshift(error);
             return;
         }
-        this.targetGroupService.addTargetGroup(newGroupTitle);
+        this.targetGroupsService.addTargetGroup(newGroupTitle);
     }
 
     deleteTargetGroup(targetGroup: TargetGroupI) {
-        this.targetGroupService.deleteTargetGroup(targetGroup);
+        this.targetGroupsService.deleteTargetGroup(targetGroup);
     }
 }

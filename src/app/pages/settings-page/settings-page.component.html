@@ -92,9 +92,9 @@
             <section class="g-form-section">
                 <app-new-option [errorMessages]="targetGroupsErrors"
                                 (onAdd)="addTargetGroup($event)"></app-new-option>
-                <div class="option-list" *ngIf="targetGroupService.targetGroups?.length">
+                <div class="option-list" *ngIf="targetGroupsService.targetGroups?.length">
                     <div class="option-item"
-                         *ngFor="let targetGroup of targetGroupService.targetGroups">
+                         *ngFor="let targetGroup of targetGroupsService.targetGroups">
                         <app-editable-option [(optionValue)]="targetGroup.title"
                                              (onDelete)="deleteTargetGroup(targetGroup)">
                         </app-editable-option>
