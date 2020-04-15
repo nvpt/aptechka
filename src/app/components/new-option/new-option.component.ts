@@ -20,8 +20,7 @@ export class NewOptionComponent implements OnInit {
     }
 
     startCreation() {
-        console.log('start creation');
-        console.log('event');
+        this.optionValue = null;
         this.errorMessages = [];
         this.edited = true;
         setTimeout(() => {

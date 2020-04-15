@@ -92,7 +92,7 @@
             <section class="g-form-section">
                 <app-new-option [errorMessages]="targetGroupsErrors"
                                 (onAdd)="addTargetGroup($event)"></app-new-option>
-                <div class="option-list">
+                <div class="option-list" *ngIf="targetGroupService.targetGroups?.length">
                     <div class="option-item"
                          *ngFor="let targetGroup of targetGroupService.targetGroups">
                         <app-editable-option [(optionValue)]="targetGroup.title"
@@ -108,7 +108,7 @@
             <section class="g-form-section">
                 <app-new-option [errorMessages]="impactErrors"
                                 (onAdd)="addImpactType($event)"></app-new-option>
-                <div class="option-list">
+                <div class="option-list" *ngIf="impactTypeService.impactTypes?.length">
                     <div class="option-item"
                          *ngFor="let impactType of impactTypeService.impactTypes">
                         <app-editable-option [(optionValue)]="impactType.title"
