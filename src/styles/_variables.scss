@@ -6,9 +6,6 @@ $container-width: 1200px;
 $container-edit-width: $container-width/2;
 
 /*COMPONENTS*/
-//icons
-$mat-icon-size: 28px;
-
 //header
 $header-height: 60px;
 
@@ -22,6 +19,12 @@ $menu-side-padding: $content-side-padding;
 
 //panel-control {
 $panel-control-height: 50px;
+
+//icons
+$mat-icon-size: 22px;
+
+//option-item
+$option-item-height: 38px;
 
 /*ADAPTIVITY*/
 //minimal grid structure item
