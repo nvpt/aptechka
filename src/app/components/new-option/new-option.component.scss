@@ -46,3 +46,11 @@
     height: 100%;
     font-size: $mat-icon-size;
 }
+
+.error-list {
+    padding-top: $content-side-padding / 2;
+}
+
+.error {
+    line-height: 1;
+}
