@@ -44,15 +44,15 @@
             <section class="g-form-section img-section">
                 <span>
 
-                <label for="img">
+                <label for="img" class="add-img-btn-label">
                     <span class="g-btn">{{form?.value?.img ? 'Change image' : 'Add image'}}</span>
                 </label>
 
-                <input style="display: none;"
+                <input class="add-img-btn"
                        id="img"
                        accept="image/*"
                        type="file"
-                       (change)="showPreview($event)">
+                       (change)="addImage($event)">
                 <input type="hidden"
                        formControlName="img">
                 <button (click)="clearPreview()"

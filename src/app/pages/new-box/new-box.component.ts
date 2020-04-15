@@ -39,22 +39,16 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         this.location.back();
     }
 
-    showPreview(event: Event) {
+    addImage(event: Event) {
         const img = (<HTMLInputElement>(event.target)).files[0];
-        
         const reader = new FileReader();
 
         reader.onload = () => {
             this.imgUrl = reader.result as string;
         };
-
         img && reader.readAsDataURL(img);
 
         this.form.patchValue({img});
-        this.form.controls.img.updateValueAndValidity();
-
-        console.log('56 >>> this.form.value: ', this.form.value);
-        
     }
 
     clearPreview() {
