@@ -1,10 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ColorThemeType, ThemesService} from '../../modules/themes/themes.service';
-import {Constants} from '../../constants';
-import {StorageDataI} from '../../interfaces/storage-data-interface';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
+
+import {Constants} from '../../constants';
+import {ColorThemeType, ThemesService} from '../../modules/themes/themes.service';
+import {StorageDataI} from '../../interfaces/storage-data-interface';
 import {SettingsService} from '../../services/settings.service';
+import {impactTypesMock} from '../impact-types-page/impact-types-mock';
+import {ImpactTypeI} from '../../interfaces/impact-type-interface';
 
 export type LanguageType = 'ru' | 'en';
 
@@ -16,6 +19,7 @@ export type LanguageType = 'ru' | 'en';
 export class SettingsPageComponent implements OnInit, OnDestroy {
     currentColor!: ColorThemeType;
     currentLanguage!: LanguageType;
+    impactTypes: ImpactTypeI[] = impactTypesMock;
 
     private translateSub$: Subscription;
 
