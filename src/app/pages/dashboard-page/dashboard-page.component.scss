@@ -10,13 +10,12 @@
 }
 
 .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto, $cell-width));
+    grid-template-rows: repeat(min(1), 1fr);
+    justify-content: center;
     width: $container-width;
     max-width: 100%;
     margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($cell-width, 1fr));
-    grid-template-rows: repeat(min(1), 1fr);
-
     grid-gap: 20px;
 }

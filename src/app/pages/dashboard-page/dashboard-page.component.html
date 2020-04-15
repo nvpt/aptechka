@@ -4,13 +4,24 @@
             translate>BREADCRUMB.DASHBOARD</h1>
         <app-panel-control>
             <ng-container right>
-                <button (click)="addBox()" class="g-btn-small">Add Box</button>
+                <button (click)="addBox()"
+                        class="g-btn-small">Add Box
+                </button>
             </ng-container>
         </app-panel-control>
     </div>
 
     <div class="content">
-        <app-tile *ngFor="let box of boxes"
-                  [box]="box"></app-tile>
+        <ng-container *ngIf="boxesService.boxes?.length; else emptyPlaceholder">
+            <app-tile (onDelete)="deleteBox($event)"
+                      *ngFor="let box of boxesService.boxes"
+                      [box]="box"></app-tile>
+        </ng-container>
+
+        <ng-template #emptyPlaceholder>
+            <span class="g-empty-placeholder">No boxes</span>
+        </ng-template>
     </div>
+
+
 </div>

@@ -12,7 +12,7 @@ import {medicamentsMock} from '../../../medicaments-page/medicaments.mock';
 })
 export class TileComponent implements OnInit {
     @Input() box?: BoxI;
-    @Output() onDelete: EventEmitter<void> = new EventEmitter<void>()
+    @Output() onDelete: EventEmitter<BoxI> = new EventEmitter<BoxI>();
     onTheVerge: number = 0;
     overdue: number = 0;
     currentDate: Date = new Date();
@@ -46,6 +46,10 @@ export class TileComponent implements OnInit {
                 }
             });
         }
+    }
+
+    deleteBox(box: BoxI): void {
+        this.onDelete.emit(box);
     }
 
 }
