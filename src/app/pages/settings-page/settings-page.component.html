@@ -117,7 +117,7 @@
                                 (onAdd)="addImpactType($event)"></app-new-option>
                 <div class="option-list">
                     <div class="option-item"
-                         *ngFor="let impactType of impactTypes">
+                         *ngFor="let impactType of impactTypeService.impactTypes">
                         <app-editable-option [(optionValue)]="impactType.title"
                                              (onDelete)="deleteImpactType(impactType)">
                         </app-editable-option>

@@ -27,7 +27,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     private translateSub$: Subscription;
 
-    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, private impactTypeService: ImpactTypeService) {
+    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypeService) {
     }
 
     ngOnInit(): void {
