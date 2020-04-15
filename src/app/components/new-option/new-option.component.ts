@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-new-option',
@@ -7,9 +7,11 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 })
 export class NewOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
+    @Input() errorMessages?: string[] = [];
     @Output() onAdd?: EventEmitter<string> = new EventEmitter<string>();
 
     edited: boolean = false;
+    optionValue: string = null;
 
     constructor() {
     }
@@ -20,7 +22,7 @@ export class NewOptionComponent implements OnInit {
     startCreation() {
         console.log('start creation');
         console.log('event');
-
+        this.errorMessages = [];
         this.edited = true;
         setTimeout(() => {
             this.inputField && this.inputField.nativeElement.focus();
@@ -33,7 +35,10 @@ export class NewOptionComponent implements OnInit {
     }
 
     finishCreation() {
-        const inputValue = this.inputField.nativeElement.value;
+        if (this.errorMessages.length) {
+            return;
+        }
+        const inputValue = this.optionValue;
 
         this.onAdd.emit(inputValue);
         this.edited = false;

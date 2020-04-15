@@ -4,11 +4,12 @@
     <label *ngIf="edited">
         <input type="text"
                class="input-field"
+               [(ngModel)]="optionValue"
                (keydown)="keypressFinishCreation($event)"
                #inputField>
     </label>
 
-
+    <!--CREATE-->
     <ng-container *ngIf="!edited; else edit">
         <button id="addOption"
                 class="option-btn g-btn"
@@ -26,13 +27,15 @@
     </ng-container>
 
     <ng-template #edit>
+        <!--SAVE-->
         <button class="option-btn g-btn-success"
                 (click)="finishCreation()"
-                (keydown)="keypressFinishCreation($event)">
+                (keydown)="keypressFinishCreation($event)" [disabled]="!optionValue?.length">
             <span class="material-icons option-icon">
                 check
             </span>
         </button>
+        <!--CANCEL-->
         <button class="option-btn g-btn-error"
                 (click)="cancelCreation()"
                 (keydown)="keypressCancelCreation($event)">
@@ -42,4 +45,10 @@
         </button>
     </ng-template>
 
+</div>
+<div *ngIf="errorMessages?.length" class="error-list">
+    <div *ngFor="let error of errorMessages" class="error">
+        <small class="g-error-text"
+               translate>{{error}}</small>
+    </div>
 </div>

@@ -113,11 +113,13 @@
             <h2 class="g-h2-title"
                 translate>SETTING.IMPACT_TYPES.TITLE</h2>
             <section class="g-form-section">
-                <app-new-option (onAdd)="addImpactType($event)"></app-new-option>
+                <app-new-option [errorMessages]="impactErrors"
+                                (onAdd)="addImpactType($event)"></app-new-option>
                 <div class="option-list">
                     <div class="option-item"
                          *ngFor="let impactType of impactTypes">
-                        <app-editable-option [(optionValue)]="impactType.title">
+                        <app-editable-option [(optionValue)]="impactType.title"
+                                             (onDelete)="deleteImpactType(impactType)">
                         </app-editable-option>
                     </div>
                 </div>

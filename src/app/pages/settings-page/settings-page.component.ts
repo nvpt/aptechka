@@ -3,10 +3,12 @@ import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
 
 import {Constants} from '../../constants';
+
 import {ColorThemeType, ThemesService} from '../../modules/themes/themes.service';
-import {StorageDataI} from '../../interfaces/storage-data-interface';
 import {SettingsService} from '../../services/settings.service';
-import {impactTypesMock} from '../impact-types-page/impact-types-mock';
+import {ImpactTypeService} from '../../services/impact-type.service';
+import {StorageDataI} from '../../interfaces/storage-data-interface';
+
 import {ImpactTypeI} from '../../interfaces/impact-type-interface';
 
 export type LanguageType = 'ru' | 'en';
@@ -19,19 +21,26 @@ export type LanguageType = 'ru' | 'en';
 export class SettingsPageComponent implements OnInit, OnDestroy {
     currentColor!: ColorThemeType;
     currentLanguage!: LanguageType;
-    impactTypes: ImpactTypeI[] = impactTypesMock;
+
+    impactTypes: ImpactTypeI[] = this.impactTypeService.impactTypes;
+    impactErrors: string[] = [];
 
     private translateSub$: Subscription;
 
-    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService,) {
+    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, private impactTypeService: ImpactTypeService) {
     }
 
     ngOnInit(): void {
         this.initStorageData();
+        this.getImpactTypes();
     }
 
     ngOnDestroy(): void {
         this.translateSub$ && this.translateSub$.unsubscribe();
+    }
+
+    getImpactTypes() {
+        this.impactTypeService.getImpactTypes();
     }
 
     initStorageData(): void {
@@ -87,7 +96,18 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         this.settingsService.warningInterval = Number((<HTMLInputElement>event.target).value);
     }
 
-    addImpactType(event: string) {
-        console.log('88 >>> event: ', event);
+    /*Impact types*/
+    addImpactType(impactTitle: string): void {
+        if (this.impactTypes.some((impact) => (impact.title.toLowerCase() === impactTitle.toLowerCase()))) {
+            const error = 'ERROR.IMPACT_TYPE.ALREADY_EXISTS';
+            this.impactErrors = [];
+            this.impactErrors.unshift(error);
+            return;
+        }
+        this.impactTypeService.addImpactType(impactTitle);
+    }
+
+    deleteImpactType(impactType: ImpactTypeI) {
+        this.impactTypeService.deleteImpactType(impactType);
     }
 }
