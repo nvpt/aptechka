@@ -17,35 +17,45 @@ export class NewOptionComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    startCreation(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
-            event.type === 'click') {
-            this.edited = true;
-            setTimeout(() => {
-                this.inputField && this.inputField.nativeElement.focus();
-            }, 0);
+    startCreation() {
+        console.log('start creation');
+        console.log('event');
+
+        this.edited = true;
+        setTimeout(() => {
+            this.inputField && this.inputField.nativeElement.focus();
+        }, 0);
+
+    }
+
+    cancelCreation() {
+        this.edited = false;
+    }
+
+    finishCreation() {
+        const inputValue = this.inputField.nativeElement.value;
+
+        this.onAdd.emit(inputValue);
+        this.edited = false;
+    }
+
+    keypressStartCreation(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter') {
+            this.startCreation();
         }
     }
 
-    cancelCreation(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' &&
-            (
-                ((<KeyboardEvent>event).key === 'Enter') ||
-                ((<KeyboardEvent>event).key === 'Escape')
-            ) ||
-            event.type === 'click') {
-
-            this.edited = false;
+    keypressFinishCreation(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter') {
+            this.finishCreation();
+        } else if ((<KeyboardEvent>event).key === 'Escape') {
+            this.cancelCreation();
         }
     }
 
-    finishCreation(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
-            event.type === 'click') {
-            const inputValue = this.inputField.nativeElement.value;
-
-            this.onAdd.emit(inputValue);
-            this.edited = false;
+    keypressCancelCreation(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter' || (<KeyboardEvent>event).key === 'Escape') {
+            this.cancelCreation();
         }
     }
 

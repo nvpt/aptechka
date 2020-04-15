@@ -4,7 +4,7 @@
     <label *ngIf="edited">
         <input type="text"
                class="input-field"
-               (keydown)="cancelCreation($event)"
+               (keydown)="keypressFinishCreation($event)"
                #inputField>
     </label>
 
@@ -12,8 +12,8 @@
     <ng-container *ngIf="!edited; else edit">
         <button id="addOption"
                 class="option-btn g-btn"
-                (click)="startCreation($event)"
-                (keydown)="startCreation($event)">
+                (click)="startCreation()"
+                (keydown)="keypressStartCreation($event)">
             <span class="material-icons option-icon">
                 add
             </span>
@@ -27,15 +27,15 @@
 
     <ng-template #edit>
         <button class="option-btn g-btn-success"
-                (click)="finishCreation($event)"
-                (keydown)="finishCreation($event)">
+                (click)="finishCreation()"
+                (keydown)="keypressFinishCreation($event)">
             <span class="material-icons option-icon">
                 check
             </span>
         </button>
         <button class="option-btn g-btn-error"
-                (click)="cancelCreation($event)"
-                (keydown)="cancelCreation($event)">
+                (click)="cancelCreation()"
+                (keydown)="keypressCancelCreation($event)">
             <span class="material-icons option-icon">
                 close
             </span>
