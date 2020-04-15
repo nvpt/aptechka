@@ -4,29 +4,28 @@
            *ngIf="canAdd">
         <input type="checkbox"
                class="checkbox-btn"
-               (click)="check($event)"
-               (keydown)="check($event)">
+               (click)="add($event)">
     </label>
     <label>
         <input type="text"
                class="input-field"
                [disabled]="!editedNow"
                [value]="optionValue"
-               (keydown)="cancel($event)"
+               (keydown)="keypressSave($event)"
                #inputField>
     </label>
 
     <ng-container *ngIf="canEdit && !editedNow">
         <button class="action-btn g-btn-success"
-                (click)="edit($event)"
-                (keydown)="edit($event)">
+                (click)="edit()"
+                (keydown)="keypressEdit($event)">
             <span class="material-icons option-icon">
                 edit
             </span>
         </button>
         <button class="action-btn g-btn-error"
-                (click)="delete($event)"
-                (keydown)="delete($event)">
+                (click)="delete()"
+                (keydown)="keypressDelete($event)">
             <span class="material-icons option-icon">
                 delete
             </span>
@@ -35,15 +34,15 @@
 
     <ng-container *ngIf="editedNow">
         <button class="action-btn g-btn-success"
-                (click)="save($event)"
-                (keydown)="save($event)">
+                (click)="save()"
+                (keydown)="keypressSave($event)">
             <span class="material-icons option-icon">
                 check
             </span>
         </button>
         <button class="action-btn  g-btn-error"
-                (click)="cancel($event)"
-                (keydown)="cancel($event)">
+                (click)="cancel()"
+                (keydown)="keypressCancel($event)">
             <span class="material-icons option-icon">
                 close
             </span>

@@ -7,7 +7,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 })
 export class EditableOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
-    @Input() canAdd?: boolean = false;
+    @Input() canAdd?: boolean = true;
     @Input() canEdit?: boolean = true;
     @Input() optionValue?: string = null;
     @Output() optionValueChange: EventEmitter<any> = new EventEmitter<any>();
@@ -23,50 +23,60 @@ export class EditableOptionComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    edit(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
-            event.type === 'click') {
-            this.cachedValue = this.optionValue;
-            this.editedNow = true;
-            setTimeout(() => {
-                this.inputField && this.inputField.nativeElement.focus();
-            }, 0);
-        }
+    edit() {
+        this.cachedValue = this.optionValue;
+        this.editedNow = true;
+        setTimeout(() => {
+            this.inputField && this.inputField.nativeElement.focus();
+        }, 0);
     }
 
-    delete(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
-            event.type === 'click') {
-            this.onDelete.emit();
-        }
+    delete() {
+        this.onDelete.emit();
     }
 
-    check(event: KeyboardEvent | MouseEvent) {
+    save() {
+        const inputValue = this.inputField.nativeElement.value;
 
+        this.optionValueChange.emit(inputValue);
+        this.editedNow = false;
+    }
+
+    cancel() {
+        this.optionValue = this.cachedValue;
+        this.inputField.nativeElement.value = this.cachedValue;
+        this.optionValueChange.emit(this.optionValue);
+        this.editedNow = false;
+    }
+
+    add(event: KeyboardEvent | MouseEvent) {
         this.onCheck.emit(event);
     }
 
-    cancel(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' &&
-            (
-                ((<KeyboardEvent>event).key === 'Enter') ||
-                ((<KeyboardEvent>event).key === 'Escape')
-            ) ||
-            event.type === 'click') {
-            this.optionValue = this.cachedValue;
-            this.inputField.nativeElement.value = this.cachedValue;
-            this.optionValueChange.emit(this.optionValue);
-            this.editedNow = false;
+    keypressEdit(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter') {
+            this.edit();
         }
     }
 
-    save(event: KeyboardEvent | MouseEvent) {
-        if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
-            event.type === 'click') {
-            const inputValue = this.inputField.nativeElement.value;
-
-            this.optionValueChange.emit(inputValue);
-            this.editedNow = false;
+    keypressDelete(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter') {
+            this.delete();
         }
     }
+
+    keypressSave(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter') {
+            this.save();
+        } else if ((<KeyboardEvent>event).key === 'Escape') {
+            this.cancel();
+        }
+    }
+
+    keypressCancel(event: KeyboardEvent) {
+        if ((<KeyboardEvent>event).key === 'Enter' || (<KeyboardEvent>event).key === 'Escape') {
+            this.cancel();
+        }
+    }
+
 }
