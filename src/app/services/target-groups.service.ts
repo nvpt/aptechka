@@ -28,7 +28,7 @@ export class TargetGroupsService {
             title: 'Ожоги, порезы'
         },
         {
-            id: 5,
+            id: 6,
             title: 'От кашля'
         },
     ];

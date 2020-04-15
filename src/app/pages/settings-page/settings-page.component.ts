@@ -10,6 +10,8 @@ import {ImpactTypesService} from '../../services/impact-types.service';
 import {StorageDataI} from '../../interfaces/storage-data-interface';
 
 import {ImpactTypeI} from '../../interfaces/impact-type-interface';
+import {TargetGroupsService} from '../../services/target-groups.service';
+import {TargetGroupI} from '../../interfaces/target-group-interface';
 
 export type LanguageType = 'ru' | 'en';
 
@@ -25,14 +27,19 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     impactTypes: ImpactTypeI[] = this.impactTypeService.impactTypes;
     impactErrors: string[] = [];
 
+    targetGroups: TargetGroupI[] = this.targetGroupService.targetGroups;
+    targetGroupsErrors: string[] = [];
+
+
     private translateSub$: Subscription;
 
-    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypesService) {
+    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypesService, public targetGroupService: TargetGroupsService) {
     }
 
     ngOnInit(): void {
         this.initStorageData();
         this.getImpactTypes();
+        this.getTargetGroups();
     }
 
     ngOnDestroy(): void {
@@ -109,5 +116,24 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     deleteImpactType(impactType: ImpactTypeI) {
         this.impactTypeService.deleteImpactType(impactType);
+    }
+
+    /*Target groups*/
+    getTargetGroups() {
+        this.targetGroupService.getTargetGroups();
+    }
+
+    addTargetGroup(newGroupTitle: string): void {
+        if (this.targetGroups.some((group) => (group.title.toLowerCase() === newGroupTitle.toLowerCase()))) {
+            const error = 'ERROR.TARGET_GROUP.ALREADY_EXISTS';
+            this.targetGroupsErrors = [];
+            this.targetGroupsErrors.unshift(error);
+            return;
+        }
+        this.targetGroupService.addTargetGroup(newGroupTitle);
+    }
+
+    deleteTargetGroup(targetGroup: TargetGroupI) {
+        this.targetGroupService.deleteTargetGroup(targetGroup);
     }
 }

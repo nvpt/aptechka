@@ -90,23 +90,16 @@
             <h2 class="g-h2-title"
                 translate>SETTING.TARGET_GROUPS.TITLE</h2>
             <section class="g-form-section">
-
-                <label class="label"
-                       for="targetGroups"
-                       translate>SETTING.TARGET_GROUPS.LABEL</label>
-                <select class="select"
-                        id="targetGroups"
-                        multiple
-                        size="5"
-                        [value]="currentColor"
-                        (change)="selectTheme($event)">
-                    <option value="red"
-                            translate>SETTING.COLOR.RED
-                    </option>
-                    <option value="green"
-                            translate>SETTING.COLOR.GREEN
-                    </option>
-                </select>
+                <app-new-option [errorMessages]="targetGroupsErrors"
+                                (onAdd)="addTargetGroup($event)"></app-new-option>
+                <div class="option-list">
+                    <div class="option-item"
+                         *ngFor="let targetGroup of targetGroupService.targetGroups">
+                        <app-editable-option [(optionValue)]="targetGroup.title"
+                                             (onDelete)="deleteTargetGroup(targetGroup)">
+                        </app-editable-option>
+                    </div>
+                </div>
             </section>
 
             <!--IMPACT TYPES-->

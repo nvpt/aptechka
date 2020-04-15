@@ -28,7 +28,10 @@
     },
     "ERROR": {
         "IMPACT_TYPE": {
-            "ALREADY_EXISTS": "Такая целевая группа уже есть"
+            "ALREADY_EXISTS": "Такой способ воздействия уже есть"
+        },
+        "TARGET_GROUP": {
+            "ALREADY_EXISTS": "Такой целевая группа уже есть"
         }
     },
     "MAIN": {

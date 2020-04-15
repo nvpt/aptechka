@@ -29,6 +29,9 @@
     "ERROR": {
         "IMPACT_TYPE": {
             "ALREADY_EXISTS": "This impact type already exists"
+        },
+        "TARGET_GROUP": {
+            "ALREADY_EXISTS": "This target group already exists"
         }
     },
     "MAIN": {
