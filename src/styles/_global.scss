@@ -6,6 +6,11 @@
     grid-template-rows: auto 1fr;
     padding: $content-side-padding;
     background: var(--color-app_bg-bg);
+    overflow: hidden;
+}
+
+.g-page {
+    overflow: auto;
 }
 
 .g-top-page {

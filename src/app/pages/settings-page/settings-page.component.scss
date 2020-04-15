@@ -1,4 +1,7 @@
 @import "src/styles/variables";
+:host {
+    overflow: auto;
+}
 
 .settings {
 

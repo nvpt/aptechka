@@ -1,5 +1,9 @@
 @import "src/styles/variables";
 
+:host {
+    overflow: auto;
+}
+
 .content {
     margin: auto;
     width: $container-edit-width;

@@ -7,7 +7,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 })
 export class EditableOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
-    @Input() canAdd?: boolean = true;
+    @Input() canAdd?: boolean = false;
     @Input() canEdit?: boolean = true;
     @Input() optionValue?: string = null;
     @Output() optionValueChange: EventEmitter<any> = new EventEmitter<any>();
