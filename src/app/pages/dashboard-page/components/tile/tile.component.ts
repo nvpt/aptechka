@@ -29,7 +29,7 @@ export class TileComponent implements OnInit {
 
     defineMedicaments() {
         this.boxMedicaments = medicamentsMock.filter(medicament => (
-            this.box.medicamentsId.includes(medicament.id)
+            this.box.medicamentsId && this.box.medicamentsId.includes(medicament.id)
         ));
     }
 
