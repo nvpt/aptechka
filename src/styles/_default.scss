@@ -1,3 +1,5 @@
+@import "variables";
+
 html,
 body {
     position: relative;
@@ -15,6 +17,7 @@ h1, h2, h3, h4, h5, h6, .title {
 }
 
 .disabled {
+    padding: $input-padding + 1; //fix narrowing of disabled components
     background: var(--color-app_disabled-bg);
     color: var(--color-app_disabled-color);
     border: 1px solid var(--color-app_disabled-border);
@@ -25,7 +28,7 @@ h1, h2, h3, h4, h5, h6, .title {
 input,
 textarea,
 select {
-    padding: 8px;
+    padding: $input-padding;
     font-size: 1rem;
     color: var(--color-app_text);
 

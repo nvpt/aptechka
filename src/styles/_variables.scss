@@ -1,9 +1,10 @@
 /*COMMON*/
-$content-side-padding: 20px;
-$string-padding: 8px;
+$content-side-padding: 20px; //main padding for containers
+$string-padding: 8px; //main padding for content
 $border-radius: 3px;
 $container-width: 1200px;
-$container-edit-width: $container-width/2;
+$container-edit-width: $container-width / 2; //width of container in editable pages
+$input-padding: 8px; //padding of elements in form
 
 /*COMPONENTS*/
 //header
