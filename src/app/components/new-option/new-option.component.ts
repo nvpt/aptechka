@@ -25,7 +25,6 @@ export class NewOptionComponent implements OnInit {
                 this.inputField && this.inputField.nativeElement.focus();
             }, 0);
         }
-
     }
 
     cancelCreation(event: KeyboardEvent | MouseEvent) {
@@ -43,8 +42,8 @@ export class NewOptionComponent implements OnInit {
     finishCreation(event: KeyboardEvent | MouseEvent) {
         if (event.type === 'keydown' && (<KeyboardEvent>event).key === 'Enter' ||
             event.type === 'click') {
-
             const inputValue = this.inputField.nativeElement.value;
+
             this.onAdd.emit(inputValue);
             this.edited = false;
         }
