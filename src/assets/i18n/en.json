@@ -1,8 +1,4 @@
 {
-    "MAIN": {
-        "APTHECHKA": "Aptechka",
-        "ADD": "Add"
-    },
     "ABOUT": {
         "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
     },
@@ -29,6 +25,15 @@
             "ON_THE_VERGE": "On the verge",
             "OVERDUE": "Overdue"
         }
+    },
+    "ERROR": {
+        "IMPACT_TYPE": {
+            "ALREADY_EXISTS": "This impact type already exists"
+        }
+    },
+    "MAIN": {
+        "APTHECHKA": "Aptechka",
+        "ADD": "Add"
     },
     "NEW_BOX": {
         "DEFAULT_TITLE": "New Box"
