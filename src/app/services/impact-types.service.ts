@@ -4,7 +4,7 @@ import {ImpactTypeI} from '../interfaces/impact-type-interface';
 @Injectable({
     providedIn: 'root'
 })
-export class ImpactTypeService {
+export class ImpactTypesService {
     impactTypes: ImpactTypeI[] = [
         {
             id: 1,

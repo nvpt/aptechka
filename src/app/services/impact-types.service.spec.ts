@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ImpactTypeService } from './impact-type.service';
+import { ImpactTypesService } from './impact-types.service';
 
 describe('ImpactTypeService', () => {
-  let service: ImpactTypeService;
+  let service: ImpactTypesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ImpactTypeService);
+    service = TestBed.inject(ImpactTypesService);
   });
 
   it('should be created', () => {

@@ -6,7 +6,7 @@ import {Constants} from '../../constants';
 
 import {ColorThemeType, ThemesService} from '../../modules/themes/themes.service';
 import {SettingsService} from '../../services/settings.service';
-import {ImpactTypeService} from '../../services/impact-type.service';
+import {ImpactTypesService} from '../../services/impact-types.service';
 import {StorageDataI} from '../../interfaces/storage-data-interface';
 
 import {ImpactTypeI} from '../../interfaces/impact-type-interface';
@@ -27,7 +27,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     private translateSub$: Subscription;
 
-    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypeService) {
+    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypesService) {
     }
 
     ngOnInit(): void {
