@@ -62,13 +62,12 @@ $picture-wrap-height: 200px;
 }
 
 .groups-item {
-    $dash-padding: 8px;
     position: relative;
-    padding-left: $dash-padding;
+    padding-left: $string-padding;
 
     &:before {
         content: '-';
-        padding-right: $dash-padding;
+        padding-right: $string-padding;
     }
 }
 
