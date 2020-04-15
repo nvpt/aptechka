@@ -81,21 +81,16 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         } else {
             this.targetGroups = [...this.targetGroups.filter((group) => (group.id !== targetGroup.id))];
         }
-
-        console.log('91 >>> event: ', event);
-
-        console.log('91 >>> targetGroup: ', targetGroup);
-
     }
 
 
     saveBox() {
-        console.log('68 >>> this.form: ', this.form);
         const box: NewBoxI = {
             id: new Date().getTime(),
             description: this.form.value.description,
             title: this.form.value.title,
             newImg: this.form.value.img,
+            img: this.imgUrl,
             targetGroups: this.targetGroups,
             medicamentsId: this.form.value.medicamentsId
         };
