@@ -52,10 +52,6 @@ export class ImpactTypesService {
     }
 
     deleteImpactType(impactType: ImpactTypeI): void {
-        console.log('55 >>> impactType: ', impactType);
-        let res = [...this.impactTypes.filter(element => (element.id !== impactType.id))];
-        console.log('57 >>> res: ', res);
-        
         this.impactTypes = [...this.impactTypes.filter(element => (element.id !== impactType.id))];
     }
 }
