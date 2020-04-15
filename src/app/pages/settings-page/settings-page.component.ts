@@ -124,7 +124,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     }
 
     addTargetGroup(newGroupTitle: string): void {
-        if (this.targetGroups.some((group) => (group.title.toLowerCase() === newGroupTitle.toLowerCase()))) {
+        if (this.targetGroupsService.targetGroups.some((group) => (group.title.toLowerCase() === newGroupTitle.toLowerCase()))) {
             const error = 'ERROR.TARGET_GROUP.ALREADY_EXISTS';
             this.targetGroupsErrors = [];
             this.targetGroupsErrors.unshift(error);
