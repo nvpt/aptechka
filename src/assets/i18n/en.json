@@ -19,7 +19,7 @@
         "TILE": {
             "PLACE": "Place",
             "DESCRIPTION": "Description",
-            "QUANTITY": "Quantity",
+            "MEDICAMENTS": "Medicaments",
             "GROUPS": "Groups",
             "TOTAL": "Total",
             "ON_THE_VERGE": "On the verge",

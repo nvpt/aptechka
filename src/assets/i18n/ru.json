@@ -19,7 +19,7 @@
         "TILE": {
             "PLACE": "Место",
             "DESCRIPTION": "Описание",
-            "QUANTITY": "Количество",
+            "MEDICAMENTS": "Лекарства",
             "GROUPS": "Группы",
             "TOTAL": "Всего",
             "ON_THE_VERGE": "На грани",
