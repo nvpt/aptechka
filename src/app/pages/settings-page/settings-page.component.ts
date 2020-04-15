@@ -39,10 +39,6 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         this.translateSub$ && this.translateSub$.unsubscribe();
     }
 
-    getImpactTypes() {
-        this.impactTypeService.getImpactTypes();
-    }
-
     initStorageData(): void {
         const storageData = localStorage.getItem(Constants.STORAGE_KEY);
         if (storageData) {
@@ -97,14 +93,18 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     }
 
     /*Impact types*/
-    addImpactType(impactTitle: string): void {
-        if (this.impactTypes.some((impact) => (impact.title.toLowerCase() === impactTitle.toLowerCase()))) {
+    getImpactTypes() {
+        this.impactTypeService.getImpactTypes();
+    }
+
+    addImpactType(newImpactTitle: string): void {
+        if (this.impactTypes.some((impact) => (impact.title.toLowerCase() === newImpactTitle.toLowerCase()))) {
             const error = 'ERROR.IMPACT_TYPE.ALREADY_EXISTS';
             this.impactErrors = [];
             this.impactErrors.unshift(error);
             return;
         }
-        this.impactTypeService.addImpactType(impactTitle);
+        this.impactTypeService.addImpactType(newImpactTitle);
     }
 
     deleteImpactType(impactType: ImpactTypeI) {
