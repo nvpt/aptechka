@@ -4,6 +4,7 @@
            *ngIf="canAdd">
         <input type="checkbox"
                class="checkbox-btn"
+               [checked]="checked"
                (click)="add($event)">
     </label>
     <label>

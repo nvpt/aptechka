@@ -7,12 +7,19 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 })
 export class EditableOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
+
     @Input() canAdd?: boolean = false;
     @Input() canEdit?: boolean = true;
-    @Input() optionValue?: string = null;
-    @Output() optionValueChange: EventEmitter<any> = new EventEmitter<any>();
+
+    @Input() checked?: boolean = false;
+
     @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
     @Output() onCheck: EventEmitter<any> = new EventEmitter<any>();
+
+    // @Input() checked?: boolean = false;
+    // @Output() checkedChange?: EventEmitter<any> = new EventEmitter<any>();
+    @Input() optionValue?: string = null;
+    @Output() optionValueChange: EventEmitter<any> = new EventEmitter<any>();
 
     editedNow: boolean = false;
     cachedValue: string = null;

@@ -72,7 +72,8 @@ export class BoxesService {
     }
 
     addBox(box: BoxI) {
-        //todo *** check duplication
+        console.log('77 >>> box: ', box);
+        
         this.boxes.unshift(box);
     }
 

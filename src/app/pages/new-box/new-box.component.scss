@@ -41,3 +41,16 @@
     max-width: 100%;
     max-height: 340px;
 }
+
+.option-list {
+    $padding: 10px;
+    max-height: ($option-item-height * 5) + ($padding * 2);
+    padding: $padding;
+    margin-top: $padding;
+    border: 1px solid var(--color-current-40);
+    overflow: auto;
+}
+
+.option-item {
+    margin-bottom: 4px;
+}

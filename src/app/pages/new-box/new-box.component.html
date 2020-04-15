@@ -60,17 +60,21 @@
                      class="img">
             </section>
 
-            <!--TARGET_GROUPS-->
+            <!--TARGET GROUPS-->
+
             <section class="g-form-section">
-                <label for="groups"><span>Target Groups</span>:</label>
-                <select id="groups"
-                        formControlName="place">
-                    <option value="1">От головы</option>
-                    <option value="2">От горла</option>
-                    <option value="3">Обезбаливающее</option>
-                    <option value="4">Антисептик</option>
-                    <option value="5">Слабительное</option>
-                </select>
+                <label><span>Target Groups</span>:</label>
+                <div class="option-list"
+                     *ngIf="targetGroupsService.targetGroups?.length">
+                    <div class="option-item"
+                         *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                        <app-editable-option [canEdit]="false"
+                                             [canAdd]="true"
+                                             [(optionValue)]="targetGroup.title"
+                                             (onCheck)="toggleTargetGroup($event, targetGroup)">
+                        </app-editable-option>
+                    </div>
+                </div>
             </section>
 
             <section class="g-form-section">
