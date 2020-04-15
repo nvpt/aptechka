@@ -47,7 +47,8 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         reader.onload = () => {
             this.imgUrl = reader.result as string;
         };
-        reader.readAsDataURL(img);
+
+        img && reader.readAsDataURL(img);
 
         this.form.patchValue({img});
         this.form.controls.img.updateValueAndValidity();
