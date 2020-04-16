@@ -6,7 +6,7 @@ export interface MedicamentI {
     title: string;
     issueDate: Date | string;
     expiryDate: Date | string;
-    boxId: number;
     impactTypes?: ImpactTypeI[];
+    boxId?: number;
     targetGroups?: TargetGroupI[];
 }
