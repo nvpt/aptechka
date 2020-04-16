@@ -18,10 +18,17 @@
     </div>
 
     <!--IMG-->
-    <div class="section section--img">
-        <img class="img"
+    <div class="section img-wrap">
+        <img *ngIf="box.img; else brokenImage"
+             class="img"
              src="{{box.img}}"
              alt="{{box.title}}">
+
+        <ng-template #brokenImage>
+            <span class="material-icons broken-img">
+                photo_size_select_actual
+            </span>
+        </ng-template>
     </div>
 
     <!--DESCRIPTION-->
@@ -67,6 +74,5 @@
     </div>
 
     <!--STRETCH-->
-    <div class="section">
-    </div>
+    <div class="section"></div>
 </div>
