@@ -1,6 +1,7 @@
 @import "variables";
 
 .g-table {
+    min-width: $min-table-width;
 
     tr {
 
