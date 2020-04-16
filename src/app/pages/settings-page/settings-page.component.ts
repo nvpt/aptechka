@@ -58,7 +58,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         }
     }
 
-    selectTheme(event: Event) {
+    selectTheme(event: Event):void {
         const colorTheme: ColorThemeType = (<HTMLInputElement>event.target).value as ColorThemeType;
         let saturation!: number;
 
@@ -83,7 +83,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         localStorage.setItem(Constants.STORAGE_KEY, JSON.stringify(storageObj));
     }
 
-    selectLanguage(event: Event) {
+    selectLanguage(event: Event):void {
         const language = (<HTMLInputElement>event.target).value as LanguageType;
 
         this.translateSub$ = this.translate.use(language).subscribe(() => {
@@ -95,12 +95,12 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         });
     }
 
-    changeInterval(event: Event) {
+    changeInterval(event: Event):void {
         this.settingsService.warningInterval = Number((<HTMLInputElement>event.target).value);
     }
 
     /*Impact types*/
-    getImpactTypes() {
+    getImpactTypes():void {
         this.impactTypeService.getImpactTypes();
     }
 
