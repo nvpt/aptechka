@@ -19,11 +19,11 @@
         "EMPTY_PLACEHOLDER": "No boxes",
         "TILE": {
             "DESCRIPTION": "Description",
-            "GROUPS": "Groups",
             "MEDICAMENTS": "Medicaments",
             "ON_THE_VERGE": "On the verge",
             "OVERDUE": "Overdue",
             "PLACE": "Place",
+            "TARGET_GROUPS": "Target Groups",
             "TOTAL": "Total"
         }
     },

@@ -19,11 +19,11 @@
         "EMPTY_PLACEHOLDER": "Нет коробок",
         "TILE": {
             "DESCRIPTION": "Описание",
-            "GROUPS": "Группы",
             "MEDICAMENTS": "Лекарства",
             "ON_THE_VERGE": "На грани",
             "OVERDUE": "Просрочено",
             "PLACE": "Место",
+            "TARGET_GROUPS": "Целевые группы",
             "TOTAL": "Всего"
         }
     },
