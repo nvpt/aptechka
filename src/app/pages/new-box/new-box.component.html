@@ -6,7 +6,7 @@
         <app-panel-control>
             <ng-container right>
                 <button (click)="cancelAdding()"
-                        class="g-btn-small g-btn-error">Cancel Adding
+                        class="g-btn-small g-btn-error" translate>NEW_BOX.CANCEL_ADDING
                 </button>
             </ng-container>
         </app-panel-control>
@@ -18,7 +18,7 @@
 
             <!--TITLE-->
             <section class="g-form-section">
-                <label for="title"><span>Title</span>:</label>
+                <label for="title"><span translate>NEW_BOX.TITLE_LABEL</span>:</label>
                 <input id="title"
                        type="text"
                        formControlName="title"
@@ -27,7 +27,7 @@
 
             <!--DESCRIPTION-->
             <section class="g-form-section">
-                <label for="description"><span>Description</span>:</label>
+                <label for="description"><span translate>NEW_BOX.DESCRIPTION_LABEL</span>:</label>
                 <span class="description-wrap">
                 <textarea id="description"
                           class="description"
@@ -40,7 +40,7 @@
                 <div>
                     <label for="img"
                            class="add-img-btn-label">
-                        <span class="g-btn">{{form?.value?.img ? 'Change image' : 'Add image'}}</span>
+                        <span class="g-btn" translate>{{form?.value?.img ? 'MAIN.CHANGE_IMAGE' : 'MAIN.ADD_IMAGE'}}</span>
                     </label>
 
                     <input class="add-img-btn"
@@ -52,7 +52,7 @@
                            formControlName="img">
                     <button (click)="clearPreview()"
                             *ngIf="imgUrl"
-                            class="g-btn g-btn-error">Clear image
+                            class="g-btn g-btn-error" translate>MAIN.CLEAR_IMAGE
                     </button>
                 </div>
 
@@ -64,7 +64,7 @@
             <!--TARGET GROUPS-->
 
             <section class="g-form-section">
-                <label><span>Target Groups</span>:</label>
+                <label><span translate>NEW_BOX.TARGET_GROUPS_LABEL</span>:</label>
                 <div class="option-list"
                      *ngIf="targetGroupsService.targetGroups?.length">
                     <div class="option-item"
@@ -81,7 +81,7 @@
             <section class="g-form-section">
                 <span>
                     <button class="g-btn g-btn-success"
-                            type="submit">Save Box</button>
+                            type="submit" translate>NEW_BOX.SAVE_BOX</button>
                 </span>
             </section>
         </form>

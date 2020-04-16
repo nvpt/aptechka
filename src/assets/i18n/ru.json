@@ -4,7 +4,7 @@
     },
     "BREADCRUMB": {
         "ABOUT": "О приложении",
-        "DASHBOARD": "Табло",
+        "DASHBOARD": "Коробки",
         "HOME": "Главная",
         "IMPACT_TYPES": "Типы воздействия",
         "MEDICAMENTS": "Лекарства",
@@ -37,10 +37,19 @@
     },
     "MAIN": {
         "ADD": "Добавить",
-        "APTHECHKA": "Аптечка"
+        "ADD_IMAGE": "Добавить изображение",
+        "APTHECHKA": "Аптечка",
+        "CHANGE_IMAGE": "Изменить изображение",
+        "CLEAR_IMAGE": "Очистить изображение",
+        "SAVE": "Сохранить"
     },
     "NEW_BOX": {
-        "DEFAULT_TITLE": "Новая коробка"
+        "CANCEL_ADDING": "Отменить добавление",
+        "DEFAULT_TITLE": "Новая коробка",
+        "TITLE_LABEL": "Название",
+        "DESCRIPTION_LABEL": "Описание",
+        "TARGET_GROUPS_LABEL": "Целевые группы",
+        "SAVE_BOX": "Сохранить коробку"
     },
     "NOT_FOUND": {
         "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>",

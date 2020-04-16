@@ -37,10 +37,17 @@
     },
     "MAIN": {
         "ADD": "Add",
-        "APTHECHKA": "Aptechka"
+        "ADD_IMAGE": "Add image",
+        "APTHECHKA": "Aptechka",
+        "SAVE": "Save"
     },
     "NEW_BOX": {
-        "DEFAULT_TITLE": "New Box"
+        "CANCEL_ADDING": "Cancel adding",
+        "DEFAULT_TITLE": "New Box",
+        "TITLE_LABEL": "Title",
+        "DESCRIPTION_LABEL": "Description",
+        "TARGET_GROUPS_LABEL": "Target groups",
+        "SAVE_BOX": "Save box"
     },
     "NOT_FOUND": {
         "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>",
