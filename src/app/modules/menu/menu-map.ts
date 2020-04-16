@@ -18,7 +18,7 @@ export const menuMap: MenuItemI[] = [
         selected: false,
         breadcrumbs: [
             {
-                label: 'BREADCRUMB.DASHBOARD',
+                label: 'BREADCRUMB.HOME',
                 path: Constants.PATH.root
             },
             {
@@ -32,7 +32,7 @@ export const menuMap: MenuItemI[] = [
     //     selected: false,
     //     breadcrumbs: [
     //         {
-    //             label: 'BREADCRUMB.DASHBOARD',
+    //             label: 'BREADCRUMB.HOME',
     //             path: Constants.PATH.root
     //         },
     //         {
@@ -46,7 +46,7 @@ export const menuMap: MenuItemI[] = [
     //     selected: false,
     //     breadcrumbs: [
     //         {
-    //             label: 'BREADCRUMB.DASHBOARD',
+    //             label: 'BREADCRUMB.HOME',
     //             path: Constants.PATH.root
     //         },
     //         {
@@ -60,7 +60,7 @@ export const menuMap: MenuItemI[] = [
         selected: false,
         breadcrumbs: [
             {
-                label: 'BREADCRUMB.DASHBOARD',
+                label: 'BREADCRUMB.HOME',
                 path: Constants.PATH.root
             },
             {
@@ -74,7 +74,7 @@ export const menuMap: MenuItemI[] = [
         selected: false,
         breadcrumbs: [
             {
-                label: 'BREADCRUMB.DASHBOARD',
+                label: 'BREADCRUMB.HOME',
                 path: Constants.PATH.root
             },
             {
