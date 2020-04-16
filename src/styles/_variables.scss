@@ -6,6 +6,9 @@ $container-width: 1200px;
 $container-edit-width: $container-width / 2; //width of container in editable pages
 $input-padding: 8px; //padding of elements in form
 
+//font
+$default-font: "Roboto", sans-serif;
+
 /*COMPONENTS*/
 //header
 $header-height: 60px;
