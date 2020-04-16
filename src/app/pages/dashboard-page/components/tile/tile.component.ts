@@ -3,7 +3,7 @@ import {Input, Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {BoxI} from '../../../../interfaces/box-interface';
 import {MedicamentI} from '../../../../interfaces/medicament-interface';
 import {SettingsService} from '../../../../services/settings.service';
-import {medicamentsMock} from '../../../medicaments-page/medicaments.mock';
+import {MedicamentsService} from '../../../../services/medicaments.service';
 
 @Component({
     selector: 'app-tile',
@@ -18,7 +18,7 @@ export class TileComponent implements OnInit {
     currentDate: Date = new Date();
     boxMedicaments: MedicamentI[] = [];
 
-    constructor(public settingsService: SettingsService) {
+    constructor(public settingsService: SettingsService, private medicamentsService: MedicamentsService ) {
     }
 
     ngOnInit(): void {
@@ -28,7 +28,7 @@ export class TileComponent implements OnInit {
 
 
     defineMedicaments() {
-        this.boxMedicaments = medicamentsMock.filter(medicament => (
+        this.boxMedicaments = this.medicamentsService.medicaments.filter(medicament => (
             this.box.medicamentsId && this.box.medicamentsId.includes(medicament.id)
         ));
     }

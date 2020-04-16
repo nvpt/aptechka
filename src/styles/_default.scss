@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6, .title {
     color: var(--color-app_title)
 }
 
+table {
+    border-collapse: collapse;
+}
+
 .disabled {
     padding: $input-padding + 1; //fix narrowing of disabled components
     background: var(--color-app_disabled-bg);

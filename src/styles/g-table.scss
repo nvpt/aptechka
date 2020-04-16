@@ -1,0 +1,52 @@
+@import "variables";
+
+.g-table {
+
+    tr {
+
+    }
+
+    th, td {
+        padding: $string-padding;
+        border: 1px solid var(--color-gray-60);
+    }
+
+    th {
+
+    }
+
+    td {
+
+    }
+
+    thead {
+        tr {
+
+        }
+
+        th {
+            background: var(--color-gray-90);
+        }
+    }
+
+    tbody {
+
+
+        tr {
+
+            td {
+                background: var(--color-current-90);
+            }
+
+            &:nth-child(2n) {
+                td {
+                    background: var(--color-current-80);
+                }
+            }
+        }
+
+        td {
+
+        }
+    }
+}

@@ -3,5 +3,48 @@
         <h1 class="g-h1-title"
             translate>BREADCRUMB.MEDICAMENTS</h1>
     </div>
-    <p>Here will be medicaments table or tiles</p>
+    <div class="content">
+        <table class="g-table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Issue date</th>
+                <th>Expiry date</th>
+                <th>Box</th>
+                <th>Impact type</th>
+                <th>Target Groups</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let med of medicamentsService.medicaments">
+                <td>{{med.title}}</td>
+                <td>{{med.issueDate}}</td>
+                <td>{{med.expiryDate}}</td>
+                <td>{{defineBox(med.boxId)?.title}}</td>
+                <td>
+                    <ul *ngIf="med.impactTypes?.length; else impactsEmpty">
+                        <li *ngFor="let impact of med.impactTypes">
+                            {{impact.title}}
+                        </li>
+                    </ul>
+                    <ng-template #impactsEmpty>
+                        --
+                    </ng-template>
+                </td>
+                <td>
+                    <ul *ngIf="med.targetGroups?.length; else groupsEmpty">
+                        <li *ngFor="let group of med.targetGroups">
+                            {{group.title}}
+                        </li>
+                    </ul>
+                    <ng-template #groupsEmpty>
+                        --
+                    </ng-template>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
 </div>
