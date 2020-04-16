@@ -3,27 +3,28 @@
         "FOR_WHAT": "Это приложение создано для помощи в упорядочивании лекарств и контроле их срока годности"
     },
     "BREADCRUMB": {
-        "HOME": "Главная",
+        "ABOUT": "О приложении",
         "DASHBOARD": "Главная",
-        "MEDICAMENTS": "Лекарства",
-        "PLACES": "Места",
-        "TARGET_GROUPS": "Целевые группы",
+        "HOME": "Главная",
         "IMPACT_TYPES": "Типы воздействия",
+        "MEDICAMENTS": "Лекарства",
         "SETTINGS": "Настройки",
-        "ABOUT": "О приложении"
+        "TARGET_GROUPS": "Целевые группы"
     },
     "BUTTON": {
         "SAVE_CHANGES": "Сохранить изменения"
     },
     "DASHBOARD": {
+        "ADD_BOX": "Добавить коробку",
+        "EMPTY_PLACEHOLDER": "Нет коробок",
         "TILE": {
-            "PLACE": "Место",
             "DESCRIPTION": "Описание",
-            "MEDICAMENTS": "Лекарства",
             "GROUPS": "Группы",
-            "TOTAL": "Всего",
+            "MEDICAMENTS": "Лекарства",
             "ON_THE_VERGE": "На грани",
-            "OVERDUE": "Просрочено"
+            "OVERDUE": "Просрочено",
+            "PLACE": "Место",
+            "TOTAL": "Всего"
         }
     },
     "ERROR": {
@@ -35,52 +36,56 @@
         }
     },
     "MAIN": {
-        "APTHECHKA": "Аптечка",
-        "ADD": "Добавить"
+        "ADD": "Добавить",
+        "APTHECHKA": "Аптечка"
     },
     "NEW_BOX": {
         "DEFAULT_TITLE": "Новая коробка"
     },
     "NOT_FOUND": {
-        "TITLE": "Такая страница не найдена",
-        "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>"
+        "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>",
+        "TITLE": "Такая страница не найдена"
     },
     "SETTING": {
         "ACCOUNT": {
             "TITLE": "Личная информация"
         },
+        "COLOR": {
+            "LABEL": "Выбрать цвет",
+            "LIST": {
+                "BLUE": "синий",
+                "CUSTOM": "свой вариант",
+                "GREEN": "зелёный",
+                "ORANGE": "оранжевый",
+                "RED": "красный",
+                "YELLOW": "жёлтый"
+            },
+            "TITLE": "Цветовая тема"
+        },
+        "IMPACT_TYPES": {
+            "LABEL": "тип воздействия",
+            "TITLE": "Типы воздействия"
+        },
+        "LANGUAGE": {
+            "LABEL": "Выбрать язык",
+            "LIST": {
+                "EN": "английский",
+                "RU": "русский"
+            },
+            "TITLE": "Язык"
+        },
         "NOTIFICATIONS": {
             "TITLE": "Уведомления"
         },
-        "COLOR": {
-            "TITLE": "Цветовая тема",
-            "LABEL": "Выбрать цвет",
-            "RED": "красный",
-            "GREEN": "зелёный",
-            "BLUE": "синий",
-            "YELLOW": "жёлтый",
-            "ORANGE": "оранжевый",
-            "CUSTOM": "свой вариант"
-        },
-        "IMPACT_TYPES": {
-            "TITLE": "Типы воздействия",
-            "LABEL": "тип воздействия"
-        },
-        "LANGUAGE": {
-            "TITLE": "Язык",
-            "LABEL": "Выбрать язык",
-            "RU": "русский",
-            "EN": "английский"
-        },
         "TARGET_GROUPS": {
-            "TITLE": "Целевые группы",
-            "LABEL": "Выбрать целевые группы"
+            "LABEL": "Выбрать целевые группы",
+            "TITLE": "Целевые группы"
         },
         "TITLE": "Настройки",
         "WARNING_INTERVAL": {
-            "TITLE": "Интервал предупреждения",
+            "IN_DAYS": "За {{daysCount}} дней",
             "LABEL": "За сколько дней предупреждать",
-            "IN_DAYS": "За {{daysCount}} дней"
+            "TITLE": "Интервал предупреждения"
         }
     }
 }

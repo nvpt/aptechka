@@ -3,27 +3,28 @@
         "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
     },
     "BREADCRUMB": {
-        "HOME": "Home",
+        "ABOUT": "About",
         "DASHBOARD": "Dashboard",
-        "MEDICAMENTS": "Medicaments",
-        "PLACES": "Places",
-        "TARGET_GROUPS": "Target groups",
+        "HOME": "Home",
         "IMPACT_TYPES": "Impact types",
+        "MEDICAMENTS": "Medicaments",
         "SETTINGS": "Settings",
-        "ABOUT": "About"
+        "TARGET_GROUPS": "Target groups"
     },
     "BUTTON": {
         "SAVE_CHANGES": "Save changes"
     },
     "DASHBOARD": {
+        "ADD_BOX": "Add box",
+        "EMPTY_PLACEHOLDER": "No boxes",
         "TILE": {
-            "PLACE": "Place",
             "DESCRIPTION": "Description",
-            "MEDICAMENTS": "Medicaments",
             "GROUPS": "Groups",
-            "TOTAL": "Total",
+            "MEDICAMENTS": "Medicaments",
             "ON_THE_VERGE": "On the verge",
-            "OVERDUE": "Overdue"
+            "OVERDUE": "Overdue",
+            "PLACE": "Place",
+            "TOTAL": "Total"
         }
     },
     "ERROR": {
@@ -35,53 +36,56 @@
         }
     },
     "MAIN": {
-        "APTHECHKA": "Aptechka",
-        "ADD": "Add"
+        "ADD": "Add",
+        "APTHECHKA": "Aptechka"
     },
     "NEW_BOX": {
         "DEFAULT_TITLE": "New Box"
     },
     "NOT_FOUND": {
-        "TITLE": "That page is missing",
-        "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>"
+        "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>",
+        "TITLE": "That page is missing"
     },
     "SETTING": {
         "ACCOUNT": {
             "TITLE": "Account"
         },
+        "COLOR": {
+            "LABEL": "Select color",
+            "LIST": {
+                "BLUE": "blue",
+                "CUSTOM": "custom",
+                "GREEN": "green",
+                "ORANGE": "orange",
+                "RED": "red",
+                "YELLOW": "yellow"
+            },
+            "TITLE": "Color theme"
+        },
+        "IMPACT_TYPES": {
+            "LABEL": "impact type",
+            "TITLE": "Impact types"
+        },
+        "LANGUAGE": {
+            "LABEL": "Select language",
+            "LIST": {
+                "EN": "english",
+                "RU": "russian"
+            },
+            "TITLE": "Language"
+        },
         "NOTIFICATIONS": {
             "TITLE": "Notifications"
         },
-        "COLOR": {
-            "TITLE": "Color theme",
-            "LABEL": "Select color",
-            "RED": "red",
-            "GREEN": "green",
-            "BLUE": "blue",
-            "YELLOW": "yellow",
-            "ORANGE": "orange",
-            "CUSTOM": "custom"
-        },
-        "IMPACT_TYPES": {
-            "TITLE": "Impact types",
-            "LABEL": "impact type"
-        },
-        "LANGUAGE": {
-            "TITLE": "Language",
-            "LABEL": "Select language",
-            "RU": "russian",
-            "EN": "english"
-        },
         "TARGET_GROUPS": {
-            "TITLE": "Target groups",
-            "LABEL": "Select target groups"
+            "LABEL": "Select target groups",
+            "TITLE": "Target groups"
         },
         "TITLE": "Settings",
-        "SELECT_LANGUAGE_TITLE": "Select language",
         "WARNING_INTERVAL": {
-            "TITLE": "Warning interval",
+            "IN_DAYS": "In {{daysCount}} days",
             "LABEL": "How many days to give a warning",
-            "IN_DAYS": "In {{daysCount}} days"
+            "TITLE": "Warning interval"
         }
     }
 }
