@@ -1,13 +1,16 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
-import {MenuService} from '../../modules/menu/menu-services/menu.service';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Location} from '@angular/common';
+import {Router} from '@angular/router';
+
+import {Constants} from '../../constants';
+
+import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {TargetGroupsService} from '../../services/target-groups.service';
+import {BoxesService} from '../../services/boxes.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {NewBoxI} from '../../interfaces/box-interface';
-import {BoxesService} from '../../services/boxes.service';
-import {Router} from '@angular/router';
-import {Constants} from '../../constants';
+
 
 @Component({
     selector: 'app-new-box',
@@ -15,6 +18,8 @@ import {Constants} from '../../constants';
     styleUrls: ['./new-box.component.scss']
 })
 export class NewBoxComponent implements OnInit, OnDestroy {
+    @ViewChild('titleInput') titleInput: ElementRef;
+
     form: FormGroup;
     imgUrl: string;
     targetGroups: TargetGroupI[] = [];
@@ -27,6 +32,9 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         this.menuService.hide();
         this.initForm();
         this.getTargetGroups();
+        setTimeout(() => {
+            this.titleInput && this.titleInput.nativeElement.focus();
+        }, 0);
     }
 
     initForm() {
@@ -96,7 +104,7 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         };
 
         this.boxesService.addBox(box);
-        this.router.navigate([Constants.PATH.dashboard])
+        this.router.navigate([Constants.PATH.dashboard]);
 
     }
 }
