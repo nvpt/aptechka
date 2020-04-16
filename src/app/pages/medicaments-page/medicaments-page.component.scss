@@ -11,12 +11,34 @@
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr;
     height: 100%;
-    //overflow: hidden;
 }
 
 .content {
-    width: $min-table-width * 1.5;
-    max-width: 100%;
-    margin: 0 auto;
     overflow: auto;
+}
+
+.table {
+    margin: auto;
+
+    td {
+        vertical-align: top;
+    }
+
+    li {
+        position: relative;
+        padding-left: $string-padding;
+
+        &:before {
+            content: "-";
+            padding-right: $string-padding;
+        }
+    }
+}
+
+.box-data {
+    display: grid;
+    
+    &__img {
+        margin: auto;
+    }
 }

@@ -4,7 +4,7 @@
             translate>BREADCRUMB.MEDICAMENTS</h1>
     </div>
     <div class="content">
-        <table class="g-table">
+        <table class="g-table table">
             <thead>
             <tr>
                 <th>Title</th>
@@ -18,9 +18,15 @@
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
                 <td>{{med.title}}</td>
-                <td>{{med.issueDate}}</td>
-                <td>{{med.expiryDate}}</td>
-                <td>{{defineBox(med.boxId)?.title}}</td>
+                <td>{{med.issueDate | date:'shortDate':null:currentLanguage}}</td>
+                <td>{{med.expiryDate | date:'longDate': null: currentLanguage}}</td>
+                <td>
+                    <span class="box-data">
+                        {{defineBox(med.boxId)?.title}}
+                        <br>
+                        <img alt="" class="box-data__img" [src]="defineBox(med.boxId)?.img" style="max-width: 100px; max-height: 100px;">
+                    </span>
+                </td>
                 <td>
                     <ul *ngIf="med.impactTypes?.length; else impactsEmpty">
                         <li *ngFor="let impact of med.impactTypes">
