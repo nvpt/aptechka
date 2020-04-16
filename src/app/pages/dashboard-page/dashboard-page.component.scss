@@ -11,7 +11,7 @@
 
 .content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(auto, $cell-width));
+    grid-template-columns: repeat(auto-fit, minmax($cell-width,  $cell-width-max));
     grid-template-rows: repeat(min(1), 1fr);
     justify-content: center;
     width: $container-width;
