@@ -15,6 +15,7 @@ import {EmptyLayoutComponent} from '../layouts/empty-layout/empty-layout.compone
 import {DashboardPageComponent} from '../pages/dashboard-page/dashboard-page.component';
 import {TileComponent} from '../pages/dashboard-page/components/tile/tile.component';
 import {NewBoxComponent} from '../pages/new-box/new-box.component';
+import {EditBoxComponent} from '../pages/edit-box/edit-box.component';
 import {MedicamentsPageComponent} from '../pages/medicaments-page/medicaments-page.component';
 import {NewMedicamentComponent} from '../pages/new-medicament/new-medicament.component';
 import {SettingsPageComponent} from '../pages/settings-page/settings-page.component';
@@ -43,6 +44,7 @@ registerLocaleData(ruLocale, 'ru');
         DashboardPageComponent,
         TileComponent,
         NewBoxComponent,
+        EditBoxComponent,
         MedicamentsPageComponent,
         NewMedicamentComponent,
         SettingsPageComponent,
@@ -78,6 +80,7 @@ registerLocaleData(ruLocale, 'ru');
         DashboardPageComponent,
         TileComponent,
         NewBoxComponent,
+        EditBoxComponent,
         MedicamentsPageComponent,
         NewMedicamentComponent,
         SettingsPageComponent,

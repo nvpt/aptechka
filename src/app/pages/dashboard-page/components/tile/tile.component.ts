@@ -4,6 +4,8 @@ import {BoxI} from '../../../../interfaces/box-interface';
 import {MedicamentI} from '../../../../interfaces/medicament-interface';
 import {SettingsService} from '../../../../services/settings.service';
 import {MedicamentsService} from '../../../../services/medicaments.service';
+import {Router} from '@angular/router';
+import {Constants} from '../../../../constants';
 
 @Component({
     selector: 'app-tile',
@@ -18,7 +20,7 @@ export class TileComponent implements OnInit {
     currentDate: Date = new Date();
     boxMedicaments: MedicamentI[] = [];
 
-    constructor(public settingsService: SettingsService, private medicamentsService: MedicamentsService ) {
+    constructor(public settingsService: SettingsService, private medicamentsService: MedicamentsService, private router: Router) {
     }
 
     ngOnInit(): void {
@@ -52,4 +54,7 @@ export class TileComponent implements OnInit {
         this.onDelete.emit(box);
     }
 
+    editBox(box: BoxI) {
+        this.router.navigate([`${Constants.PATH.editBox}/${box.id}`])
+    }
 }

@@ -10,15 +10,17 @@ import {EmptyLayoutComponent} from './layouts/empty-layout/empty-layout.componen
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-page.component';
 import {NewBoxComponent} from './pages/new-box/new-box.component';
+import {EditBoxComponent} from './pages/edit-box/edit-box.component';
 
 const routes: Routes = [
         {
             path: '', component: ContentLayoutComponent, children: [
                 {path: '', component: DashboardPageComponent, pathMatch: 'full'},
                 {path: Constants.PATH.newBox, component: NewBoxComponent},
-                {path: Constants.PATH.settings, component: SettingsPageComponent},
+                {path: `${Constants.PATH.editBox}/:boxId`, component: EditBoxComponent},
+                {path: Constants.PATH.settings, component: SettingsPageComponent},//todo *** set as module?
                 {path: Constants.PATH.about, component: AboutPageComponent},
-                {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
+                {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},//todo *** set as module
             ]
         },
         {

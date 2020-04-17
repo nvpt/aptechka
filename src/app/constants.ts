@@ -26,12 +26,14 @@ export class Constants {
         impactTypes: 'impact-types',
         about: 'about',
         newBox: 'new-box',
+        editBox: 'edit-box',
     });
 
     public static readonly PATH = Object.freeze({
         root: Constants.SECTION.root,
         dashboard: Constants.SECTION.root,
         newBox: Constants.SECTION.newBox,
+        editBox: Constants.SECTION.editBox,
         medicaments: Constants.SECTION.medicaments,
         targetGroups: Constants.SECTION.targetGroups,
         impactTypes: Constants.SECTION.impactTypes,
