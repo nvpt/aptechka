@@ -44,7 +44,13 @@
                     <label for="img"
                            class="add-img-btn-label">
                         <span class="g-btn"
-                              translate>{{form.value.img ? 'MAIN.CHANGE_IMAGE' : 'MAIN.ADD_IMAGE'}}</span>
+                              *ngIf="!form.value?.img; else withImage"
+                              translate>MAIN.ADD_IMAGE</span>
+                        <ng-template #withImage>
+                        <span class="g-btn"
+                              translate>MAIN.CHANGE_IMAGE</span>
+                        </ng-template>
+
                     </label>
 
                     <input class="g-display-none"
