@@ -1,13 +1,14 @@
 @import "variables";
 
 .g-btn {
+    display: inline-block;
     font-size: 1rem;
     padding: 8px 12px;
     border: 1px solid var(--color-current-40);
     //background: var(--color-current-70);
     background: transparent;
     color: var(--color-current-40);
-
+    line-height: $line-height-default;
     border-radius: $border-radius;
 
     cursor: pointer;

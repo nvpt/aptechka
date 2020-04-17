@@ -7,7 +7,7 @@ body {
     height: 100%;
     font-family: $default-font;
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: $line-height-default;
     background-color: var(--color-app_bg-bg);
     color: var(--color-app_text);
 }
@@ -21,7 +21,7 @@ table {
 }
 
 .disabled {
-    padding: $input-padding + 1; //fix narrowing of disabled components
+    padding: $input-padding + 0.5; //fix narrowing of disabled components
     background: var(--color-app_disabled-bg);
     color: var(--color-app_disabled-color);
     border: 1px solid var(--color-app_disabled-border);

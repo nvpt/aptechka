@@ -29,12 +29,18 @@
     grid-row-gap: $cell-padding/2;
 }
 
-.add-img-btn {
-    display: none;
+.uploader-buttons {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto 1fr;
+
+    &.with-image {
+        grid-row-gap: $content-side-padding ;
+    }
 }
 
 .add-img-btn-label {
-    margin-right: $string-padding;
+    //margin-right: $string-padding;
 }
 
 .img {

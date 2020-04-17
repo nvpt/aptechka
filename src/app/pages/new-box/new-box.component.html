@@ -6,7 +6,8 @@
         <app-panel-control>
             <ng-container right>
                 <button (click)="cancelAdding()"
-                        class="g-btn-small g-btn-error" translate>NEW_BOX.CANCEL_ADDING
+                        class="g-btn-small g-btn-error"
+                        translate>NEW_BOX.CANCEL_ADDING
                 </button>
             </ng-container>
         </app-panel-control>
@@ -37,23 +38,31 @@
 
             <!--IMG-->
             <section class="g-form-section img-section">
-                <div>
+                <div class="uploader-buttons"
+                     [ngClass]="{'with-image' : imgUrl}">
+
                     <label for="img"
                            class="add-img-btn-label">
-                        <span class="g-btn" translate>{{form?.value?.img ? 'MAIN.CHANGE_IMAGE' : 'MAIN.ADD_IMAGE'}}</span>
+                        <span class="g-btn"
+                              translate>{{form.value.img ? 'MAIN.CHANGE_IMAGE' : 'MAIN.ADD_IMAGE'}}</span>
                     </label>
 
-                    <input class="add-img-btn"
+                    <input class="g-display-none"
                            id="img"
                            accept="image/*"
                            type="file"
                            (change)="addImage($event)">
                     <input type="hidden"
                            formControlName="img">
-                    <button (click)="clearPreview()"
-                            *ngIf="imgUrl"
-                            class="g-btn g-btn-error" translate>MAIN.CLEAR_IMAGE
-                    </button>
+
+                    <span *ngIf="imgUrl">
+                        <button (click)="clearPreview()"
+
+                                class="g-btn g-btn-error"
+                                translate>MAIN.CLEAR_IMAGE
+                        </button>
+                    </span>
+                    <span></span>
                 </div>
 
                 <img [src]="imgUrl"
@@ -81,7 +90,8 @@
             <section class="g-form-section">
                 <span>
                     <button class="g-btn g-btn-success"
-                            type="submit" translate>NEW_BOX.SAVE_BOX</button>
+                            type="submit"
+                            translate>NEW_BOX.SAVE_BOX</button>
                 </span>
             </section>
         </form>
