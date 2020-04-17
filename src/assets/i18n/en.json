@@ -39,6 +39,8 @@
         "ADD": "Add",
         "ADD_IMAGE": "Add image",
         "APTHECHKA": "Aptechka",
+        "CHANGE_IMAGE": "Change image",
+        "CLEAR_IMAGE": "Clear image",
         "SAVE": "Save"
     },
     "NEW_BOX": {
