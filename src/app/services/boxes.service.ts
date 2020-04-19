@@ -21,7 +21,7 @@ export class BoxesService {
                     title: 'От живота'
                 }
             ],
-            medicamentsId: [1]
+            medicamentsIds: [1]
         },
         {
             id: 2,
@@ -34,7 +34,7 @@ export class BoxesService {
                     title: 'От горла'
                 },
             ],
-            medicamentsId: [4]
+            medicamentsIds: [4]
         },
         {
             id: 3,
@@ -47,7 +47,7 @@ export class BoxesService {
                     title: 'От аллергии'
                 },
             ],
-            medicamentsId: [2]
+            medicamentsIds: [2]
         },
         {
             id: 4,
@@ -60,7 +60,7 @@ export class BoxesService {
                     title: 'Ожоги, порезы'
                 },
             ],
-            medicamentsId: [3, 5]
+            medicamentsIds: [3, 5]
         },
     ];
 

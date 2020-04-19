@@ -97,10 +97,10 @@ export class NewBoxComponent implements OnInit, OnDestroy {
             id: new Date().getTime(),
             description: this.form.value.description,
             title: this.form.value.title,
-            newImg: this.form.value.img,
+            imgData: this.form.value.img,
             img: this.imgUrl,
             targetGroups: this.targetGroups,
-            medicamentsId: this.form.value.medicamentsId
+            medicamentsIds: this.form.value.medicamentsIds
         };
 
         this.boxesService.addBox(box);

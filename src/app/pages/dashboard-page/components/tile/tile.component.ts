@@ -31,7 +31,7 @@ export class TileComponent implements OnInit {
 
     defineMedicaments() {
         this.boxMedicaments = this.medicamentsService.medicaments.filter(medicament => (
-            this.box.medicamentsId && this.box.medicamentsId.includes(medicament.id)
+            this.box.medicamentsIds && this.box.medicamentsIds.includes(medicament.id)
         ));
     }
 
