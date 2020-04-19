@@ -4,10 +4,21 @@
     overflow: auto;
 }
 
+.edit-box {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
+
+.wrapper {
+    overflow: auto;
+}
+
 .content {
-    margin: auto;
     width: $container-edit-width;
     max-width: 100%;
+    margin: 0 auto;
 }
 
 .description {
@@ -35,7 +46,7 @@
     grid-template-rows: auto auto 1fr;
 
     &.with-image {
-        grid-row-gap: $content-side-padding ;
+        grid-row-gap: $content-side-padding;
     }
 }
 

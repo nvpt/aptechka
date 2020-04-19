@@ -4,8 +4,19 @@
     overflow: auto;
 }
 
+.new-box {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
+
+.wrapper {
+    overflow: auto;
+}
+
 .content {
-    margin: auto;
+    margin: 0 auto;
     width: $container-edit-width;
     max-width: 100%;
 }
