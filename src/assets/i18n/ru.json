@@ -41,7 +41,8 @@
         "APTHECHKA": "Аптечка",
         "CHANGE_IMAGE": "Изменить изображение",
         "CLEAR_IMAGE": "Очистить изображение",
-        "SAVE": "Сохранить"
+        "SAVE": "Сохранить",
+        "SAVE_CHANGES": "Сохранить изменения"
     },
     "NEW_BOX": {
         "CANCEL_ADDING": "Отменить добавление",
@@ -50,6 +51,9 @@
         "DESCRIPTION_LABEL": "Описание",
         "TARGET_GROUPS_LABEL": "Целевые группы",
         "SAVE_BOX": "Сохранить коробку"
+    },
+    "EDIT_BOX": {
+        "CANCEL_EDIT": "Отменить редактирвоание"
     },
     "NOT_FOUND": {
         "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>",

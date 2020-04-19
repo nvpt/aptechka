@@ -41,7 +41,8 @@
         "APTHECHKA": "Aptechka",
         "CHANGE_IMAGE": "Change image",
         "CLEAR_IMAGE": "Clear image",
-        "SAVE": "Save"
+        "SAVE": "Save",
+        "SAVE_CHANGES": "Save changes"
     },
     "NEW_BOX": {
         "CANCEL_ADDING": "Cancel adding",
@@ -50,6 +51,9 @@
         "DESCRIPTION_LABEL": "Description",
         "TARGET_GROUPS_LABEL": "Target groups",
         "SAVE_BOX": "Save box"
+    },
+    "EDIT_BOX": {
+        "CANCEL_EDIT": "Cancel edit"
     },
     "NOT_FOUND": {
         "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>",

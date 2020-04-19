@@ -5,9 +5,7 @@ export interface BoxI {
     title: string;
     description?: string;
     img?: string;
+    imgData?: File;
     medicamentsIds?: number[];
     targetGroups?: TargetGroupI[];
-}
-export interface NewBoxI extends BoxI {
-    imgData?: File;
 }

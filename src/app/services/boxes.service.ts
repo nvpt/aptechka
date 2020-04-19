@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BoxI} from '../interfaces/box-interface';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,7 @@ export class BoxesService {
             title: 'Основное',
             description: 'Зелёная коробка',
             img: '../../../assets/img/boxes/green-box.jpg',
+            imgData: null,
             targetGroups: [
                 {
                     id: 1,
@@ -21,13 +23,15 @@ export class BoxesService {
                     title: 'От живота'
                 }
             ],
-            medicamentsIds: [1]
+            medicamentsIds: [1, 4]
         },
         {
             id: 2,
             title: 'При простуде',
             description: 'Коричневая коробка из-под обуви',
             img: '../../../assets/img/boxes/head-stomach.jpg',
+            imgData: null,
+
             targetGroups: [
                 {
                     id: 2,
@@ -41,6 +45,8 @@ export class BoxesService {
             title: 'От аллергии',
             description: 'Без коробки, в моем одтеле',
             img: '../../../assets/img/boxes/allergy.jpg',
+            imgData: null,
+
             targetGroups: [
                 {
                     id: 4,
@@ -54,6 +60,8 @@ export class BoxesService {
             title: 'Скорая помощь',
             description: 'Коробка из-под прибора',
             img: '../../../assets/img/boxes/rest.jpg',
+            imgData: null,
+
             targetGroups: [
                 {
                     id: 5,
@@ -71,10 +79,21 @@ export class BoxesService {
         return this.boxes;
     }
 
-    addBox(box: BoxI) {
-        console.log('77 >>> box: ', box);
-        
+    addBox(box: BoxI): Observable<void> {
         this.boxes.unshift(box);
+        return of(null);
+    }
+
+    updateBox(box: BoxI): Observable<void> {
+        this.boxes.forEach((boxItem, i) => {
+            if (boxItem.id === box.id) {
+                this.boxes[i] = {
+                    ...boxItem,
+                    ...box
+                };
+            }
+        });
+        return of(null);
     }
 
     deleteBox(deletedBox): void {

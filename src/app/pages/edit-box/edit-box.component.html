@@ -1,13 +1,13 @@
 <div class="edit-box">
     <div class="g-top-page">
         <h1 class="g-h1-title"
-            translate>NEW_BOX.DEFAULT_TITLE</h1>
+            translate>{{box?.title}}</h1>
 
         <app-panel-control>
             <ng-container right>
                 <button (click)="cancelAdding()"
                         class="g-btn-small g-btn-error"
-                        translate>NEW_BOX.CANCEL_ADDING
+                        translate>EDIT_BOX.CANCEL_EDIT
                 </button>
             </ng-container>
         </app-panel-control>
@@ -15,7 +15,7 @@
 
     <div class="content">
         <form [formGroup]="form"
-              (ngSubmit)="saveBox()">
+              (ngSubmit)="updateBox()">
 
             <!--TITLE-->
             <section class="g-form-section">
@@ -62,8 +62,7 @@
                            formControlName="img">
 
                     <span *ngIf="imgUrl">
-                        <button (click)="clearPreview()"
-
+                        <button (click)="clearImg()"
                                 class="g-btn g-btn-error"
                                 translate>MAIN.CLEAR_IMAGE
                         </button>
@@ -86,6 +85,7 @@
                          *ngFor="let targetGroup of targetGroupsService.targetGroups">
                         <app-editable-option [canEdit]="false"
                                              [canAdd]="true"
+                                             [checked]="isBoxContainTargetGroup(targetGroup)"
                                              [(optionValue)]="targetGroup.title"
                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
                         </app-editable-option>
@@ -97,7 +97,7 @@
                 <span>
                     <button class="g-btn g-btn-success"
                             type="submit"
-                            translate>NEW_BOX.SAVE_BOX</button>
+                            translate>MAIN.SAVE_CHANGES</button>
                 </span>
             </section>
         </form>

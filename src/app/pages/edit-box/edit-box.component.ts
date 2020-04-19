@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {Constants} from '../../constants';
 
@@ -9,7 +9,8 @@ import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {TargetGroupsService} from '../../services/target-groups.service';
 import {BoxesService} from '../../services/boxes.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
-import {NewBoxI} from '../../interfaces/box-interface';
+import {BoxI} from '../../interfaces/box-interface';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -22,16 +23,26 @@ export class EditBoxComponent implements OnInit, OnDestroy {
 
     form: FormGroup;
     imgUrl: string;
+    box!: BoxI;
     targetGroups: TargetGroupI[] = [];
+    routeSub$: Subscription;
 
-    constructor(public targetGroupsService: TargetGroupsService, private location: Location, private menuService: MenuService, private boxesService: BoxesService,
+    constructor(public targetGroupsService: TargetGroupsService, private location: Location, private route: ActivatedRoute, private menuService: MenuService, private boxesService: BoxesService,
         private router: Router) {
     }
 
     ngOnInit(): void {
         this.menuService.hide();
-        this.initForm();
-        this.getTargetGroups();
+
+        this.routeSub$ = this.route.params.subscribe(params => {
+            this.box = this.boxesService.boxes.find(box => {
+                return box.id === Number(params.boxId);
+            });
+            this.initForm();
+            this.getTargetGroups();
+        });
+
+
         setTimeout(() => {
             this.titleInput && this.titleInput.nativeElement.focus();
         }, 0);
@@ -39,14 +50,17 @@ export class EditBoxComponent implements OnInit, OnDestroy {
 
     initForm() {
         this.form = new FormGroup({
-            title: new FormControl('', [Validators.required]),
-            description: new FormControl(''),
-            img: new FormControl(null),
-            medicaments: new FormControl([]),
+            title: new FormControl(this.box.title, [Validators.required]),
+            description: new FormControl(this.box.description),
+            img: new FormControl(this.box.img),
+            medicaments: new FormControl(this.box.medicamentsIds),
         });
+
+        this.imgUrl = this.box.img;
     }
 
     ngOnDestroy() {
+        this.routeSub$.unsubscribe();
         this.menuService.show();
     }
 
@@ -66,9 +80,9 @@ export class EditBoxComponent implements OnInit, OnDestroy {
         this.form.patchValue({img});
     }
 
-    clearPreview() {
-        this.form.controls.img.reset();
+    clearImg() {
         this.imgUrl = null;
+        this.form.controls.img.reset();
         this.form.controls.img.updateValueAndValidity();
     }
 
@@ -91,20 +105,23 @@ export class EditBoxComponent implements OnInit, OnDestroy {
         }
     }
 
+    isBoxContainTargetGroup(tg: TargetGroupI): boolean {
+        return !!this.box.targetGroups.find(group => group.id === tg.id);
+    }
 
-    saveBox() {
-        const box: NewBoxI = {
-            id: new Date().getTime(),
-            description: this.form.value.description,
+
+    updateBox() {
+        this.boxesService.updateBox({
+            ...this.box,
             title: this.form.value.title,
-            newImg: this.form.value.img,
+            description: this.form.value.description,
+            imgData: this.form.value.imgData,
             img: this.imgUrl,
-            targetGroups: this.targetGroups,
-            medicamentsId: this.form.value.medicamentsId
-        };
-
-        this.boxesService.addBox(box);
-        this.router.navigate([Constants.PATH.dashboard]);
+            targetGroups: this.targetGroups
+        }).subscribe(() => {
+                this.router.navigate([Constants.PATH.dashboard]);
+            }
+        );
 
     }
 }

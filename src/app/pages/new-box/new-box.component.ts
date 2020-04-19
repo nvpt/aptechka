@@ -9,7 +9,7 @@ import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {TargetGroupsService} from '../../services/target-groups.service';
 import {BoxesService} from '../../services/boxes.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
-import {NewBoxI} from '../../interfaces/box-interface';
+import {BoxI} from '../../interfaces/box-interface';
 
 
 @Component({
@@ -93,7 +93,7 @@ export class NewBoxComponent implements OnInit, OnDestroy {
 
 
     saveBox() {
-        const box: NewBoxI = {
+        const box: BoxI = {
             id: new Date().getTime(),
             description: this.form.value.description,
             title: this.form.value.title,
@@ -103,8 +103,9 @@ export class NewBoxComponent implements OnInit, OnDestroy {
             medicamentsIds: this.form.value.medicamentsIds
         };
 
-        this.boxesService.addBox(box);
-        this.router.navigate([Constants.PATH.dashboard]);
+        this.boxesService.addBox(box).subscribe(()=>{
+            this.router.navigate([Constants.PATH.dashboard]);
+        });
 
     }
 }
