@@ -2,16 +2,16 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
-import {Constants} from '../../constants';
+import {BreadcrumbI, Constants} from '../../constants';
 
 import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {TargetGroupsService} from '../../services/target-groups.service';
 import {BoxesService} from '../../services/boxes.service';
+import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {BoxI} from '../../interfaces/box-interface';
-import {Subscription} from 'rxjs';
-
 
 @Component({
     selector: 'app-edit-box',
@@ -21,23 +21,37 @@ import {Subscription} from 'rxjs';
 export class EditBoxComponent implements OnInit, OnDestroy {
     @ViewChild('titleInput') titleInput: ElementRef;
 
-    form: FormGroup;
-    imgUrl: string;
-    box!: BoxI;
+    breadcrumbs: BreadcrumbI[] = [
+        {
+            label: 'BREADCRUMB.BOXES',
+            path: Constants.PATH.root
+        }
+    ];
     targetGroups: TargetGroupI[] = [];
-    routeSub$: Subscription;
+    form!: FormGroup;
+    imgUrl!: string;
+    box!: BoxI;
+    routeSub$!: Subscription;
 
     constructor(public targetGroupsService: TargetGroupsService, private location: Location, private route: ActivatedRoute, private menuService: MenuService, private boxesService: BoxesService,
-        private router: Router) {
+        private router: Router, private breadcrumbService: BreadcrumbService) {
     }
 
     ngOnInit(): void {
         this.menuService.hide();
 
         this.routeSub$ = this.route.params.subscribe(params => {
+
             this.box = this.boxesService.boxes.find(box => {
                 return box.id === Number(params.boxId);
             });
+
+            this.breadcrumbs.push(<BreadcrumbI>{
+                label: this.box.title
+            });
+
+            this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+
             this.initForm();
             this.getTargetGroups();
         });

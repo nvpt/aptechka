@@ -2,12 +2,15 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {TranslateService} from '@ngx-translate/core';
 
-import {Constants} from '../../constants';
+import {BreadcrumbI, Constants} from '../../constants';
 
 import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {TargetGroupsService} from '../../services/target-groups.service';
 import {BoxesService} from '../../services/boxes.service';
+import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {BoxI} from '../../interfaces/box-interface';
 
@@ -20,21 +23,43 @@ import {BoxI} from '../../interfaces/box-interface';
 export class NewBoxComponent implements OnInit, OnDestroy {
     @ViewChild('titleInput') titleInput: ElementRef;
 
-    form: FormGroup;
-    imgUrl: string;
+    breadcrumbs: BreadcrumbI[] = [
+        {
+            label: 'BREADCRUMB.BOXES',
+            path: Constants.PATH.root
+        }
+    ];
     targetGroups: TargetGroupI[] = [];
+    form!: FormGroup;
+    imgUrl!: string;
+    translationSub$!: Subscription;
 
     constructor(public targetGroupsService: TargetGroupsService, private location: Location, private menuService: MenuService, private boxesService: BoxesService,
-        private router: Router) {
+        private router: Router, private breadcrumbService: BreadcrumbService, private translateService: TranslateService) {
     }
 
     ngOnInit(): void {
+        this.translationSub$ = this.translateService.get('BREADCRUMB.NEW_BOX').subscribe(translation => {
+            this.breadcrumbs.push(<BreadcrumbI>{
+                label: translation
+            });
+            this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+        });
+
         this.menuService.hide();
+
+
         this.initForm();
         this.getTargetGroups();
+
         setTimeout(() => {
             this.titleInput && this.titleInput.nativeElement.focus();
         }, 0);
+    }
+
+    ngOnDestroy() {
+        this.translationSub$.unsubscribe();
+        this.menuService.show();
     }
 
     initForm() {
@@ -44,10 +69,6 @@ export class NewBoxComponent implements OnInit, OnDestroy {
             img: new FormControl(null),
             medicaments: new FormControl([]),
         });
-    }
-
-    ngOnDestroy() {
-        this.menuService.show();
     }
 
     cancelAdding() {
@@ -91,7 +112,6 @@ export class NewBoxComponent implements OnInit, OnDestroy {
         }
     }
 
-
     saveBox() {
         const box: BoxI = {
             id: new Date().getTime(),
@@ -103,7 +123,7 @@ export class NewBoxComponent implements OnInit, OnDestroy {
             medicamentsIds: this.form.value.medicamentsIds
         };
 
-        this.boxesService.addBox(box).subscribe(()=>{
+        this.boxesService.addBox(box).subscribe(() => {
             this.router.navigate([Constants.PATH.dashboard]);
         });
 
