@@ -34,29 +34,29 @@
     <!--DESCRIPTION-->
     <div class="section"
          *ngIf="box.description?.length">
-        <div class="sub-title"><span translate>DASHBOARD.TILE.DESCRIPTION</span>:</div>
+        <div class="sub-title"><span translate>BOXES.TILE.DESCRIPTION</span>:</div>
         <p class="description">{{box.description}}</p>
     </div>
 
     <!--MEDICAMENTS-->
     <div class="section"
          *ngIf="box.medicamentsIds?.length">
-        <div class="sub-title"><span translate>DASHBOARD.TILE.MEDICAMENTS</span>:</div>
+        <div class="sub-title"><span translate>BOXES.TILE.MEDICAMENTS</span>:</div>
         <ng-container>
             <ul class="groups-list">
                 <li class="description groups-item">
-                    <span translate>DASHBOARD.TILE.TOTAL</span>: <span class="count">
+                    <span translate>BOXES.TILE.TOTAL</span>: <span class="count">
                         {{box.medicamentsIds?.length}}
                     </span>
                 </li>
                 <li class="description groups-item"
                     *ngIf="onTheVerge">
-                    <span translate>DASHBOARD.TILE.ON_THE_VERGE</span>:
+                    <span translate>BOXES.TILE.ON_THE_VERGE</span>:
                     <span class="count on-the-verge">{{onTheVerge}}</span>
                 </li>
                 <li class="description groups-item"
                     *ngIf="overdue">
-                    <span translate>DASHBOARD.TILE.OVERDUE</span>: <span class="count overdue">{{overdue}}</span>
+                    <span translate>BOXES.TILE.OVERDUE</span>: <span class="count overdue">{{overdue}}</span>
                 </li>
             </ul>
         </ng-container>
@@ -65,7 +65,7 @@
     <!--GROUPS-->
     <div class="section"
          *ngIf="box.targetGroups?.length">
-        <div class="sub-title"><span translate>DASHBOARD.TILE.TARGET_GROUPS</span>:</div>
+        <div class="sub-title"><span translate>BOXES.TILE.TARGET_GROUPS</span>:</div>
         <ul class="groups-list">
             <li *ngFor="let group of box.targetGroups; let last = last"
                 class="description groups-item">{{group.title}}

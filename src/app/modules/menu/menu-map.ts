@@ -2,12 +2,12 @@ import {Constants, MenuItemI} from '../../constants';
 
 export const menuMap: MenuItemI[] = [
     {//DASHBOARD
-        title: 'BREADCRUMB.DASHBOARD',
+        title: 'BREADCRUMB.HOME',
         path: Constants.PATH.dashboard,
         selected: true,
         breadcrumbs: [
             {
-                label: 'BREADCRUMB.DASHBOARD',
+                label: 'BREADCRUMB.BOXES',
             }
         ],
 
@@ -26,34 +26,6 @@ export const menuMap: MenuItemI[] = [
             }
         ]
     },
-    // {//TARGET GROUPS
-    //     title: 'BREADCRUMB.TARGET_GROUPS',
-    //     path: Constants.PATH.targetGroups,
-    //     selected: false,
-    //     breadcrumbs: [
-    //         {
-    //             label: 'BREADCRUMB.HOME',
-    //             path: Constants.PATH.root
-    //         },
-    //         {
-    //             label: 'BREADCRUMB.TARGET_GROUPS',
-    //         }
-    //     ]
-    // },
-    // {//IMPACT TYPES
-    //     title: 'BREADCRUMB.IMPACT_TYPES',
-    //     path: Constants.PATH.impactTypes,
-    //     selected: false,
-    //     breadcrumbs: [
-    //         {
-    //             label: 'BREADCRUMB.HOME',
-    //             path: Constants.PATH.root
-    //         },
-    //         {
-    //             label: 'BREADCRUMB.IMPACT_TYPES',
-    //         }
-    //     ]
-    // },
     {//SETTINGS
         title: 'BREADCRUMB.SETTINGS',
         path: Constants.PATH.settings,

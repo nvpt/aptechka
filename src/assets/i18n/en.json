@@ -4,17 +4,19 @@
     },
     "BREADCRUMB": {
         "ABOUT": "About",
+        "BOXES": "Boxes",
         "DASHBOARD": "Dashboard",
         "HOME": "Home",
         "IMPACT_TYPES": "Impact types",
         "MEDICAMENTS": "Medicaments",
+        "NEW_BOX": "New box",
         "SETTINGS": "Settings",
         "TARGET_GROUPS": "Target groups"
     },
     "BUTTON": {
         "SAVE_CHANGES": "Save changes"
     },
-    "DASHBOARD": {
+    "BOXES": {
         "ADD_BOX": "Add box",
         "EMPTY_PLACEHOLDER": "No boxes",
         "TILE": {

@@ -4,17 +4,19 @@
     },
     "BREADCRUMB": {
         "ABOUT": "О приложении",
-        "DASHBOARD": "Коробки",
+        "BOXES": "Коробки",
+        "DASHBOARD": "Табло",
         "HOME": "Главная",
         "IMPACT_TYPES": "Типы воздействия",
         "MEDICAMENTS": "Лекарства",
+        "NEW_BOX": "Новая коробка",
         "SETTINGS": "Настройки",
         "TARGET_GROUPS": "Целевые группы"
     },
     "BUTTON": {
         "SAVE_CHANGES": "Сохранить изменения"
     },
-    "DASHBOARD": {
+    "BOXES": {
         "ADD_BOX": "Добавить коробку",
         "EMPTY_PLACEHOLDER": "Нет коробок",
         "TILE": {
