@@ -29,6 +29,9 @@
             "TOTAL": "Total"
         }
     },
+    "EDIT_COMMON": {
+        "CANCEL_EDIT": "Cancel edit"
+    },
     "ERROR": {
         "IMPACT_TYPE": {
             "ALREADY_EXISTS": "This impact type already exists"
@@ -58,15 +61,22 @@
         }
     },
     "NEW_BOX": {
-        "CANCEL_ADDING": "Cancel adding",
         "DEFAULT_TITLE": "New Box",
-        "TITLE_LABEL": "Title",
-        "DESCRIPTION_LABEL": "Description",
-        "TARGET_GROUPS_LABEL": "Target groups",
         "SAVE_BOX": "Save box"
     },
-    "EDIT_BOX": {
-        "CANCEL_EDIT": "Cancel edit"
+    "NEW_COMMON": {
+        "CANCEL_ADDING": "Cancel adding",
+        "DESCRIPTION_LABEL": "Description",
+        "TARGET_GROUPS_LABEL": "Target groups",
+        "TITLE_LABEL": "Title"
+    },
+    "NEW_MEDICAMENT": {
+        "BOX_LABEL": "Box",
+        "DEFAULT_TITLE": "New Medicament",
+        "EXPIRY_DATE_LABEL": "Expiry date",
+        "IMPACT_TYPES_LABEL": "Impact types",
+        "ISSUE_DATE_LABEL": "Issue date",
+        "SAVE_MEDICAMENT": "Save medicament"
     },
     "NOT_FOUND": {
         "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>",

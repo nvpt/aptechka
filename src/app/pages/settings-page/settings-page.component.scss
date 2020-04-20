@@ -13,15 +13,14 @@
     margin:auto;
 }
 
-.label {
-
+label:not([for="img"]) {
+    margin-bottom: $string-padding;
 }
 
 .option-list {
     $padding: 10px;
     max-height: ($option-item-height * 5) + ($padding * 2);
     padding: $padding;
-    margin-top: $padding * 2;
     border: 1px solid var(--color-current-40);
     overflow: auto;
 }

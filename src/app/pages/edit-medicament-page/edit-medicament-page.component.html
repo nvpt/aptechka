@@ -7,7 +7,7 @@
             <ng-container right>
                 <button (click)="cancelAdding()"
                         class="g-btn-small g-btn-error"
-                        translate>EDIT_MEDICAMENT.CANCEL_EDIT
+                        translate>EDIT_COMMON.CANCEL_EDIT
                 </button>
             </ng-container>
         </app-panel-control>
@@ -90,6 +90,18 @@
                          alt=""
                          class="img">
                 </section>
+
+                <!--BOX-->
+                <section class="g-form-section">
+                    <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
+                    <div class="option-list"
+                         *ngIf="targetGroupsService.targetGroups?.length">
+                        <div class="option-item">
+                            here will be selection of box
+                        </div>
+                    </div>
+                </section>
+
 
                 <!--IMPACT TYPES-->
                 <section class="g-form-section">

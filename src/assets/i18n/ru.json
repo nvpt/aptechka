@@ -29,6 +29,9 @@
             "TOTAL": "Всего"
         }
     },
+    "EDIT_COMMON": {
+        "CANCEL_EDIT": "Отменить редактирвоание"
+    },
     "ERROR": {
         "IMPACT_TYPE": {
             "ALREADY_EXISTS": "Такой способ воздействия уже есть"
@@ -65,8 +68,17 @@
         "TARGET_GROUPS_LABEL": "Целевые группы",
         "SAVE_BOX": "Сохранить коробку"
     },
-    "EDIT_BOX": {
-        "CANCEL_EDIT": "Отменить редактирвоание"
+    "NEW_MEDICAMENT": {
+        "BOX_LABEL": "Коробка",
+        "CANCEL_ADDING": "Отменить добавление",
+        "DEFAULT_TITLE": "Новое лекарство",
+        "DESCRIPTION_LABEL": "Описание",
+        "EXPIRY_DATE_LABEL": "Дата окончания годности",
+        "IMPACT_TYPES_LABEL": "Типы воздействия",
+        "ISSUE_DATE_LABEL": "Дата изготовления",
+        "TARGET_GROUPS_LABEL": "Целевые группы",
+        "TITLE_LABEL": "Название",
+        "SAVE_MEDICAMENT": "Созранить лекарство"
     },
     "NOT_FOUND": {
         "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>",
