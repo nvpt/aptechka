@@ -1,1 +1,143 @@
-<p>medicament-edit-page works!</p>
+<div class="edit-medicament">
+    <div class="g-top-page">
+        <h1 class="g-h1-title"
+            translate>{{medicament?.title}}</h1>
+
+        <app-panel-control>
+            <ng-container right>
+                <button (click)="cancelAdding()"
+                        class="g-btn-small g-btn-error"
+                        translate>EDIT_MEDICAMENT.CANCEL_EDIT
+                </button>
+            </ng-container>
+        </app-panel-control>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <form *ngIf="medicament; else loadingMedicament"
+                  [formGroup]="form"
+                  (ngSubmit)="updateMedicament()">
+
+                <!--TITLE-->
+                <section class="g-form-section">
+                    <label for="title"><span translate>NEW_MEDICAMENT.TITLE_LABEL</span>:</label>
+                    <input id="title"
+                           type="text"
+                           formControlName="title">
+                </section>
+
+                <!--DESCRIPTION-->
+                <section class="g-form-section">
+                    <label for="description"><span translate>NEW_MEDICAMENT.DESCRIPTION_LABEL</span>:</label>
+                    <span class="description-wrap">
+                <textarea id="description"
+                          class="description"
+                          formControlName="description"></textarea>
+                </span>
+                </section>
+
+                <!--ISSUE DATE-->
+                <section class="g-form-section">
+                    <label for="issueDate"><span translate>NEW_MEDICAMENT.ISSUE_DATE_LABEL</span>:</label>
+                    <input id="issueDate"
+                           type="date"
+                           formControlName="issueDate">
+                </section>
+
+                <!--EXPIRY DATE-->
+                <section class="g-form-section">
+                    <label for="expiryDate"><span translate>NEW_MEDICAMENT.EXPIRY_DATE_LABEL</span>:</label>
+                    <input id="expiryDate"
+                           type="date"
+                           formControlName="expiryDate">
+                </section>
+
+                <!--IMG-->
+                <section class="g-form-section img-section">
+                    <div class="uploader-buttons"
+                         [ngClass]="{'with-image' : imgUrl}">
+
+                        <label for="img"
+                               class="add-img-btn-label">
+                        <span class="g-btn"
+                              *ngIf="!form.value?.img; else withImage"
+                              translate>MAIN.ADD_IMAGE</span>
+                            <ng-template #withImage>
+                        <span class="g-btn"
+                              translate>MAIN.CHANGE_IMAGE</span>
+                            </ng-template>
+
+                        </label>
+
+                        <input class="g-display-none"
+                               id="img"
+                               accept="image/*"
+                               type="file"
+                               (change)="addImage($event)">
+                        <input type="hidden"
+                               formControlName="img">
+
+                        <span *ngIf="imgUrl">
+                            <button (click)="clearImg()"
+                                    class="g-btn g-btn-error"
+                                    translate>MAIN.CLEAR_IMAGE
+                            </button>
+                        </span>
+                        <span></span>
+                    </div>
+
+                    <img [src]="imgUrl"
+                         alt=""
+                         class="img">
+                </section>
+
+                <!--IMPACT TYPES-->
+                <section class="g-form-section">
+                    <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
+                    <div class="option-list"
+                         *ngIf="targetGroupsService.targetGroups?.length">
+                        <div class="option-item"
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                            <app-editable-option [canEdit]="false"
+                                                 [canAdd]="true"
+                                                 [checked]="isBoxContainTargetGroup(targetGroup)"
+                                                 [(optionValue)]="targetGroup.title"
+                                                 (onCheck)="toggleTargetGroup($event, targetGroup)">
+                            </app-editable-option>
+                        </div>
+                    </div>
+                </section>
+
+                <!--TARGET GROUPS-->
+                <section class="g-form-section">
+                    <label><span translate>NEW_MEDICAMENT.TARGET_GROUPS_LABEL</span>:</label>
+                    <div class="option-list"
+                         *ngIf="targetGroupsService.targetGroups?.length">
+                        <div class="option-item"
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                            <app-editable-option [canEdit]="false"
+                                                 [canAdd]="true"
+                                                 [checked]="isBoxContainTargetGroup(targetGroup)"
+                                                 [(optionValue)]="targetGroup.title"
+                                                 (onCheck)="toggleTargetGroup($event, targetGroup)">
+                            </app-editable-option>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="g-form-section">
+                <span>
+                    <button class="g-btn g-btn-success"
+                            type="submit"
+                            translate>MAIN.SAVE_CHANGES</button>
+                </span>
+                </section>
+            </form>
+            <ng-template #loadingMedicament>
+                loading...
+            </ng-template>
+        </div>
+    </div>
+
+</div>
+
