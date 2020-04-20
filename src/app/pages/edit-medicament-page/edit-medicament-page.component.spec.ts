@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MedicamentEditPageComponent } from './medicament-edit-page.component';
+import { EditMedicamentPageComponent } from './edit-medicament-page.component';
 
 describe('MedicamentEditPageComponent', () => {
-  let component: MedicamentEditPageComponent;
-  let fixture: ComponentFixture<MedicamentEditPageComponent>;
+  let component: EditMedicamentPageComponent;
+  let fixture: ComponentFixture<EditMedicamentPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MedicamentEditPageComponent ]
+      declarations: [ EditMedicamentPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MedicamentEditPageComponent);
+    fixture = TestBed.createComponent(EditMedicamentPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

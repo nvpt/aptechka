@@ -1,8 +1,9 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {TranslateService} from '@ngx-translate/core';
 
 import {BreadcrumbI, Constants} from '../../constants';
 
@@ -13,12 +14,13 @@ import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service'
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {BoxI} from '../../interfaces/box-interface';
 
+
 @Component({
-    selector: 'app-edit-box',
-    templateUrl: './edit-box.component.html',
-    styleUrls: ['./edit-box.component.scss']
+    selector: 'app-new-box-page',
+    templateUrl: './new-box-page.component.html',
+    styleUrls: ['./new-box-page.component.scss']
 })
-export class EditBoxComponent implements OnInit, OnDestroy {
+export class NewBoxPageComponent implements OnInit, OnDestroy {
     @ViewChild('titleInput') titleInput: ElementRef;
 
     breadcrumbs: BreadcrumbI[] = [
@@ -30,48 +32,42 @@ export class EditBoxComponent implements OnInit, OnDestroy {
     targetGroups: TargetGroupI[] = [];
     form!: FormGroup;
     imgUrl!: string;
-    box!: BoxI;
-    routeSub$!: Subscription;
+    translationSub$!: Subscription;
 
-    constructor(public targetGroupsService: TargetGroupsService, private location: Location, private route: ActivatedRoute, private menuService: MenuService, private boxesService: BoxesService,
-        private router: Router, private breadcrumbService: BreadcrumbService) {
+    constructor(public targetGroupsService: TargetGroupsService, private location: Location, private menuService: MenuService, private boxesService: BoxesService,
+        private router: Router, private breadcrumbService: BreadcrumbService, private translateService: TranslateService) {
     }
 
     ngOnInit(): void {
-        this.menuService.hide();
-
-        this.routeSub$ = this.route.params.subscribe(params => {
-
-            this.box = this.boxesService.boxes.find(box => {
-                return box.id === Number(params.boxId);
-            });
-
+        this.translationSub$ = this.translateService.get('BREADCRUMB.NEW_BOX').subscribe(translation => {
             this.breadcrumbs.push(<BreadcrumbI>{
-                label: this.box.title
+                label: translation
             });
-
             this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
-
-            this.initForm();
-            this.getTargetGroups();
         });
 
+        this.menuService.hide();
+
+        this.initForm();
+        this.getTargetGroups();
+
+        setTimeout(() => {
+            this.titleInput && this.titleInput.nativeElement.focus();
+        }, 0);
+    }
+
+    ngOnDestroy() {
+        this.translationSub$.unsubscribe();
+        this.menuService.show();
     }
 
     initForm() {
         this.form = new FormGroup({
-            title: new FormControl(this.box.title, [Validators.required]),
-            description: new FormControl(this.box.description),
-            img: new FormControl(this.box.img),
-            medicaments: new FormControl(this.box.medicamentsIds),
+            title: new FormControl('', [Validators.required]),
+            description: new FormControl(''),
+            img: new FormControl(null),
+            medicaments: new FormControl([]),
         });
-
-        this.imgUrl = this.box.img;
-    }
-
-    ngOnDestroy() {
-        this.routeSub$.unsubscribe();
-        this.menuService.show();
     }
 
     cancelAdding() {
@@ -90,9 +86,9 @@ export class EditBoxComponent implements OnInit, OnDestroy {
         this.form.patchValue({img});
     }
 
-    clearImg() {
-        this.imgUrl = null;
+    clearPreview() {
         this.form.controls.img.reset();
+        this.imgUrl = null;
         this.form.controls.img.updateValueAndValidity();
     }
 
@@ -115,23 +111,20 @@ export class EditBoxComponent implements OnInit, OnDestroy {
         }
     }
 
-    isBoxContainTargetGroup(tg: TargetGroupI): boolean {
-        return !!this.box.targetGroups.find(group => group.id === tg.id);
-    }
-
-
-    updateBox() {
-        this.boxesService.updateBox({
-            ...this.box,
-            title: this.form.value.title,
+    saveBox() {
+        const box: BoxI = {
+            id: new Date().getTime(),
             description: this.form.value.description,
-            imgData: this.form.value.imgData,
+            title: this.form.value.title,
+            imgData: this.form.value.img,
             img: this.imgUrl,
-            targetGroups: this.targetGroups
-        }).subscribe(() => {
-                this.router.navigate([Constants.PATH.dashboard]);
-            }
-        );
+            targetGroups: this.targetGroups,
+            medicamentsIds: this.form.value.medicamentsIds
+        };
+
+        this.boxesService.addBox(box).subscribe(() => {
+            this.router.navigate([Constants.PATH.dashboard]);
+        });
 
     }
 }

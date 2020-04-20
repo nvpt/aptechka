@@ -12,12 +12,12 @@ import {MenuModule} from '../modules/menu/menu.module';
 import {ContentLayoutComponent} from '../layouts/content-layout/content-layout.component';
 import {EmptyLayoutComponent} from '../layouts/empty-layout/empty-layout.component';
 
-import {DashboardPageComponent} from '../pages/dashboard-page/dashboard-page.component';
-import {TileComponent} from '../pages/dashboard-page/components/tile/tile.component';
-import {NewBoxComponent} from '../pages/new-box/new-box.component';
-import {EditBoxComponent} from '../pages/edit-box/edit-box.component';
+import {BoxesPageComponent} from '../pages/boxes-page/boxes-page.component';
+import {TileComponent} from '../pages/boxes-page/components/tile/tile.component';
+import {NewBoxPageComponent} from '../pages/new-box-page/new-box-page.component';
+import {EditBoxPageComponent} from '../pages/edit-box-page/edit-box-page.component';
 import {MedicamentsPageComponent} from '../pages/medicaments-page/medicaments-page.component';
-import {NewMedicamentComponent} from '../pages/new-medicament/new-medicament.component';
+import {NewMedicamentPageComponent} from '../pages/new-medicament-page/new-medicament-page.component';
 import {SettingsPageComponent} from '../pages/settings-page/settings-page.component';
 import {AboutPageComponent} from '../pages/about-page/about-page.component';
 import {NotFoundPageComponent} from '../pages/not-found-page/not-found-page.component';
@@ -41,12 +41,12 @@ registerLocaleData(ruLocale, 'ru');
     declarations:[
         ContentLayoutComponent,
         EmptyLayoutComponent,
-        DashboardPageComponent,
+        BoxesPageComponent,
         TileComponent,
-        NewBoxComponent,
-        EditBoxComponent,
+        NewBoxPageComponent,
+        EditBoxPageComponent,
         MedicamentsPageComponent,
-        NewMedicamentComponent,
+        NewMedicamentPageComponent,
         SettingsPageComponent,
         AboutPageComponent,
         NotFoundPageComponent,
@@ -77,12 +77,12 @@ registerLocaleData(ruLocale, 'ru');
         RouterModule,
         ContentLayoutComponent,
         EmptyLayoutComponent,
-        DashboardPageComponent,
+        BoxesPageComponent,
         TileComponent,
-        NewBoxComponent,
-        EditBoxComponent,
+        NewBoxPageComponent,
+        EditBoxPageComponent,
         MedicamentsPageComponent,
-        NewMedicamentComponent,
+        NewMedicamentPageComponent,
         SettingsPageComponent,
         AboutPageComponent,
         NotFoundPageComponent,

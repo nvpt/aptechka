@@ -5,11 +5,11 @@ import {Constants} from '../../constants';
 import {BoxesService} from '../../services/boxes.service';
 
 @Component({
-    selector: 'app-dashboard-page',
-    templateUrl: './dashboard-page.component.html',
-    styleUrls: ['./dashboard-page.component.scss']
+    selector: 'app-boxes-page',
+    templateUrl: './boxes-page.component.html',
+    styleUrls: ['./boxes-page.component.scss']
 })
-export class DashboardPageComponent implements OnInit {
+export class BoxesPageComponent implements OnInit {
     boxes: BoxI[] = this.boxesService.boxes;
 
     constructor(private router: Router, public boxesService: BoxesService) {
