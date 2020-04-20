@@ -10,32 +10,35 @@ import {EmptyLayoutComponent} from './layouts/empty-layout/empty-layout.componen
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-page.component';
 import {NewBoxPageComponent} from './pages/new-box-page/new-box-page.component';
-import {BoxEditPageComponent} from './pages/box-edit-page/box-edit-page.component';
+import {EditBoxPageComponent} from './pages/edit-box-page/edit-box-page.component';
+import {EditMedicamentPageComponent} from './pages/edit-medicament-page/edit-medicament-page.component';
 
 const routes: Routes = [
-        {
-            path: '', component: ContentLayoutComponent, children: [
-                {path: '', component: BoxesPageComponent, pathMatch: 'full'},
-                {path: Constants.PATH.newBox, component: NewBoxPageComponent},
-                {path: `${Constants.PATH.editBox}/:boxId`, component: BoxEditPageComponent},
-                {path: Constants.PATH.settings, component: SettingsPageComponent},//todo *** set as module?
-                {path: Constants.PATH.about, component: AboutPageComponent},
-                {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},//todo *** set as module
-            ]
-        },
-        {
-            path: '**', component: EmptyLayoutComponent, children: [
-                {path: '', component: NotFoundPageComponent}
-            ]
-        }
-    ]
-;
-
+    {
+        path: '',
+        component: ContentLayoutComponent,
+        children: [
+            {path: '', component: BoxesPageComponent, pathMatch: 'full'},
+            {path: Constants.PATH.newBox, component: NewBoxPageComponent},
+            {path: `${Constants.PATH.editBox}/:boxId`, component: EditBoxPageComponent},
+            {path: Constants.PATH.settings, component: SettingsPageComponent}, //todo *** set as module?
+            {path: Constants.PATH.about, component: AboutPageComponent},
+            {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
+            {path: `${Constants.PATH.editMedicament}/:medicamentId`, component: EditMedicamentPageComponent}
+        ]
+    },
+    {
+        path: '**',
+        component: EmptyLayoutComponent,
+        children: [{path: '', component: NotFoundPageComponent}]
+    }
+];
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {
-        paramsInheritanceStrategy: 'always'
-    })],
+    imports: [
+        RouterModule.forRoot(routes, {
+            paramsInheritanceStrategy: 'always'
+        })
+    ],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
