@@ -48,7 +48,6 @@ export class NewBoxComponent implements OnInit, OnDestroy {
 
         this.menuService.hide();
 
-
         this.initForm();
         this.getTargetGroups();
 

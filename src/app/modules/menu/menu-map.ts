@@ -2,7 +2,7 @@ import {Constants, MenuItemI} from '../../constants';
 
 export const menuMap: MenuItemI[] = [
     {//DASHBOARD
-        title: 'BREADCRUMB.HOME',
+        title: 'BREADCRUMB.BOXES',
         path: Constants.PATH.dashboard,
         selected: true,
         breadcrumbs: [
