@@ -46,6 +46,16 @@
         "SAVE": "Сохранить",
         "SAVE_CHANGES": "Сохранить изменения"
     },
+    "MEDICAMENTS": {
+        "TABLE": {
+            "TITLE": "Название",
+            "ISSUE_DATE": "Дата выпуска",
+            "EXPIRY_DATE": "Дата окончания годности",
+            "BOX": "Коробка",
+            "IMPACT_TYPE": "Тип воздействия",
+            "TARGET_GROUP": "Целевые группы"
+        }
+    },
     "NEW_BOX": {
         "CANCEL_ADDING": "Отменить добавление",
         "DEFAULT_TITLE": "Новая коробка",

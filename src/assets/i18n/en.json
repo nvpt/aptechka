@@ -46,6 +46,16 @@
         "SAVE": "Save",
         "SAVE_CHANGES": "Save changes"
     },
+    "MEDICAMENTS": {
+        "TABLE": {
+            "TITLE": "Title",
+            "ISSUE_DATE": "Issue date",
+            "EXPIRY_DATE": "Expiry date",
+            "BOX": "Box",
+            "IMPACT_TYPE": "Impact type",
+            "TARGET_GROUP": "Target groups"
+        }
+    },
     "NEW_BOX": {
         "CANCEL_ADDING": "Cancel adding",
         "DEFAULT_TITLE": "New Box",
