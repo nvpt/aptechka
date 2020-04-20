@@ -49,6 +49,7 @@
     "MEDICAMENTS": {
         "TABLE": {
             "TITLE": "Title",
+            "DESCRIPTION": "Description",
             "ISSUE_DATE": "Issue date",
             "EXPIRY_DATE": "Expiry date",
             "BOX": "Box",

@@ -49,6 +49,7 @@
     "MEDICAMENTS": {
         "TABLE": {
             "TITLE": "Название",
+            "DESCRIPTION": "Описание",
             "ISSUE_DATE": "Дата выпуска",
             "EXPIRY_DATE": "Дата окончания годности",
             "BOX": "Коробка",
