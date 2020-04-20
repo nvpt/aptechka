@@ -4,6 +4,9 @@ import {BoxI} from '../../interfaces/box-interface';
 import {BoxesService} from '../../services/boxes.service';
 import {Constants} from '../../constants';
 import {StorageDataI} from '../../interfaces/storage-data-interface';
+import {Router} from '@angular/router';
+import {MedicamentI} from '../../interfaces/medicament-interface';
+
 
 @Component({
     selector: 'app-medicaments-page',
@@ -13,7 +16,11 @@ import {StorageDataI} from '../../interfaces/storage-data-interface';
 export class MedicamentsPageComponent implements OnInit {
     currentLanguage: string = Constants.DEFAULT_LANGUAGE;
 
-    constructor(public medicamentsService: MedicamentsService, private boxesService: BoxesService) {
+    constructor(
+        public medicamentsService: MedicamentsService,
+        private boxesService: BoxesService,
+        private router: Router
+    ) {
     }
 
     ngOnInit(): void {
@@ -27,6 +34,11 @@ export class MedicamentsPageComponent implements OnInit {
     }
 
     defineBox(boxId: number): BoxI {
-        return this.boxesService.boxes.find(box => box.id === boxId);
+        return this.boxesService.boxes.find((box) => box.id === boxId);
     }
+
+    editMedicament(medicament: MedicamentI) {
+        this.router.navigate([`${Constants.PATH.editMedicament}/${medicament.id}`])
+    }
+
 }

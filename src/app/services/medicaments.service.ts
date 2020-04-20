@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {MedicamentI} from '../interfaces/medicament-interface';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -50,7 +51,7 @@ export class MedicamentsService {
         },
         {
             id: 3,
-            title: 'Зеленка',
+            title: 'Зелёнка',
             issueDate: 'Mon Apr 13 2017 22:30:16 GMT+0300 (Moscow Standard Time)',
             expiryDate: 'Mon Apr 23 2020 22:30:16 GMT+0300 (Moscow Standard Time)',
             boxId: 2,
@@ -116,9 +117,35 @@ export class MedicamentsService {
                     title: 'Ожоги, порезы'
                 }
             ]
-        },
+        }
     ];
 
-    constructor() {
+    constructor() {}
+
+    getMedicamentById(id: number): Observable<MedicamentI> {
+        return of(this.medicaments.find((medicament) => medicament.id === Number(id)));
+    }
+
+    addMedicament(medicament: MedicamentI): Observable<void> {
+        this.medicaments.unshift(medicament);
+        return of(null);
+    }
+
+    deleteMedicament(deletedMedicament): void {
+        this.medicaments = [
+            ...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== deletedMedicament.id)
+        ];
+    }
+
+    updateMedicament(medicament: MedicamentI): Observable<void> {
+        this.medicaments.forEach((medicamentItem, i) => {
+            if (medicamentItem.id === medicament.id) {
+                this.medicaments[i] = {
+                    ...medicamentItem,
+                    ...medicament
+                };
+            }
+        });
+        return of(null);
     }
 }

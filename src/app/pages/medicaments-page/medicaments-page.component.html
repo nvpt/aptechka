@@ -8,6 +8,7 @@
             <thead>
             <tr>
                 <th translate>MEDICAMENTS.TABLE.TITLE</th>
+                <th translate>MEDICAMENTS.TABLE.DESCRIPTION</th>
                 <th translate>MEDICAMENTS.TABLE.ISSUE_DATE</th>
                 <th translate>MEDICAMENTS.TABLE.EXPIRY_DATE</th>
                 <th translate>MEDICAMENTS.TABLE.BOX</th>
@@ -17,20 +18,31 @@
             </thead>
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
-                <td>{{med.title}}</td>
-                <td>{{med.issueDate | date:'shortDate':null:currentLanguage}}</td>
-                <td>{{med.expiryDate | date:'longDate': null: currentLanguage}}</td>
+                <td (click)="editMedicament(med)">
+                        <span class="img-wrap">
+                            {{ med.title }}
+                            <br/>
+                            <img [src]="med.img"
+                                 class="img"
+                                 alt=""/>
+                        </span>
+                </td>
+                <td>{{ med.description || '--' }}</td>
+                <td>{{ med.issueDate | date: 'shortDate':null:currentLanguage }}</td>
+                <td>{{ med.expiryDate | date: 'longDate':null:currentLanguage }}</td>
                 <td>
-                    <span class="box-data">
-                        {{defineBox(med.boxId)?.title}}
-                        <br>
-                        <img alt="" class="box-data__img" [src]="defineBox(med.boxId)?.img" style="max-width: 100px; max-height: 100px;">
-                    </span>
+                        <span class="img-wrap">
+                            {{ defineBox(med.boxId)?.title }}
+                            <br/>
+                            <img alt=""
+                                 class="img"
+                                 [src]="defineBox(med.boxId)?.img"/>
+                        </span>
                 </td>
                 <td>
                     <ul *ngIf="med.impactTypes?.length; else impactsEmpty">
                         <li *ngFor="let impact of med.impactTypes">
-                            {{impact.title}}
+                            {{ impact.title }}
                         </li>
                     </ul>
                     <ng-template #impactsEmpty>
@@ -40,7 +52,7 @@
                 <td>
                     <ul *ngIf="med.targetGroups?.length; else groupsEmpty">
                         <li *ngFor="let group of med.targetGroups">
-                            {{group.title}}
+                            {{ group.title }}
                         </li>
                     </ul>
                     <ng-template #groupsEmpty>
@@ -49,8 +61,6 @@
                 </td>
             </tr>
             </tbody>
-
         </table>
     </div>
-
 </div>

@@ -1,4 +1,4 @@
-@import "src/styles/variables";
+@import 'src/styles/variables';
 
 :host {
     width: 100%;
@@ -29,16 +29,18 @@
         padding-left: $string-padding;
 
         &:before {
-            content: "-";
+            content: '-';
             padding-right: $string-padding;
         }
     }
 }
 
-.box-data {
+.img-wrap {
     display: grid;
-    
-    &__img {
-        margin: auto;
-    }
+}
+
+.img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: auto;
 }
