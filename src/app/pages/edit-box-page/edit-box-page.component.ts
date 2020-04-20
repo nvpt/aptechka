@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 import {BreadcrumbI, Constants} from '../../constants';
@@ -12,6 +12,7 @@ import {BoxesService} from '../../services/boxes.service';
 import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {BoxI} from '../../interfaces/box-interface';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
     selector: 'app-edit-box-page',
@@ -19,7 +20,6 @@ import {BoxI} from '../../interfaces/box-interface';
     styleUrls: ['./edit-box-page.component.scss']
 })
 export class EditBoxPageComponent implements OnInit, OnDestroy {
-    @ViewChild('titleInput') titleInput: ElementRef;
 
     breadcrumbs: BreadcrumbI[] = [
         {
@@ -31,7 +31,6 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     form!: FormGroup;
     imgUrl!: string;
     box!: BoxI;
-    routeSub$!: Subscription;
 
     constructor(public targetGroupsService: TargetGroupsService, private location: Location, private route: ActivatedRoute, private menuService: MenuService, private boxesService: BoxesService,
         private router: Router, private breadcrumbService: BreadcrumbService) {
@@ -40,22 +39,28 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.menuService.hide();
 
-        this.routeSub$ = this.route.params.subscribe(params => {
+        this.route.params
+            .pipe(
+                switchMap((params: Params) => {
+                        return this.boxesService.getBoxById(params.boxId);
+                    }
+                )
+            )
+            .subscribe((box: BoxI) => {
+                    this.box = box;
 
-            this.box = this.boxesService.boxes.find(box => {
-                return box.id === Number(params.boxId);
-            });
+                    this.breadcrumbs.push(<BreadcrumbI>{
+                        label: this.box.title
+                    });
+                    this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+                    this.initForm();
+                    this.getTargetGroups();
+                }
+            );
+    }
 
-            this.breadcrumbs.push(<BreadcrumbI>{
-                label: this.box.title
-            });
-
-            this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
-
-            this.initForm();
-            this.getTargetGroups();
-        });
-
+    ngOnDestroy() {
+        this.menuService.show();
     }
 
     initForm() {
@@ -67,11 +72,6 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         });
 
         this.imgUrl = this.box.img;
-    }
-
-    ngOnDestroy() {
-        this.routeSub$.unsubscribe();
-        this.menuService.show();
     }
 
     cancelAdding() {
@@ -132,6 +132,5 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
                 this.router.navigate([Constants.PATH.dashboard]);
             }
         );
-
     }
 }

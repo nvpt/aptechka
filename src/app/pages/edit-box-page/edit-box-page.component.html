@@ -22,8 +22,7 @@
                     <label for="title"><span translate>NEW_BOX.TITLE_LABEL</span>:</label>
                     <input id="title"
                            type="text"
-                           formControlName="title"
-                           #titleInput>
+                           formControlName="title">
                 </section>
 
                 <!--DESCRIPTION-->
@@ -62,11 +61,11 @@
                                formControlName="img">
 
                         <span *ngIf="imgUrl">
-                        <button (click)="clearImg()"
-                                class="g-btn g-btn-error"
-                                translate>MAIN.CLEAR_IMAGE
-                        </button>
-                    </span>
+                            <button (click)="clearImg()"
+                                    class="g-btn g-btn-error"
+                                    translate>MAIN.CLEAR_IMAGE
+                            </button>
+                        </span>
                         <span></span>
                     </div>
 
@@ -76,7 +75,6 @@
                 </section>
 
                 <!--TARGET GROUPS-->
-
                 <section class="g-form-section">
                     <label><span translate>NEW_BOX.TARGET_GROUPS_LABEL</span>:</label>
                     <div class="option-list"
