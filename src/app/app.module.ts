@@ -9,6 +9,7 @@ import {HttpClient} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 
 import {AppComponent} from './app.component';
+import { MedicamentEditPageComponent } from './pages/medicament-edit-page/medicament-edit-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -16,7 +17,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        MedicamentEditPageComponent
     ],
     imports: [
         BrowserModule,
