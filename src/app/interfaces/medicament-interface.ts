@@ -4,9 +4,12 @@ import {TargetGroupI} from './target-group-interface';
 export interface MedicamentI {
     id: number;
     title: string;
+    description?: string;
     issueDate: Date | string;
     expiryDate: Date | string;
+    img?: string;
+    imgData?: File;
     impactTypes?: ImpactTypeI[];
-    boxId?: number;
     targetGroups?: TargetGroupI[];
+    boxId?: number;
 }
