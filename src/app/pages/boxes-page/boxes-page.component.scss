@@ -1,9 +1,8 @@
-@import "../../../styles/variables";
+@import '../../../styles/variables';
 
 :host {
     overflow: auto;
 }
-
 
 .boxes {
     display: grid;
@@ -18,7 +17,7 @@
 
 .content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($cell-width,  $cell-width-max));
+    grid-template-columns: repeat(auto-fit, minmax($cell-width, $cell-width-max));
     grid-template-rows: repeat(min(1), 1fr);
     justify-content: center;
     width: $container-width;
