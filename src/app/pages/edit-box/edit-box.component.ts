@@ -56,10 +56,6 @@ export class EditBoxComponent implements OnInit, OnDestroy {
             this.getTargetGroups();
         });
 
-
-        setTimeout(() => {
-            this.titleInput && this.titleInput.nativeElement.focus();
-        }, 0);
     }
 
     initForm() {
