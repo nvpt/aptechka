@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {switchMap} from 'rxjs/operators';
-import {Location} from '@angular/common';
+import {Location, DatePipe} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {BreadcrumbI, Constants} from '../../constants';
@@ -14,6 +14,7 @@ import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {MedicamentI} from '../../interfaces/medicament-interface';
 import {ImpactTypeI} from '../../interfaces/impact-type-interface';
 import {ImpactTypesService} from '../../services/impact-types.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-edit-medicament-page',
@@ -41,7 +42,8 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         private menuService: MenuService,
         private medicamentsService: MedicamentsService,
         private router: Router,
-        private breadcrumbService: BreadcrumbService
+        private breadcrumbService: BreadcrumbService,
+        private translateService: TranslateService
     ) {}
 
     ngOnInit(): void {
@@ -74,16 +76,19 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     initForm() {
+        let dp = new DatePipe(this.translateService.currentLang);
+        let mask = 'yyyy-MM-dd';
+
         this.form = new FormGroup({
             title: new FormControl(this.medicament.title, [Validators.required]),
             description: new FormControl(this.medicament.description),
-            issueDate: new FormControl(this.medicament.issueDate),
-            expiryDate: new FormControl(this.medicament.expiryDate),
+            issueDate: new FormControl(dp.transform(new Date(this.medicament.issueDate), mask)),
+            expiryDate: new FormControl(dp.transform(new Date(this.medicament.expiryDate), mask), [Validators.required]),
             img: new FormControl(this.medicament.img),
-            boxId: new FormControl(this.medicament.boxId)
+            boxId: new FormControl(this.medicament.boxId, [Validators.required])
         });
 
-        // this.imgUrl = this.medicament.img;
+        this.imgUrl = this.medicament.img;
     }
 
     cancelAdding() {
