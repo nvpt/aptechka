@@ -90,8 +90,10 @@
             <h2 class="g-h2-title"
                 translate>SETTING.TARGET_GROUPS.TITLE</h2>
             <section class="g-form-section">
+                <div class="new-option-wrap">
                 <app-new-option [errorMessages]="targetGroupsErrors"
                                 (onAdd)="addTargetGroup($event)"></app-new-option>
+                </div>
                 <div class="option-list" *ngIf="targetGroupsService.targetGroups?.length">
                     <div class="option-item"
                          *ngFor="let targetGroup of targetGroupsService.targetGroups">
@@ -106,8 +108,10 @@
             <h2 class="g-h2-title"
                 translate>SETTING.IMPACT_TYPES.TITLE</h2>
             <section class="g-form-section">
+                <div class="new-option-wrap">
                 <app-new-option [errorMessages]="impactErrors"
                                 (onAdd)="addImpactType($event)"></app-new-option>
+                </div>
                 <div class="option-list" *ngIf="impactTypeService.impactTypes?.length">
                     <div class="option-item"
                          *ngFor="let impactType of impactTypeService.impactTypes">

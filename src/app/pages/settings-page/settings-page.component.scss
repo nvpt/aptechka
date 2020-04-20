@@ -17,6 +17,10 @@ label:not([for="img"]) {
     margin-bottom: $string-padding;
 }
 
+.new-option-wrap {
+    margin-bottom: $string-padding;
+}
+
 .option-list {
     $padding: 10px;
     max-height: ($option-item-height * 5) + ($padding * 2);
