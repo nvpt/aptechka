@@ -12,6 +12,8 @@ import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service'
 import {MedicamentsService} from '../../services/medicaments.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {MedicamentI} from '../../interfaces/medicament-interface';
+import {ImpactTypeI} from '../../interfaces/impact-type-interface';
+import {ImpactTypesService} from '../../services/impact-types.service';
 
 @Component({
     selector: 'app-edit-medicament-page',
@@ -26,12 +28,14 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         }
     ];
     targetGroups: TargetGroupI[] = [];
+    impactTypes: ImpactTypeI[] = [];
     form!: FormGroup;
     imgUrl!: string;
     medicament!: MedicamentI;
 
     constructor(
         public targetGroupsService: TargetGroupsService,
+        public impactTypesService: ImpactTypesService,
         private location: Location,
         private route: ActivatedRoute,
         private menuService: MenuService,
@@ -51,13 +55,17 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             )
             .subscribe((medicament: MedicamentI) => {
                 this.medicament = medicament;
-                this.initForm();
+                this.targetGroups = medicament.targetGroups;
+                this.impactTypes = medicament.impactTypes;
 
                 this.breadcrumbs.push(<BreadcrumbI>{
                     label: this.medicament.title
                 });
                 this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+
+                this.initForm();
                 this.getTargetGroups();
+                this.getImpactTypes();
             });
     }
 
@@ -117,8 +125,29 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         }
     }
 
-    isBoxContainTargetGroup(tg: TargetGroupI): boolean {
+    isMedicamentContainTargetGroup(tg: TargetGroupI): boolean {
         return !!this.medicament.targetGroups.find((group) => group.id === tg.id);
+    }
+
+    /*Impact types*/
+    getImpactTypes() {
+        this.impactTypesService.getImpactTypes();
+    }
+
+    toggleImpactType(event: MouseEvent, impactType: ImpactTypeI) {
+        const checked: boolean = (<HTMLInputElement>event.target).checked;
+
+        if (checked) {
+            if (this.impactTypes.every((impact) => impact.id !== impactType.id)) {
+                this.impactTypes.push(impactType);
+            }
+        } else {
+            this.impactTypes = [...this.impactTypes.filter((impact) => impact.id !== impactType.id)];
+        }
+    }
+
+    isMedicamentContainImpactType(it: TargetGroupI): boolean {
+        return !!this.medicament.impactTypes.find((impact) => impact.id === it.id);
     }
 
     updateMedicament() {
@@ -126,9 +155,13 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             .updateMedicament({
                 ...this.medicament,
                 title: this.form.value.title,
+                description: this.form.value.description,
+                issueDate: this.form.value.issueDate,
+                expiryDate: this.form.value.expiryDate,
                 imgData: this.form.value.imgData,
                 img: this.imgUrl,
-                targetGroups: this.targetGroups
+                targetGroups: this.targetGroups,
+                impactTypes: this.impactTypes
             })
             .subscribe(() => {
                 this.router.navigate([Constants.PATH.medicaments]);

@@ -1,8 +1,7 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Subscription} from 'rxjs';
 
 import {BreadcrumbI, Constants} from '../../constants';
 
@@ -48,11 +47,13 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
             )
             .subscribe((box: BoxI) => {
                     this.box = box;
+                    this.targetGroups = box.targetGroups;
 
                     this.breadcrumbs.push(<BreadcrumbI>{
                         label: this.box.title
                     });
                     this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+
                     this.initForm();
                     this.getTargetGroups();
                 }

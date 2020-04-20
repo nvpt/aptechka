@@ -107,14 +107,14 @@
                 <section class="g-form-section">
                     <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
                     <div class="option-list"
-                         *ngIf="targetGroupsService.targetGroups?.length">
+                         *ngIf="impactTypesService.impactTypes?.length">
                         <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                             *ngFor="let impactType of impactTypesService.impactTypes">
                             <app-editable-option [canEdit]="false"
                                                  [canAdd]="true"
-                                                 [checked]="isBoxContainTargetGroup(targetGroup)"
-                                                 [(optionValue)]="targetGroup.title"
-                                                 (onCheck)="toggleTargetGroup($event, targetGroup)">
+                                                 [checked]="isMedicamentContainImpactType(impactType)"
+                                                 [(optionValue)]="impactType.title"
+                                                 (onCheck)="toggleImpactType($event, impactType)">
                             </app-editable-option>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
                             <app-editable-option [canEdit]="false"
                                                  [canAdd]="true"
-                                                 [checked]="isBoxContainTargetGroup(targetGroup)"
+                                                 [checked]="isMedicamentContainTargetGroup(targetGroup)"
                                                  [(optionValue)]="targetGroup.title"
                                                  (onCheck)="toggleTargetGroup($event, targetGroup)">
                             </app-editable-option>
