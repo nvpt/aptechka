@@ -19,13 +19,14 @@
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
 
-                <!--TITLE + IMG-->
-                <td (click)="editMedicament(med)">
-                        <span class="img-wrap">
-                            {{ med.title }}
-                            <br/>
+                <!--MEDICAMENT TITLE + IMG-->
+                <td (click)="editMedicament(med)"
+                    class="hovered">
+                    <span class="material-icons hovered__icon">edit</span>
+                    <span class="img-wrap">
+                            <span class="img-wrap__title">{{ med.title }}</span>
                             <img [src]="med.img"
-                                 class="img"
+                                 class="img-wrap__img"
                                  alt=""/>
                         </span>
                 </td>
@@ -63,13 +64,14 @@
                     </ng-template>
                 </td>
 
-                <!--BOX-->
-                <td>
-                        <span class="img-wrap">
-                            <span (click)="editBox(med.boxId)">{{ defineBox(med.boxId)?.title }}</span>
-                            <br/>
+                <!--BOX TITLE + IMG-->
+                <td (click)="editBox(med.boxId)"
+                    class="hovered">
+                    <span class="material-icons hovered__icon">edit</span>
+                    <span class="img-wrap">
+                            <span class="img-wrap__title">{{ defineBox(med.boxId)?.title }}</span>
                             <img alt=""
-                                 class="img"
+                                 class="img-wrap__img"
                                  [src]="defineBox(med.boxId)?.img"/>
                         </span>
                 </td>

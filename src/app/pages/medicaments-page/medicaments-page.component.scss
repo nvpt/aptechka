@@ -20,8 +20,33 @@
 .table {
     margin: auto;
 
+    tr {
+        &:hover {
+            .hovered {
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: inset 0 0 0 2px var(--color-current-40);
+
+                    .hovered__icon {
+                        //color: var(--color-current-40);
+                        //opacity: 1;
+                    }
+                    .img-wrap {
+                        //color: var(--color-current-40);
+                        font-weight: bold;
+                    }
+                }
+
+                &__icon {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
     td {
         vertical-align: top;
+        text-align: center;
     }
 
     li {
@@ -35,12 +60,31 @@
     }
 }
 
-.img-wrap {
-    display: grid;
+.hovered {
+    position: relative;
+    padding: $string-padding $string-padding * 3;
+    &__icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: $mat-icon-size;
+        //visibility: hidden;
+        opacity: 0.5;
+    }
 }
 
-.img {
-    max-width: 100px;
-    max-height: 100px;
+.img-wrap {
+    display: grid;
     margin: auto;
+    text-align: center;
+    grid-row-gap: 8px;
+
+    &__title {
+    }
+
+    &__img {
+        max-width: 100px;
+        max-height: 100px;
+        margin: auto;
+    }
 }

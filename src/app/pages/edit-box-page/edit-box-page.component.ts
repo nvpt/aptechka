@@ -19,7 +19,6 @@ import {switchMap} from 'rxjs/operators';
     styleUrls: ['./edit-box-page.component.scss']
 })
 export class EditBoxPageComponent implements OnInit, OnDestroy {
-
     breadcrumbs: BreadcrumbI[] = [
         {
             label: 'BREADCRUMB.BOXES',
@@ -31,9 +30,15 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     imgUrl!: string;
     box!: BoxI;
 
-    constructor(public targetGroupsService: TargetGroupsService, private location: Location, private route: ActivatedRoute, private menuService: MenuService, private boxesService: BoxesService,
-        private router: Router, private breadcrumbService: BreadcrumbService) {
-    }
+    constructor(
+        public targetGroupsService: TargetGroupsService,
+        private location: Location,
+        private route: ActivatedRoute,
+        private menuService: MenuService,
+        private boxesService: BoxesService,
+        private router: Router,
+        private breadcrumbService: BreadcrumbService
+    ) {}
 
     ngOnInit(): void {
         this.menuService.hide();
@@ -41,23 +46,21 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         this.route.params
             .pipe(
                 switchMap((params: Params) => {
-                        return this.boxesService.getBoxById(params.boxId);
-                    }
-                )
+                    return this.boxesService.getBoxById(params.boxId);
+                })
             )
             .subscribe((box: BoxI) => {
-                    this.box = box;
-                    this.targetGroups = box.targetGroups;
+                this.box = box;
+                this.targetGroups = box.targetGroups;
 
-                    this.breadcrumbs.push(<BreadcrumbI>{
-                        label: this.box.title
-                    });
-                    this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+                this.breadcrumbs.push(<BreadcrumbI>{
+                    label: this.box.title
+                });
+                this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
 
-                    this.initForm();
-                    this.getTargetGroups();
-                }
-            );
+                this.initForm();
+                this.getTargetGroups();
+            });
     }
 
     ngOnDestroy() {
@@ -69,7 +72,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
             title: new FormControl(this.box.title, [Validators.required]),
             description: new FormControl(this.box.description),
             img: new FormControl(this.box.img),
-            medicaments: new FormControl(this.box.medicamentsIds),
+            medicaments: new FormControl(this.box.medicamentsIds)
         });
 
         this.imgUrl = this.box.img;
@@ -80,7 +83,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     }
 
     addImage(event: Event) {
-        const img = (<HTMLInputElement>(event.target)).files[0];
+        const img = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
         reader.onload = () => {
@@ -97,41 +100,40 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         this.form.controls.img.updateValueAndValidity();
     }
 
-
     /*Target groups*/
     getTargetGroups() {
         this.targetGroupsService.getTargetGroups();
     }
 
     toggleTargetGroup(event: MouseEvent, targetGroup: TargetGroupI) {
-
         const checked: boolean = (<HTMLInputElement>event.target).checked;
 
         if (checked) {
-            if (this.targetGroups.every((group) => (group.id !== targetGroup.id))) {
+            if (this.targetGroups.every((group) => group.id !== targetGroup.id)) {
                 this.targetGroups.push(targetGroup);
             }
         } else {
-            this.targetGroups = [...this.targetGroups.filter((group) => (group.id !== targetGroup.id))];
+            this.targetGroups = [...this.targetGroups.filter((group) => group.id !== targetGroup.id)];
         }
     }
 
     isBoxContainTargetGroup(tg: TargetGroupI): boolean {
-        return !!this.box.targetGroups.find(group => group.id === tg.id);
+        return !!this.box.targetGroups.find((group) => group.id === tg.id);
     }
 
-
     updateBox() {
-        this.boxesService.updateBox({
-            ...this.box,
-            title: this.form.value.title,
-            description: this.form.value.description,
-            imgData: this.form.value.imgData,
-            img: this.imgUrl,
-            targetGroups: this.targetGroups
-        }).subscribe(() => {
-                this.router.navigate([Constants.PATH.dashboard]);
-            }
-        );
+        this.boxesService
+            .updateBox({
+                ...this.box,
+                title: this.form.value.title,
+                description: this.form.value.description,
+                imgData: this.form.value.imgData,
+                img: this.imgUrl,
+                targetGroups: this.targetGroups
+            })
+            .subscribe(() => {
+                this.location.back();
+                // this.router.navigate([Constants.PATH.dashboard]);
+            });
     }
 }
