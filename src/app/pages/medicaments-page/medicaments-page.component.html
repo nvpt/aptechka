@@ -11,13 +11,15 @@
                 <th translate>MEDICAMENTS.TABLE.DESCRIPTION</th>
                 <th translate>MEDICAMENTS.TABLE.ISSUE_DATE</th>
                 <th translate>MEDICAMENTS.TABLE.EXPIRY_DATE</th>
-                <th translate>MEDICAMENTS.TABLE.BOX</th>
                 <th translate>MEDICAMENTS.TABLE.IMPACT_TYPE</th>
                 <th translate>MEDICAMENTS.TABLE.TARGET_GROUP</th>
+                <th translate>MEDICAMENTS.TABLE.BOX</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
+
+                <!--TITLE + IMG-->
                 <td (click)="editMedicament(med)">
                         <span class="img-wrap">
                             {{ med.title }}
@@ -27,18 +29,17 @@
                                  alt=""/>
                         </span>
                 </td>
+
+                <!--DESCRIPTION-->
                 <td>{{ med.description || '--' }}</td>
+
+                <!--ISSUE DATE-->
                 <td>{{ med.issueDate | date: 'longDate':null:currentLanguage }}</td>
+
+                <!--EXPIRY DATE-->
                 <td>{{ med.expiryDate | date: 'longDate':null:currentLanguage }}</td>
-                <td>
-                        <span class="img-wrap">
-                            <span (click)="editBox(med.boxId)">{{ defineBox(med.boxId)?.title }}</span>
-                            <br/>
-                            <img alt=""
-                                 class="img"
-                                 [src]="defineBox(med.boxId)?.img"/>
-                        </span>
-                </td>
+
+                <!--IMPACT TYPES-->
                 <td>
                     <ul *ngIf="med.impactTypes?.length; else impactsEmpty">
                         <li *ngFor="let impact of med.impactTypes">
@@ -49,6 +50,8 @@
                         --
                     </ng-template>
                 </td>
+
+                <!--TARGET GROUPS-->
                 <td>
                     <ul *ngIf="med.targetGroups?.length; else groupsEmpty">
                         <li *ngFor="let group of med.targetGroups">
@@ -58,6 +61,17 @@
                     <ng-template #groupsEmpty>
                         --
                     </ng-template>
+                </td>
+
+                <!--BOX-->
+                <td>
+                        <span class="img-wrap">
+                            <span (click)="editBox(med.boxId)">{{ defineBox(med.boxId)?.title }}</span>
+                            <br/>
+                            <img alt=""
+                                 class="img"
+                                 [src]="defineBox(med.boxId)?.img"/>
+                        </span>
                 </td>
             </tr>
             </tbody>
