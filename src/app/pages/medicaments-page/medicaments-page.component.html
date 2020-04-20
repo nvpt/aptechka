@@ -28,11 +28,11 @@
                         </span>
                 </td>
                 <td>{{ med.description || '--' }}</td>
-                <td>{{ med.issueDate | date: 'shortDate':null:currentLanguage }}</td>
+                <td>{{ med.issueDate | date: 'longDate':null:currentLanguage }}</td>
                 <td>{{ med.expiryDate | date: 'longDate':null:currentLanguage }}</td>
                 <td>
                         <span class="img-wrap">
-                            {{ defineBox(med.boxId)?.title }}
+                            <span (click)="editBox(med.boxId)">{{ defineBox(med.boxId)?.title }}</span>
                             <br/>
                             <img alt=""
                                  class="img"

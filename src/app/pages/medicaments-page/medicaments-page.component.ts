@@ -41,4 +41,7 @@ export class MedicamentsPageComponent implements OnInit {
         this.router.navigate([`${Constants.PATH.editMedicament}/${medicament.id}`])
     }
 
+    editBox(boxId: number) {
+        this.router.navigate([`${Constants.PATH.editBox}/${boxId}`])
+    }
 }
