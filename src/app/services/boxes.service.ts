@@ -36,7 +36,7 @@ export class BoxesService {
                 {
                     id: 2,
                     title: 'От горла'
-                },
+                }
             ],
             medicamentsIds: [4]
         },
@@ -51,7 +51,7 @@ export class BoxesService {
                 {
                     id: 4,
                     title: 'От аллергии'
-                },
+                }
             ],
             medicamentsIds: [2]
         },
@@ -66,17 +66,20 @@ export class BoxesService {
                 {
                     id: 5,
                     title: 'Ожоги, порезы'
-                },
+                }
             ],
             medicamentsIds: [3, 5]
-        },
+        }
     ];
 
-    constructor() {
-    }
+    constructor() {}
 
     getBoxes(): BoxI[] {
         return this.boxes;
+    }
+
+    getBoxById(id: number): Observable<BoxI> {
+        return of(this.boxes.find((box) => box.id === Number(id)));
     }
 
     addBox(box: BoxI): Observable<void> {
@@ -97,6 +100,6 @@ export class BoxesService {
     }
 
     deleteBox(deletedBox): void {
-        this.boxes = [...this.boxes.filter((box: BoxI) => (box.id !== deletedBox.id))];
+        this.boxes = [...this.boxes.filter((box: BoxI) => box.id !== deletedBox.id)];
     }
 }
