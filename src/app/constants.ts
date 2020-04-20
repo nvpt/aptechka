@@ -10,23 +10,22 @@ export interface MenuItemI {
     path: string;
     nested?: boolean;
     selected?: boolean;
-    breadcrumbs?: BreadcrumbI[]
+    breadcrumbs?: BreadcrumbI[];
     children?: MenuItemI[];
 }
 
 export class Constants {
-
     /*ROUTING*/
     public static readonly SECTION = Object.freeze({
         empty: '',
         root: '/',
-        settings: 'settings',
-        medicaments: 'medicaments',
-        targetGroups: 'target-groups',
-        impactTypes: 'impact-types',
-        about: 'about',
         newBox: 'new-box',
         editBox: 'edit-box',
+        medicaments: 'medicaments',
+        newMedicament: 'new-medicament',
+        editMedicament: 'edit-medicament',
+        settings: 'settings',
+        about: 'about'
     });
 
     public static readonly PATH = Object.freeze({
@@ -35,12 +34,11 @@ export class Constants {
         newBox: Constants.SECTION.newBox,
         editBox: Constants.SECTION.editBox,
         medicaments: Constants.SECTION.medicaments,
-        targetGroups: Constants.SECTION.targetGroups,
-        impactTypes: Constants.SECTION.impactTypes,
+        newMedicament: Constants.SECTION.newMedicament,
+        editMedicament: Constants.SECTION.editMedicament,
         settings: Constants.SECTION.settings,
-        about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`,
+        about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`
     });
-
 
     /*LOCAL STORAGE*/
     public static readonly STORAGE_KEY: string = 'aptechka';
