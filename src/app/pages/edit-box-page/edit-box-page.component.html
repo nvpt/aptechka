@@ -81,12 +81,12 @@
                          *ngIf="targetGroupsService.targetGroups?.length">
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
-                            <app-editable-option [canEdit]="false"
+                            <app-check-option [canEdit]="false"
                                                  [canAdd]="true"
                                                  [checked]="isBoxContainTargetGroup(targetGroup)"
                                                  [(optionValue)]="targetGroup.title"
                                                  (onCheck)="toggleTargetGroup($event, targetGroup)">
-                            </app-editable-option>
+                            </app-check-option>
                         </div>
                     </div>
                 </section>

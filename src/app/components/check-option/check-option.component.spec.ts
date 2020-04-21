@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditableOptionComponent } from './editable-option.component';
+import { CheckOptionComponent } from './check-option.component';
 
 describe('EditableOptionComponent', () => {
-  let component: EditableOptionComponent;
-  let fixture: ComponentFixture<EditableOptionComponent>;
+  let component: CheckOptionComponent;
+  let fixture: ComponentFixture<CheckOptionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditableOptionComponent ]
+      declarations: [ CheckOptionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditableOptionComponent);
+    fixture = TestBed.createComponent(CheckOptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

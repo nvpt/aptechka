@@ -29,7 +29,7 @@ import {MenuBtnComponent} from '../components/menu-btn/menu-btn.component';
 import {BreadcrumbComponent} from '../components/breadcrumb/breadcrumb.component';
 import {PanelControlComponent} from '../components/panel-control/panel-control.component';
 import { NewOptionComponent } from '../components/new-option/new-option.component';
-import { EditableOptionComponent } from '../components/editable-option/editable-option.component';
+import { CheckOptionComponent } from '../components/check-option/check-option.component';
 
 
 
@@ -57,7 +57,7 @@ registerLocaleData(ruLocale, 'ru');
         BreadcrumbComponent,
         PanelControlComponent,
         NewOptionComponent,
-        EditableOptionComponent
+        CheckOptionComponent
     ],
     imports: [
         CommonModule,
@@ -93,7 +93,7 @@ registerLocaleData(ruLocale, 'ru');
         BreadcrumbComponent,
         PanelControlComponent,
         NewOptionComponent,
-        EditableOptionComponent
+        CheckOptionComponent
     ]
 })
 export class SharedModule {

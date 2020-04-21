@@ -97,9 +97,9 @@
                 <div class="option-list" *ngIf="targetGroupsService.targetGroups?.length">
                     <div class="option-item"
                          *ngFor="let targetGroup of targetGroupsService.targetGroups">
-                        <app-editable-option [(optionValue)]="targetGroup.title"
+                        <app-check-option [(optionValue)]="targetGroup.title"
                                              (onDelete)="deleteTargetGroup(targetGroup)">
-                        </app-editable-option>
+                        </app-check-option>
                     </div>
                 </div>
             </section>
@@ -115,9 +115,9 @@
                 <div class="option-list" *ngIf="impactTypeService.impactTypes?.length">
                     <div class="option-item"
                          *ngFor="let impactType of impactTypeService.impactTypes">
-                        <app-editable-option [(optionValue)]="impactType.title"
+                        <app-check-option [(optionValue)]="impactType.title"
                                              (onDelete)="deleteImpactType(impactType)">
-                        </app-editable-option>
+                        </app-check-option>
                     </div>
                 </div>
             </section>

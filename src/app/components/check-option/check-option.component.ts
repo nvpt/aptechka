@@ -1,11 +1,11 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
-    selector: 'app-editable-option',
-    templateUrl: './editable-option.component.html',
-    styleUrls: ['./editable-option.component.scss']
+    selector: 'app-check-option',
+    templateUrl: './check-option.component.html',
+    styleUrls: ['./check-option.component.scss']
 })
-export class EditableOptionComponent implements OnInit {
+export class CheckOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
 
     @Input() canAdd?: boolean = false;

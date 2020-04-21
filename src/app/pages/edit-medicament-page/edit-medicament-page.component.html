@@ -110,12 +110,12 @@
                          *ngIf="impactTypesService.impactTypes?.length">
                         <div class="option-item"
                              *ngFor="let impactType of impactTypesService.impactTypes">
-                            <app-editable-option [canEdit]="false"
+                            <app-check-option [canEdit]="false"
                                                  [canAdd]="true"
                                                  [checked]="isMedicamentContainImpactType(impactType)"
                                                  [(optionValue)]="impactType.title"
                                                  (onCheck)="toggleImpactType($event, impactType)">
-                            </app-editable-option>
+                            </app-check-option>
                         </div>
                     </div>
                 </section>
@@ -127,12 +127,12 @@
                          *ngIf="targetGroupsService.targetGroups?.length">
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
-                            <app-editable-option [canEdit]="false"
+                            <app-check-option [canEdit]="false"
                                                  [canAdd]="true"
                                                  [checked]="isMedicamentContainTargetGroup(targetGroup)"
                                                  [(optionValue)]="targetGroup.title"
                                                  (onCheck)="toggleTargetGroup($event, targetGroup)">
-                            </app-editable-option>
+                            </app-check-option>
                         </div>
                     </div>
                 </section>
