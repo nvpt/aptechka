@@ -1,8 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
+
 import {Constants} from '../../constants';
+
+import {MenuService} from '../../modules/menu/menu-services/menu.service';
 
 @Component({
     selector: 'app-not-found-page',
@@ -10,27 +12,25 @@ import {Constants} from '../../constants';
     styleUrls: ['./not-found-page.component.scss']
 })
 export class NotFoundPageComponent implements OnInit, OnDestroy {
-    constructor(private menuService: MenuService, private location: Location, private router: Router) {
-    }
+    constructor(private menuService: MenuService, private location: Location, private router: Router) {}
 
     ngOnInit(): void {
         this.menuService && this.menuService.hide();
-
     }
 
     ngOnDestroy(): void {
         this.menuService.show();
     }
 
-
-    goBack(event: Event) {
+    //used in localization
+    goBack(event: Event): void {
         event.preventDefault();
         this.location.back();
     }
 
-    goHome(event: Event) {
+    //used in localization
+    goHome(event: Event): void {
         event.preventDefault();
         this.router.navigate([Constants.PATH.root]);
     }
-
 }

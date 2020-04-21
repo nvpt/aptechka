@@ -1,57 +1,28 @@
 import {Constants, MenuItemI} from '../../constants';
 
 export const menuMap: MenuItemI[] = [
-    {//DASHBOARD
+    {
+        //BOXES
         title: 'BREADCRUMB.BOXES',
         path: Constants.PATH.dashboard,
-        selected: true,
-        breadcrumbs: [
-            {
-                label: 'BREADCRUMB.BOXES',
-            }
-        ],
-
+        selected: true
     },
-    {//MEDICAMENTS
+    {
+        //MEDICAMENTS
         title: 'BREADCRUMB.MEDICAMENTS',
         path: Constants.PATH.medicaments,
-        selected: false,
-        breadcrumbs: [
-            {
-                label: 'BREADCRUMB.HOME',
-                path: Constants.PATH.root
-            },
-            {
-                label: 'BREADCRUMB.MEDICAMENTS',
-            }
-        ]
+        selected: false
     },
-    {//SETTINGS
+    {
+        //SETTINGS
         title: 'BREADCRUMB.SETTINGS',
         path: Constants.PATH.settings,
-        selected: false,
-        breadcrumbs: [
-            {
-                label: 'BREADCRUMB.HOME',
-                path: Constants.PATH.root
-            },
-            {
-                label: 'BREADCRUMB.SETTINGS',
-            }
-        ]
+        selected: false
     },
-    {//ABOUT
+    {
+        //ABOUT
         title: 'BREADCRUMB.ABOUT',
         path: Constants.PATH.about,
-        selected: false,
-        breadcrumbs: [
-            {
-                label: 'BREADCRUMB.HOME',
-                path: Constants.PATH.root
-            },
-            {
-                label: 'BREADCRUMB.ABOUT',
-            }
-        ]
+        selected: false
     }
 ];

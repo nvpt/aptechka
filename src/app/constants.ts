@@ -10,7 +10,6 @@ export interface MenuItemI {
     path: string;
     nested?: boolean;
     selected?: boolean;
-    breadcrumbs?: BreadcrumbI[];
     children?: MenuItemI[];
 }
 

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {switchMap} from 'rxjs/operators';
 import {Location, DatePipe} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 import {BreadcrumbI, Constants} from '../../constants';
 
@@ -11,10 +12,9 @@ import {MenuService} from '../../modules/menu/menu-services/menu.service';
 import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 import {MedicamentsService} from '../../services/medicaments.service';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
+import {ImpactTypesService} from '../../services/impact-types.service';
 import {MedicamentI} from '../../interfaces/medicament-interface';
 import {ImpactTypeI} from '../../interfaces/impact-type-interface';
-import {ImpactTypesService} from '../../services/impact-types.service';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-edit-medicament-page',
@@ -23,6 +23,10 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     breadcrumbs: BreadcrumbI[] = [
+        {
+            label: 'BREADCRUMB.HOME',
+            path: Constants.PATH.root
+        },
         {
             label: 'BREADCRUMB.MEDICAMENTS',
             path: Constants.PATH.medicaments
@@ -71,11 +75,11 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.menuService.show();
     }
 
-    initForm() {
+    initForm(): void {
         let dp = new DatePipe(this.translateService.currentLang);
         let mask = 'yyyy-MM-dd';
 
@@ -83,7 +87,9 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             title: new FormControl(this.medicament.title, [Validators.required]),
             description: new FormControl(this.medicament.description),
             issueDate: new FormControl(dp.transform(new Date(this.medicament.issueDate), mask)),
-            expiryDate: new FormControl(dp.transform(new Date(this.medicament.expiryDate), mask), [Validators.required]),
+            expiryDate: new FormControl(dp.transform(new Date(this.medicament.expiryDate), mask), [
+                Validators.required
+            ]),
             img: new FormControl(this.medicament.img),
             boxId: new FormControl(this.medicament.boxId, [Validators.required])
         });
@@ -91,11 +97,11 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         this.imgUrl = this.medicament.img;
     }
 
-    cancelAdding() {
+    cancelAdding(): void {
         this.location.back();
     }
 
-    addImage(event: Event) {
+    addImage(event: Event): void {
         const img = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
@@ -107,18 +113,18 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         this.form.patchValue({img});
     }
 
-    clearImg() {
+    clearImg(): void {
         this.imgUrl = null;
         this.form.controls.img.reset();
         this.form.controls.img.updateValueAndValidity();
     }
 
     /*Target groups*/
-    getTargetGroups() {
+    getTargetGroups(): void {
         this.targetGroupsService.getTargetGroups();
     }
 
-    toggleTargetGroup(event: MouseEvent, targetGroup: TargetGroupI) {
+    toggleTargetGroup(event: MouseEvent, targetGroup: TargetGroupI): void {
         const checked: boolean = (<HTMLInputElement>event.target).checked;
 
         if (checked) {
@@ -135,11 +141,11 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     /*Impact types*/
-    getImpactTypes() {
+    getImpactTypes(): void {
         this.impactTypesService.getImpactTypes();
     }
 
-    toggleImpactType(event: MouseEvent, impactType: ImpactTypeI) {
+    toggleImpactType(event: MouseEvent, impactType: ImpactTypeI): void {
         const checked: boolean = (<HTMLInputElement>event.target).checked;
 
         if (checked) {
@@ -155,7 +161,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         return !!this.medicament.impactTypes.find((impact) => impact.id === it.id);
     }
 
-    updateMedicament() {
+    updateMedicament(): void {
         this.medicamentsService
             .updateMedicament({
                 ...this.medicament,

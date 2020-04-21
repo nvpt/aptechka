@@ -2,16 +2,16 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Subscription} from 'rxjs';
 
-import {Constants} from '../../constants';
+import {BreadcrumbI, Constants} from '../../constants';
 
 import {ColorThemeType, ThemesService} from '../../modules/themes/themes.service';
 import {SettingsService} from '../../services/settings.service';
 import {ImpactTypesService} from '../../services/impact-types.service';
-import {StorageDataI} from '../../interfaces/storage-data-interface';
-
-import {ImpactTypeI} from '../../interfaces/impact-type-interface';
 import {TargetGroupsService} from '../../services/target-groups.service';
+import {StorageDataI} from '../../interfaces/storage-data-interface';
+import {ImpactTypeI} from '../../interfaces/impact-type-interface';
 import {TargetGroupI} from '../../interfaces/target-group-interface';
+import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 
 export type LanguageType = 'ru' | 'en';
 
@@ -21,6 +21,15 @@ export type LanguageType = 'ru' | 'en';
     styleUrls: ['./settings-page.component.scss']
 })
 export class SettingsPageComponent implements OnInit, OnDestroy {
+    breadcrumbs: BreadcrumbI[] = [
+        {
+            label: 'BREADCRUMB.HOME',
+            path: Constants.PATH.root
+        },
+        {
+            label: 'BREADCRUMB.SETTINGS'
+        }
+    ];
     currentColor!: ColorThemeType;
     currentLanguage!: LanguageType;
 
@@ -30,13 +39,19 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     targetGroups: TargetGroupI[] = this.targetGroupsService.targetGroups;
     targetGroupsErrors: string[] = [];
 
-
     private translateSub$: Subscription;
 
-    constructor(public settingsService: SettingsService, private themeService: ThemesService, private translate: TranslateService, public impactTypeService: ImpactTypesService, public targetGroupsService: TargetGroupsService) {
-    }
+    constructor(
+        public settingsService: SettingsService,
+        private themeService: ThemesService,
+        private translate: TranslateService,
+        public impactTypeService: ImpactTypesService,
+        public targetGroupsService: TargetGroupsService,
+        private breadcrumbService: BreadcrumbService
+    ) {}
 
     ngOnInit(): void {
+        this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
         this.initStorageData();
         this.getImpactTypes();
         this.getTargetGroups();
@@ -52,13 +67,11 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
             const storageObject: StorageDataI = JSON.parse(storageData);
 
             this.currentColor = storageObject.color as ColorThemeType;
-            this.currentLanguage = storageObject.lang
-                ? <LanguageType>storageObject.lang
-                : Constants.DEFAULT_LANGUAGE;
+            this.currentLanguage = storageObject.lang ? <LanguageType>storageObject.lang : Constants.DEFAULT_LANGUAGE;
         }
     }
 
-    selectTheme(event: Event):void {
+    selectTheme(event: Event): void {
         const colorTheme: ColorThemeType = (<HTMLInputElement>event.target).value as ColorThemeType;
         let saturation!: number;
 
@@ -83,7 +96,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         localStorage.setItem(Constants.STORAGE_KEY, JSON.stringify(storageObj));
     }
 
-    selectLanguage(event: Event):void {
+    selectLanguage(event: Event): void {
         const language = (<HTMLInputElement>event.target).value as LanguageType;
 
         this.translateSub$ = this.translate.use(language).subscribe(() => {
@@ -95,17 +108,17 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         });
     }
 
-    changeInterval(event: Event):void {
+    changeInterval(event: Event): void {
         this.settingsService.warningInterval = Number((<HTMLInputElement>event.target).value);
     }
 
     /*Impact types*/
-    getImpactTypes():void {
+    getImpactTypes(): void {
         this.impactTypeService.getImpactTypes();
     }
 
     addImpactType(newImpactTitle: string): void {
-        if (this.impactTypes.some((impact) => (impact.title.toLowerCase() === newImpactTitle.toLowerCase()))) {
+        if (this.impactTypes.some((impact) => impact.title.toLowerCase() === newImpactTitle.toLowerCase())) {
             const error = 'ERROR.IMPACT_TYPE.ALREADY_EXISTS';
             this.impactErrors = [];
             this.impactErrors.unshift(error);
@@ -114,17 +127,21 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         this.impactTypeService.addImpactType(newImpactTitle);
     }
 
-    deleteImpactType(impactType: ImpactTypeI) {
+    deleteImpactType(impactType: ImpactTypeI): void {
         this.impactTypeService.deleteImpactType(impactType);
     }
 
     /*Target groups*/
-    getTargetGroups() {
+    getTargetGroups(): void {
         this.targetGroupsService.getTargetGroups();
     }
 
     addTargetGroup(newGroupTitle: string): void {
-        if (this.targetGroupsService.targetGroups.some((group) => (group.title.toLowerCase() === newGroupTitle.toLowerCase()))) {
+        if (
+            this.targetGroupsService.targetGroups.some(
+                (group) => group.title.toLowerCase() === newGroupTitle.toLowerCase()
+            )
+        ) {
             const error = 'ERROR.TARGET_GROUP.ALREADY_EXISTS';
             this.targetGroupsErrors = [];
             this.targetGroupsErrors.unshift(error);
@@ -133,7 +150,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         this.targetGroupsService.addTargetGroup(newGroupTitle);
     }
 
-    deleteTargetGroup(targetGroup: TargetGroupI) {
+    deleteTargetGroup(targetGroup: TargetGroupI): void {
         this.targetGroupsService.deleteTargetGroup(targetGroup);
     }
 }

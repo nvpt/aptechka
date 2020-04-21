@@ -19,7 +19,7 @@
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
                 <!--MEDICAMENT TITLE + IMG-->
-                <td (click)="editMedicament(med)"
+                <td (click)="editMedicament(med?.id)"
                     class="hovered">
                     <span class="material-icons hovered__icon">edit</span>
                     <div class="img-wrap">

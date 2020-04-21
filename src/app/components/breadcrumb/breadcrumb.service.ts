@@ -8,15 +8,11 @@ import {BreadcrumbI} from '../../constants';
 export class BreadcrumbService {
     breadcrumbs: BreadcrumbI[];
 
-    renderBreadcrumbs(breadcrumbs: BreadcrumbI[]) {
+    renderBreadcrumbs(breadcrumbs: BreadcrumbI[]): void {
         if (breadcrumbs && breadcrumbs.length > 1) {
             this.breadcrumbs = breadcrumbs;
         } else {
-            this.hideBreadcrumbs();
+            this.breadcrumbs = null;
         }
-    }
-
-    hideBreadcrumbs() {
-        this.breadcrumbs = null;
     }
 }

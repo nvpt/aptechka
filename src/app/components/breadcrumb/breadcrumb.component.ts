@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {BreadcrumbService} from './breadcrumb.service';
 import {Router} from '@angular/router';
-import {BreadcrumbI, Constants} from '../../constants';
-import {MenuService} from '../../modules/menu/menu-services/menu.service';
+
+import {BreadcrumbI} from '../../constants';
 
 @Component({
     selector: 'app-breadcrumb',
@@ -10,24 +10,11 @@ import {MenuService} from '../../modules/menu/menu-services/menu.service';
     styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent {
+    constructor(public router: Router, public breadcrumbService: BreadcrumbService) {}
 
-    constructor(public menuService: MenuService, public router: Router, public breadcrumbService: BreadcrumbService) {
-    }
-
-    goTo(event: Event, breadcrumbPart: BreadcrumbI) {
+    goTo(event: Event, breadcrumbPart: BreadcrumbI): void {
         event.preventDefault();
 
-        this.router.navigate([breadcrumbPart.path]).then(() => {
-
-            if (breadcrumbPart.path === Constants.PATH.root) {
-                this.breadcrumbService.hideBreadcrumbs();
-            } else {
-                this.menuService.defineCurrentMenuItem(this.menuService.menu, window.location.pathname)
-                    .subscribe((menuItem) => {
-                        menuItem && this.breadcrumbService.renderBreadcrumbs(menuItem.breadcrumbs);
-                    });
-            }
-
-        });
+        this.router.navigate([breadcrumbPart.path]);
     }
 }
