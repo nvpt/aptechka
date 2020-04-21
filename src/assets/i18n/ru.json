@@ -65,10 +65,10 @@
         "SAVE_BOX": "Сохранить коробку"
     },
     "NEW_COMMON": {
-        "CANCEL_ADDING": "Cancel adding",
-        "DESCRIPTION_LABEL": "Description",
-        "TARGET_GROUPS_LABEL": "Target groups",
-        "TITLE_LABEL": "Title"
+        "CANCEL_ADDING": "Отменить добавление",
+        "DESCRIPTION_LABEL": "Описание",
+        "TARGET_GROUPS_LABEL": "Целевые группы",
+        "TITLE_LABEL": "Название"
     },
     "NEW_MEDICAMENT": {
         "BOX_LABEL": "Коробка",
