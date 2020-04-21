@@ -1,22 +1,27 @@
 <div class="edit-box">
-    <div class="g-top-page">
-        <h1 class="g-h1-title"
-            translate>{{box?.title}}</h1>
+    <form [formGroup]="form"
+          (ngSubmit)="updateBox()">
+        <div class="g-top-page">
+            <h1 class="g-h1-title"
+                translate>{{box?.title}}</h1>
 
-        <app-panel-control>
-            <ng-container right>
-                <button (click)="cancelAdding()"
-                        class="g-btn-small g-btn-error"
-                        translate>EDIT_COMMON.CANCEL_EDIT
-                </button>
-            </ng-container>
-        </app-panel-control>
-    </div>
-    <div class="wrapper">
-        <div class="content">
-            <form [formGroup]="form"
-                  (ngSubmit)="updateBox()">
-
+            <app-panel-control>
+                <ng-container left>
+                    <button class="g-btn g-btn-success"
+                            type="submit"
+                            translate>MAIN.SAVE_CHANGES
+                    </button>
+                </ng-container>
+                <ng-container right>
+                    <button (click)="cancelAdding()"
+                            class="g-btn-small g-btn-error"
+                            translate>EDIT_COMMON.CANCEL_EDIT
+                    </button>
+                </ng-container>
+            </app-panel-control>
+        </div>
+        <div class="wrapper">
+            <div class="content">
                 <!--TITLE-->
                 <section class="g-form-section">
                     <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
@@ -82,25 +87,15 @@
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
                             <app-check-option [canEdit]="false"
-                                                 [canAdd]="true"
-                                                 [checked]="isBoxContainTargetGroup(targetGroup)"
-                                                 [(optionValue)]="targetGroup.title"
-                                                 (onCheck)="toggleTargetGroup($event, targetGroup)">
+                                              [canAdd]="true"
+                                              [checked]="isBoxContainTargetGroup(targetGroup)"
+                                              [(optionValue)]="targetGroup.title"
+                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
                             </app-check-option>
                         </div>
                     </div>
                 </section>
-
-                <section class="g-form-section">
-                <span>
-                    <button class="g-btn g-btn-success"
-                            type="submit"
-                            translate>MAIN.SAVE_CHANGES</button>
-                </span>
-                </section>
-            </form>
-
+            </div>
         </div>
-    </div>
-
+    </form>
 </div>

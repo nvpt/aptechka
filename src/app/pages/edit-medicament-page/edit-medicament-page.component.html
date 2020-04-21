@@ -1,22 +1,30 @@
 <div class="edit-medicament">
-    <div class="g-top-page">
-        <h1 class="g-h1-title"
-            translate>{{medicament?.title}}</h1>
+    <form *ngIf="medicament; else loadingMedicament"
+          [formGroup]="form"
+          (ngSubmit)="updateMedicament()">
 
-        <app-panel-control>
-            <ng-container right>
-                <button (click)="cancelAdding()"
-                        class="g-btn-small g-btn-error"
-                        translate>EDIT_COMMON.CANCEL_EDIT
-                </button>
-            </ng-container>
-        </app-panel-control>
-    </div>
-    <div class="wrapper">
-        <div class="content">
-            <form *ngIf="medicament; else loadingMedicament"
-                  [formGroup]="form"
-                  (ngSubmit)="updateMedicament()">
+        <div class="g-top-page">
+            <h1 class="g-h1-title"
+                translate>{{medicament?.title}}</h1>
+
+            <app-panel-control>
+                <ng-container left>
+                    <button class="g-btn g-btn-success"
+                            type="submit"
+                            translate>MAIN.SAVE_CHANGES
+                    </button>
+                </ng-container>
+                <ng-container right>
+                    <button (click)="cancelAdding()"
+                            class="g-btn-small g-btn-error"
+                            translate>EDIT_COMMON.CANCEL_EDIT
+                    </button>
+                </ng-container>
+            </app-panel-control>
+        </div>
+        <div class="wrapper">
+            <div class="content">
+
 
                 <!--TITLE-->
                 <section class="g-form-section">
@@ -143,20 +151,11 @@
                         </div>
                     </div>
                 </section>
-
-                <section class="g-form-section">
-                <span>
-                    <button class="g-btn g-btn-success"
-                            type="submit"
-                            translate>MAIN.SAVE_CHANGES</button>
-                </span>
-                </section>
-            </form>
-            <ng-template #loadingMedicament>
-                loading...
-            </ng-template>
+            </div>
         </div>
-    </div>
-
+    </form>
+    <ng-template #loadingMedicament>
+        loading...
+    </ng-template>
 </div>
 

@@ -1,21 +1,28 @@
 <div class="new-box">
-    <div class="g-top-page">
-        <h1 class="g-h1-title"
-            translate>NEW_BOX.DEFAULT_TITLE</h1>
+    <form [formGroup]="form"
+          (ngSubmit)="saveBox()">
+        <div class="g-top-page">
+            <h1 class="g-h1-title"
+                translate>NEW_BOX.DEFAULT_TITLE</h1>
 
-        <app-panel-control>
-            <ng-container right>
-                <button (click)="cancelAdding()"
-                        class="g-btn-small g-btn-error"
-                        translate>NEW_COMMON.CANCEL_ADDING
-                </button>
-            </ng-container>
-        </app-panel-control>
-    </div>
-    <div class="wrapper">
-        <div class="content">
-            <form [formGroup]="form"
-                  (ngSubmit)="saveBox()">
+            <app-panel-control>
+                <ng-container left>
+                    <button class="g-btn g-btn-success"
+                            type="submit"
+                            translate>MAIN.CREATE
+                    </button>
+                </ng-container>
+                <ng-container right>
+                    <button (click)="cancelAdding()"
+                            class="g-btn-small g-btn-error"
+                            translate>NEW_COMMON.CANCEL_ADDING
+                    </button>
+                </ng-container>
+            </app-panel-control>
+        </div>
+        <div class="wrapper">
+            <div class="content">
+
 
                 <!--TITLE-->
                 <section class="g-form-section">
@@ -85,23 +92,14 @@
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
                             <app-check-option [canEdit]="false"
-                                                 [canAdd]="true"
-                                                 [(optionValue)]="targetGroup.title"
-                                                 (onCheck)="toggleTargetGroup($event, targetGroup)">
+                                              [canAdd]="true"
+                                              [(optionValue)]="targetGroup.title"
+                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
                             </app-check-option>
                         </div>
                     </div>
                 </section>
-
-                <section class="g-form-section">
-                <span>
-                    <button class="g-btn g-btn-success"
-                            type="submit"
-                            translate>MAIN.CREATE</button>
-                </span>
-                </section>
-            </form>
-
+            </div>
         </div>
-    </div>
+    </form>
 </div>
