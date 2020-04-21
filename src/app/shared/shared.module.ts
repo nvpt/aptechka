@@ -36,6 +36,7 @@ import {NewOptionComponent} from '../components/new-option/new-option.component'
 import {CheckOptionComponent} from '../components/check-option/check-option.component';
 import {RadioOptionComponent} from '../components/radio-option/radio-option.component';
 import {ModalComponent} from '../components/modal/modal.component';
+import {AlertComponent} from '../components/alert/alert.component';
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -61,7 +62,8 @@ registerLocaleData(ruLocale, 'ru');
         NewOptionComponent,
         CheckOptionComponent,
         RadioOptionComponent,
-        ModalComponent
+        ModalComponent,
+        AlertComponent
     ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule],
     exports: [
@@ -91,7 +93,8 @@ registerLocaleData(ruLocale, 'ru');
         NewOptionComponent,
         CheckOptionComponent,
         RadioOptionComponent,
-        ModalComponent
+        ModalComponent,
+        AlertComponent
     ]
 })
 export class SharedModule {}

@@ -23,10 +23,14 @@
     --color-app_bg-bg: var(--color-current-95);
 
     //states
-
     --color-app_disabled-color: var(--color-gray-60);
     --color-app_disabled-bg: var(--color-gray-95);
     --color-app_disabled-border: var(--color-gray-60);
+
+    //alert statuses
+    --color-app-success: var(--color-green);
+    --color-app-warning: var(--color-blue);
+    --color-app-danger: var(--color-red);
 
     //not adjusted
     --color-app_hover-bg: var(--color-current-20);

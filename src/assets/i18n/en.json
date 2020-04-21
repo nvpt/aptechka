@@ -2,6 +2,9 @@
     "ABOUT": {
         "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
     },
+    "ALERT": {
+        "BOX_DELETED": "Box \"{{box}}\" was deleted"
+    },
     "BREADCRUMB": {
         "ABOUT": "About",
         "BOXES": "Boxes",

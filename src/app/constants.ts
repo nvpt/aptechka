@@ -46,4 +46,7 @@ export class Constants {
 
     /*LOCALIZATION*/
     public static readonly DEFAULT_LANGUAGE: LanguageType = 'en';
+
+/*ALERT*/
+    public static readonly ALERT_DELAY: number = 5000;
 }

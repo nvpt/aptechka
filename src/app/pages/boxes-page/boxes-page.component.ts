@@ -6,6 +6,7 @@ import {BreadcrumbI, Constants} from '../../constants';
 
 import {BoxesService} from '../../services/boxes.service';
 import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
+import {AlertService} from '../../components/alert/alert.service';
 
 @Component({
     selector: 'app-boxes-page',
@@ -23,7 +24,8 @@ export class BoxesPageComponent implements OnInit {
     constructor(
         public boxesService: BoxesService,
         private router: Router,
-        private breadcrumbService: BreadcrumbService
+        private breadcrumbService: BreadcrumbService,
+        private alert: AlertService
     ) {}
 
     ngOnInit(): void {
@@ -31,7 +33,9 @@ export class BoxesPageComponent implements OnInit {
     }
 
     deleteBox(box: BoxI): void {
-        this.boxesService.deleteBox(box);
+        this.boxesService.deleteBox(box).subscribe(() => {
+            this.alert.success('ALERT.BOX_DELETED', {box: box.title});
+        });
     }
 
     addBox(): void {

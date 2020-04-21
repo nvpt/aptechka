@@ -1,0 +1,30 @@
+@import 'src/styles/variables';
+
+.alert-wrap {
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    width: 100%;
+}
+
+.alert {
+    padding: 0.7rem;
+    opacity: 0.9;
+    background: var(--light-color);
+    color: #333;
+}
+
+.alert-success {
+    background: var(--color-app-success);
+    color: var(--color-white);
+}
+
+.alert-warning {
+    background: var(--color-app-warning);
+    color: var(--color-white);
+}
+
+.alert-danger {
+    background: var(--color-app-danger);
+    color: var(--color-white);
+}
