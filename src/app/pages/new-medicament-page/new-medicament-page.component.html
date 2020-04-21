@@ -1,1 +1,158 @@
-<p>new-medicament works!</p>
+<form class="new-medicament"
+      [formGroup]="form"
+      (ngSubmit)="saveMedicament()">
+
+    <div class="g-top-page">
+        <h1 class="g-h1-title"
+            translate>NEW_MEDICAMENT.DEFAULT_TITLE</h1>
+
+        <app-panel-control>
+            <ng-container left>
+                <button class="g-btn g-btn-success"
+                        type="submit"
+                        translate>MAIN.ADD
+                </button>
+            </ng-container>
+            <ng-container right>
+                <button (click)="cancelAdding()"
+                        class="g-btn-small g-btn-error"
+                        translate>NEW_COMMON.CANCEL_ADDING
+                </button>
+            </ng-container>
+        </app-panel-control>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+
+            <!--TITLE-->
+            <section class="g-form-section">
+                <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
+                <input id="title"
+                       type="text"
+                       formControlName="title"
+                       #titleInput>
+            </section>
+
+            <!--DESCRIPTION-->
+            <section class="g-form-section">
+                <label for="description"><span translate>NEW_COMMON.DESCRIPTION_LABEL</span>:</label>
+                <span class="description-wrap">
+                <textarea id="description"
+                          class="description"
+                          formControlName="description"></textarea>
+                </span>
+            </section>
+
+            <!--ISSUE DATE-->
+            <section class="g-form-section">
+                <label for="issueDate"><span translate>NEW_MEDICAMENT.ISSUE_DATE_LABEL</span>:</label>
+                <input id="issueDate"
+                       type="date"
+                       formControlName="issueDate">
+            </section>
+
+            <!--EXPIRY DATE-->
+            <section class="g-form-section">
+                <label for="expiryDate"><span translate>NEW_MEDICAMENT.EXPIRY_DATE_LABEL</span>:</label>
+                <input id="expiryDate"
+                       type="date"
+                       formControlName="expiryDate">
+            </section>
+
+            <!--IMG-->
+            <section class="g-form-section img-section">
+                <div class="uploader-buttons"
+                     [ngClass]="{'with-image' : imgUrl}">
+
+                    <label for="img"
+                           class="add-img-btn-label">
+                        <span class="g-btn"
+                              *ngIf="!form.value?.img; else withImage"
+                              translate>MAIN.ADD_IMAGE</span>
+                        <ng-template #withImage>
+                        <span class="g-btn"
+                              translate>MAIN.CHANGE_IMAGE</span>
+                        </ng-template>
+
+                    </label>
+
+                    <input class="g-display-none"
+                           id="img"
+                           accept="image/*"
+                           type="file"
+                           (change)="addImage($event)">
+                    <input type="hidden"
+                           formControlName="img">
+
+                    <span *ngIf="imgUrl">
+                            <button (click)="clearImg()"
+                                    class="g-btn g-btn-error"
+                                    translate>MAIN.CLEAR_IMAGE
+                            </button>
+                        </span>
+                    <span></span>
+                </div>
+
+                <img [src]="imgUrl"
+                     alt=""
+                     class="img">
+            </section>
+
+            <!--BOX-->
+            <section class="g-form-section">
+                <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
+                <div class="option-list"
+                     *ngIf="boxesService.boxes?.length">
+                    <div class="option-item"
+                         *ngFor="let box of boxesService.boxes">
+                        <app-radio-option [radioGroupName]="'boxes'"
+                                          [canEdit]="false"
+                                          [canAdd]="true"
+
+                                          [(optionValue)]="box.title"
+                                          (onCheck)="selectBox($event, box)">
+                        </app-radio-option>
+                    </div>
+                </div>
+            </section>
+
+
+            <!--IMPACT TYPES-->
+            <section class="g-form-section">
+                <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
+                <div class="option-list"
+                     *ngIf="impactTypesService.impactTypes?.length">
+                    <div class="option-item"
+                         *ngFor="let impactType of impactTypesService.impactTypes">
+                        <app-check-option [canEdit]="false"
+                                          [canAdd]="true"
+                                          [(optionValue)]="impactType.title"
+                                          (onCheck)="toggleImpactType($event, impactType)">
+                        </app-check-option>
+                    </div>
+                </div>
+            </section>
+
+            <!--TARGET GROUPS-->
+            <section class="g-form-section">
+                <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
+                <div class="option-list"
+                     *ngIf="targetGroupsService.targetGroups?.length">
+                    <div class="option-item"
+                         *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                        <app-check-option [canEdit]="false"
+                                          [canAdd]="true"
+                                          [(optionValue)]="targetGroup.title"
+                                          (onCheck)="toggleTargetGroup($event, targetGroup)">
+                        </app-check-option>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</form>
+<ng-template #loadingMedicament>
+    loading...
+</ng-template>
+
+

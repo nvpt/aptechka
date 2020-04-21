@@ -31,4 +31,8 @@ label:not([for="img"]) {
 
 .option-item {
     margin-bottom: 4px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 }

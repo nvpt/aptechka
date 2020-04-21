@@ -86,7 +86,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
         this.form.patchValue({img});
     }
 
-    clearPreview() {
+    clearImg() {
         this.form.controls.img.reset();
         this.imgUrl = null;
         this.form.controls.img.updateValueAndValidity();

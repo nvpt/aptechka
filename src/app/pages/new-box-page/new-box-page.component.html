@@ -9,7 +9,7 @@
             <ng-container left>
                 <button class="g-btn g-btn-success"
                         type="submit"
-                        translate>MAIN.CREATE
+                        translate>MAIN.ADD
                 </button>
             </ng-container>
             <ng-container right>
@@ -69,7 +69,7 @@
                            formControlName="img">
 
                     <span *ngIf="imgUrl">
-                        <button (click)="clearPreview()"
+                        <button (click)="clearImg()"
 
                                 class="g-btn g-btn-error"
                                 translate>MAIN.CLEAR_IMAGE

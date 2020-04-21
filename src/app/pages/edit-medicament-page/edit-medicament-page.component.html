@@ -4,8 +4,7 @@
       (ngSubmit)="updateMedicament()">
 
     <div class="g-top-page">
-        <h1 class="g-h1-title"
-            translate>{{medicament?.title}}</h1>
+        <h1 class="g-h1-title">{{medicament?.title}}</h1>
 
         <app-panel-control>
             <ng-container left>
@@ -109,7 +108,7 @@
                         <app-radio-option [radioGroupName]="'boxes'"
                                           [canEdit]="false"
                                           [canAdd]="true"
-                                          [checked]="isBoxUsed(box)"
+                                          [checked]="isBoxUsed(box?.id)"
                                           [(optionValue)]="box.title"
                                           (onCheck)="selectBox($event, box)">
                         </app-radio-option>
