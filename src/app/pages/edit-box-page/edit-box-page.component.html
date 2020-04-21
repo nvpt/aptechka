@@ -1,101 +1,100 @@
-<div class="edit-box">
-    <form [formGroup]="form"
-          (ngSubmit)="updateBox()">
-        <div class="g-top-page">
-            <h1 class="g-h1-title"
-                translate>{{box?.title}}</h1>
+<form class="edit-box"
+      [formGroup]="form"
+      (ngSubmit)="updateBox()">
+    <div class="g-top-page">
+        <h1 class="g-h1-title"
+            translate>{{box?.title}}</h1>
 
-            <app-panel-control>
-                <ng-container left>
-                    <button class="g-btn g-btn-success"
-                            type="submit"
-                            translate>MAIN.SAVE_CHANGES
-                    </button>
-                </ng-container>
-                <ng-container right>
-                    <button (click)="cancelAdding()"
-                            class="g-btn-small g-btn-error"
-                            translate>EDIT_COMMON.CANCEL_EDIT
-                    </button>
-                </ng-container>
-            </app-panel-control>
-        </div>
-        <div class="wrapper">
-            <div class="content">
-                <!--TITLE-->
-                <section class="g-form-section">
-                    <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
-                    <input id="title"
-                           type="text"
-                           formControlName="title">
-                </section>
+        <app-panel-control>
+            <ng-container left>
+                <button class="g-btn g-btn-success"
+                        type="submit"
+                        translate>MAIN.SAVE_CHANGES
+                </button>
+            </ng-container>
+            <ng-container right>
+                <button (click)="cancelAdding()"
+                        class="g-btn-small g-btn-error"
+                        translate>EDIT_COMMON.CANCEL_EDIT
+                </button>
+            </ng-container>
+        </app-panel-control>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <!--TITLE-->
+            <section class="g-form-section">
+                <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
+                <input id="title"
+                       type="text"
+                       formControlName="title">
+            </section>
 
-                <!--DESCRIPTION-->
-                <section class="g-form-section">
-                    <label for="description"><span translate>NEW_COMMON.DESCRIPTION_LABEL</span>:</label>
-                    <span class="description-wrap">
+            <!--DESCRIPTION-->
+            <section class="g-form-section">
+                <label for="description"><span translate>NEW_COMMON.DESCRIPTION_LABEL</span>:</label>
+                <span class="description-wrap">
                 <textarea id="description"
                           class="description"
                           formControlName="description"></textarea>
                 </span>
-                </section>
+            </section>
 
-                <!--IMG-->
-                <section class="g-form-section img-section">
-                    <div class="uploader-buttons"
-                         [ngClass]="{'with-image' : imgUrl}">
+            <!--IMG-->
+            <section class="g-form-section img-section">
+                <div class="uploader-buttons"
+                     [ngClass]="{'with-image' : imgUrl}">
 
-                        <label for="img"
-                               class="add-img-btn-label">
+                    <label for="img"
+                           class="add-img-btn-label">
                         <span class="g-btn"
                               *ngIf="!form.value?.img; else withImage"
                               translate>MAIN.ADD_IMAGE</span>
-                            <ng-template #withImage>
+                        <ng-template #withImage>
                         <span class="g-btn"
                               translate>MAIN.CHANGE_IMAGE</span>
-                            </ng-template>
+                        </ng-template>
 
-                        </label>
+                    </label>
 
-                        <input class="g-display-none"
-                               id="img"
-                               accept="image/*"
-                               type="file"
-                               (change)="addImage($event)">
-                        <input type="hidden"
-                               formControlName="img">
+                    <input class="g-display-none"
+                           id="img"
+                           accept="image/*"
+                           type="file"
+                           (change)="addImage($event)">
+                    <input type="hidden"
+                           formControlName="img">
 
-                        <span *ngIf="imgUrl">
+                    <span *ngIf="imgUrl">
                             <button (click)="clearImg()"
                                     class="g-btn g-btn-error"
                                     translate>MAIN.CLEAR_IMAGE
                             </button>
                         </span>
-                        <span></span>
-                    </div>
+                    <span></span>
+                </div>
 
-                    <img [src]="imgUrl"
-                         alt=""
-                         class="img">
-                </section>
+                <img [src]="imgUrl"
+                     alt=""
+                     class="img">
+            </section>
 
-                <!--TARGET GROUPS-->
-                <section class="g-form-section">
-                    <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
-                    <div class="option-list"
-                         *ngIf="targetGroupsService.targetGroups?.length">
-                        <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
-                            <app-check-option [canEdit]="false"
-                                              [canAdd]="true"
-                                              [checked]="isBoxContainTargetGroup(targetGroup)"
-                                              [(optionValue)]="targetGroup.title"
-                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
-                            </app-check-option>
-                        </div>
+            <!--TARGET GROUPS-->
+            <section class="g-form-section">
+                <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
+                <div class="option-list"
+                     *ngIf="targetGroupsService.targetGroups?.length">
+                    <div class="option-item"
+                         *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                        <app-check-option [canEdit]="false"
+                                          [canAdd]="true"
+                                          [checked]="isBoxContainTargetGroup(targetGroup)"
+                                          [(optionValue)]="targetGroup.title"
+                                          (onCheck)="toggleTargetGroup($event, targetGroup)">
+                        </app-check-option>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
-    </form>
-</div>
+    </div>
+</form>
