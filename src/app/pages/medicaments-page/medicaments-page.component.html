@@ -18,17 +18,16 @@
             </thead>
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
-
                 <!--MEDICAMENT TITLE + IMG-->
                 <td (click)="editMedicament(med)"
                     class="hovered">
                     <span class="material-icons hovered__icon">edit</span>
-                    <span class="img-wrap">
-                            <span class="img-wrap__title">{{ med.title }}</span>
-                            <img [src]="med.img"
-                                 class="img-wrap__img"
-                                 alt=""/>
-                        </span>
+                    <div class="img-wrap">
+                        <span class="img-wrap__title">{{ med.title }}</span>
+                        <img [src]="med.img"
+                             class="img-wrap__img"
+                             alt=""/>
+                    </div>
                 </td>
 
                 <!--DESCRIPTION-->
@@ -42,11 +41,13 @@
 
                 <!--IMPACT TYPES-->
                 <td>
-                    <ul *ngIf="med.impactTypes?.length; else impactsEmpty">
-                        <li *ngFor="let impact of med.impactTypes">
-                            {{ impact.title }}
-                        </li>
-                    </ul>
+                    <div class="option-list">
+                        <ul *ngIf="med.impactTypes?.length; else impactsEmpty">
+                            <li *ngFor="let impact of med.impactTypes">
+                                {{ impact.title }}
+                            </li>
+                        </ul>
+                    </div>
                     <ng-template #impactsEmpty>
                         --
                     </ng-template>
@@ -54,11 +55,13 @@
 
                 <!--TARGET GROUPS-->
                 <td>
-                    <ul *ngIf="med.targetGroups?.length; else groupsEmpty">
-                        <li *ngFor="let group of med.targetGroups">
-                            {{ group.title }}
-                        </li>
-                    </ul>
+                    <div class="option-list">
+                        <ul *ngIf="med.targetGroups?.length; else groupsEmpty">
+                            <li *ngFor="let group of med.targetGroups">
+                                {{ group.title }}
+                            </li>
+                        </ul>
+                    </div>
                     <ng-template #groupsEmpty>
                         --
                     </ng-template>
@@ -68,12 +71,20 @@
                 <td (click)="editBox(med.boxId)"
                     class="hovered">
                     <span class="material-icons hovered__icon">edit</span>
-                    <span class="img-wrap">
-                            <span class="img-wrap__title">{{ defineBox(med.boxId)?.title }}</span>
-                            <img alt=""
-                                 class="img-wrap__img"
-                                 [src]="defineBox(med.boxId)?.img"/>
-                        </span>
+                    <div class="img-wrap">
+                        <span class="img-wrap__title">{{ defineBox(med.boxId)?.title }}</span>
+                        <div class="option-list"
+                             *ngIf="defineBox(med.boxId)?.targetGroups?.length">
+                            <ul>
+                                <li *ngFor="let tg of defineBox(med.boxId)?.targetGroups">
+                                    {{ tg.title }}
+                                </li>
+                            </ul>
+                        </div>
+                        <img class="img-wrap__img"
+                             alt=""
+                             [src]="defineBox(med.boxId)?.img"/>
+                    </div>
                 </td>
             </tr>
             </tbody>

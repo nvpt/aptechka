@@ -68,15 +68,13 @@
         top: 0;
         right: 0;
         font-size: $mat-icon-size;
-        //visibility: hidden;
+        visibility: hidden;
         opacity: 0.5;
     }
 }
 
 .img-wrap {
     display: grid;
-    margin: auto;
-    text-align: center;
     grid-row-gap: 8px;
 
     &__title {
@@ -87,4 +85,8 @@
         max-height: 100px;
         margin: auto;
     }
+}
+
+.option-list {
+    text-align: left;
 }
