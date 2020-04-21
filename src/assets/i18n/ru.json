@@ -61,23 +61,21 @@
         }
     },
     "NEW_BOX": {
-        "CANCEL_ADDING": "Отменить добавление",
         "DEFAULT_TITLE": "Новая коробка",
-        "TITLE_LABEL": "Название",
-        "DESCRIPTION_LABEL": "Описание",
-        "TARGET_GROUPS_LABEL": "Целевые группы",
         "SAVE_BOX": "Сохранить коробку"
+    },
+    "NEW_COMMON": {
+        "CANCEL_ADDING": "Cancel adding",
+        "DESCRIPTION_LABEL": "Description",
+        "TARGET_GROUPS_LABEL": "Target groups",
+        "TITLE_LABEL": "Title"
     },
     "NEW_MEDICAMENT": {
         "BOX_LABEL": "Коробка",
-        "CANCEL_ADDING": "Отменить добавление",
         "DEFAULT_TITLE": "Новое лекарство",
-        "DESCRIPTION_LABEL": "Описание",
         "EXPIRY_DATE_LABEL": "Дата окончания годности",
         "IMPACT_TYPES_LABEL": "Типы воздействия",
         "ISSUE_DATE_LABEL": "Дата изготовления",
-        "TARGET_GROUPS_LABEL": "Целевые группы",
-        "TITLE_LABEL": "Название",
         "SAVE_MEDICAMENT": "Созранить лекарство"
     },
     "NOT_FOUND": {
