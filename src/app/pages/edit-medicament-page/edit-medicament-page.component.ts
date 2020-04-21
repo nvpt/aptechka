@@ -185,6 +185,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     /*Boxes*/
     selectBox(event: any, box: BoxI) {
         this.medicament.boxId = box.id;
+        this.boxesService.replaceMedicament(this.medicament, box);
     }
 
     isBoxUsed(boxId: number): boolean {

@@ -66,7 +66,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             title: new FormControl('', [Validators.required]),
             description: new FormControl(''),
             imgData: new FormControl(null),
-            medicaments: new FormControl([]),
+            // medicaments: new FormControl([]),
         });
     }
 
@@ -119,7 +119,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             imgData: this.form.value.img,
             img: this.imgUrl,
             targetGroups: this.targetGroups,
-            medicamentsIds: this.form.value.medicamentsIds
+            medicamentsIds: [] //we can't add medicaments in new box yet
         };
 
         this.boxesService.addBox(newBox).subscribe(() => {

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BoxI} from '../interfaces/box-interface';
 import {Observable, of} from 'rxjs';
+import {MedicamentI} from '../interfaces/medicament-interface';
 
 @Injectable({
     providedIn: 'root'
@@ -38,7 +39,7 @@ export class BoxesService {
                     title: 'От горла'
                 }
             ],
-            medicamentsIds: [4]
+            medicamentsIds: [6]
         },
         {
             id: 3,
@@ -101,5 +102,15 @@ export class BoxesService {
 
     deleteBox(deletedBox): void {
         this.boxes = [...this.boxes.filter((box: BoxI) => box.id !== deletedBox.id)];
+    }
+
+    replaceMedicament(medicament: MedicamentI, box: BoxI): void {
+        this.boxes.forEach((boxItem) => {
+            if (boxItem.id === box.id) {
+                boxItem.medicamentsIds.unshift(medicament.id);
+            } else {
+                boxItem.medicamentsIds = [...boxItem.medicamentsIds.filter((id) => id !== medicament.id)];
+            }
+        });
     }
 }
