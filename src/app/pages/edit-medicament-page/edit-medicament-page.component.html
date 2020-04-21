@@ -1,15 +1,12 @@
-<form class="edit-medicament"
-      *ngIf="medicament; else loadingMedicament"
-      [formGroup]="form"
-      (ngSubmit)="updateMedicament()">
-
+<div class="edit-medicament">
     <div class="g-top-page">
         <h1 class="g-h1-title">{{medicament?.title}}</h1>
 
         <app-panel-control>
             <ng-container left>
                 <button class="g-btn g-btn-success"
-                        type="submit"
+                        type="button"
+                        (click)="updateMedicament()"
                         translate>MAIN.SAVE_CHANGES
                 </button>
             </ng-container>
@@ -24,137 +21,145 @@
     <div class="wrapper">
         <div class="content">
 
+            <form *ngIf="medicament; else loadingMedicament"
+                  [formGroup]="form"
+                  (ngSubmit)="updateMedicament()">
 
-            <!--TITLE-->
-            <section class="g-form-section">
-                <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
-                <input id="title"
-                       type="text"
-                       formControlName="title">
-            </section>
+                <!--TITLE-->
+                <section class="g-form-section">
+                    <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
+                    <input id="title"
+                           type="text"
+                           formControlName="title">
+                </section>
 
-            <!--DESCRIPTION-->
-            <section class="g-form-section">
-                <label for="description"><span translate>NEW_COMMON.DESCRIPTION_LABEL</span>:</label>
-                <span class="description-wrap">
+                <!--DESCRIPTION-->
+                <section class="g-form-section">
+                    <label for="description"><span translate>NEW_COMMON.DESCRIPTION_LABEL</span>:</label>
+                    <span class="description-wrap">
                 <textarea id="description"
                           class="description"
                           formControlName="description"></textarea>
                 </span>
-            </section>
+                </section>
 
-            <!--ISSUE DATE-->
-            <section class="g-form-section">
-                <label for="issueDate"><span translate>NEW_MEDICAMENT.ISSUE_DATE_LABEL</span>:</label>
-                <input id="issueDate"
-                       type="date"
-                       formControlName="issueDate">
-            </section>
+                <!--ISSUE DATE-->
+                <section class="g-form-section">
+                    <label for="issueDate"><span translate>NEW_MEDICAMENT.ISSUE_DATE_LABEL</span>:</label>
+                    <input id="issueDate"
+                           type="date"
+                           formControlName="issueDate">
+                </section>
 
-            <!--EXPIRY DATE-->
-            <section class="g-form-section">
-                <label for="expiryDate"><span translate>NEW_MEDICAMENT.EXPIRY_DATE_LABEL</span>:</label>
-                <input id="expiryDate"
-                       type="date"
-                       formControlName="expiryDate">
-            </section>
+                <!--EXPIRY DATE-->
+                <section class="g-form-section">
+                    <label for="expiryDate"><span translate>NEW_MEDICAMENT.EXPIRY_DATE_LABEL</span>:</label>
+                    <input id="expiryDate"
+                           type="date"
+                           formControlName="expiryDate">
+                </section>
 
-            <!--IMG-->
-            <section class="g-form-section img-section">
-                <div class="uploader-buttons"
-                     [ngClass]="{'with-image' : imgUrl}">
+                <!--IMG-->
+                <section class="g-form-section img-section">
+                    <div class="uploader-buttons"
+                         [ngClass]="{'with-image' : imgUrl}">
 
-                    <label for="img"
-                           class="add-img-btn-label">
+                        <label for="img"
+                               class="add-img-btn-label">
                         <span class="g-btn"
                               *ngIf="!form.value?.img; else withImage"
                               translate>MAIN.ADD_IMAGE</span>
-                        <ng-template #withImage>
+                            <ng-template #withImage>
                         <span class="g-btn"
                               translate>MAIN.CHANGE_IMAGE</span>
-                        </ng-template>
+                            </ng-template>
 
-                    </label>
+                        </label>
 
-                    <input class="g-display-none"
-                           id="img"
-                           accept="image/*"
-                           type="file"
-                           (change)="addImage($event)">
-                    <input type="hidden"
-                           formControlName="img">
+                        <input class="g-display-none"
+                               id="img"
+                               accept="image/*"
+                               type="file"
+                               (change)="addImage($event)">
+                        <input type="hidden"
+                               formControlName="img">
 
-                    <span *ngIf="imgUrl">
+                        <span *ngIf="imgUrl">
                             <button (click)="clearImg()"
                                     class="g-btn g-btn-error"
                                     translate>MAIN.CLEAR_IMAGE
                             </button>
                         </span>
-                    <span></span>
-                </div>
-
-                <img [src]="imgUrl"
-                     alt=""
-                     class="img">
-            </section>
-
-            <!--BOX-->
-            <section class="g-form-section">
-                <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
-                <div class="option-list"
-                     *ngIf="boxesService.boxes?.length">
-                    <div class="option-item"
-                         *ngFor="let box of boxesService.boxes">
-                        <app-radio-option [radioGroupName]="'boxes'"
-                                          [canEdit]="false"
-                                          [canAdd]="true"
-                                          [checked]="isBoxUsed(box?.id)"
-                                          [(optionValue)]="box.title"
-                                          (onCheck)="selectBox($event, box)">
-                        </app-radio-option>
+                        <span></span>
                     </div>
-                </div>
-            </section>
 
+                    <img [src]="imgUrl"
+                         alt=""
+                         class="img">
+                </section>
 
-            <!--IMPACT TYPES-->
-            <section class="g-form-section">
-                <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
-                <div class="option-list"
-                     *ngIf="impactTypesService.impactTypes?.length">
-                    <div class="option-item"
-                         *ngFor="let impactType of impactTypesService.impactTypes">
-                        <app-check-option [canEdit]="false"
-                                          [canAdd]="true"
-                                          [checked]="isMedicamentContainImpactType(impactType)"
-                                          [(optionValue)]="impactType.title"
-                                          (onCheck)="toggleImpactType($event, impactType)">
-                        </app-check-option>
+                <!--BOX-->
+                <section class="g-form-section">
+                    <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
+                    <div class="option-list"
+                         *ngIf="boxesService.boxes?.length">
+                        <div class="option-item"
+                             *ngFor="let box of boxesService.boxes">
+                            <app-radio-option [radioGroupName]="'boxes'"
+                                              [canEdit]="false"
+                                              [canAdd]="true"
+                                              [checked]="isBoxUsed(box?.id)"
+                                              [(optionValue)]="box.title"
+                                              (onCheck)="selectBox($event, box)">
+                            </app-radio-option>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!--TARGET GROUPS-->
-            <section class="g-form-section">
-                <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
-                <div class="option-list"
-                     *ngIf="targetGroupsService.targetGroups?.length">
-                    <div class="option-item"
-                         *ngFor="let targetGroup of targetGroupsService.targetGroups">
-                        <app-check-option [canEdit]="false"
-                                          [canAdd]="true"
-                                          [checked]="isMedicamentContainTargetGroup(targetGroup)"
-                                          [(optionValue)]="targetGroup.title"
-                                          (onCheck)="toggleTargetGroup($event, targetGroup)">
-                        </app-check-option>
+
+                <!--IMPACT TYPES-->
+                <section class="g-form-section">
+                    <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
+                    <div class="option-list"
+                         *ngIf="impactTypesService.impactTypes?.length">
+                        <div class="option-item"
+                             *ngFor="let impactType of impactTypesService.impactTypes">
+                            <app-check-option [canEdit]="false"
+                                              [canAdd]="true"
+                                              [checked]="isMedicamentContainImpactType(impactType)"
+                                              [(optionValue)]="impactType.title"
+                                              (onCheck)="toggleImpactType($event, impactType)">
+                            </app-check-option>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+
+                <!--TARGET GROUPS-->
+                <section class="g-form-section">
+                    <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
+                    <div class="option-list"
+                         *ngIf="targetGroupsService.targetGroups?.length">
+                        <div class="option-item"
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                            <app-check-option [canEdit]="false"
+                                              [canAdd]="true"
+                                              [checked]="isMedicamentContainTargetGroup(targetGroup)"
+                                              [(optionValue)]="targetGroup.title"
+                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
+                            </app-check-option>
+                        </div>
+                    </div>
+                </section>
+
+                <button class="g-btn g-btn-success g-display-none"
+                        type="submit"
+                        translate>MAIN.SAVE_CHANGES
+                </button>
+            </form>
+            <ng-template #loadingMedicament>
+                loading...
+            </ng-template>
         </div>
     </div>
-</form>
-<ng-template #loadingMedicament>
-    loading...
-</ng-template>
-
+</div>
 
