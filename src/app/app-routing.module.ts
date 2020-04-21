@@ -12,6 +12,7 @@ import {MedicamentsPageComponent} from './pages/medicaments-page/medicaments-pag
 import {NewBoxPageComponent} from './pages/new-box-page/new-box-page.component';
 import {EditBoxPageComponent} from './pages/edit-box-page/edit-box-page.component';
 import {EditMedicamentPageComponent} from './pages/edit-medicament-page/edit-medicament-page.component';
+import {NewMedicamentPageComponent} from './pages/new-medicament-page/new-medicament-page.component';
 
 const routes: Routes = [
     {
@@ -24,6 +25,7 @@ const routes: Routes = [
             {path: Constants.PATH.settings, component: SettingsPageComponent}, //todo *** set as module?
             {path: Constants.PATH.about, component: AboutPageComponent},
             {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
+            {path: Constants.PATH.newMedicament, component: NewMedicamentPageComponent},
             {path: `${Constants.PATH.editMedicament}/:medicamentId`, component: EditMedicamentPageComponent}
         ]
     },
