@@ -5,7 +5,7 @@
         <input type="checkbox"
                class="checkbox-btn"
                [checked]="checked"
-               (click)="add($event)">
+               (click)="toggle($event)">
     </label>
     <label>
         <input type="text"
@@ -41,7 +41,7 @@
                 check
             </span>
         </button>
-        <button class="action-btn  g-btn-error"
+        <button class="action-btn g-btn-error"
                 (click)="cancel()"
                 (keydown)="keypressCancel($event)">
             <span class="material-icons option-icon">
@@ -49,5 +49,4 @@
             </span>
         </button>
     </ng-container>
-
 </div>

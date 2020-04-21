@@ -24,11 +24,9 @@ export class CheckOptionComponent implements OnInit {
     editedNow: boolean = false;
     cachedValue: string = null;
 
-    constructor() {
-    }
+    constructor() {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     edit() {
         this.cachedValue = this.optionValue;
@@ -56,7 +54,7 @@ export class CheckOptionComponent implements OnInit {
         this.editedNow = false;
     }
 
-    add(event: KeyboardEvent | MouseEvent) {
+    toggle(event: KeyboardEvent | MouseEvent) {
         this.onCheck.emit(event);
     }
 
@@ -85,5 +83,4 @@ export class CheckOptionComponent implements OnInit {
             this.cancel();
         }
     }
-
 }
