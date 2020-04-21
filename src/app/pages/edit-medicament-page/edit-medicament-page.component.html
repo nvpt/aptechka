@@ -95,9 +95,16 @@
                 <section class="g-form-section">
                     <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
                     <div class="option-list"
-                         *ngIf="targetGroupsService.targetGroups?.length">
-                        <div class="option-item">
-                            here will be selection of box
+                         *ngIf="boxesService.boxes?.length">
+                        <div class="option-item"
+                             *ngFor="let box of boxesService.boxes">
+                            <app-radio-option [radioGroupName]="'boxes'"
+                                              [canEdit]="false"
+                                              [canAdd]="true"
+                                              [checked]="isBoxUsed(box)"
+                                              [(optionValue)]="box.title"
+                                              (onCheck)="selectBox($event, box)">
+                            </app-radio-option>
                         </div>
                     </div>
                 </section>
@@ -111,10 +118,10 @@
                         <div class="option-item"
                              *ngFor="let impactType of impactTypesService.impactTypes">
                             <app-check-option [canEdit]="false"
-                                                 [canAdd]="true"
-                                                 [checked]="isMedicamentContainImpactType(impactType)"
-                                                 [(optionValue)]="impactType.title"
-                                                 (onCheck)="toggleImpactType($event, impactType)">
+                                              [canAdd]="true"
+                                              [checked]="isMedicamentContainImpactType(impactType)"
+                                              [(optionValue)]="impactType.title"
+                                              (onCheck)="toggleImpactType($event, impactType)">
                             </app-check-option>
                         </div>
                     </div>
@@ -128,10 +135,10 @@
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
                             <app-check-option [canEdit]="false"
-                                                 [canAdd]="true"
-                                                 [checked]="isMedicamentContainTargetGroup(targetGroup)"
-                                                 [(optionValue)]="targetGroup.title"
-                                                 (onCheck)="toggleTargetGroup($event, targetGroup)">
+                                              [canAdd]="true"
+                                              [checked]="isMedicamentContainTargetGroup(targetGroup)"
+                                              [(optionValue)]="targetGroup.title"
+                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
                             </app-check-option>
                         </div>
                     </div>

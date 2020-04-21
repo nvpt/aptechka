@@ -15,6 +15,8 @@ import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {ImpactTypesService} from '../../services/impact-types.service';
 import {MedicamentI} from '../../interfaces/medicament-interface';
 import {ImpactTypeI} from '../../interfaces/impact-type-interface';
+import {BoxesService} from '../../services/boxes.service';
+import {BoxI} from '../../interfaces/box-interface';
 
 @Component({
     selector: 'app-edit-medicament-page',
@@ -41,13 +43,14 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     constructor(
         public targetGroupsService: TargetGroupsService,
         public impactTypesService: ImpactTypesService,
+        public boxesService: BoxesService,
         private location: Location,
         private route: ActivatedRoute,
+        private router: Router,
+        private translateService: TranslateService,
         private menuService: MenuService,
         private medicamentsService: MedicamentsService,
-        private router: Router,
-        private breadcrumbService: BreadcrumbService,
-        private translateService: TranslateService
+        private breadcrumbService: BreadcrumbService
     ) {}
 
     ngOnInit(): void {
@@ -177,5 +180,14 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.router.navigate([Constants.PATH.medicaments]);
             });
+    }
+
+    /*Boxes*/
+    selectBox(event: any, box: BoxI) {
+        this.medicament.boxId = box.id;
+    }
+
+    isBoxUsed(box: BoxI): boolean {
+        return this.medicament.boxId === box.id;
     }
 }
