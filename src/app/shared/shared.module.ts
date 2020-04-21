@@ -7,11 +7,14 @@ import {TranslateModule} from '@ngx-translate/core';
 import {registerLocaleData} from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
 
+/*MODULES*/
 import {MenuModule} from '../modules/menu/menu.module';
 
+/*LAYOUTS*/
 import {ContentLayoutComponent} from '../layouts/content-layout/content-layout.component';
 import {EmptyLayoutComponent} from '../layouts/empty-layout/empty-layout.component';
 
+/*PAGES*/
 import {BoxesPageComponent} from '../pages/boxes-page/boxes-page.component';
 import {TileComponent} from '../pages/boxes-page/components/tile/tile.component';
 import {NewBoxPageComponent} from '../pages/new-box-page/new-box-page.component';
@@ -22,23 +25,21 @@ import {SettingsPageComponent} from '../pages/settings-page/settings-page.compon
 import {AboutPageComponent} from '../pages/about-page/about-page.component';
 import {NotFoundPageComponent} from '../pages/not-found-page/not-found-page.component';
 
+/*COMPONENTS*/
 import {HeaderComponent} from '../components/header/header.component';
 import {FooterComponent} from '../components/footer/footer.component';
 import {MenuContentComponent} from '../components/menu-content/menu-content.component';
 import {MenuBtnComponent} from '../components/menu-btn/menu-btn.component';
 import {BreadcrumbComponent} from '../components/breadcrumb/breadcrumb.component';
 import {PanelControlComponent} from '../components/panel-control/panel-control.component';
-import { NewOptionComponent } from '../components/new-option/new-option.component';
-import { CheckOptionComponent } from '../components/check-option/check-option.component';
-
-
-
-
+import {NewOptionComponent} from '../components/new-option/new-option.component';
+import {CheckOptionComponent} from '../components/check-option/check-option.component';
+import {RadioOptionComponent} from '../components/radio-option/radio-option.component';
 
 registerLocaleData(ruLocale, 'ru');
 
 @NgModule({
-    declarations:[
+    declarations: [
         ContentLayoutComponent,
         EmptyLayoutComponent,
         BoxesPageComponent,
@@ -57,17 +58,10 @@ registerLocaleData(ruLocale, 'ru');
         BreadcrumbComponent,
         PanelControlComponent,
         NewOptionComponent,
-        CheckOptionComponent
+        CheckOptionComponent,
+        RadioOptionComponent
     ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterModule,
-        TranslateModule,
-        MenuModule
-
-    ],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule],
     exports: [
         CommonModule,
         FormsModule,
@@ -93,9 +87,8 @@ registerLocaleData(ruLocale, 'ru');
         BreadcrumbComponent,
         PanelControlComponent,
         NewOptionComponent,
-        CheckOptionComponent
+        CheckOptionComponent,
+        RadioOptionComponent
     ]
 })
-export class SharedModule {
-
-}
+export class SharedModule {}
