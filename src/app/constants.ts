@@ -24,7 +24,8 @@ export class Constants {
         newMedicament: 'new-medicament',
         editMedicament: 'edit-medicament',
         settings: 'settings',
-        about: 'about'
+        about: 'about',
+        notFound: '404'
     });
 
     public static readonly PATH = Object.freeze({
@@ -36,7 +37,8 @@ export class Constants {
         newMedicament: Constants.SECTION.newMedicament,
         editMedicament: Constants.SECTION.editMedicament,
         settings: Constants.SECTION.settings,
-        about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`
+        about: `${Constants.SECTION.settings}/${Constants.SECTION.about}`,
+        notFound: Constants.SECTION.notFound
     });
 
     /*LOCAL STORAGE*/
