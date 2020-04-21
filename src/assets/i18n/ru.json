@@ -51,6 +51,7 @@
         "SAVE_CHANGES": "Сохранить изменения"
     },
     "MEDICAMENTS": {
+        "ADD_MEDICAMENT": "Добавить лекарство",
         "TABLE": {
             "TITLE": "Название",
             "DESCRIPTION": "Описание",

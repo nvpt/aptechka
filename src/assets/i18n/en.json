@@ -51,6 +51,7 @@
         "SAVE_CHANGES": "Save changes"
     },
     "MEDICAMENTS": {
+        "ADD_MEDICAMENT": "Add medicament",
         "TABLE": {
             "TITLE": "Title",
             "DESCRIPTION": "Description",

@@ -2,6 +2,14 @@
     <div class="g-top-page">
         <h1 class="g-h1-title"
             translate>BREADCRUMB.MEDICAMENTS</h1>
+        <app-panel-control>
+            <ng-container right>
+                <button (click)="addMedicament()"
+                        class="g-btn-small"
+                        translate>MEDICAMENTS.ADD_MEDICAMENT
+                </button>
+            </ng-container>
+        </app-panel-control>
     </div>
     <div class="content">
         <table class="g-table table">
