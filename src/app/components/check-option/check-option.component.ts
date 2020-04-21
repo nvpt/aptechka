@@ -28,7 +28,7 @@ export class CheckOptionComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    edit() {
+    edit(): void {
         this.cachedValue = this.optionValue;
         this.editedNow = true;
         setTimeout(() => {
@@ -36,41 +36,41 @@ export class CheckOptionComponent implements OnInit {
         }, 0);
     }
 
-    delete() {
+    delete(): void {
         this.onDelete.emit();
     }
 
-    save() {
+    save(): void {
         const inputValue = this.inputField.nativeElement.value;
 
         this.optionValueChange.emit(inputValue);
         this.editedNow = false;
     }
 
-    cancel() {
+    cancel(): void {
         this.optionValue = this.cachedValue;
         this.inputField.nativeElement.value = this.cachedValue;
         this.optionValueChange.emit(this.optionValue);
         this.editedNow = false;
     }
 
-    toggle(event: KeyboardEvent | MouseEvent) {
+    toggle(event: KeyboardEvent | MouseEvent): void {
         this.onCheck.emit(event);
     }
 
-    keypressEdit(event: KeyboardEvent) {
+    keypressEdit(event: KeyboardEvent): void {
         if ((<KeyboardEvent>event).key === 'Enter') {
             this.edit();
         }
     }
 
-    keypressDelete(event: KeyboardEvent) {
+    keypressDelete(event: KeyboardEvent): void {
         if ((<KeyboardEvent>event).key === 'Enter') {
             this.delete();
         }
     }
 
-    keypressSave(event: KeyboardEvent) {
+    keypressSave(event: KeyboardEvent): void {
         if ((<KeyboardEvent>event).key === 'Enter') {
             this.save();
         } else if ((<KeyboardEvent>event).key === 'Escape') {
@@ -78,7 +78,7 @@ export class CheckOptionComponent implements OnInit {
         }
     }
 
-    keypressCancel(event: KeyboardEvent) {
+    keypressCancel(event: KeyboardEvent): void {
         if ((<KeyboardEvent>event).key === 'Enter' || (<KeyboardEvent>event).key === 'Escape') {
             this.cancel();
         }
