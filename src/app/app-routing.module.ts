@@ -27,7 +27,12 @@ const routes: Routes = [
             {path: `${Constants.PATH.editMedicament}/:medicamentId`, component: EditMedicamentPageComponent}
         ]
     },
+    // {
+    //     path: '**',
+    //     redirectTo: Constants.PATH.notFound
+    // },
     {
+        // path: Constants.PATH.notFound,
         path: '**',
         component: EmptyLayoutComponent,
         children: [{path: '', component: NotFoundPageComponent}]
