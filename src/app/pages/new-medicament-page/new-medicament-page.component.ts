@@ -55,7 +55,7 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit(): void {
-        this.translationSub$ = this.translateService.get('BREADCRUMB.NEW_MEDICAMENT').subscribe(translation => {
+        this.translationSub$ = this.translateService.get('BREADCRUMB.NEW_MEDICAMENT').subscribe((translation) => {
             this.breadcrumbs.push(<BreadcrumbI>{
                 label: translation
             });
@@ -78,21 +78,14 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     initForm(): void {
-        // let dp = new DatePipe(this.translateService.currentLang);
-        // let mask = 'yyyy-MM-dd';
-
         this.form = new FormGroup({
             title: new FormControl(null, [Validators.required]),
             description: new FormControl(null),
             issueDate: new FormControl(null),
-            expiryDate: new FormControl(null, [
-                Validators.required
-            ]),
-            img: new FormControl(null),
+            expiryDate: new FormControl(null, [Validators.required]),
+            imgData: new FormControl(null),
             boxId: new FormControl(null, [Validators.required])
         });
-
-        // this.imgUrl = this.medicament.img;
     }
 
     cancelAdding(): void {
@@ -100,21 +93,21 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     addImage(event: Event): void {
-        const img = (<HTMLInputElement>event.target).files[0];
+        const imgData = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
         reader.onload = () => {
             this.imgUrl = reader.result as string;
         };
-        img && reader.readAsDataURL(img);
+        imgData && reader.readAsDataURL(imgData);
 
-        this.form.patchValue({img});
+        this.form.patchValue({imgData});
     }
 
     clearImg(): void {
         this.imgUrl = null;
-        this.form.controls.img.reset();
-        this.form.controls.img.updateValueAndValidity();
+        this.form.controls.imgData.reset();
+        this.form.controls.imgData.updateValueAndValidity();
     }
 
     /*Target groups*/
@@ -151,7 +144,6 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
         }
     }
 
-
     updateMedicament(): void {
         this.medicamentsService
             .updateMedicament({
@@ -180,6 +172,21 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     saveMedicament() {
+        const newMedicament: MedicamentI = {
+            id: new Date().getTime(),
+            title: this.form.value.title,
+            description: this.form.value.description,
+            issueDate: this.form.value.issueDate,
+            expiryDate: this.form.value.expiryDate,
+            imgData: this.form.value.imgData,
+            img: this.imgUrl,
+            targetGroups: this.targetGroups,
+            impactTypes: this.impactTypes,
+            boxId: this.form.value.boxId
+        };
 
+        this.medicamentsService.addMedicament(newMedicament).subscribe(() => {
+            this.router.navigate([Constants.PATH.medicaments]);
+        });
     }
 }
