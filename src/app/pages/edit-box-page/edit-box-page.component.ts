@@ -71,7 +71,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         this.form = new FormGroup({
             title: new FormControl(this.box.title, [Validators.required]),
             description: new FormControl(this.box.description),
-            img: new FormControl(this.box.img),
+            imgData: new FormControl(this.box.imgData),
             medicaments: new FormControl(this.box.medicamentsIds)
         });
 
@@ -83,21 +83,21 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     }
 
     addImage(event: Event) {
-        const img = (<HTMLInputElement>event.target).files[0];
+        const imgData = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
         reader.onload = () => {
             this.imgUrl = reader.result as string;
         };
-        img && reader.readAsDataURL(img);
+        imgData && reader.readAsDataURL(imgData);
 
-        this.form.patchValue({img});
+        this.form.patchValue({imgData});
     }
 
     clearImg() {
         this.imgUrl = null;
-        this.form.controls.img.reset();
-        this.form.controls.img.updateValueAndValidity();
+        this.form.controls.imgData.reset();
+        this.form.controls.imgData.updateValueAndValidity();
     }
 
     /*Target groups*/

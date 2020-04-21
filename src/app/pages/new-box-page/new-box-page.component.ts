@@ -65,7 +65,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
         this.form = new FormGroup({
             title: new FormControl('', [Validators.required]),
             description: new FormControl(''),
-            img: new FormControl(null),
+            imgData: new FormControl(null),
             medicaments: new FormControl([]),
         });
     }
@@ -75,21 +75,21 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
     }
 
     addImage(event: Event) {
-        const img = (<HTMLInputElement>(event.target)).files[0];
+        const imgData = (<HTMLInputElement>(event.target)).files[0];
         const reader = new FileReader();
 
         reader.onload = () => {
             this.imgUrl = reader.result as string;
         };
-        img && reader.readAsDataURL(img);
+        imgData && reader.readAsDataURL(imgData);
 
-        this.form.patchValue({img});
+        this.form.patchValue({imgData});
     }
 
     clearImg() {
-        this.form.controls.img.reset();
+        this.form.controls.imgData.reset();
+        this.form.controls.imgData.updateValueAndValidity();
         this.imgUrl = null;
-        this.form.controls.img.updateValueAndValidity();
     }
 
 
@@ -112,7 +112,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
     }
 
     saveBox() {
-        const box: BoxI = {
+        const newBox: BoxI = {
             id: new Date().getTime(),
             description: this.form.value.description,
             title: this.form.value.title,
@@ -122,7 +122,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             medicamentsIds: this.form.value.medicamentsIds
         };
 
-        this.boxesService.addBox(box).subscribe(() => {
+        this.boxesService.addBox(newBox).subscribe(() => {
             this.router.navigate([Constants.PATH.dashboard]);
         });
 

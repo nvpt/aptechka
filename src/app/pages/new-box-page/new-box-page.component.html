@@ -52,7 +52,7 @@
                         <label for="img"
                                class="add-img-btn-label">
                         <span class="g-btn"
-                              *ngIf="!form.value?.img; else withImage"
+                              *ngIf="!form.value?.imgData; else withImage"
                               translate>MAIN.ADD_IMAGE</span>
                             <ng-template #withImage>
                         <span class="g-btn"
@@ -67,7 +67,7 @@
                                type="file"
                                (change)="addImage($event)">
                         <input type="hidden"
-                               formControlName="img">
+                               formControlName="imgData">
 
                         <span *ngIf="imgUrl">
                         <button (click)="clearImg()"
