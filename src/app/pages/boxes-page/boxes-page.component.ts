@@ -34,7 +34,7 @@ export class BoxesPageComponent implements OnInit {
 
     deleteBox(box: BoxI): void {
         this.boxesService.deleteBox(box).subscribe(() => {
-            this.alert.success('ALERT.BOX_DELETED', {box: box.title});
+            this.alert.warning('ALERT.BOX_DELETED', {box: box.title});
         });
     }
 
