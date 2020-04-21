@@ -144,31 +144,14 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
         }
     }
 
-    updateMedicament(): void {
-        this.medicamentsService
-            .updateMedicament({
-                ...this.medicament,
-                title: this.form.value.title,
-                description: this.form.value.description,
-                issueDate: this.form.value.issueDate,
-                expiryDate: this.form.value.expiryDate,
-                imgData: this.form.value.imgData,
-                img: this.imgUrl,
-                targetGroups: this.targetGroups,
-                impactTypes: this.impactTypes
-            })
-            .subscribe(() => {
-                this.router.navigate([Constants.PATH.medicaments]);
-            });
-    }
 
     /*Boxes*/
     selectBox(event: any, box: BoxI) {
-        this.medicament.boxId = box.id;
+        this.form.controls.boxId.setValue(box.id)
     }
 
     isBoxUsed(boxId: number): boolean {
-        return this.medicament && this.medicament.boxId === boxId;
+        return this.form.value.boxId === boxId;
     }
 
     saveMedicament() {

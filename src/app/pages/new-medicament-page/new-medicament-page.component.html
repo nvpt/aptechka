@@ -109,11 +109,12 @@
                             <app-radio-option [radioGroupName]="'boxes'"
                                               [canEdit]="false"
                                               [canAdd]="true"
-
+                                              [checked]="isBoxUsed(box?.id)"
                                               [(optionValue)]="box.title"
                                               (onCheck)="selectBox($event, box)">
                             </app-radio-option>
                         </div>
+                        <input type="hidden" formControlName="boxId">
                     </div>
                 </section>
 
