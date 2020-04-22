@@ -22,8 +22,7 @@
     <div class="wrapper">
         <div class="content">
 
-            <form [formGroup]="form"
-                  (ngSubmit)="saveMedicament()">
+            <form [formGroup]="form">
 
                 <!--TITLE-->
                 <section class="g-form-section">
@@ -85,12 +84,12 @@
                         <input type="hidden"
                                formControlName="imgData">
 
-                        <span *ngIf="imgUrl">
-                            <button (click)="clearImg()"
+                        <div *ngIf="imgUrl">
+                            <div (click)="clearImg()"
                                     class="g-btn g-btn-error"
                                     translate>MAIN.CLEAR_IMAGE
-                            </button>
-                        </span>
+                            </div>
+                        </div>
                         <span></span>
                     </div>
 
@@ -150,11 +149,6 @@
                         </div>
                     </div>
                 </section>
-
-                <button class="g-btn g-btn-success g-display-none"
-                        type="submit"
-                        translate>MAIN.ADD
-                </button>
             </form>
         </div>
     </div>
