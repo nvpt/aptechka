@@ -2,7 +2,10 @@
     <span class="material-icons inline-search__icon inline-search__icon--close">search</span>
     <label class="inline-search__label">
         <input type="text"
-               class="inline-search__input">
+               class="inline-search__input"
+               [ngModel]="search"
+               (ngModelChange)="searchChange.emit($event)"
+        >
     </label>
     <span class="material-icons inline-search__icon inline-search__icon_right">close</span>
 </div>

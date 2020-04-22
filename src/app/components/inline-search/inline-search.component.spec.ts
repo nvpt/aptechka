@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InlineSesrchComponent } from './inline-sesrch.component';
+import { InlineSearchComponent } from './inline-search.component';
 
 describe('InlineSesrchComponent', () => {
-  let component: InlineSesrchComponent;
-  let fixture: ComponentFixture<InlineSesrchComponent>;
+  let component: InlineSearchComponent;
+  let fixture: ComponentFixture<InlineSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InlineSesrchComponent ]
+      declarations: [ InlineSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InlineSesrchComponent);
+    fixture = TestBed.createComponent(InlineSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
