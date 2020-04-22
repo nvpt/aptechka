@@ -29,9 +29,10 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             path: Constants.PATH.root
         }
     ];
-    targetGroups: TargetGroupI[] = [];
-    form!: FormGroup;
     imgUrl!: string;
+    form!: FormGroup;
+    targetGroups: TargetGroupI[] = [];
+    targetGroupSearch: string = '';
     translationSub$!: Subscription;
 
     constructor(public targetGroupsService: TargetGroupsService, private location: Location, private menuService: MenuService, private boxesService: BoxesService,

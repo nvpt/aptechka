@@ -35,9 +35,11 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     impactTypes: ImpactTypeI[] = this.impactTypeService.impactTypes;
     impactErrors: string[] = [];
+    impactTypeSearch: string = '';
 
     targetGroups: TargetGroupI[] = this.targetGroupsService.targetGroups;
     targetGroupsErrors: string[] = [];
+    targetGroupSearch:string = '';
 
     private translateSub$: Subscription;
 

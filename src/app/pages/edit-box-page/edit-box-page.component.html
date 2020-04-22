@@ -80,12 +80,12 @@
                 <section class="g-form-section">
                     <label><span translate>EDIT_COMMON.MEDICAMENTS_LABEL</span>:</label>
                     <div class="option-item">
-                        <app-inline-search [(search)]="medicamentsSearch"></app-inline-search>
+                        <app-inline-search [(search)]="medicamentSearch"></app-inline-search>
                     </div>
                     <div class="option-list">
                         <ng-container *ngIf="box.medicamentsIds?.length; else noMedicaments">
                             <div class="option-item"
-                                 *ngFor="let medId of box.medicamentsIds | inlineSearch:medicamentsSearch:['title']">
+                                 *ngFor="let medId of box.medicamentsIds | inlineSearch:medicamentSearch:['title']">
 
                                 <app-check-option [canEdit]="false"
                                                   [canAdd]="false"

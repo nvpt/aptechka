@@ -34,11 +34,14 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
             path: Constants.PATH.medicaments
         }
     ];
-    targetGroups: TargetGroupI[] = [];
-    impactTypes: ImpactTypeI[] = [];
     form!: FormGroup;
     imgUrl!: string;
+    targetGroups: TargetGroupI[] = [];
+    targetGroupSearch: string = '';
+    impactTypes: ImpactTypeI[] = [];
+    impactTypeSearch: string = '';
     medicament!: MedicamentI;
+    boxSearch: string = '';
     translationSub$!: Subscription;
 
     constructor(

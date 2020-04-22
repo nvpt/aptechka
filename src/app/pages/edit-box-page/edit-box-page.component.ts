@@ -26,11 +26,11 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
             path: Constants.PATH.root
         }
     ];
-    targetGroups: TargetGroupI[] = [];
-    targetGroupSearch: string = '';
-    medicamentsSearch: string = '';
     form!: FormGroup;
     imgUrl!: string;
+    targetGroups: TargetGroupI[] = [];
+    targetGroupSearch: string = '';
+    medicamentSearch: string = '';
     box!: BoxI;
 
     constructor(

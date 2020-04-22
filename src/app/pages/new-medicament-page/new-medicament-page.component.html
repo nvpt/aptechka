@@ -101,10 +101,13 @@
                 <!--BOX-->
                 <section class="g-form-section">
                     <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
+                    <div class="option-item">
+                        <app-inline-search [(search)]="boxSearch"></app-inline-search>
+                    </div>
                     <div class="option-list"
                          *ngIf="boxesService.boxes?.length">
                         <div class="option-item"
-                             *ngFor="let box of boxesService.boxes">
+                             *ngFor="let box of boxesService.boxes | inlineSearch:boxSearch:['title']">
                             <app-radio-option [radioGroupName]="'boxes'"
                                               [canEdit]="false"
                                               [canAdd]="true"
@@ -121,10 +124,13 @@
                 <!--IMPACT TYPES-->
                 <section class="g-form-section">
                     <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
+                    <div class="option-item">
+                        <app-inline-search [(search)]="impactTypeSearch"></app-inline-search>
+                    </div>
                     <div class="option-list"
                          *ngIf="impactTypesService.impactTypes?.length">
                         <div class="option-item"
-                             *ngFor="let impactType of impactTypesService.impactTypes">
+                             *ngFor="let impactType of impactTypesService.impactTypes | inlineSearch:impactTypeSearch:['title']">
                             <app-check-option [canEdit]="false"
                                               [canAdd]="true"
                                               [(optionValue)]="impactType.title"
@@ -137,10 +143,13 @@
                 <!--TARGET GROUPS-->
                 <section class="g-form-section">
                     <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
+                    <div class="option-item">
+                        <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
+                    </div>
                     <div class="option-list"
                          *ngIf="targetGroupsService.targetGroups?.length">
                         <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
                             <app-check-option [canEdit]="false"
                                               [canAdd]="true"
                                               [(optionValue)]="targetGroup.title"

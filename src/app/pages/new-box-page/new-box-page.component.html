@@ -87,10 +87,13 @@
                 <!--TARGET GROUPS-->
                 <section class="g-form-section">
                     <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
+                    <div class="option-item">
+                        <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
+                    </div>
                     <div class="option-list"
                          *ngIf="targetGroupsService.targetGroups?.length">
                         <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups">
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
                             <app-check-option [canEdit]="false"
                                               [canAdd]="true"
                                               [(optionValue)]="targetGroup.title"

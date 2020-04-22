@@ -34,10 +34,13 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             path: Constants.PATH.medicaments
         }
     ];
-    targetGroups: TargetGroupI[] = [];
-    impactTypes: ImpactTypeI[] = [];
     form!: FormGroup;
     imgUrl!: string;
+    targetGroups: TargetGroupI[] = [];
+    targetGroupSearch: string = '';
+    impactTypes: ImpactTypeI[] = [];
+    impactTypeSearch: string = '';
+    boxSearch: string = '';
     medicament!: MedicamentI;
 
     constructor(
