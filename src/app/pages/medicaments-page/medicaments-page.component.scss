@@ -22,54 +22,50 @@
 
     tr {
         &:hover {
-            .hovered {
+            .cell-icon {
+                visibility: visible;
+
                 &:hover {
-                    cursor: pointer;
-                    box-shadow: inset 0 0 0 2px var(--color-current-40);
-
-                    .hovered__icon {
-                        //color: var(--color-current-40);
-                        //opacity: 1;
-                    }
-                    .img-wrap {
-                        //color: var(--color-current-40);
-                        font-weight: bold;
-                    }
-                }
-
-                &__icon {
-                    visibility: visible;
+                    color: var(--color-current-40);
+                    opacity: 1;
                 }
             }
         }
     }
+}
 
-    td {
-        vertical-align: top;
-        text-align: center;
-    }
+td {
+    vertical-align: top;
+    text-align: center;
+}
 
-    li {
-        position: relative;
-        padding-left: $string-padding;
+li {
+    position: relative;
+    padding-left: $string-padding;
 
-        &:before {
-            content: '-';
-            padding-right: $string-padding;
-        }
+    &:before {
+        content: '-';
+        padding-right: $string-padding;
     }
 }
 
-.hovered {
+.with-icons {
     position: relative;
     padding: $string-padding $string-padding * 3;
-    &__icon {
+
+    .cell-icon {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 5px;
+        left: 4px;
         font-size: $mat-icon-size;
         visibility: hidden;
+        cursor: pointer;
         opacity: 0.5;
+
+        &_right {
+            left: initial;
+            right: 4px;
+        }
     }
 }
 

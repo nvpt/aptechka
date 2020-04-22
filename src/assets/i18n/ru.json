@@ -58,6 +58,7 @@
     },
     "MEDICAMENTS": {
         "ADD_MEDICAMENT": "Добавить лекарство",
+        "EMPTY": "Нет лекарств",
         "TABLE": {
             "TITLE": "Название",
             "DESCRIPTION": "Описание",

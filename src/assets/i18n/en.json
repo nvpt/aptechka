@@ -58,6 +58,7 @@
     },
     "MEDICAMENTS": {
         "ADD_MEDICAMENT": "Add medicament",
+        "EMPTY": "No medicaments",
         "TABLE": {
             "TITLE": "Title",
             "DESCRIPTION": "Description",

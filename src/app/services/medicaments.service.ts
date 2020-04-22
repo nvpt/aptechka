@@ -150,9 +150,9 @@ export class MedicamentsService {
         return of(null);
     }
 
-    deleteMedicament(deletedMedicament): void {
+    deleteMedicament(medId: number): void {
         this.medicaments = [
-            ...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== deletedMedicament.id)
+            ...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== medId)
         ];
     }
 

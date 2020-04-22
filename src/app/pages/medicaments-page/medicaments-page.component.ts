@@ -61,4 +61,10 @@ export class MedicamentsPageComponent implements OnInit {
     addMedicament() {
         this.router.navigate([Constants.PATH.newMedicament]);
     }
+
+    deleteMedicament(id: number) {
+        console.log('id', id);
+        
+        this.medicamentsService.deleteMedicament(id);
+    }
 }

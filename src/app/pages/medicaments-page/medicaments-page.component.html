@@ -12,7 +12,7 @@
         </app-panel-control>
     </div>
     <div class="content">
-        <table class="g-table table">
+        <table class="g-table table" *ngIf="medicamentsService.medicaments?.length; else empty">
             <thead>
             <tr>
                 <th translate>MEDICAMENTS.TABLE.TITLE</th>
@@ -27,9 +27,9 @@
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
                 <!--MEDICAMENT TITLE + IMG-->
-                <td (click)="editMedicament(med?.id)"
-                    class="hovered">
-                    <span class="material-icons hovered__icon">edit</span>
+                <td class="with-icons">
+                    <span class="material-icons cell-icon" (click)="editMedicament(med?.id)">edit</span>
+                    <span class="material-icons cell-icon cell-icon_right" (click)="deleteMedicament(med?.id)">delete</span>
                     <div class="img-wrap">
                         <span class="img-wrap__title">{{ med.title }}</span>
                         <img [src]="med.img"
@@ -76,9 +76,8 @@
                 </td>
 
                 <!--BOX TITLE + IMG-->
-                <td (click)="editBox(med.boxId)"
-                    class="hovered">
-                    <span class="material-icons hovered__icon">edit</span>
+                <td class="with-icons">
+                    <span class="material-icons cell-icon" (click)="editBox(med.boxId)">edit</span>
                     <div class="img-wrap">
                         <span class="img-wrap__title">{{ defineBox(med.boxId)?.title }}</span>
                         <div class="option-list"
@@ -97,5 +96,9 @@
             </tr>
             </tbody>
         </table>
+
+        <ng-template #empty>
+            <span translate>MEDICAMENTS.EMPTY</span>
+        </ng-template>
     </div>
 </div>
