@@ -31,4 +31,8 @@ export class InlineSearchComponent implements OnInit, AfterContentInit {
     clear() {
         this.searchChange.emit('');
     }
+
+    focus() {
+        this.inputField.nativeElement.focus();
+    }
 }
