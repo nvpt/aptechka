@@ -34,7 +34,8 @@
         }
     },
     "EDIT_COMMON": {
-        "CANCEL_EDIT": "Отменить редактирвоание"
+        "CANCEL_EDIT": "Отменить редактирвоание",
+        "MEDICAMENTS_LABEL": "Медикаменты"
     },
     "ERROR": {
         "IMPACT_TYPE": {
@@ -51,6 +52,7 @@
         "CHANGE_IMAGE": "Изменить изображение",
         "CLEAR_IMAGE": "Очистить изображение",
         "CREATE": "Создать",
+        "EMPTY": "Пусто",
         "SAVE": "Сохранить",
         "SAVE_CHANGES": "Сохранить изменения"
     },

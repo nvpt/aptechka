@@ -178,12 +178,13 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
                 impactTypes: this.impactTypes
             })
             .subscribe(() => {
-                this.router.navigate([Constants.PATH.medicaments]);
+                this.location.back();
+                // this.router.navigate([Constants.PATH.medicaments]);
             });
     }
 
     /*Boxes*/
-    selectBox(event: any, box: BoxI) {
+    selectBox(event: any, box: BoxI): void {
         this.medicament.boxId = box.id;
         this.boxesService.replaceMedicament(this.medicament, box);
     }

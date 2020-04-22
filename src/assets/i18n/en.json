@@ -34,7 +34,8 @@
         }
     },
     "EDIT_COMMON": {
-        "CANCEL_EDIT": "Cancel edit"
+        "CANCEL_EDIT": "Cancel edit",
+        "MEDICAMENTS_LABEL": "Medicaments"
     },
     "ERROR": {
         "IMPACT_TYPE": {
@@ -51,6 +52,7 @@
         "CHANGE_IMAGE": "Change image",
         "CLEAR_IMAGE": "Clear image",
         "CREATE": "Create",
+        "EMPTY": "Empty",
         "SAVE": "Save",
         "SAVE_CHANGES": "Save changes"
     },

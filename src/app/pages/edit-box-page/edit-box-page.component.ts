@@ -12,6 +12,7 @@ import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service'
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {BoxI} from '../../interfaces/box-interface';
 import {switchMap} from 'rxjs/operators';
+import {MedicamentsService} from '../../services/medicaments.service';
 
 @Component({
     selector: 'app-edit-box-page',
@@ -32,6 +33,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
 
     constructor(
         public targetGroupsService: TargetGroupsService,
+        public medicamentsService: MedicamentsService,
         private location: Location,
         private route: ActivatedRoute,
         private menuService: MenuService,
@@ -63,11 +65,11 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
             });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.menuService.show();
     }
 
-    initForm() {
+    initForm(): void {
         this.form = new FormGroup({
             title: new FormControl(this.box.title, [Validators.required]),
             description: new FormControl(this.box.description),
@@ -78,11 +80,11 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         this.imgUrl = this.box.img;
     }
 
-    cancelAdding() {
+    cancelAdding(): void {
         this.location.back();
     }
 
-    addImage(event: Event) {
+    addImage(event: Event): void {
         const imgData = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
@@ -94,18 +96,18 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         this.form.patchValue({imgData});
     }
 
-    clearImg() {
+    clearImg(): void {
         this.imgUrl = null;
         this.form.controls.imgData.reset();
         this.form.controls.imgData.updateValueAndValidity();
     }
 
     /*Target groups*/
-    getTargetGroups() {
+    getTargetGroups(): void {
         this.targetGroupsService.getTargetGroups();
     }
 
-    toggleTargetGroup(event: MouseEvent, targetGroup: TargetGroupI) {
+    toggleTargetGroup(event: MouseEvent, targetGroup: TargetGroupI): void {
         const checked: boolean = (<HTMLInputElement>event.target).checked;
 
         if (checked) {
@@ -121,7 +123,15 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         return !!this.box.targetGroups.find((group) => group.id === tg.id);
     }
 
-    updateBox() {
+    /*Medicaments*/
+    defineMedicamentTitle(medIndex: number): string {
+        const medicament = this.medicamentsService.medicaments[
+            this.medicamentsService.medicaments.findIndex((med) => med.id === medIndex)
+        ];
+        return medicament ? medicament.title : '';
+    }
+
+    updateBox(): void {
         this.boxesService
             .updateBox({
                 ...this.box,
@@ -135,5 +145,9 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
                 this.location.back();
                 // this.router.navigate([Constants.PATH.dashboard]);
             });
+    }
+
+    goToMedicament(medId: number): void {
+        this.router.navigate([`${Constants.PATH.editMedicament}/${medId}`]);
     }
 }

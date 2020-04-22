@@ -77,6 +77,30 @@
                          class="img"/>
                 </section>
 
+                <!--MEDICAMENTS-->
+                <section class="g-form-section">
+                    <label><span translate>EDIT_COMMON.MEDICAMENTS_LABEL</span>:</label>
+                    <div class="option-list">
+                        <ng-container *ngIf="box.medicamentsIds?.length; else noMedicaments">
+                            <div class="option-item"
+                                 *ngFor="let medId of box.medicamentsIds">
+
+                                <app-check-option [canEdit]="false"
+                                                  [canAdd]="false"
+                                                  [optionValue]="defineMedicamentTitle(medId)"
+                                                  (click)="goToMedicament(medId)">
+                                </app-check-option>
+                            </div>
+                        </ng-container>
+                        <ng-template #noMedicaments>
+                            <div class="option-item"
+                                 translate>MAIN.EMPTY
+                            </div>
+                        </ng-template>
+                    </div>
+
+                </section>
+
                 <!--TARGET GROUPS-->
                 <section class="g-form-section">
                     <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
