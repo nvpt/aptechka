@@ -1,12 +1,18 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'inlineSearch'
+    name: 'inlineSearch'
 })
 export class InlineSearchPipe implements PipeTransform {
+    transform(elements: any[], stringSearch: string = '', options?: string[]): any[] {
+        if (!stringSearch.trim()) {
+            return elements;
+        }
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
-
+        return elements.filter((element) =>
+            options.some(
+                (option) => element[option] && element[option].toLowerCase().includes(stringSearch.toLowerCase())
+            )
+        );
+    }
 }
