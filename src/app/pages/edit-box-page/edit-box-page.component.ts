@@ -27,6 +27,8 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         }
     ];
     targetGroups: TargetGroupI[] = [];
+    targetGroupSearch: string = '';
+    medicamentsSearch: string = '';
     form!: FormGroup;
     imgUrl!: string;
     box!: BoxI;

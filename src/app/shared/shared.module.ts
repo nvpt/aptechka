@@ -37,7 +37,7 @@ import {CheckOptionComponent} from '../components/check-option/check-option.comp
 import {RadioOptionComponent} from '../components/radio-option/radio-option.component';
 import {ModalComponent} from '../components/modal/modal.component';
 import {AlertComponent} from '../components/alert/alert.component';
-import {InlineSesrchComponent} from '../components/inline-sesrch/inline-sesrch.component';
+import {InlineSearchComponent} from '../components/inline-search/inline-search.component';
 
 /*PIPES*/
 import {InlineSearchPipe} from '../pipes/inline-search.pipe';
@@ -68,7 +68,7 @@ registerLocaleData(ruLocale, 'ru');
         RadioOptionComponent,
         ModalComponent,
         AlertComponent,
-        InlineSesrchComponent,
+        InlineSearchComponent,
         InlineSearchPipe
     ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule],
@@ -101,7 +101,7 @@ registerLocaleData(ruLocale, 'ru');
         RadioOptionComponent,
         ModalComponent,
         AlertComponent,
-        InlineSesrchComponent,
+        InlineSearchComponent,
         InlineSearchPipe
     ]
 })
