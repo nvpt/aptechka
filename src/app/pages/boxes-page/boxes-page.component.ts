@@ -6,7 +6,7 @@ import {BreadcrumbI, Constants} from '../../constants';
 
 import {BoxesService} from '../../services/boxes.service';
 import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
-import {AlertService} from '../../components/alert/alert.service';
+import {AlertService} from '../../services/alert.service';
 
 @Component({
     selector: 'app-boxes-page',

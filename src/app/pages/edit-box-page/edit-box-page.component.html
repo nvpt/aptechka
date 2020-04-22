@@ -106,6 +106,8 @@
                     <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
                     <div class="option-list"
                          *ngIf="targetGroupsService.targetGroups?.length">
+                        <app-inline-sesrch></app-inline-sesrch>
+
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups">
                             <app-check-option [canEdit]="false"
