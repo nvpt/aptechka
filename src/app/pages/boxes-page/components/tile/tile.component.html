@@ -40,13 +40,13 @@
 
     <!--MEDICAMENTS-->
     <div class="section"
-         *ngIf="box.medicamentsIds?.length">
+         *ngIf="box.medicaments?.length">
         <div class="sub-title"><span translate>BOXES.TILE.MEDICAMENTS</span>:</div>
         <ng-container>
             <ul class="groups-list">
                 <li class="description groups-item">
                     <span translate>BOXES.TILE.TOTAL</span>: <span class="count">
-                        {{box.medicamentsIds?.length}}
+                        {{box.medicaments?.length}}
                     </span>
                 </li>
                 <li class="description groups-item"

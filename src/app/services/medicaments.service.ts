@@ -117,6 +117,25 @@ export class MedicamentsService {
                     title: 'Ожоги, порезы'
                 }
             ]
+        },
+        {
+            id: 6,
+            title: 'Димедрол',
+            issueDate: 'Mon Jun 09 2017 22:30:16 GMT+0300 (Moscow Standard Time)',
+            expiryDate: 'Mon Apr 16 2022 22:30:16 GMT+0300 (Moscow Standard Time)',
+            boxId: 2,
+            impactTypes: [
+                {
+                    id: 1,
+                    title: 'Обезболивающее'
+                }
+            ],
+            targetGroups: [
+                {
+                    id: 7,
+                    title: 'От сердца'
+                }
+            ]
         }
     ];
 

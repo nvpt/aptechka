@@ -31,6 +31,10 @@ export class TargetGroupsService {
             id: 6,
             title: 'От кашля'
         },
+        {
+            id: 7,
+            title: 'От сердца'
+        },
     ];
 
     constructor() {

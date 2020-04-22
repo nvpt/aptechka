@@ -83,14 +83,14 @@
                         <app-inline-search [(search)]="medicamentSearch"></app-inline-search>
                     </div>
                     <div class="option-list">
-                        <ng-container *ngIf="box.medicamentsIds?.length; else noMedicaments">
+                        <ng-container *ngIf="box.medicaments?.length; else noMedicaments">
                             <div class="option-item"
-                                 *ngFor="let medId of box.medicamentsIds | inlineSearch:medicamentSearch:['title']">
+                                 *ngFor="let medicament of box.medicaments | inlineSearch:medicamentSearch:['title']">
 
                                 <app-check-option [canEdit]="false"
                                                   [canAdd]="false"
-                                                  [optionValue]="defineMedicamentTitle(medId)"
-                                                  (click)="goToMedicament(medId)">
+                                                  [optionValue]="medicament.title"
+                                                  (click)="goToMedicament(medicament.id)">
                                 </app-check-option>
                             </div>
                         </ng-container>

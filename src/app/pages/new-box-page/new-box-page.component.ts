@@ -120,7 +120,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             imgData: this.form.value.img,
             img: this.imgUrl,
             targetGroups: this.targetGroups,
-            medicamentsIds: [] //we can't add medicaments in new box yet
+            medicaments: [] //we can't add medicaments in new box yet
         };
 
         this.boxesService.addBox(newBox).subscribe(() => {

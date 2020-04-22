@@ -6,6 +6,9 @@ export interface BoxI {
     description?: string;
     img?: string;
     imgData?: File;
-    medicamentsIds?: number[];
+    medicaments?: {
+        id: number;
+        title: string;
+    }[];
     targetGroups?: TargetGroupI[];
 }

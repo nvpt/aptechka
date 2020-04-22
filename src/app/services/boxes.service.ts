@@ -24,7 +24,16 @@ export class BoxesService {
                     title: 'От живота'
                 }
             ],
-            medicamentsIds: [1, 4]
+            medicaments: [
+                {
+                    id: 1,
+                    title: 'Анальгин'
+                },
+                {
+                    id: 4,
+                    title: 'Доктор Мом'
+                },
+            ]
         },
         {
             id: 2,
@@ -39,7 +48,12 @@ export class BoxesService {
                     title: 'От горла'
                 }
             ],
-            medicamentsIds: [6]
+            medicaments: [
+                {
+                    id: 6,
+                    title: 'Димедрол'
+                },
+            ]
         },
         {
             id: 3,
@@ -54,7 +68,12 @@ export class BoxesService {
                     title: 'От аллергии'
                 }
             ],
-            medicamentsIds: [2]
+            medicaments: [
+                {
+                    id: 2,
+                    title: 'Цетрин'
+                },
+            ]
         },
         {
             id: 4,
@@ -69,7 +88,16 @@ export class BoxesService {
                     title: 'Ожоги, порезы'
                 }
             ],
-            medicamentsIds: [3, 5]
+            medicaments: [
+                {
+                    id: 3,
+                    title: 'Зелёнка'
+                },
+                {
+                    id: 5,
+                    title: 'Йод'
+                },
+            ]
         }
     ];
 
@@ -109,9 +137,9 @@ export class BoxesService {
     replaceMedicament(medicament: MedicamentI, box: BoxI): void {
         this.boxes.forEach((boxItem) => {
             if (boxItem.id === box.id) {
-                boxItem.medicamentsIds.unshift(medicament.id);
+                boxItem.medicaments.unshift({id: medicament.id, title: medicament.title});
             } else {
-                boxItem.medicamentsIds = [...boxItem.medicamentsIds.filter((id) => id !== medicament.id)];
+                boxItem.medicaments = [...boxItem.medicaments.filter((med) => med.id !== medicament.id)];
             }
         });
     }

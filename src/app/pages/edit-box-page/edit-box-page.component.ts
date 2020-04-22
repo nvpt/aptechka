@@ -76,7 +76,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
             title: new FormControl(this.box.title, [Validators.required]),
             description: new FormControl(this.box.description),
             imgData: new FormControl(this.box.imgData),
-            medicaments: new FormControl(this.box.medicamentsIds)
+            medicaments: new FormControl(this.box.medicaments)
         });
 
         this.imgUrl = this.box.img;
