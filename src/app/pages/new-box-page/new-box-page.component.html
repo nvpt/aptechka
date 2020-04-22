@@ -52,11 +52,11 @@
                         <label for="img"
                                class="add-img-btn-label">
                         <span class="g-btn"
-                              *ngIf="!form.value?.imgData; else withImage"
-                              translate>MAIN.ADD_IMAGE</span>
-                            <ng-template #withImage>
-                        <span class="g-btn"
+                              *ngIf="form.value?.imgData; else withoutImage"
                               translate>MAIN.CHANGE_IMAGE</span>
+                            <ng-template #withoutImage>
+                                <span class="g-btn"
+                                      translate>MAIN.ADD_IMAGE</span>
                             </ng-template>
 
                         </label>
@@ -70,13 +70,14 @@
                                formControlName="imgData">
 
                         <span *ngIf="imgUrl">
-                        <button (click)="clearImg()"
+                            <button (click)="clearImg()"
 
-                                class="g-btn g-btn-error"
-                                translate>MAIN.CLEAR_IMAGE
-                        </button>
-                    </span>
+                                    class="g-btn g-btn-error"
+                                    translate>MAIN.CLEAR_IMAGE
+                            </button>
+                        </span>
                         <span></span>
+
                     </div>
 
                     <img [src]="imgUrl"

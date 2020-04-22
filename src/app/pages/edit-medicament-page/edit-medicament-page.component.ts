@@ -93,7 +93,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
             expiryDate: new FormControl(dp.transform(new Date(this.medicament.expiryDate), mask), [
                 Validators.required
             ]),
-            img: new FormControl(this.medicament.img),
+            imgData: new FormControl(this.medicament.imgData),
             boxId: new FormControl(this.medicament.boxId, [Validators.required])
         });
 
@@ -105,21 +105,21 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     addImage(event: Event): void {
-        const img = (<HTMLInputElement>event.target).files[0];
+        const imgData = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
         reader.onload = () => {
             this.imgUrl = reader.result as string;
         };
-        img && reader.readAsDataURL(img);
+        imgData && reader.readAsDataURL(imgData);
 
-        this.form.patchValue({img});
+        this.form.patchValue({imgData});
     }
 
     clearImg(): void {
         this.imgUrl = null;
-        this.form.controls.img.reset();
-        this.form.controls.img.updateValueAndValidity();
+        this.form.controls.imgData.reset();
+        this.form.controls.imgData.updateValueAndValidity();
     }
 
     /*Target groups*/
