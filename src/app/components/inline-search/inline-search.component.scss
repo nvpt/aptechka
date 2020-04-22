@@ -1,5 +1,6 @@
 .inline-search {
     position: relative;
+    color: var(--color-gray-60);
     
     &__label {
         width: 100%;
@@ -11,15 +12,10 @@
 
     &__icon {
         position: absolute;
-        left: 10px;
+        right: 10px;
         top: 8px;
 
         cursor: pointer;
-
-        &_right {
-            left: initial;
-            right: 8px;
-        }
     }
 }
 
