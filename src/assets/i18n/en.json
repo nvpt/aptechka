@@ -1,10 +1,10 @@
 {
     "ABOUT": {
-        "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
+        "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date."
     },
     "ALERT": {
         "BOX_DELETED": "Box \"{{box}}\" was deleted.",
-        "BOX_NOT_EMPTY": "The box should be empty.",
+        "BOX_NOT_EMPTY": "Deleted box should be empty.",
         "DELETE_BOX_CONFIRMATION": "Are you sure you want to delete the box \"{{boxTitle}}\"? This action is irreversible.",
         "DELETE_MEDICAMENT_CONFIRMATION": "Are you sure you want to delete the medicament \"{{medicamentTitle}}\"? This action is irreversible.",
         "MEDICAMENT_DELETED": "Medicament \"{{medicament}}\" was deleted."

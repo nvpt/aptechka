@@ -56,8 +56,8 @@ li {
 
     .cell-icon {
         position: absolute;
-        top: 5px;
-        left: 4px;
+        top: $string-padding / 2 + 1;
+        left: $string-padding / 2;
         font-size: $mat-icon-size;
         visibility: hidden;
         cursor: pointer;
@@ -65,21 +65,22 @@ li {
 
         &_right {
             left: initial;
-            right: 4px;
+            right: $string-padding / 2;
         }
     }
 }
 
 .img-wrap {
     display: grid;
-    grid-row-gap: 8px;
+    grid-row-gap: $string-padding;
 
     &__title {
     }
 
     &__img {
-        max-width: 100px;
-        max-height: 100px;
+        $icon-size: 6.25rem; //100px
+        max-width: $icon-size;
+        max-height: $icon-size;
         margin: auto;
     }
 }

@@ -1,6 +1,6 @@
 @import 'variables';
 
-$btn-padding: 8px;
+$btn-padding: $string-padding;
 
 .g-btn {
     display: inline-block;

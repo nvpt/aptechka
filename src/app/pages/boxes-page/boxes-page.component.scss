@@ -23,5 +23,5 @@
     width: $container-width;
     max-width: 100%;
     margin: 0 auto;
-    grid-gap: 20px;
+    grid-gap: $content-side-padding;
 }
