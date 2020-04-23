@@ -93,7 +93,7 @@
         "SAVE_MEDICAMENT": "Save medicament"
     },
     "NOT_FOUND": {
-        "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>",
+        "ANNOTATION": "Go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">the Main</a>.",
         "TITLE": "That page is missing"
     },
     "PLACEHOLDER": {

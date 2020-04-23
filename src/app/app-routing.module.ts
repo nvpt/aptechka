@@ -30,22 +30,17 @@ const routes: Routes = [
         ]
     },
     {
-        path: '**', component: EmptyLayoutComponent, children: [
-            {path: '', component: NotFoundPageComponent}
-        ]
+        path: '**',
+        redirectTo: Constants.PATH.notFound,
+        pathMatch: 'full'
     },
-    // {
-    //     path: '**',
-    //     component: EmptyLayoutComponent,
-    //     children: [{path: '', component: NotFoundPageComponent}]
-        // redirectTo: Constants.PATH.notFound
-    // },
-    // {
-    //     path: Constants.PATH.notFound,
-    //     component: EmptyLayoutComponent,
-    //     children: [{path: '', component: NotFoundPageComponent}]
-    // }
+    {
+        path: '',
+        component: EmptyLayoutComponent,
+        children: [{path: Constants.PATH.notFound, component: NotFoundPageComponent}]
+    }
 ];
+
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {

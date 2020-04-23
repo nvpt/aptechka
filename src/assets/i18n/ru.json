@@ -93,7 +93,7 @@
         "SAVE_MEDICAMENT": "Созранить лекарство"
     },
     "NOT_FOUND": {
-        "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>",
+        "ANNOTATION": "Перейти на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную</a>.",
         "TITLE": "Такая страница не найдена"
     },
     "PLACEHOLDER": {
