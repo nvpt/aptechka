@@ -3,7 +3,9 @@
         "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date"
     },
     "ALERT": {
-        "BOX_DELETED": "Box \"{{box}}\" was deleted"
+        "BOX_DELETED": "Box \"{{box}}\" was deleted",
+        "BOX_NOT_EMPTY": "The box should be empty",
+        "DELETE_BOX_CONFIRMATION": "Are you sure you want to delete the box \"{{boxTitle}}\"? This action is irreversible."
     },
     "BREADCRUMB": {
         "ABOUT": "About",
@@ -49,9 +51,11 @@
         "ADD": "Add",
         "ADD_IMAGE": "Add image",
         "APTHECHKA": "Aptechka",
+        "CANCEL": "Cancel",
         "CHANGE_IMAGE": "Change image",
         "CLEAR_IMAGE": "Clear image",
         "CREATE": "Create",
+        "DELETE": "Delete",
         "SAVE": "Save",
         "SAVE_CHANGES": "Save changes"
     },

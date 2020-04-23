@@ -1,20 +1,16 @@
 <app-modal-default>
     <div modal-header></div>
     <div modal-body>
-        <span class="text">
-            Вы действительно хотите удалить коробку "{{modalService.data.title}}"?
-            <br>
-            Действие необратимо.
-        </span>
+        <span class="text" [translateParams]="{boxTitle: modalService.data.title}" translate>ALERT.DELETE_BOX_CONFIRMATION</span>
 
     </div>
     <div modal-footer>
         <div class="buttons">
             <button class="g-btn g-btn-error"
-                    (click)="delete()">Удалить
+                    (click)="delete()" translate>MAIN.DELETE
             </button>
             <button class="g-btn"
-                    (click)="cancel()">Отмена
+                    (click)="cancel()" translate>MAIN.CANCEL
             </button>
         </div>
 

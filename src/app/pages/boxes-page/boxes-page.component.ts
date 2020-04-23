@@ -36,6 +36,12 @@ export class BoxesPageComponent implements OnInit {
     }
 
     deleteBox(box: BoxI): void {
+
+        if(box.medicaments && box.medicaments.length){
+            this.alert.danger('ALERT.BOX_NOT_EMPTY');
+            return;
+        }
+
         this.modalService.open({
             id: box.id,
             title: box.title
