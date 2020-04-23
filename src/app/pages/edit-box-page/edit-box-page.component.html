@@ -127,8 +127,7 @@
                          *ngIf="targetGroupsService.targetGroups?.length > 1">
                         <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
                     </div>
-                    <div class="option-list"
-                         *ngIf="targetGroupsService.targetGroups?.length">
+                    <div class="option-list">
 
                         <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
                             <div class="option-item"
