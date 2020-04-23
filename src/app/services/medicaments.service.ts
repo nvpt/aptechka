@@ -150,10 +150,11 @@ export class MedicamentsService {
         return of(null);
     }
 
-    deleteMedicament(medId: number): void {
+    deleteMedicament(medId: number): Observable<void> {
         this.medicaments = [
             ...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== medId)
         ];
+        return of(null);
     }
 
     updateMedicament(medicament: MedicamentI): Observable<void> {

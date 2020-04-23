@@ -32,7 +32,7 @@
                     <span class="material-icons cell-icon"
                           (click)="editMedicament(med?.id)">edit</span>
                     <span class="material-icons cell-icon cell-icon_right"
-                          (click)="deleteMedicament(med?.id)">delete</span>
+                          (click)="confirmDelete(med)">delete</span>
                     <div class="img-wrap">
                         <span class="img-wrap__title">{{ med.title }}</span>
                         <img [src]="med.img"
@@ -107,3 +107,7 @@
         </ng-template>
     </div>
 </div>
+
+<app-modal-delete (onDelete)="deleteMedicament()"
+                  text="ALERT.DELETE_MEDICAMENT_CONFIRMATION"
+                  [translateParams]="{medicamentTitle: modalService.data.title}"></app-modal-delete>

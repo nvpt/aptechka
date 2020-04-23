@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {BreadcrumbI, Constants} from '../../constants';
@@ -8,13 +8,17 @@ import {BoxesService} from '../../services/boxes.service';
 import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 import {BoxI} from '../../interfaces/box-interface';
 import {StorageDataI} from '../../interfaces/storage-data-interface';
+import {AlertService} from '../../services/alert.service';
+import {ModalService} from '../../services/modal.service';
+import {Subscription} from 'rxjs';
+import {MedicamentI} from '../../interfaces/medicament-interface';
 
 @Component({
     selector: 'app-medicaments-page',
     templateUrl: './medicaments-page.component.html',
     styleUrls: ['./medicaments-page.component.scss']
 })
-export class MedicamentsPageComponent implements OnInit {
+export class MedicamentsPageComponent implements OnInit, OnDestroy {
     breadcrumbs: BreadcrumbI[] = [
         {
             label: 'BREADCRUMB.HOME',
@@ -25,18 +29,25 @@ export class MedicamentsPageComponent implements OnInit {
         }
     ];
     currentLanguage: string = Constants.DEFAULT_LANGUAGE;
+    deleteSub$: Subscription;
 
     constructor(
         public medicamentsService: MedicamentsService,
+        public modalService: ModalService,
         private route: ActivatedRoute,
         private boxesService: BoxesService,
         private router: Router,
-        private breadcrumbService: BreadcrumbService
+        private breadcrumbService: BreadcrumbService,
+        private alert: AlertService
     ) {}
 
     ngOnInit(): void {
         this.defineLanguage();
         this.breadcrumbService.renderBreadcrumbs(this.breadcrumbs);
+    }
+
+    ngOnDestroy(): void {
+        this.deleteSub$ && this.deleteSub$.unsubscribe();
     }
 
     defineLanguage(): void {
@@ -62,9 +73,18 @@ export class MedicamentsPageComponent implements OnInit {
         this.router.navigate([Constants.PATH.newMedicament]);
     }
 
-    deleteMedicament(id: number) {
-        console.log('id', id);
-        
-        this.medicamentsService.deleteMedicament(id);
+    confirmDelete(medicament: MedicamentI) {
+
+        this.modalService.open({
+            id: medicament.id,
+            title: medicament.title
+        });
+    }
+
+    deleteMedicament(): void {
+        this.deleteSub$ = this.medicamentsService.deleteMedicament(this.modalService.data.id).subscribe(() => {
+            this.alert.warning('ALERT.MEDICAMENT_DELETED', {medicament: this.modalService.data.title});
+            this.modalService.close();
+        });
     }
 }

@@ -5,7 +5,9 @@
     "ALERT": {
         "BOX_DELETED": "Коробка \"{{box}}\" удалена",
         "BOX_NOT_EMPTY": "Коробка должна быть пустой",
-        "DELETE_BOX_CONFIRMATION": "Вы действительно хотите удалить коробку \"{{boxTitle}}\"? Действие необратимо."
+        "DELETE_BOX_CONFIRMATION": "Вы действительно хотите удалить коробку \"{{boxTitle}}\"? Действие необратимо.",
+        "DELETE_MEDICAMENT_CONFIRMATION": "Вы действительно хотите удалить лекарство \"{{medicamentTitle}}\"? Действие необратимо.",
+        "MEDICAMENT_DELETED": "Лекарство \"{{medicament}}\" удалено"
     },
     "BREADCRUMB": {
         "ABOUT": "О приложении",

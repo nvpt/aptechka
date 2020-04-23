@@ -57,7 +57,6 @@ export class BoxesPageComponent implements OnInit, OnDestroy {
             this.alert.warning('ALERT.BOX_DELETED', {box: this.modalService.data.title});
             this.modalService.close();
         });
-        this.modalService.close();
     }
 
     addBox(): void {
