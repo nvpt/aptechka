@@ -1,7 +1,7 @@
-<div class="modal__wrap" *ngIf="modalService.opened">
+<div class="modal__wrap" *ngIf="modalService.showModal">
 
     <div class="modal">
-        <button class="modal__close-btn">
+        <button class="modal__close-btn" (click)="modalService.close()">
             <span class="material-icons modal__icon">
                 close
             </span>

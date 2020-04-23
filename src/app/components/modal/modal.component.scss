@@ -21,8 +21,8 @@
 
     &__close-btn {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: $mat-icon-size;
+        right: $mat-icon-size;
         display: block;
         border: none;
         background: transparent;
@@ -31,7 +31,14 @@
     }
 
     &__icon {
-        font-size: $mat-icon-size * 2;
+        font-size: $mat-icon-size * 1.5;
+        color: var(--color-current-40);
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--color-current-60);
+        }
     }
 
     &__body {
@@ -39,18 +46,20 @@
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: minmax($mat-icon-size * 2, auto) minmax(200px, 1fr) minmax($mat-icon-size * 2, auto);
-        padding: 20px;
+        padding: $content-side-padding * 2;
         text-align: center;
-        background: #ffffff;
-        border: 1px solid #ccc;
+        background: var(--color-white);
+        border: 2px solid var(--color-current-70);
+        border-radius: $border-radius;
+        font-size: 1.2rem;
+        line-height: 2;
     }
 
-    &__header {
-        padding: 0 $mat-icon-size * 2;
-        display: block;
-    }
-
-    &__content {
-        display: block;
+    &__header,
+    &__content,
+    &__footer {
+        display: grid;
+        align-items: center;
+        padding: 0 $content-side-padding * 2;
     }
 }

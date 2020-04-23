@@ -41,6 +41,7 @@ import {InlineSearchComponent} from '../components/inline-search/inline-search.c
 
 /*PIPES*/
 import {InlineSearchPipe} from '../pipes/inline-search.pipe';
+import {ConfirmModalComponent} from '../pages/boxes-page/components/confirm-modal/confirm-modal.component';
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -69,7 +70,9 @@ registerLocaleData(ruLocale, 'ru');
         ModalComponent,
         AlertComponent,
         InlineSearchComponent,
-        InlineSearchPipe
+        InlineSearchPipe,
+        ModalComponent,
+        ConfirmModalComponent
     ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule],
     exports: [
@@ -99,6 +102,8 @@ registerLocaleData(ruLocale, 'ru');
         NewOptionComponent,
         CheckOptionComponent,
         RadioOptionComponent,
+        ModalComponent,
+        ConfirmModalComponent,
         ModalComponent,
         AlertComponent,
         InlineSearchComponent,

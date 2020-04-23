@@ -7,6 +7,7 @@ import {BreadcrumbI, Constants} from '../../constants';
 import {BoxesService} from '../../services/boxes.service';
 import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service';
 import {AlertService} from '../../services/alert.service';
+import {ModalService} from '../../services/modal.service';
 
 @Component({
     selector: 'app-boxes-page',
@@ -20,9 +21,11 @@ export class BoxesPageComponent implements OnInit {
         }
     ];
     boxes: BoxI[] = this.boxesService.boxes;
+    confirmation: boolean = false;
 
     constructor(
         public boxesService: BoxesService,
+        public modalService: ModalService,
         private router: Router,
         private breadcrumbService: BreadcrumbService,
         private alert: AlertService
@@ -33,8 +36,9 @@ export class BoxesPageComponent implements OnInit {
     }
 
     deleteBox(box: BoxI): void {
-        this.boxesService.deleteBox(box).subscribe(() => {
-            this.alert.warning('ALERT.BOX_DELETED', {box: box.title});
+        this.modalService.open({
+            id: box.id,
+            title: box.title
         });
     }
 

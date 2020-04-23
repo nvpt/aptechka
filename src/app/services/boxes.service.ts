@@ -128,10 +128,9 @@ export class BoxesService {
         return of(null);
     }
 
-    deleteBox(deletedBox: BoxI): Observable<BoxI> {
-        const box: BoxI = {...deletedBox}
-        this.boxes = [...this.boxes.filter((box: BoxI) => box.id !== deletedBox.id)];
-        return of(box)
+    deleteBox(boxId: number): Observable<number> {
+        this.boxes = [...this.boxes.filter((box: BoxI) => box.id !== boxId)];
+        return of(boxId)
     }
 
     replaceMedicament(medicament: MedicamentI, box: BoxI): void {

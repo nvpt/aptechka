@@ -1,0 +1,13 @@
+@import 'src/styles/variables';
+
+.text {
+    display: block;
+    max-width: 400px;
+    padding-bottom: $content-side-padding;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
