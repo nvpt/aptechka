@@ -70,7 +70,8 @@
                             </ng-template>
                             <br>
                             <small class="g-form-error"
-                                   *ngIf="submitted && !form.value.imgUrl &&  form.controls.imgUrl.errors.required" translate>VALIDATION.REQUIRED</small>
+                                   *ngIf="submitted && !form.value.imgUrl &&  form.controls.imgUrl.errors.required"
+                                   translate>VALIDATION.REQUIRED</small>
                         </label>
 
                         <div *ngIf="form.value.imgUrl">
@@ -100,19 +101,27 @@
                 <!--TARGET GROUPS-->
                 <section class="g-form-section">
                     <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
-                    <div class="option-item">
+                    <div class="option-item"
+                         *ngIf="targetGroupsService.targetGroups?.length > 1">
                         <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
                     </div>
                     <div class="option-list"
-                         *ngIf="targetGroupsService.targetGroups?.length">
-                        <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
-                            <app-check-option [canEdit]="false"
-                                              [canAdd]="true"
-                                              [(optionValue)]="targetGroup.title"
-                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
-                            </app-check-option>
-                        </div>
+                         >
+
+                        <ng-container *ngIf="targetGroupsService.targetGroups?.length; else dismissPlaceholder">
+                            <div class="option-item"
+                                 *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
+                                <app-check-option [canEdit]="false"
+                                                  [canAdd]="true"
+                                                  [(optionValue)]="targetGroup.title"
+                                                  (onCheck)="toggleTargetGroup($event, targetGroup)">
+                                </app-check-option>
+                            </div>
+                        </ng-container>
+                        <ng-template #dismissPlaceholder>
+                            <span translate>PLACEHOLDER.EMPTY</span>
+                        </ng-template>
+
                     </div>
                 </section>
             </form>

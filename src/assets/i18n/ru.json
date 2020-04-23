@@ -22,7 +22,7 @@
     },
     "BOXES": {
         "ADD_BOX": "Добавить коробку",
-        "EMPTY_PLACEHOLDER": "Нет коробок",
+        "EMPTY": "Нет коробок",
         "TILE": {
             "DESCRIPTION": "Описание",
             "MEDICAMENTS": "Лекарства",
@@ -52,7 +52,6 @@
         "CHANGE_IMAGE": "Изменить изображение",
         "CLEAR_IMAGE": "Очистить изображение",
         "CREATE": "Создать",
-        "EMPTY": "Пусто",
         "SAVE": "Сохранить",
         "SAVE_CHANGES": "Сохранить изменения"
     },
@@ -90,6 +89,9 @@
     "NOT_FOUND": {
         "ANNOTATION": "Пожалуйста, перейдите на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную страницу</a>, или <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">вернитесь обратно</a>",
         "TITLE": "Такая страница не найдена"
+    },
+    "PLACEHOLDER": {
+        "EMPTY": "Пусто"
     },
     "SETTING": {
         "ACCOUNT": {

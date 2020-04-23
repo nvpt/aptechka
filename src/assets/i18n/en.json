@@ -22,7 +22,7 @@
     },
     "BOXES": {
         "ADD_BOX": "Add box",
-        "EMPTY_PLACEHOLDER": "No boxes",
+        "EMPTY": "No boxes",
         "TILE": {
             "DESCRIPTION": "Description",
             "MEDICAMENTS": "Medicaments",
@@ -52,7 +52,6 @@
         "CHANGE_IMAGE": "Change image",
         "CLEAR_IMAGE": "Clear image",
         "CREATE": "Create",
-        "EMPTY": "Empty",
         "SAVE": "Save",
         "SAVE_CHANGES": "Save changes"
     },
@@ -90,6 +89,9 @@
     "NOT_FOUND": {
         "ANNOTATION": "Please, go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Main page</a>, or <a href=\"#\" class=\"g-link\" (click)=\"goBack($event)\">go back</a>",
         "TITLE": "That page is missing"
+    },
+    "PLACEHOLDER": {
+        "EMPTY": "Empty"
     },
     "SETTING": {
         "ACCOUNT": {
