@@ -10,8 +10,11 @@
 .alert {
     padding: 0.7rem;
     opacity: 0.9;
-    background: var(--light-color);
-    color: #333;
+    background: var(--color-app_success);
+    box-shadow: 0 0 9px 0 var(--color-current-30);
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    border-radius: $border-radius;
 }
 
 .alert-success {
