@@ -8,9 +8,20 @@
 }
 
 .g-form-field {
-    &.ng-invalid.ng-touched {
-        border: 1px solid var(--color-app_error-color);
+
+    &.validation {
+        &.ng-invalid.ng-touched {
+            border: 1px solid var(--color-app_error-color);
+
+            &:focus{
+                border: 1px solid var(--color-gray);
+            }
+        }
     }
+}
+
+.g-img-validation {
+    border: 1px solid var(--color-app_error-color);
 }
 
 .g-form-required {

@@ -132,5 +132,8 @@
             "LABEL": "How many days to give a warning",
             "TITLE": "Warning interval"
         }
+    },
+    "VALIDATION": {
+        "REQUIRED": "Field is required"
     }
 }

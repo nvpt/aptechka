@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
@@ -29,8 +29,8 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             path: Constants.PATH.root
         }
     ];
-    imgUrl!: string;
     form!: FormGroup;
+    submitted: boolean = false;
     targetGroups: TargetGroupI[] = [];
     targetGroupSearch: string = '';
     translationSub$!: Subscription;
@@ -54,6 +54,9 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
 
         setTimeout(() => {
             this.titleInput && this.titleInput.nativeElement.focus();
+            
+            console.log('58 >>> this.form: ', this.form);
+            
         }, 0);
     }
 
@@ -67,7 +70,8 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             title: new FormControl('', [Validators.required]),
             description: new FormControl(''),
             imgData: new FormControl(null),
-            // medicaments: new FormControl([]),
+            imgUrl: new FormControl(null, [Validators.required]),
+            targetGroups: new FormArray([])
         });
     }
 
@@ -80,17 +84,21 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
         const reader = new FileReader();
 
         reader.onload = () => {
-            this.imgUrl = reader.result as string;
+            this.form.patchValue({imgUrl: reader.result as string});
         };
         imgData && reader.readAsDataURL(imgData);
 
         this.form.patchValue({imgData});
+        console.log('89 >>> this.form: ', this.form);
+        
     }
 
     clearImg() {
         this.form.controls.imgData.reset();
         this.form.controls.imgData.updateValueAndValidity();
-        this.imgUrl = null;
+        this.form.patchValue({imgUrl: null});
+        console.log('97 >>> this.form: ', this.form);
+        
     }
 
 
@@ -113,12 +121,18 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
     }
 
     saveBox() {
+        this.submitted = true;
+
+        if(this.form.invalid){
+            return;
+        }
+
         const newBox: BoxI = {
             id: new Date().getTime(),
             description: this.form.value.description,
             title: this.form.value.title,
             imgData: this.form.value.img,
-            img: this.imgUrl,
+            img: this.form.value.imgUrl,
             targetGroups: this.targetGroups,
             medicaments: [] //we can't add medicaments in new box yet
         };

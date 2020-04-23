@@ -5,7 +5,7 @@
 
         <app-panel-control>
             <ng-container left>
-                <button class="g-btn g-btn-success"
+                <button class="g-btn-small g-btn-success"
                         type="button"
                         (click)="saveBox()"
                         translate>MAIN.ADD
@@ -26,11 +26,19 @@
 
                 <!--TITLE-->
                 <section class="g-form-section">
-                    <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
+                    <label for="title">
+                        <span class="g-form-required"
+                              translate>NEW_COMMON.TITLE_LABEL</span>:
+                    </label>
                     <input id="title"
                            type="text"
+                           class="g-form-field"
+                           [class.validation]="submitted && !form.value.title"
                            formControlName="title"
                            #titleInput>
+                    <small class="g-form-error"
+                           *ngIf="submitted && !form.value.title &&  form.controls.title.errors.required"
+                           translate>VALIDATION.REQUIRED</small>
                 </section>
 
                 <!--DESCRIPTION-->
@@ -45,43 +53,48 @@
 
                 <!--IMG-->
                 <section class="g-form-section img-section">
+
+                    <!--buttons-->
                     <div class="uploader-buttons"
-                         [ngClass]="{'with-image' : imgUrl}">
+                         [class.with-image]="form.value.imgUrl">
 
                         <label for="img"
                                class="add-img-btn-label">
-                        <span class="g-btn"
-                              *ngIf="form.value?.imgData; else withoutImage"
-                              translate>MAIN.CHANGE_IMAGE</span>
+                            <span class="g-btn"
+                                  *ngIf="form.value?.imgData; else withoutImage"
+                                  translate>MAIN.CHANGE_IMAGE</span>
                             <ng-template #withoutImage>
-                                <span class="g-btn"
+                                <span class="g-btn g-form-required"
+                                      [class.g-img-validation]="submitted && !form.value.imgUrl"
                                       translate>MAIN.ADD_IMAGE</span>
                             </ng-template>
-
+                            <br>
+                            <small class="g-form-error"
+                                   *ngIf="submitted && !form.value.imgUrl &&  form.controls.imgUrl.errors.required" translate>VALIDATION.REQUIRED</small>
                         </label>
 
-                        <input class="g-display-none"
-                               id="img"
-                               accept="image/*"
-                               type="file"
-                               (change)="addImage($event)">
-                        <input type="hidden"
-                               formControlName="imgData">
-
-                        <div *ngIf="imgUrl">
+                        <div *ngIf="form.value.imgUrl">
                             <div (click)="clearImg()"
-
-                                    class="g-btn g-btn-error"
-                                    translate>MAIN.CLEAR_IMAGE
+                                 class="g-btn g-btn-error"
+                                 translate>MAIN.CLEAR_IMAGE
                             </div>
                         </div>
                         <span></span>
-
                     </div>
 
-                    <img [src]="imgUrl"
+                    <!--img field-->
+                    <input class="g-display-none"
+                           id="img"
+                           accept="image/*"
+                           type="file"
+                           (change)="addImage($event)">
+                    <input type="hidden"
+                           formControlName="imgData">
+                    <img [src]="form.value.imgUrl"
                          alt=""
                          class="img">
+                    <input type="hidden"
+                           formControlName="imgUrl">
                 </section>
 
                 <!--TARGET GROUPS-->
