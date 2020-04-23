@@ -27,7 +27,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         }
     ];
     form!: FormGroup;
-    imgUrl!: string;
+    submitted: boolean = false;
     targetGroups: TargetGroupI[] = [];
     targetGroupSearch: string = '';
     medicamentSearch: string = '';
@@ -76,10 +76,9 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
             title: new FormControl(this.box.title, [Validators.required]),
             description: new FormControl(this.box.description),
             imgData: new FormControl(this.box.imgData),
+            imgUrl: new FormControl(this.box.img, [Validators.required]),
             medicaments: new FormControl(this.box.medicaments)
         });
-
-        this.imgUrl = this.box.img;
     }
 
     cancelAdding(): void {
@@ -91,7 +90,7 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         const reader = new FileReader();
 
         reader.onload = () => {
-            this.imgUrl = reader.result as string;
+            this.form.patchValue({imgUrl: reader.result as string});
         };
         imgData && reader.readAsDataURL(imgData);
 
@@ -99,9 +98,10 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     }
 
     clearImg(): void {
-        this.imgUrl = null;
         this.form.controls.imgData.reset();
         this.form.controls.imgData.updateValueAndValidity();
+        this.form.controls.imgUrl.reset();
+        this.form.controls.imgUrl.updateValueAndValidity();
     }
 
     /*Target groups*/
@@ -125,22 +125,20 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
         return !!this.box.targetGroups.find((group) => group.id === tg.id);
     }
 
-    /*Medicaments*/
-    defineMedicamentTitle(medIndex: number): string {
-        const medicament = this.medicamentsService.medicaments[
-            this.medicamentsService.medicaments.findIndex((med) => med.id === medIndex)
-        ];
-        return medicament ? medicament.title : '';
-    }
-
     updateBox(): void {
+        this.submitted = true;
+
+        if (this.form.invalid) {
+            return;
+        }
+
         this.boxesService
             .updateBox({
                 ...this.box,
                 title: this.form.value.title,
                 description: this.form.value.description,
                 imgData: this.form.value.imgData,
-                img: this.imgUrl,
+                img: this.form.value.imgUrl,
                 targetGroups: this.targetGroups
             })
             .subscribe(() => {
