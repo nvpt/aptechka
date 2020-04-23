@@ -94,16 +94,23 @@
                     <app-new-option [errorMessages]="impactErrors"
                                     (onAdd)="addImpactType($event)"></app-new-option>
                 </div>
-                <div class="option-item">
+                <div class="option-item"
+                     *ngIf="impactTypesService.impactTypes?.length > 1">
                     <app-inline-search [(search)]="impactTypeSearch"></app-inline-search>
                 </div>
-                <div class="option-list" *ngIf="impactTypeService.impactTypes?.length">
-                    <div class="option-item"
-                         *ngFor="let impactType of impactTypeService.impactTypes | inlineSearch:impactTypeSearch:['title']">
-                        <app-check-option [(optionValue)]="impactType.title"
-                                          (onDelete)="deleteImpactType(impactType)">
-                        </app-check-option>
-                    </div>
+                <div class="option-list">
+                    <ng-container *ngIf="impactTypesService.impactTypes?.length; else noImpactTypes">
+                        <div class="option-item"
+                             *ngFor="let impactType of impactTypesService.impactTypes | inlineSearch:impactTypeSearch:['title']">
+                            <app-check-option [(optionValue)]="impactType.title"
+                                              (onDelete)="deleteImpactType(impactType)">
+                            </app-check-option>
+                        </div>
+                    </ng-container>
+                    <ng-template #noImpactTypes>
+                        <div translate>PLACEHOLDER.EMPTY
+                        </div>
+                    </ng-template>
                 </div>
             </section>
 
@@ -112,19 +119,26 @@
                 translate>SETTING.TARGET_GROUPS.TITLE</h2>
             <section class="g-form-section">
                 <div class="new-option-wrap">
-                <app-new-option [errorMessages]="targetGroupsErrors"
-                                (onAdd)="addTargetGroup($event)"></app-new-option>
+                    <app-new-option [errorMessages]="targetGroupsErrors"
+                                    (onAdd)="addTargetGroup($event)"></app-new-option>
                 </div>
-                <div class="option-item">
+                <div class="option-item"
+                     *ngIf="targetGroupsService.targetGroups?.length > 1">
                     <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
                 </div>
-                <div class="option-list" *ngIf="targetGroupsService.targetGroups?.length">
-                    <div class="option-item"
-                         *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
-                        <app-check-option [(optionValue)]="targetGroup.title"
-                                             (onDelete)="deleteTargetGroup(targetGroup)">
-                        </app-check-option>
-                    </div>
+                <div class="option-list">
+
+                    <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
+                        <div class="option-item"
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
+                            <app-check-option [(optionValue)]="targetGroup.title"
+                                              (onDelete)="deleteTargetGroup(targetGroup)">
+                            </app-check-option>
+                        </div>
+                    </ng-container>
+                    <ng-template #noTargetGroups>
+                        <span translate>PLACEHOLDER.EMPTY</span>
+                    </ng-template>
                 </div>
             </section>
 

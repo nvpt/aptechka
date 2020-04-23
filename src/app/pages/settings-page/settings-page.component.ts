@@ -33,7 +33,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     currentColor!: ColorThemeType;
     currentLanguage!: LanguageType;
 
-    impactTypes: ImpactTypeI[] = this.impactTypeService.impactTypes;
+    impactTypes: ImpactTypeI[] = this.impactTypesService.impactTypes;
     impactErrors: string[] = [];
     impactTypeSearch: string = '';
 
@@ -47,7 +47,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
         public settingsService: SettingsService,
         private themeService: ThemesService,
         private translate: TranslateService,
-        public impactTypeService: ImpactTypesService,
+        public impactTypesService: ImpactTypesService,
         public targetGroupsService: TargetGroupsService,
         private breadcrumbService: BreadcrumbService
     ) {}
@@ -116,7 +116,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     /*Impact types*/
     getImpactTypes(): void {
-        this.impactTypeService.getImpactTypes();
+        this.impactTypesService.getImpactTypes();
     }
 
     addImpactType(newImpactTitle: string): void {
@@ -126,11 +126,11 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
             this.impactErrors.unshift(error);
             return;
         }
-        this.impactTypeService.addImpactType(newImpactTitle);
+        this.impactTypesService.addImpactType(newImpactTitle);
     }
 
     deleteImpactType(impactType: ImpactTypeI): void {
-        this.impactTypeService.deleteImpactType(impactType);
+        this.impactTypesService.deleteImpactType(impactType);
     }
 
     /*Target groups*/
