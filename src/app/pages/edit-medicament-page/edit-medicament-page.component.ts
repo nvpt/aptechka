@@ -35,6 +35,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         }
     ];
     form!: FormGroup;
+    submitted: boolean = false;
     imgUrl!: string;
     targetGroups: TargetGroupI[] = [];
     targetGroupSearch: string = '';
@@ -54,7 +55,8 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         private menuService: MenuService,
         private medicamentsService: MedicamentsService,
         private breadcrumbService: BreadcrumbService
-    ) {}
+    ) {
+    }
 
     ngOnInit(): void {
         this.menuService.hide();
@@ -97,10 +99,9 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
                 Validators.required
             ]),
             imgData: new FormControl(this.medicament.imgData),
+            imgUrl: new FormControl(null, [Validators.required]),
             boxId: new FormControl(this.medicament.boxId, [Validators.required])
         });
-
-        this.imgUrl = this.medicament.img;
     }
 
     cancelAdding(): void {
@@ -112,7 +113,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
         const reader = new FileReader();
 
         reader.onload = () => {
-            this.imgUrl = reader.result as string;
+            this.form.patchValue({imgUrl: reader.result as string});
         };
         imgData && reader.readAsDataURL(imgData);
 
@@ -120,9 +121,10 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     clearImg(): void {
-        this.imgUrl = null;
         this.form.controls.imgData.reset();
         this.form.controls.imgData.updateValueAndValidity();
+        this.form.controls.imgUrl.reset();
+        this.form.controls.imgUrl.updateValueAndValidity();
     }
 
     /*Target groups*/
@@ -168,6 +170,12 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     updateMedicament(): void {
+        this.submitted = true;
+
+        if (this.form.invalid) {
+            return;
+        }
+
         this.medicamentsService
             .updateMedicament({
                 ...this.medicament,
@@ -176,7 +184,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
                 issueDate: this.form.value.issueDate,
                 expiryDate: this.form.value.expiryDate,
                 imgData: this.form.value.imgData,
-                img: this.imgUrl,
+                img: this.form.value.imgUrl,
                 targetGroups: this.targetGroups,
                 impactTypes: this.impactTypes
             })
