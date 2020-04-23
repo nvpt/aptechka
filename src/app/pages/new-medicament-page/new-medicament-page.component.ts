@@ -150,10 +150,9 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
         }
     }
 
-
     /*Boxes*/
     selectBox(event: any, box: BoxI) {
-        this.form.controls.boxId.setValue(box.id)
+        this.form.controls.boxId.setValue(box.id);
     }
 
     isBoxUsed(boxId: number): boolean {
