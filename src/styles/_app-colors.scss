@@ -33,9 +33,9 @@
 
 
     //alert statuses
-    --color-app_success: var(--color-green-60);
-    --color-app_warning: var(--color-blue-60);
-    --color-app_danger: var(--color-red-60);
+    --color-app_success: hsl(var(--green-hue), 100%, 60%, 0.7);
+    --color-app_warning: hsl(var(--blue-hue), 100%, 60%, 0.7);
+    --color-app_danger: hsl(var(--red-hue), 100%, 60%, 0.7);
 
 
     //not adjusted
