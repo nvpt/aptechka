@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {MedicamentI} from '../interfaces/medicament-interface';
 import {Observable, of} from 'rxjs';
+import {BoxesService} from './boxes.service';
 
 @Injectable({
     providedIn: 'root'
@@ -139,7 +140,7 @@ export class MedicamentsService {
         }
     ];
 
-    constructor() {}
+    constructor(private boxesService: BoxesService) {}
 
     getMedicamentById(id: number): Observable<MedicamentI> {
         return of(this.medicaments.find((medicament) => medicament.id === Number(id)));
@@ -151,9 +152,10 @@ export class MedicamentsService {
     }
 
     deleteMedicament(medId: number): Observable<void> {
-        this.medicaments = [
-            ...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== medId)
-        ];
+        this.medicaments = [...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== medId)];
+        this.boxesService.boxes.forEach((box) => {
+            box.medicaments = [...box.medicaments.filter((med) => med.id !== medId)];
+        });
         return of(null);
     }
 
