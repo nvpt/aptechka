@@ -1,7 +1,7 @@
 <app-modal-default>
     <div modal-header></div>
     <div modal-body>
-        <span class="text" [translateParams]="{boxTitle: modalService.data.title}" translate>ALERT.DELETE_BOX_CONFIRMATION</span>
+        <span class="text" [translateParams]="translateParams" translate>{{text}}</span>
 
     </div>
     <div modal-footer>

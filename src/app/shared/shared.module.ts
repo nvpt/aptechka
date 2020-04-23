@@ -41,7 +41,7 @@ import {InlineSearchComponent} from '../components/inline-search/inline-search.c
 
 /*PIPES*/
 import {InlineSearchPipe} from '../pipes/inline-search.pipe';
-import {ModalDeleteComponent} from '../pages/boxes-page/components/modal-delete/modal-delete.component';
+import {ModalDeleteComponent} from '../components/modal/modal-delete/modal-delete.component';
 
 registerLocaleData(ruLocale, 'ru');
 

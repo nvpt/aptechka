@@ -15,7 +15,7 @@
     <div class="wrapper">
         <div class="content">
             <ng-container *ngIf="boxesService.boxes?.length; else emptyPlaceholder">
-                <app-tile (onDelete)="deleteBox($event)"
+                <app-tile (onDelete)="confirmDelete($event)"
                           *ngFor="let box of boxesService.boxes"
                           [box]="box"></app-tile>
             </ng-container>
@@ -29,4 +29,6 @@
 
 </div>
 
-<app-modal-delete></app-modal-delete>
+<app-modal-delete (onDelete)="deleteBox()"
+                  text="ALERT.DELETE_BOX_CONFIRMATION"
+                  [translateParams]="{boxTitle: modalService.data.title}"></app-modal-delete>
