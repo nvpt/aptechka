@@ -35,6 +35,7 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
         }
     ];
     form!: FormGroup;
+    submitted: boolean = false;
     imgUrl!: string;
     targetGroups: TargetGroupI[] = [];
     targetGroupSearch: string = '';
@@ -87,6 +88,7 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
             issueDate: new FormControl(null),
             expiryDate: new FormControl(null, [Validators.required]),
             imgData: new FormControl(null),
+            imgUrl: new FormControl(null, [Validators.required]),
             boxId: new FormControl(null, [Validators.required])
         });
     }
@@ -100,7 +102,7 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
         const reader = new FileReader();
 
         reader.onload = () => {
-            this.imgUrl = reader.result as string;
+            this.form.patchValue({imgUrl: reader.result as string});
         };
         imgData && reader.readAsDataURL(imgData);
 
@@ -108,9 +110,10 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     clearImg(): void {
-        this.imgUrl = null;
         this.form.controls.imgData.reset();
         this.form.controls.imgData.updateValueAndValidity();
+        this.form.controls.imgUrl.reset();
+        this.form.controls.imgUrl.updateValueAndValidity();
     }
 
     /*Target groups*/
@@ -158,6 +161,12 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     }
 
     saveMedicament() {
+        this.submitted = true;
+
+        if (this.form.invalid) {
+            return;
+        }
+
         const newMedicament: MedicamentI = {
             id: new Date().getTime(),
             title: this.form.value.title,

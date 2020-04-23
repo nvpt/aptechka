@@ -32,7 +32,6 @@
                     </label>
                     <input id="title"
                            type="text"
-                           class="g-form-field"
                            [class.g-validation]="submitted && !form.value.title"
                            formControlName="title"
                            #titleInput>
@@ -106,6 +105,7 @@
                          *ngIf="targetGroupsService.targetGroups?.length > 1">
                         <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
                     </div>
+
                     <div class="option-list">
 
                         <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">

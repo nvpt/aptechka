@@ -26,11 +26,16 @@
 
                 <!--TITLE-->
                 <section class="g-form-section">
-                    <label for="title"><span translate>NEW_COMMON.TITLE_LABEL</span>:</label>
+                    <label for="title"><span class="g-form-required"
+                                             translate>NEW_COMMON.TITLE_LABEL</span>:</label>
                     <input id="title"
                            type="text"
+                           [class.g-validation]="submitted && !form.value.title"
                            formControlName="title"
                            #titleInput>
+                    <small class="g-form-error"
+                           *ngIf="submitted && !form.value.title &&  form.controls.title.errors.required"
+                           translate>VALIDATION.REQUIRED</small>
                 </section>
 
                 <!--DESCRIPTION-->
@@ -53,101 +58,134 @@
 
                 <!--EXPIRY DATE-->
                 <section class="g-form-section">
-                    <label for="expiryDate"><span translate>NEW_MEDICAMENT.EXPIRY_DATE_LABEL</span>:</label>
+                    <label for="expiryDate">
+                        <span class="g-form-required"
+                              translate>NEW_MEDICAMENT.EXPIRY_DATE_LABEL</span>:</label>
                     <input id="expiryDate"
                            type="date"
+                           [class.g-validation]="submitted && !form.value.expiryDate"
                            formControlName="expiryDate">
+                    <small class="g-form-error"
+                           *ngIf="submitted && !form.value.expiryDate &&  form.controls.expiryDate.errors.required"
+                           translate>VALIDATION.REQUIRED</small>
                 </section>
 
                 <!--IMG-->
                 <section class="g-form-section img-section">
+
+                    <!--buttons-->
                     <div class="uploader-buttons"
-                         [ngClass]="{'with-image' : imgUrl}">
+                         [class.with-image]="form.value.imgUrl">
 
                         <label for="img"
                                class="add-img-btn-label">
-                        <span class="g-btn"
-                              *ngIf="form.value?.img; else withoutImage"
-                              translate>MAIN.CHANGE_IMAGE</span>
+                            <span class="g-btn"
+                                  *ngIf="form.value?.imgUrl; else withoutImage"
+                                  translate>MAIN.CHANGE_IMAGE</span>
+
                             <ng-template #withoutImage>
-                                <span class="g-btn"
+                                <span class="g-btn g-form-required"
+                                      [class.g-img-validation]="submitted && !form.value.imgUrl"
                                       translate>MAIN.ADD_IMAGE</span>
                             </ng-template>
-
+                            <br>
+                            <small class="g-form-error"
+                                   *ngIf="submitted && !form.value.imgUrl &&  form.controls.imgUrl.errors.required"
+                                   translate>VALIDATION.REQUIRED</small>
                         </label>
 
-                        <input class="g-display-none"
-                               id="img"
-                               accept="image/*"
-                               type="file"
-                               (change)="addImage($event)">
-                        <input type="hidden"
-                               formControlName="imgData">
-
-                        <div *ngIf="imgUrl">
+                        <div *ngIf="form.value.imgUrl">
                             <div (click)="clearImg()"
-                                    class="g-btn g-btn-error"
-                                    translate>MAIN.CLEAR_IMAGE
+                                 class="g-btn g-btn-error"
+                                 translate>MAIN.CLEAR_IMAGE
                             </div>
                         </div>
                         <span></span>
                     </div>
 
-                    <img [src]="imgUrl"
+                    <!--img fields-->
+                    <input class="g-display-none"
+                           id="img"
+                           accept="image/*"
+                           type="file"
+                           (change)="addImage($event)">
+                    <input type="hidden"
+                           formControlName="imgData">
+                    <img [src]="form.value.imgUrl"
                          alt=""
                          class="img">
+                    <input type="hidden"
+                           formControlName="imgUrl">
                 </section>
 
                 <!--BOX-->
                 <section class="g-form-section">
-                    <label><span translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
-                    <div class="option-item">
+                    <label><span class="g-form-required"
+                                 translate>NEW_MEDICAMENT.BOX_LABEL</span>:</label>
+                    <div class="option-item"
+                         *ngIf="boxesService.boxes?.length > 1">
                         <app-inline-search [(search)]="boxSearch"></app-inline-search>
                     </div>
                     <div class="option-list"
-                         *ngIf="boxesService.boxes?.length">
-                        <div class="option-item"
-                             *ngFor="let box of boxesService.boxes | inlineSearch:boxSearch:['title']">
-                            <app-radio-option [radioGroupName]="'boxes'"
-                                              [canEdit]="false"
-                                              [canAdd]="true"
-                                              [checked]="isBoxUsed(box?.id)"
-                                              [(optionValue)]="box.title"
-                                              (onCheck)="selectBox($event, box)">
-                            </app-radio-option>
-                        </div>
-                        <input type="hidden"
-                               formControlName="boxId">
+                         [class.g-validation]="submitted && !form.value.boxId">
+
+                        <ng-container *ngIf="boxesService.boxes?.length; else noBox">
+                            <div class="option-item"
+                                 *ngFor="let box of boxesService.boxes | inlineSearch:boxSearch:['title']">
+                                <app-radio-option [radioGroupName]="'boxes'"
+                                                  [canEdit]="false"
+                                                  [canAdd]="true"
+                                                  [checked]="isBoxUsed(box?.id)"
+                                                  [(optionValue)]="box.title"
+                                                  (onCheck)="selectBox($event, box)">
+                                </app-radio-option>
+                            </div>
+                            <input type="hidden"
+                                   formControlName="boxId">
+                        </ng-container>
+                        <ng-template #noBox>
+                            <span translate>PLACEHOLDER.EMPTY</span>
+                        </ng-template>
                     </div>
+                    <small class="g-form-error"
+                           *ngIf="submitted && !form.value.boxId &&  form.controls.boxId.errors.required"
+                           translate>VALIDATION.REQUIRED</small>
                 </section>
 
                 <!--IMPACT TYPES-->
                 <section class="g-form-section">
                     <label><span translate>NEW_MEDICAMENT.IMPACT_TYPES_LABEL</span>:</label>
-                    <div class="option-item">
+                    <div class="option-item"
+                         *ngIf="impactTypesService.impactTypes?.length > 1">
                         <app-inline-search [(search)]="impactTypeSearch"></app-inline-search>
                     </div>
-                    <div class="option-list"
-                         *ngIf="impactTypesService.impactTypes?.length">
-                        <div class="option-item"
-                             *ngFor="let impactType of impactTypesService.impactTypes | inlineSearch:impactTypeSearch:['title']">
-                            <app-check-option [canEdit]="false"
-                                              [canAdd]="true"
-                                              [(optionValue)]="impactType.title"
-                                              (onCheck)="toggleImpactType($event, impactType)">
-                            </app-check-option>
-                        </div>
+                    <div class="option-list">
+                        <ng-container *ngIf="impactTypesService.impactTypes?.length; else noImpactTypes">
+                            <div class="option-item"
+                                 *ngFor="let impactType of impactTypesService.impactTypes | inlineSearch:impactTypeSearch:['title']">
+                                <app-check-option [canEdit]="false"
+                                                  [canAdd]="true"
+                                                  [(optionValue)]="impactType.title"
+                                                  (onCheck)="toggleImpactType($event, impactType)">
+                                </app-check-option>
+                            </div>
+                        </ng-container>
+                        <ng-template #noImpactTypes>
+                            <span translate>PLACEHOLDER.EMPTY</span>
+                        </ng-template>
                     </div>
                 </section>
 
                 <!--TARGET GROUPS-->
                 <section class="g-form-section">
                     <label><span translate>NEW_COMMON.TARGET_GROUPS_LABEL</span>:</label>
-                    <div class="option-item">
+                    <div class="option-item"
+                         *ngIf="targetGroupsService.targetGroups?.length > 1">
                         <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
                     </div>
-                    <div class="option-list"
-                         *ngIf="targetGroupsService.targetGroups?.length">
+                    <div class="option-list">
+
+                        <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
                         <div class="option-item"
                              *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
                             <app-check-option [canEdit]="false"
@@ -156,6 +194,11 @@
                                               (onCheck)="toggleTargetGroup($event, targetGroup)">
                             </app-check-option>
                         </div>
+                        </ng-container>
+                        <ng-template #noTargetGroups>
+                            <span translate>PLACEHOLDER.EMPTY</span>
+                        </ng-template>
+
                     </div>
                 </section>
             </form>

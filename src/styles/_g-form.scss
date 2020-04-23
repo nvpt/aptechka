@@ -7,9 +7,7 @@
     margin-bottom: 26px;
 }
 
-.g-form-field {
-
-    &.g-validation {
+.g-validation {
         &.ng-invalid.ng-touched {
             border: 1px solid var(--color-app_error-color);
 
@@ -18,7 +16,7 @@
             }
         }
     }
-}
+
 
 .g-img-validation {
     border: 1px solid var(--color-app_error-color);
