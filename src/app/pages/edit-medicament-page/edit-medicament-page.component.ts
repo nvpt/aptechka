@@ -36,7 +36,6 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
     ];
     form!: FormGroup;
     submitted: boolean = false;
-    imgUrl!: string;
     targetGroups: TargetGroupI[] = [];
     targetGroupSearch: string = '';
     impactTypes: ImpactTypeI[] = [];
@@ -99,7 +98,7 @@ export class EditMedicamentPageComponent implements OnInit, OnDestroy {
                 Validators.required
             ]),
             imgData: new FormControl(this.medicament.imgData),
-            imgUrl: new FormControl(null, [Validators.required]),
+            imgUrl: new FormControl(this.medicament.img, [Validators.required]),
             boxId: new FormControl(this.medicament.boxId, [Validators.required])
         });
     }

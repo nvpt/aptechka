@@ -130,7 +130,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
             id: new Date().getTime(),
             description: this.form.value.description,
             title: this.form.value.title,
-            imgData: this.form.value.img,
+            imgData: this.form.value.imgData,
             img: this.form.value.imgUrl,
             targetGroups: this.targetGroups,
             medicaments: [] //we can't add medicaments in new box yet
