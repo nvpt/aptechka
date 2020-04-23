@@ -27,10 +27,16 @@
     --color-app_disabled-bg: var(--color-gray-95);
     --color-app_disabled-border: var(--color-gray-60);
 
+    --color-app_error-color: var(--color-red-70);
+    --color-app_error-bg: var(--color-red-95);
+    --color-app_error-border: var(--color-red-70);
+
+
     //alert statuses
-    --color-app-success: var(--color-green);
-    --color-app-warning: var(--color-blue);
-    --color-app-danger: var(--color-red);
+    --color-app-success: var(--color-green-60);
+    --color-app-warning: var(--color-blue-60);
+    --color-app-danger: var(--color-red-60);
+
 
     //not adjusted
     --color-app_hover-bg: var(--color-current-20);
