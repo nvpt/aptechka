@@ -29,16 +29,22 @@ const routes: Routes = [
             {path: `${Constants.PATH.editMedicament}/:medicamentId`, component: EditMedicamentPageComponent}
         ]
     },
+    {
+        path: '**', component: EmptyLayoutComponent, children: [
+            {path: '', component: NotFoundPageComponent}
+        ]
+    },
     // {
     //     path: '**',
-    //     redirectTo: Constants.PATH.notFound
+    //     component: EmptyLayoutComponent,
+    //     children: [{path: '', component: NotFoundPageComponent}]
+        // redirectTo: Constants.PATH.notFound
     // },
-    {
-        // path: Constants.PATH.notFound,
-        path: '**',
-        component: EmptyLayoutComponent,
-        children: [{path: '', component: NotFoundPageComponent}]
-    }
+    // {
+    //     path: Constants.PATH.notFound,
+    //     component: EmptyLayoutComponent,
+    //     children: [{path: '', component: NotFoundPageComponent}]
+    // }
 ];
 @NgModule({
     imports: [
