@@ -29,7 +29,6 @@ import {NotFoundPageComponent} from '../pages/not-found-page/not-found-page.comp
 import {HeaderComponent} from '../components/header/header.component';
 import {FooterComponent} from '../components/footer/footer.component';
 import {MenuContentComponent} from '../components/menu-content/menu-content.component';
-import {MenuBtnComponent} from '../components/menu-btn/menu-btn.component';
 import {BreadcrumbComponent} from '../components/breadcrumb/breadcrumb.component';
 import {PanelControlComponent} from '../components/panel-control/panel-control.component';
 import {NewOptionComponent} from '../components/new-option/new-option.component';
@@ -42,6 +41,7 @@ import {InlineSearchComponent} from '../components/inline-search/inline-search.c
 /*PIPES*/
 import {InlineSearchPipe} from '../pipes/inline-search.pipe';
 import {ModalDeleteComponent} from '../components/modal/modal-delete/modal-delete.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -61,7 +61,6 @@ registerLocaleData(ruLocale, 'ru');
         HeaderComponent,
         FooterComponent,
         MenuContentComponent,
-        MenuBtnComponent,
         BreadcrumbComponent,
         PanelControlComponent,
         NewOptionComponent,
@@ -74,7 +73,7 @@ registerLocaleData(ruLocale, 'ru');
         ModalDefaultComponent,
         ModalDeleteComponent
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule, BrowserAnimationsModule],
     exports: [
         CommonModule,
         FormsModule,
@@ -82,6 +81,7 @@ registerLocaleData(ruLocale, 'ru');
         TranslateModule,
         MenuModule,
         RouterModule,
+        BrowserAnimationsModule,
         ContentLayoutComponent,
         EmptyLayoutComponent,
         BoxesPageComponent,
@@ -96,7 +96,6 @@ registerLocaleData(ruLocale, 'ru');
         HeaderComponent,
         FooterComponent,
         MenuContentComponent,
-        MenuBtnComponent,
         BreadcrumbComponent,
         PanelControlComponent,
         NewOptionComponent,
