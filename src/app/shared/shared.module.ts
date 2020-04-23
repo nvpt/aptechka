@@ -35,13 +35,13 @@ import {PanelControlComponent} from '../components/panel-control/panel-control.c
 import {NewOptionComponent} from '../components/new-option/new-option.component';
 import {CheckOptionComponent} from '../components/check-option/check-option.component';
 import {RadioOptionComponent} from '../components/radio-option/radio-option.component';
-import {ModalComponent} from '../components/modal/modal.component';
+import {ModalDefaultComponent} from '../components/modal/components/modal-default/modal-default.component';
 import {AlertComponent} from '../components/alert/alert.component';
 import {InlineSearchComponent} from '../components/inline-search/inline-search.component';
 
 /*PIPES*/
 import {InlineSearchPipe} from '../pipes/inline-search.pipe';
-import {ConfirmModalComponent} from '../pages/boxes-page/components/confirm-modal/confirm-modal.component';
+import {ModalDeleteComponent} from '../pages/boxes-page/components/modal-delete/modal-delete.component';
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -67,12 +67,12 @@ registerLocaleData(ruLocale, 'ru');
         NewOptionComponent,
         CheckOptionComponent,
         RadioOptionComponent,
-        ModalComponent,
+        ModalDefaultComponent,
         AlertComponent,
         InlineSearchComponent,
         InlineSearchPipe,
-        ModalComponent,
-        ConfirmModalComponent
+        ModalDefaultComponent,
+        ModalDeleteComponent
     ],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, MenuModule],
     exports: [
@@ -102,9 +102,9 @@ registerLocaleData(ruLocale, 'ru');
         NewOptionComponent,
         CheckOptionComponent,
         RadioOptionComponent,
-        ModalComponent,
-        ConfirmModalComponent,
-        ModalComponent,
+        ModalDefaultComponent,
+        ModalDeleteComponent,
+        ModalDefaultComponent,
         AlertComponent,
         InlineSearchComponent,
         InlineSearchPipe
