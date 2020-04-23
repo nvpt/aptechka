@@ -36,7 +36,6 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
     ];
     form!: FormGroup;
     submitted: boolean = false;
-    imgUrl!: string;
     targetGroups: TargetGroupI[] = [];
     targetGroupSearch: string = '';
     impactTypes: ImpactTypeI[] = [];
@@ -173,7 +172,7 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
             issueDate: this.form.value.issueDate,
             expiryDate: this.form.value.expiryDate,
             imgData: this.form.value.imgData,
-            img: this.imgUrl,
+            img: this.form.value.imgUrl,
             targetGroups: this.targetGroups,
             impactTypes: this.impactTypes,
             boxId: this.form.value.boxId

@@ -26,8 +26,9 @@
 
                 <!--TITLE-->
                 <section class="g-form-section">
-                    <label for="title"><span class="g-form-required"
-                                             translate>NEW_COMMON.TITLE_LABEL</span>:</label>
+                    <label for="title">
+                        <span class="g-form-required"
+                              translate>NEW_COMMON.TITLE_LABEL</span>:</label>
                     <input id="title"
                            type="text"
                            [class.g-validation]="submitted && !form.value.title"
@@ -186,14 +187,14 @@
                     <div class="option-list">
 
                         <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
-                        <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
-                            <app-check-option [canEdit]="false"
-                                              [canAdd]="true"
-                                              [(optionValue)]="targetGroup.title"
-                                              (onCheck)="toggleTargetGroup($event, targetGroup)">
-                            </app-check-option>
-                        </div>
+                            <div class="option-item"
+                                 *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
+                                <app-check-option [canEdit]="false"
+                                                  [canAdd]="true"
+                                                  [(optionValue)]="targetGroup.title"
+                                                  (onCheck)="toggleTargetGroup($event, targetGroup)">
+                                </app-check-option>
+                            </div>
                         </ng-container>
                         <ng-template #noTargetGroups>
                             <span translate>PLACEHOLDER.EMPTY</span>
