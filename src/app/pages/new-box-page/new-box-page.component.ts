@@ -14,7 +14,6 @@ import {BreadcrumbService} from '../../components/breadcrumb/breadcrumb.service'
 import {TargetGroupI} from '../../interfaces/target-group-interface';
 import {BoxI} from '../../interfaces/box-interface';
 
-
 @Component({
     selector: 'app-new-box-page',
     templateUrl: './new-box-page.component.html',
@@ -35,12 +34,18 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
     targetGroupSearch: string = '';
     translationSub$!: Subscription;
 
-    constructor(public targetGroupsService: TargetGroupsService, private location: Location, private menuService: MenuService, private boxesService: BoxesService,
-        private router: Router, private breadcrumbService: BreadcrumbService, private translateService: TranslateService) {
-    }
+    constructor(
+        public targetGroupsService: TargetGroupsService,
+        private location: Location,
+        private menuService: MenuService,
+        private boxesService: BoxesService,
+        private router: Router,
+        private breadcrumbService: BreadcrumbService,
+        private translateService: TranslateService
+    ) {}
 
     ngOnInit(): void {
-        this.translationSub$ = this.translateService.get('BREADCRUMB.NEW_BOX').subscribe(translation => {
+        this.translationSub$ = this.translateService.get('BREADCRUMB.NEW_BOX').subscribe((translation) => {
             this.breadcrumbs.push(<BreadcrumbI>{
                 label: translation
             });
@@ -54,9 +59,8 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
 
         setTimeout(() => {
             this.titleInput && this.titleInput.nativeElement.focus();
-            
+
             console.log('58 >>> this.form: ', this.form);
-            
         }, 0);
     }
 
@@ -80,7 +84,7 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
     }
 
     addImage(event: Event) {
-        const imgData = (<HTMLInputElement>(event.target)).files[0];
+        const imgData = (<HTMLInputElement>event.target).files[0];
         const reader = new FileReader();
 
         reader.onload = () => {
@@ -89,18 +93,14 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
         imgData && reader.readAsDataURL(imgData);
 
         this.form.patchValue({imgData});
-        console.log('89 >>> this.form: ', this.form);
-        
     }
 
     clearImg() {
         this.form.controls.imgData.reset();
         this.form.controls.imgData.updateValueAndValidity();
-        this.form.patchValue({imgUrl: null});
-        console.log('97 >>> this.form: ', this.form);
-        
+        this.form.controls.imgUrl.reset();
+        this.form.controls.imgUrl.updateValueAndValidity();
     }
-
 
     /*Target groups*/
     getTargetGroups() {
@@ -108,22 +108,21 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
     }
 
     toggleTargetGroup(event: MouseEvent, targetGroup: TargetGroupI) {
-
         const checked: boolean = (<HTMLInputElement>event.target).checked;
 
         if (checked) {
-            if (this.targetGroups.every((group) => (group.id !== targetGroup.id))) {
+            if (this.targetGroups.every((group) => group.id !== targetGroup.id)) {
                 this.targetGroups.push(targetGroup);
             }
         } else {
-            this.targetGroups = [...this.targetGroups.filter((group) => (group.id !== targetGroup.id))];
+            this.targetGroups = [...this.targetGroups.filter((group) => group.id !== targetGroup.id)];
         }
     }
 
     saveBox() {
         this.submitted = true;
 
-        if(this.form.invalid){
+        if (this.form.invalid) {
             return;
         }
 
@@ -140,6 +139,5 @@ export class NewBoxPageComponent implements OnInit, OnDestroy {
         this.boxesService.addBox(newBox).subscribe(() => {
             this.router.navigate([Constants.PATH.dashboard]);
         });
-
     }
 }

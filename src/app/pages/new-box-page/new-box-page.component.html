@@ -33,7 +33,7 @@
                     <input id="title"
                            type="text"
                            class="g-form-field"
-                           [class.validation]="submitted && !form.value.title"
+                           [class.g-validation]="submitted && !form.value.title"
                            formControlName="title"
                            #titleInput>
                     <small class="g-form-error"
@@ -61,8 +61,9 @@
                         <label for="img"
                                class="add-img-btn-label">
                             <span class="g-btn"
-                                  *ngIf="form.value?.imgData; else withoutImage"
+                                  *ngIf="form.value?.imgUrl; else withoutImage"
                                   translate>MAIN.CHANGE_IMAGE</span>
+
                             <ng-template #withoutImage>
                                 <span class="g-btn g-form-required"
                                       [class.g-img-validation]="submitted && !form.value.imgUrl"
@@ -83,7 +84,7 @@
                         <span></span>
                     </div>
 
-                    <!--img field-->
+                    <!--img fields-->
                     <input class="g-display-none"
                            id="img"
                            accept="image/*"
@@ -105,10 +106,9 @@
                          *ngIf="targetGroupsService.targetGroups?.length > 1">
                         <app-inline-search [(search)]="targetGroupSearch"></app-inline-search>
                     </div>
-                    <div class="option-list"
-                         >
+                    <div class="option-list">
 
-                        <ng-container *ngIf="targetGroupsService.targetGroups?.length; else dismissPlaceholder">
+                        <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
                             <div class="option-item"
                                  *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
                                 <app-check-option [canEdit]="false"
@@ -118,7 +118,7 @@
                                 </app-check-option>
                             </div>
                         </ng-container>
-                        <ng-template #dismissPlaceholder>
+                        <ng-template #noTargetGroups>
                             <span translate>PLACEHOLDER.EMPTY</span>
                         </ng-template>
 
