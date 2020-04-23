@@ -49,10 +49,10 @@ export class BoxesService {
                 }
             ],
             medicaments: [
-                // {
-                //     id: 6,
-                //     title: 'Димедрол'
-                // },
+                {
+                    id: 6,
+                    title: 'Димедрол'
+                },
             ]
         },
         {
