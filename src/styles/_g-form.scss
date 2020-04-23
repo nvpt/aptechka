@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .g-form-section {
     display: grid;
@@ -7,6 +7,25 @@
     margin-bottom: 26px;
 }
 
-.g-error-text {
-    color: var(--color-red-60);
+.g-form-field {
+    &.ng-invalid.ng-touched {
+        border: 1px solid var(--color-app_error-color);
+    }
+}
+
+.g-form-required {
+    position: relative;
+
+    &:after {
+        content: '*';
+        padding-left: 1px;
+        color: var(--color-app_error-color);
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+.g-form-error {
+    padding-top: 2px;
+    color: var(--color-app_error-color);
 }
