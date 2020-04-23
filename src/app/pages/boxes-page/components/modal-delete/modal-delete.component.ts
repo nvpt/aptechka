@@ -1,16 +1,15 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BoxesService} from '../../../../services/boxes.service';
-import {BoxI} from '../../../../interfaces/box-interface';
 import {ModalService} from '../../../../services/modal.service';
 import {Subscription} from 'rxjs';
 import {AlertService} from '../../../../services/alert.service';
 
 @Component({
-    selector: 'app-confirm-modal',
-    templateUrl: './confirm-modal.component.html',
-    styleUrls: ['./confirm-modal.component.scss']
+    selector: 'app-modal-delete',
+    templateUrl: './modal-delete.component.html',
+    styleUrls: ['./modal-delete.component.scss']
 })
-export class ConfirmModalComponent implements OnInit, OnDestroy {
+export class ModalDeleteComponent implements OnInit, OnDestroy {
     constructor(public modalService: ModalService, private boxesService: BoxesService, private alert: AlertService) {}
 
     deleteSub$: Subscription;
@@ -18,7 +17,7 @@ export class ConfirmModalComponent implements OnInit, OnDestroy {
     ngOnInit(): void {}
 
     ngOnDestroy(): void {
-        this.deleteSub$.unsubscribe();
+        this.deleteSub$ && this.deleteSub$.unsubscribe();
     }
 
     delete() {
