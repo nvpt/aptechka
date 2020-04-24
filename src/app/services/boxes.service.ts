@@ -12,7 +12,7 @@ export class BoxesService {
             id: 1,
             title: 'Основное',
             description: 'Зелёная коробка',
-            img: '/assets/img/boxes/green-box.jpg',
+            img: './assets/img/boxes/green-box.jpg',
             imgData: null,
             targetGroups: [
                 {
@@ -39,7 +39,7 @@ export class BoxesService {
             id: 2,
             title: 'При простуде',
             description: 'Коричневая коробка из-под обуви',
-            img: '/assets/img/boxes/head-stomach.jpg',
+            img: './assets/img/boxes/head-stomach.jpg',
             imgData: null,
 
             targetGroups: [
@@ -59,7 +59,7 @@ export class BoxesService {
             id: 3,
             title: 'От аллергии',
             description: 'Без коробки, в моем одтеле',
-            img: '/assets/img/boxes/allergy.jpg',
+            img: './assets/img/boxes/allergy.jpg',
             imgData: null,
 
             targetGroups: [
@@ -79,7 +79,7 @@ export class BoxesService {
             id: 4,
             title: 'Скорая помощь',
             description: 'Коробка из-под прибора',
-            img: '/assets/img/boxes/rest.jpg',
+            img: './assets/img/boxes/rest.jpg',
             imgData: null,
 
             targetGroups: [

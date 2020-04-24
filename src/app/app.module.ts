@@ -9,17 +9,14 @@ import {HttpClient} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 
 import {AppComponent} from './app.component';
-import { EditMedicamentPageComponent } from './pages/edit-medicament-page/edit-medicament-page.component';
+import {EditMedicamentPageComponent} from './pages/edit-medicament-page/edit-medicament-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        EditMedicamentPageComponent
-    ],
+    declarations: [AppComponent, EditMedicamentPageComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -37,5 +34,4 @@ export function HttpLoaderFactory(http: HttpClient) {
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
