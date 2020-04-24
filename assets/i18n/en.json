@@ -1,0 +1,147 @@
+{
+    "ABOUT": {
+        "FOR_WHAT": "This app was designed to help organize your medications and control their expiration date."
+    },
+    "ALERT": {
+        "BOX_DELETED": "Box \"{{box}}\" was deleted.",
+        "BOX_NOT_EMPTY": "Deleted box should be empty.",
+        "DELETE_BOX_CONFIRMATION": "Are you sure you want to delete the box \"{{boxTitle}}\"? This action is irreversible.",
+        "DELETE_MEDICAMENT_CONFIRMATION": "Are you sure you want to delete the medicament \"{{medicamentTitle}}\"? This action is irreversible.",
+        "MEDICAMENT_DELETED": "Medicament \"{{medicament}}\" was deleted."
+    },
+    "BREADCRUMB": {
+        "ABOUT": "About",
+        "BOXES": "Boxes",
+        "DASHBOARD": "Dashboard",
+        "HOME": "Home",
+        "IMPACT_TYPES": "Impact types",
+        "MEDICAMENTS": "Medicaments",
+        "NEW_BOX": "New box",
+        "NEW_MEDICAMENT": "New medicament",
+        "SETTINGS": "Settings",
+        "TARGET_GROUPS": "Target groups"
+    },
+    "BUTTON": {
+        "SAVE_CHANGES": "Save changes"
+    },
+    "BOXES": {
+        "ADD_BOX": "Add box",
+        "EMPTY": "No boxes",
+        "TILE": {
+            "DESCRIPTION": "Description",
+            "MEDICAMENTS": "Medicaments",
+            "ON_THE_VERGE": "On the verge",
+            "OVERDUE": "Overdue",
+            "PLACE": "Place",
+            "TARGET_GROUPS": "Target Groups",
+            "TOTAL": "Total"
+        }
+    },
+    "EDIT_COMMON": {
+        "CANCEL_EDIT": "Cancel edit",
+        "MEDICAMENTS_LABEL": "Medicaments"
+    },
+    "ERROR": {
+        "IMPACT_TYPE": {
+            "ALREADY_EXISTS": "This impact type already exists"
+        },
+        "TARGET_GROUP": {
+            "ALREADY_EXISTS": "This target group already exists"
+        }
+    },
+    "MAIN": {
+        "ADD": "Add",
+        "ADD_IMAGE": "Add image",
+        "APTHECHKA": "Aptechka",
+        "CANCEL": "Cancel",
+        "CHANGE_IMAGE": "Change image",
+        "CLEAR_IMAGE": "Clear image",
+        "CREATE": "Create",
+        "DELETE": "Delete",
+        "SAVE": "Save",
+        "SAVE_CHANGES": "Save changes"
+    },
+    "MEDICAMENTS": {
+        "ADD_MEDICAMENT": "Add medicament",
+        "EMPTY": "No medicaments",
+        "TABLE": {
+            "TITLE": "Title",
+            "DESCRIPTION": "Description",
+            "ISSUE_DATE": "Issue date",
+            "EXPIRY_DATE": "Expiry date",
+            "BOX": "Box",
+            "IMPACT_TYPE": "Impact type",
+            "TARGET_GROUP": "Target groups"
+        }
+    },
+    "NEW_BOX": {
+        "DEFAULT_TITLE": "New Box",
+        "SAVE_BOX": "Save box"
+    },
+    "NEW_COMMON": {
+        "CANCEL_ADDING": "Cancel adding",
+        "DESCRIPTION_LABEL": "Description",
+        "TARGET_GROUPS_LABEL": "Target groups",
+        "TITLE_LABEL": "Title"
+    },
+    "NEW_MEDICAMENT": {
+        "BOX_LABEL": "Box",
+        "DEFAULT_TITLE": "New Medicament",
+        "EXPIRY_DATE_LABEL": "Expiry date",
+        "IMPACT_TYPES_LABEL": "Impact types",
+        "ISSUE_DATE_LABEL": "Issue date",
+        "SAVE_MEDICAMENT": "Save medicament"
+    },
+    "NOT_FOUND": {
+        "ANNOTATION": "Go to <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">the Main</a>.",
+        "TITLE": "That page is missing"
+    },
+    "PLACEHOLDER": {
+        "EMPTY": "Empty"
+    },
+    "SETTING": {
+        "ACCOUNT": {
+            "TITLE": "Account"
+        },
+        "COLOR": {
+            "LABEL": "Select color",
+            "LIST": {
+                "BLUE": "blue",
+                "CUSTOM": "custom",
+                "GREEN": "green",
+                "ORANGE": "orange",
+                "RED": "red",
+                "YELLOW": "yellow"
+            },
+            "TITLE": "Color theme"
+        },
+        "IMPACT_TYPES": {
+            "LABEL": "impact type",
+            "TITLE": "Impact types"
+        },
+        "LANGUAGE": {
+            "LABEL": "Select language",
+            "LIST": {
+                "EN": "english",
+                "RU": "russian"
+            },
+            "TITLE": "Language"
+        },
+        "NOTIFICATIONS": {
+            "TITLE": "Notifications"
+        },
+        "TARGET_GROUPS": {
+            "LABEL": "Select target groups",
+            "TITLE": "Target groups"
+        },
+        "TITLE": "Settings",
+        "WARNING_INTERVAL": {
+            "IN_DAYS": "In {{daysCount}} days",
+            "LABEL": "How many days to give a warning",
+            "TITLE": "Warning interval"
+        }
+    },
+    "VALIDATION": {
+        "REQUIRED": "Field is required"
+    }
+}

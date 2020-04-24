@@ -1,0 +1,147 @@
+{
+    "ABOUT": {
+        "FOR_WHAT": "Это приложение создано для помощи в упорядочивании лекарств и контроле их срока годности."
+    },
+    "ALERT": {
+        "BOX_DELETED": "Коробка \"{{box}}\" удалена.",
+        "BOX_NOT_EMPTY": "Удаляемая коробка должна быть пустой.",
+        "DELETE_BOX_CONFIRMATION": "Вы действительно хотите удалить коробку \"{{boxTitle}}\"? Действие необратимо.",
+        "DELETE_MEDICAMENT_CONFIRMATION": "Вы действительно хотите удалить лекарство \"{{medicamentTitle}}\"? Действие необратимо.",
+        "MEDICAMENT_DELETED": "Лекарство \"{{medicament}}\" удалено."
+    },
+    "BREADCRUMB": {
+        "ABOUT": "О приложении",
+        "BOXES": "Коробки",
+        "DASHBOARD": "Табло",
+        "HOME": "Главная",
+        "IMPACT_TYPES": "Типы воздействия",
+        "MEDICAMENTS": "Лекарства",
+        "NEW_BOX": "Новая коробка",
+        "NEW_MEDICAMENT": "Новое лекарство",
+        "SETTINGS": "Настройки",
+        "TARGET_GROUPS": "Целевые группы"
+    },
+    "BUTTON": {
+        "SAVE_CHANGES": "Сохранить изменения"
+    },
+    "BOXES": {
+        "ADD_BOX": "Добавить коробку",
+        "EMPTY": "Нет коробок",
+        "TILE": {
+            "DESCRIPTION": "Описание",
+            "MEDICAMENTS": "Лекарства",
+            "ON_THE_VERGE": "На грани",
+            "OVERDUE": "Просрочено",
+            "PLACE": "Место",
+            "TARGET_GROUPS": "Целевые группы",
+            "TOTAL": "Всего"
+        }
+    },
+    "EDIT_COMMON": {
+        "CANCEL_EDIT": "Отменить редактирвоание",
+        "MEDICAMENTS_LABEL": "Медикаменты"
+    },
+    "ERROR": {
+        "IMPACT_TYPE": {
+            "ALREADY_EXISTS": "Такой способ воздействия уже есть"
+        },
+        "TARGET_GROUP": {
+            "ALREADY_EXISTS": "Такой целевая группа уже есть"
+        }
+    },
+    "MAIN": {
+        "ADD": "Добавить",
+        "ADD_IMAGE": "Добавить изображение",
+        "APTHECHKA": "Аптечка",
+        "CANCEL": "Отмена",
+        "CHANGE_IMAGE": "Изменить изображение",
+        "CLEAR_IMAGE": "Очистить изображение",
+        "CREATE": "Создать",
+        "DELETE": "Удалить",
+        "SAVE": "Сохранить",
+        "SAVE_CHANGES": "Сохранить изменения"
+    },
+    "MEDICAMENTS": {
+        "ADD_MEDICAMENT": "Добавить лекарство",
+        "EMPTY": "Нет лекарств",
+        "TABLE": {
+            "TITLE": "Название",
+            "DESCRIPTION": "Описание",
+            "ISSUE_DATE": "Дата выпуска",
+            "EXPIRY_DATE": "Дата окончания годности",
+            "BOX": "Коробка",
+            "IMPACT_TYPE": "Тип воздействия",
+            "TARGET_GROUP": "Целевые группы"
+        }
+    },
+    "NEW_BOX": {
+        "DEFAULT_TITLE": "Новая коробка",
+        "SAVE_BOX": "Сохранить коробку"
+    },
+    "NEW_COMMON": {
+        "CANCEL_ADDING": "Отменить добавление",
+        "DESCRIPTION_LABEL": "Описание",
+        "TARGET_GROUPS_LABEL": "Целевые группы",
+        "TITLE_LABEL": "Название"
+    },
+    "NEW_MEDICAMENT": {
+        "BOX_LABEL": "Коробка",
+        "DEFAULT_TITLE": "Новое лекарство",
+        "EXPIRY_DATE_LABEL": "Дата окончания годности",
+        "IMPACT_TYPES_LABEL": "Типы воздействия",
+        "ISSUE_DATE_LABEL": "Дата изготовления",
+        "SAVE_MEDICAMENT": "Созранить лекарство"
+    },
+    "NOT_FOUND": {
+        "ANNOTATION": "Перейти на <a href=\"#\" class=\"g-link\" (click)=\"goHome($event)\">Главную</a>.",
+        "TITLE": "Такая страница не найдена"
+    },
+    "PLACEHOLDER": {
+        "EMPTY": "Пусто"
+    },
+    "SETTING": {
+        "ACCOUNT": {
+            "TITLE": "Личная информация"
+        },
+        "COLOR": {
+            "LABEL": "Выбрать цвет",
+            "LIST": {
+                "BLUE": "синий",
+                "CUSTOM": "свой вариант",
+                "GREEN": "зелёный",
+                "ORANGE": "оранжевый",
+                "RED": "красный",
+                "YELLOW": "жёлтый"
+            },
+            "TITLE": "Цветовая тема"
+        },
+        "IMPACT_TYPES": {
+            "LABEL": "тип воздействия",
+            "TITLE": "Типы воздействия"
+        },
+        "LANGUAGE": {
+            "LABEL": "Выбрать язык",
+            "LIST": {
+                "EN": "английский",
+                "RU": "русский"
+            },
+            "TITLE": "Язык"
+        },
+        "NOTIFICATIONS": {
+            "TITLE": "Уведомления"
+        },
+        "TARGET_GROUPS": {
+            "LABEL": "Выбрать целевые группы",
+            "TITLE": "Целевые группы"
+        },
+        "TITLE": "Настройки",
+        "WARNING_INTERVAL": {
+            "IN_DAYS": "За {{daysCount}} дней",
+            "LABEL": "За сколько дней предупреждать",
+            "TITLE": "Интервал предупреждения"
+        }
+    },
+    "VALIDATION": {
+        "REQUIRED": "Обязательное поле"
+    }
+}
