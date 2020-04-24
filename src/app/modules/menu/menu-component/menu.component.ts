@@ -3,7 +3,7 @@ import {MenuService} from '../menu-services/menu.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
 const MENU_OPEN_TIME: number = 200;
-const MENU_CLOSE_TIME: number = 300;
+const MENU_CLOSE_TIME: number = 200;
 
 @Component({
     selector: 'app-menu',
@@ -13,8 +13,8 @@ const MENU_CLOSE_TIME: number = 300;
         trigger('toggleMenu', [
             state('start', style({left: '-300px'})),
             state('end', style({left: '0'})),
-            transition('start => end', animate(`${MENU_OPEN_TIME}ms ease-in-out`)),
-            transition('end => start', animate(`${MENU_CLOSE_TIME}ms ease-in`))
+            transition('start => end', animate(`${MENU_OPEN_TIME}ms ease-in`)),
+            transition('end => start', animate(`${MENU_CLOSE_TIME}ms ease-out`))
         ]),
         trigger('toggleMenuBg', [
             state('startBg', style({opacity: '0'})),
@@ -29,15 +29,23 @@ export class MenuComponent implements OnInit {
     menuAnimationState: string = 'start';
     menuBgAnimationState: string = 'startBg';
 
-    constructor(public menuService: MenuService) {
-    }
+    constructor(public menuService: MenuService) {}
 
     toggle() {
-        if (this.menuAnimationState === 'start') {
+        if (!this.menuService.opened) {
             this.open();
         } else {
             this.close();
         }
+    }
+
+    open() {
+        setTimeout(() => {
+            this.menuAnimationState = 'end';
+            this.menuBgAnimationState = 'endBg';
+        });
+
+        this.menuService.toggle();
     }
 
     close() {
@@ -45,20 +53,11 @@ export class MenuComponent implements OnInit {
         this.menuBgAnimationState = 'startBg';
 
         setTimeout(() => {
-            this.menuService.close();
-
+            this.menuService.toggle();
         }, MENU_CLOSE_TIME);
     }
 
-    open() {
-        setTimeout(() => {
-            this.menuAnimationState = 'end';
-            this.menuBgAnimationState = 'endBg';
-        },);
 
-        this.menuService.open();
-    }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 }
