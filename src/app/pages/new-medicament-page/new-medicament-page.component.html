@@ -132,10 +132,11 @@
 
                         <ng-container *ngIf="boxesService.boxes?.length; else noBox">
                             <div class="option-item"
-                                 *ngFor="let box of boxesService.boxes | inlineSearch:boxSearch:['title']">
+                                 *ngFor="let box of boxesService.boxes | inlineSearch:boxSearch:['title']; let index = index">
                                 <app-radio-option [radioGroupName]="'boxes'"
                                                   [canEdit]="false"
                                                   [canAdd]="true"
+                                                  [id]='"box"+index'
                                                   [checked]="isBoxUsed(box?.id)"
                                                   [(optionValue)]="box.title"
                                                   (onCheck)="selectBox($event, box)">

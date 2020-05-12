@@ -2,13 +2,13 @@
      [ngClass]="{'can-add': canAdd, 'can-edit': canEdit}">
 
     <!--selection-->
-    <span class="checkbox-label g-btn-success" *ngIf="canAdd">
+    <label class="checkbox-label g-btn-success" *ngIf="canAdd">
         <input type="checkbox"
-               id="adding{{id}}"
+               id="checkbox{{id}}"
                class="checkbox-btn"
                [checked]="checked"
                (click)="toggle($event)">
-    </span>
+    </label>
 
     <!--text field-->
     <label *ngIf='editedNow; else justSpan'>
@@ -21,7 +21,7 @@
                #inputField>
     </label>
     <ng-template #justSpan>
-        <label for="adding{{id}}" class="text-field" [class.text-field--disabled]="canEdit">
+        <label for="checkbox{{id}}" class="text-field" [class.text-field--disabled]="canEdit">
         {{optionValue}}
         </label>
     </ng-template>

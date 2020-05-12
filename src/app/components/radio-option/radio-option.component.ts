@@ -8,6 +8,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 export class RadioOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
 
+    @Input() id: string = "1";
     @Input() radioGroupName: string = 'radio-option';
     @Input() canAdd?: boolean = false;
     @Input() canEdit?: boolean = true;

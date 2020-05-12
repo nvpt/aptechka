@@ -1,13 +1,18 @@
 <div class="radio-option"
      [ngClass]="{'can-add': canAdd, 'can-edit': canEdit}">
+
+    <!--selection-->
     <label class="radio-label g-btn-success"
            *ngIf="canAdd">
         <input type="radio"
+               id="radio{{id}}"
                class="radio-btn"
                [checked]="checked"
                (click)="toggle($event)">
     </label>
-    <label>
+
+    <!--text field-->
+    <label *ngIf='editedNow; else justSpan'>
         <input type="text"
                class="input-field"
                [disabled]="!editedNow"
@@ -15,6 +20,11 @@
                (keydown)="keypressSave($event)"
                #inputField>
     </label>
+    <ng-template #justSpan>
+        <label for="radio{{id}}" class="text-field" [class.text-field--disabled]="canEdit">
+            {{optionValue}}
+        </label>
+    </ng-template>
 
     <ng-container *ngIf="canEdit && !editedNow">
         <button class="action-btn g-btn-success"
