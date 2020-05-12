@@ -30,10 +30,9 @@ export class AppComponent implements OnInit {
 
     defineCurrentSettings(): void {
         const storageData = localStorage.getItem(Constants.STORAGE_KEY);
-        if (storageData) {
-            const storageObj: StorageDataI = JSON.parse(storageData);
-
-            this.themeService.initColorTheme(storageObj.color as ColorThemeType, storageObj.saturation);
+        const storageObj: StorageDataI = storageData && JSON.parse(storageData);
+        if (storageObj) {
+            this.themeService.initColorTheme(<ColorThemeType>storageObj.color, storageObj.saturation);
             this.translate.use(storageObj.lang);
         } else {
             this.themeService.initColorTheme();

@@ -39,7 +39,7 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     targetGroups: TargetGroupI[] = this.targetGroupsService.targetGroups;
     targetGroupsErrors: string[] = [];
-    targetGroupSearch:string = '';
+    targetGroupSearch: string = '';
 
     private translateSub$: Subscription;
 
@@ -65,13 +65,12 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
 
     initStorageData(): void {
         const storageData = localStorage.getItem(Constants.STORAGE_KEY);
-        if (storageData) {
-            const storageObject: StorageDataI = JSON.parse(storageData);
+        const storageObj: StorageDataI = storageData ? JSON.parse(storageData) : {};
 
-            this.currentColor = storageObject.color as ColorThemeType;
-            this.currentLanguage = storageObject.lang ? <LanguageType>storageObject.lang : Constants.DEFAULT_LANGUAGE;
-        }
+        this.currentColor = storageObj.color ? <ColorThemeType>storageObj?.color : this.themeService.defaultColor;
+        this.currentLanguage = storageObj.lang ? <LanguageType>storageObj.lang : Constants.DEFAULT_LANGUAGE;
     }
+
 
     selectTheme(event: Event): void {
         const colorTheme: ColorThemeType = (<HTMLInputElement>event.target).value as ColorThemeType;
