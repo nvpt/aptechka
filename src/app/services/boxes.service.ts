@@ -133,12 +133,12 @@ export class BoxesService {
         return of(boxId)
     }
 
-    replaceMedicament(medicament: MedicamentI, box: BoxI): void {
-        this.boxes.forEach((boxItem) => {
-            if (boxItem.id === box.id) {
-                boxItem.medicaments.unshift({id: medicament.id, title: medicament.title});
+    replaceMedicament(medicament: MedicamentI, boxId:number): void {
+        this.boxes.forEach((box) => {
+            if (box.id === boxId) {
+                box.medicaments.unshift({id: medicament.id, title: medicament.title});
             } else {
-                boxItem.medicaments = [...boxItem.medicaments.filter((med) => med.id !== medicament.id)];
+                box.medicaments = [...box.medicaments.filter((med) => med.id !== medicament.id)];
             }
         });
     }

@@ -22,7 +22,7 @@ const routes: Routes = [
             {path: '', component: BoxesPageComponent, pathMatch: 'full'},
             {path: Constants.PATH.newBox, component: NewBoxPageComponent},
             {path: `${Constants.PATH.editBox}/:boxId`, component: EditBoxPageComponent},
-            {path: Constants.PATH.settings, component: SettingsPageComponent}, //todo *** set as module?
+            {path: Constants.PATH.settings, component: SettingsPageComponent},
             {path: Constants.PATH.about, component: AboutPageComponent},
             {path: Constants.PATH.medicaments, component: MedicamentsPageComponent},
             {path: Constants.PATH.newMedicament, component: NewMedicamentPageComponent},
