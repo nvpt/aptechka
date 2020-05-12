@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "local-deploy": "ng deploy --base-href='./aptechka/'",
+    "no-build-deploy": "ng deploy 'aptechka' --no-build"
   },
   "private": true,
   "dependencies": {
