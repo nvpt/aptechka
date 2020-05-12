@@ -28,16 +28,18 @@
             <tbody>
             <tr *ngFor="let med of medicamentsService.medicaments">
                 <!--MEDICAMENT TITLE + IMG-->
-                <td class="with-icons">
-                    <span class="material-icons cell-icon"
-                          (click)="editMedicament(med?.id)">edit</span>
-                    <span class="material-icons cell-icon cell-icon_right"
-                          (click)="confirmDelete(med)">delete</span>
-                    <div class="img-wrap">
-                        <span class="img-wrap__title">{{ med.title }}</span>
-                        <img [src]="med.img"
-                             class="img-wrap__img"
-                             alt=""/>
+                <td >
+                    <div class="with-icons">
+                        <span class="material-icons cell-icon"
+                              (click)="editMedicament(med?.id)">edit</span>
+                        <span class="material-icons cell-icon cell-icon_right"
+                              (click)="confirmDelete(med)">delete</span>
+                        <span class="img-wrap">
+                            <span class="img-wrap__title">{{ med.title }}</span>
+                            <img [src]="med.img"
+                                 class="img-wrap__img"
+                                 alt=""/>
+                        </span>
                     </div>
                 </td>
 
@@ -79,22 +81,24 @@
                 </td>
 
                 <!--BOX TITLE + IMG-->
-                <td class="with-icons">
-                    <span class="material-icons cell-icon"
-                          (click)="editBox(med.boxId)">edit</span>
-                    <div class="img-wrap">
-                        <span class="img-wrap__title">{{ defineBox(med.boxId)?.title }}</span>
-                        <div class="option-list"
-                             *ngIf="defineBox(med.boxId)?.targetGroups?.length">
-                            <ul>
-                                <li *ngFor="let tg of defineBox(med.boxId)?.targetGroups">
-                                    {{ tg.title }}
-                                </li>
-                            </ul>
+                <td>
+                    <div class="with-icons">
+                        <span class="material-icons cell-icon"
+                              (click)="editBox(med.boxId)">edit</span>
+                        <div class="img-wrap">
+                            <span class="img-wrap__title">{{ defineBox(med.boxId)?.title }}</span>
+                            <div class="option-list"
+                                 *ngIf="defineBox(med.boxId)?.targetGroups?.length">
+                                <ul>
+                                    <li *ngFor="let tg of defineBox(med.boxId)?.targetGroups">
+                                        {{ tg.title }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <img class="img-wrap__img"
+                                 alt=""
+                                 [src]="defineBox(med.boxId)?.img"/>
                         </div>
-                        <img class="img-wrap__img"
-                             alt=""
-                             [src]="defineBox(med.boxId)?.img"/>
                     </div>
                 </td>
             </tr>

@@ -52,11 +52,11 @@ li {
 
 .with-icons {
     position: relative;
-    padding: $string-padding $string-padding * 3;
+    padding: 0 $string-padding * 3;
 
     .cell-icon {
         position: absolute;
-        top: $string-padding / 2 + 1;
+        top: 0;
         left: $string-padding / 2;
         font-size: $mat-icon-size;
         visibility: hidden;
