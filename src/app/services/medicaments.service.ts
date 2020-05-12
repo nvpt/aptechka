@@ -55,7 +55,7 @@ export class MedicamentsService {
             title: 'Зелёнка',
             issueDate: 'Mon Apr 13 2017 22:30:16 GMT+0300 (Moscow Standard Time)',
             expiryDate: 'Mon Apr 23 2020 22:30:16 GMT+0300 (Moscow Standard Time)',
-            boxId: 2,
+            boxId: 4,
             impactTypes: [
                 {
                     id: 3,
@@ -78,7 +78,7 @@ export class MedicamentsService {
             title: 'Доктор Мом',
             issueDate: 'Mon Apr 13 2020 22:30:16 GMT+0300 (Moscow Standard Time)',
             expiryDate: 'Mon Apr 13 2024 22:30:16 GMT+0300 (Moscow Standard Time)',
-            boxId: 1,
+            boxId: 2,
             impactTypes: [
                 {
                     id: 7,
@@ -101,7 +101,7 @@ export class MedicamentsService {
             title: 'Йод',
             issueDate: 'Mon Apr 13 2015 22:30:16 GMT+0300 (Moscow Standard Time)',
             expiryDate: 'Mon Apr 16 2020 22:30:16 GMT+0300 (Moscow Standard Time)',
-            boxId: 2,
+            boxId: 4,
             impactTypes: [
                 {
                     id: 3,
@@ -124,7 +124,7 @@ export class MedicamentsService {
             title: 'Димедрол',
             issueDate: 'Mon Jun 09 2017 22:30:16 GMT+0300 (Moscow Standard Time)',
             expiryDate: 'Mon Apr 16 2022 22:30:16 GMT+0300 (Moscow Standard Time)',
-            boxId: 2,
+            boxId: 4,
             impactTypes: [
                 {
                     id: 1,

@@ -28,11 +28,7 @@ export class BoxesService {
                 {
                     id: 1,
                     title: 'Анальгин'
-                },
-                {
-                    id: 4,
-                    title: 'Доктор Мом'
-                },
+                }
             ]
         },
         {
@@ -50,9 +46,9 @@ export class BoxesService {
             ],
             medicaments: [
                 {
-                    id: 6,
-                    title: 'Димедрол'
-                },
+                    id: 4,
+                    title: 'Доктор Мом'
+                }
             ]
         },
         {
@@ -96,6 +92,10 @@ export class BoxesService {
                 {
                     id: 5,
                     title: 'Йод'
+                },
+                {
+                    id: 6,
+                    title: 'Димедрол'
                 },
             ]
         }
