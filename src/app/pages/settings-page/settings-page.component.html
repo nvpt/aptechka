@@ -101,8 +101,9 @@
                 <div class="option-list">
                     <ng-container *ngIf="impactTypesService.impactTypes?.length; else noImpactTypes">
                         <div class="option-item"
-                             *ngFor="let impactType of impactTypesService.impactTypes | inlineSearch:impactTypeSearch:['title']">
+                             *ngFor="let impactType of impactTypesService.impactTypes | inlineSearch:impactTypeSearch:['title']; let index = index">
                             <app-check-option [(optionValue)]="impactType.title"
+                                              [id]='"impact-type"+index'
                                               (onDelete)="deleteImpactType(impactType)">
                             </app-check-option>
                         </div>
@@ -130,8 +131,9 @@
 
                     <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
                         <div class="option-item"
-                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
+                             *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']; let index = index">
                             <app-check-option [(optionValue)]="targetGroup.title"
+                                              [id]='"target-group"+index'
                                               (onDelete)="deleteTargetGroup(targetGroup)">
                             </app-check-option>
                         </div>

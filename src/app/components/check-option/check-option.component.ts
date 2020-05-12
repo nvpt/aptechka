@@ -7,7 +7,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 })
 export class CheckOptionComponent implements OnInit {
     @ViewChild('inputField') inputField: ElementRef;
-
+    @Input() id: string = "1";
     @Input() canAdd?: boolean = false;
     @Input() canEdit?: boolean = true;
 
@@ -71,6 +71,8 @@ export class CheckOptionComponent implements OnInit {
     }
 
     keypressSave(event: KeyboardEvent): void {
+        console.log('74');
+        
         if ((<KeyboardEvent>event).key === 'Enter') {
             this.save();
         } else if ((<KeyboardEvent>event).key === 'Escape') {
@@ -82,5 +84,10 @@ export class CheckOptionComponent implements OnInit {
         if ((<KeyboardEvent>event).key === 'Enter' || (<KeyboardEvent>event).key === 'Escape') {
             this.cancel();
         }
+    }
+
+    test() {
+        console.log('90');
+        
     }
 }

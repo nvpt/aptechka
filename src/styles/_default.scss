@@ -32,7 +32,7 @@ table {
 input,
 textarea,
 select {
-    padding: $input-padding;
+    padding: $input-padding + 0.5;
     font-size: 1rem;
     font-family: $default-font;
     color: var(--color-app_text);

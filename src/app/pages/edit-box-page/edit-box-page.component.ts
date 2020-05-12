@@ -148,6 +148,8 @@ export class EditBoxPageComponent implements OnInit, OnDestroy {
     }
 
     goToMedicament(medId: number): void {
+        console.log('151');
+        
         this.router.navigate([`${Constants.PATH.editMedicament}/${medId}`]);
     }
 }

@@ -103,10 +103,11 @@
                     <div class="option-list">
                         <ng-container *ngIf="box.medicaments?.length; else noMedicaments">
                             <div class="option-item"
-                                 *ngFor="let medicament of box.medicaments | inlineSearch:medicamentSearch:['title']">
+                                 *ngFor="let medicament of box.medicaments | inlineSearch:medicamentSearch:['title']; let index = index">
 
                                 <app-check-option [canEdit]="false"
                                                   [canAdd]="false"
+                                                  [id]='"medicament"+index'
                                                   [optionValue]="medicament.title"
                                                   (click)="goToMedicament(medicament.id)">
                                 </app-check-option>
@@ -131,9 +132,10 @@
 
                         <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
                             <div class="option-item"
-                                 *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
+                                 *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']; let index = index">
                                 <app-check-option [canEdit]="false"
                                                   [canAdd]="true"
+                                                  [id]='"target-group"+index'
                                                   [checked]="isBoxContainTargetGroup(targetGroup)"
                                                   [(optionValue)]="targetGroup.title"
                                                   (onCheck)="toggleTargetGroup($event, targetGroup)">

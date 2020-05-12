@@ -110,9 +110,10 @@
 
                         <ng-container *ngIf="targetGroupsService.targetGroups?.length; else noTargetGroups">
                             <div class="option-item"
-                                 *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']">
+                                 *ngFor="let targetGroup of targetGroupsService.targetGroups | inlineSearch:targetGroupSearch:['title']; let index = index">
                                 <app-check-option [canEdit]="false"
                                                   [canAdd]="true"
+                                                  [id]='"target-group"+index'
                                                   [(optionValue)]="targetGroup.title"
                                                   (onCheck)="toggleTargetGroup($event, targetGroup)">
                                 </app-check-option>
