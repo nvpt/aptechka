@@ -78,7 +78,7 @@ export class BoxesService {
         {
             id: 4,
             title: 'Скорая помощь',
-            description: 'На кухне в шкаафу',
+            description: 'На кухне в шкафу',
             img: './assets/img/boxes/new.jpg',
             imgData: null,
 
