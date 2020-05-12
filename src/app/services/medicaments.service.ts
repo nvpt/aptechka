@@ -148,12 +148,13 @@ export class MedicamentsService {
 
     addMedicament(medicament: MedicamentI): Observable<void> {
         this.medicaments.unshift(medicament);
+        this.boxesService.replaceMedicament(medicament, medicament.boxId); // todo *** temp on front
         return of(null);
     }
 
     deleteMedicament(medId: number): Observable<void> {
         this.medicaments = [...this.medicaments.filter((medicament: MedicamentI) => medicament.id !== medId)];
-        this.boxesService.boxes.forEach((box) => {
+        this.boxesService.boxes.forEach((box) => { // todo *** temp on front
             box.medicaments = [...box.medicaments.filter((med) => med.id !== medId)];
         });
         return of(null);

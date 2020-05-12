@@ -179,7 +179,6 @@ export class NewMedicamentPageComponent implements OnInit, OnDestroy {
         };
 
         this.medicamentsService.addMedicament(newMedicament).subscribe(() => {
-            this.boxesService.replaceMedicament(newMedicament, newMedicament.boxId); //todo *** temp on front
             this.router.navigate([Constants.PATH.medicaments]);
         });
     }
